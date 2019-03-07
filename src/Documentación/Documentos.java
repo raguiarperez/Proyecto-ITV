@@ -14,7 +14,7 @@ import java.util.logging.Logger;
 /**
  * @author rafa2
  */
-public class Documentos {
+public class Documentos{
     PrintWriter f= null;
     Scanner sc;
 
@@ -105,5 +105,26 @@ public class Documentos {
         
     }
 
-
+    //Menú con las opciones
+    
+    public void MeduDoc(){
+        int opcion;
+                            opcion=pedirDatos.enteiro("\n 1: Comprobar Seguro"
+                    + "\n 2: Comprobar Documentación de Coche"
+                    + "\n 3: Añadir Seguro"
+                    + "\n 4: Añadir Documentación de Coche");
+                    switch(opcion){
+                        case 1:
+                            break;
+                        case 2:
+                            break;
+                        case 3:
+                            break;
+                        case 4:
+                            break;
+                        default:
+                            break;
+                    }
+    }
+    
 }
