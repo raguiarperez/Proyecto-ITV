@@ -11,7 +11,6 @@ public class DocCoche {
     private String marca;
     private String modelo;
     private String anoMatriculacion;
-    private boolean encontrado = false;
 
     public DocCoche(String matricula, String numBastidor, String marca, String modelo, String anoMatriculacion) {
         this.matricula = matricula;
@@ -19,6 +18,9 @@ public class DocCoche {
         this.marca = marca;
         this.modelo = modelo;
         this.anoMatriculacion = anoMatriculacion;
+    }
+
+    public DocCoche() {
     }
 
     
@@ -64,13 +66,6 @@ public class DocCoche {
         this.anoMatriculacion = anoMatriculacion;
     }
 
-    public boolean isEncontrado() {
-        return encontrado;
-    }
-
-    public void setEncontrado(boolean encontrado) {
-        this.encontrado = encontrado;
-    }
     
     
 

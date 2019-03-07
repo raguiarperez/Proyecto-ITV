@@ -35,7 +35,8 @@ public class Proyecto {
                     cit.engadir("Citas");
                     break;
                 case 2:
-
+                    Documentos doc = new Documentos();
+                    doc.MeduDoc();
                     break;
                 case 3:
                     break;

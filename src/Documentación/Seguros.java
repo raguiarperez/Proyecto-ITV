@@ -12,7 +12,6 @@ public class Seguros {
     private String nPoliza;
     private String nomCompania;
     private String matricula;
-    private boolean encontrado= false;
     
 
     public Seguros(String dni, String nPoliza, String nomCompania, String matricula) {
@@ -58,17 +57,12 @@ public class Seguros {
         this.matricula = matricula;
     }
 
-    public boolean isEncontrado() {
-        return encontrado;
-    }
 
-    public void setEncontrado(boolean encontrado) {
-        this.encontrado = encontrado;
-    }
+
 
     @Override
     public String toString() {
-        return  dni +" "+ nPoliza +" "+ nomCompania +" "+ matricula +" "+ encontrado;
+        return  dni +" "+ nPoliza +" "+ nomCompania +" "+ matricula;
     }
 
     
