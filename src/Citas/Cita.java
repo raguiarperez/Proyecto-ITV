@@ -28,28 +28,24 @@ public class Cita implements Serializable {
     transient FileOutputStream f;
     transient ObjectInputStream fich1 = null;
     transient FileInputStream f1 = null;
-    transient private String dni;
     transient public static String fecha;
     transient public static LocalTime time;
     public String fecha2;
     public LocalTime time2;
     private String localidad;
-    Cita cit;
+
 
     public Cita() {
 
     }
 
-    public Cita(String dni, String fecha2, LocalTime time2, String localidad) {
-        this.dni = dni;
+    public Cita(String fecha2, LocalTime time2, String localidad) {
         this.fecha2 = fecha2;
         this.time2 = time2;
         this.localidad = localidad;
     }
 
-    public Cita(String dni) {
-        this.dni = dni;
-    }
+
     //ArrayList de Localidades
 
     public ArrayList<String> crearArray(ArrayList<String> ciudad) {
@@ -62,9 +58,7 @@ public class Cita implements Serializable {
         return ciudad;
     }
 
-    public String getDni() {
-        return dni;
-    }
+
 
     public String getFecha2() {
         return fecha2;
@@ -82,9 +76,7 @@ public class Cita implements Serializable {
         this.time2 = time2;
     }
 
-    public void setDni(String dni) {
-        this.dni = dni;
-    }
+
 
     public String getFecha() {
         return fecha;
@@ -160,15 +152,15 @@ public class Cita implements Serializable {
     }
 
     //Metodo para añadir al fichero los datos
-    public void engadir(String nomeFich, Cita cit) throws IOException {
+    public void engadir(String nomeFich, Cita cit, String dni) throws IOException {
         fich = new ObjectOutputStream(new FileOutputStream(nomeFich + ".dat"));
         lista.put(dni, cit);
         fich.writeObject(lista);
         fich.close();
     }
 
-    // ARREGLAR
-    public boolean comprobarCita(String nomFich) throws IOException, ClassNotFoundException {
+    //
+    public boolean comprobarCita(String nomFich, String dni) throws IOException, ClassNotFoundException {
         try {
             f1 = new FileInputStream(nomFich + ".dat");
             fich1 = new ObjectInputStream(f1);

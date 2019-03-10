@@ -47,7 +47,7 @@ public class Ingreso {
             double daMillis = da.getTime();
             double dayMillis = 24 * 60 * 60 * 1000;
 
-            if (fecha1Millis < daMillis + 365 * dayMillis) {
+            if (fecha1Millis < daMillis + 1 * dayMillis) {
                 JOptionPane op = new JOptionPane("Por favor espere unos segundos...", JOptionPane.INFORMATION_MESSAGE, JOptionPane.DEFAULT_OPTION, null, new Object[]{}, null);
 
                 JDialog dialog = new JDialog();

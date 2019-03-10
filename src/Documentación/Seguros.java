@@ -1,22 +1,22 @@
 
 package Documentación;
 
+import java.io.Serializable;
+
 
 
 
 /**
  * @author Rafa y Edu
  */
-public class Seguros {
-    private String dni;
+public class Seguros implements Serializable{
     private String nPoliza;
     private String nomCompania;
     private String matricula;
     
 
-    public Seguros(String dni, String nPoliza, String nomCompania, String matricula) {
+    public Seguros(String nPoliza, String nomCompania, String matricula) {
         this.nPoliza = nPoliza;
-        this.dni = dni;
         this.nomCompania = nomCompania;
         this.matricula = matricula;
     }
@@ -33,13 +33,6 @@ public class Seguros {
         this.nPoliza = nPoliza;
     }
 
-    public String getDni() {
-        return dni;
-    }
-
-    public void setDni(String dni) {
-        this.dni = dni;
-    }
 
     public String getNomCompania() {
         return nomCompania;
@@ -62,7 +55,7 @@ public class Seguros {
 
     @Override
     public String toString() {
-        return  dni +" "+ nPoliza +" "+ nomCompania +" "+ matricula;
+        return  nPoliza +" "+ nomCompania +" "+ matricula;
     }
 
     

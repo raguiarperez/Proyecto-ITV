@@ -24,7 +24,7 @@ public class Proyecto {
         int opcion;
         boolean m;
         boolean f;
-        String dni = pedirDatos.string("Introduzca DNI");
+        String dni;
         do {
             opcion = pedirDatos.enteiro("ITV"
                     + "\n 1: Cita Previa"
@@ -33,8 +33,8 @@ public class Proyecto {
             switch (opcion) {
                 case 1:                  
                     Cita cit = new Cita();
-                    cit.setDni(dni);
-                    m = cit.comprobarCita("Citas");
+                    dni= pedirDatos.string("Introduzca DNI");
+                    m = cit.comprobarCita("Citas", dni);
                     if (m) {
                         JOptionPane.showMessageDialog(null, "Ya tiene cita");
                         break;
@@ -44,7 +44,7 @@ public class Proyecto {
                     cit.selFecha();
                     f = cit.comprobarFechaHora();
                     if (f) {
-                        cit.engadir("Citas",cit);
+                        cit.engadir("Citas",cit, dni);
                         JOptionPane.showMessageDialog(null, "Aquí tiene su cita: \n" + cit.getLocalidad() + " " + cit.getFecha() + " " + cit.getTime());
                         break;
                     } else {
@@ -56,6 +56,7 @@ public class Proyecto {
                     doc.menuDoc();
                     break;
                 case 3:
+                    dni= pedirDatos.string("Introduzca DNI");
                     Ingreso tall = new Ingreso();
                     tall.comprobarIngreso(dni);
                     break;

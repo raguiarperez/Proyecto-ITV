@@ -2,10 +2,16 @@ package Documentación;
 
 import Utilidades.pedirDatos;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
+import java.io.Serializable;
+import java.util.HashMap;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -14,39 +20,46 @@ import javax.swing.JOptionPane;
 /**
  * @author rafa2
  */
-public class Documentos {
-
-    PrintWriter f = null;
-    Scanner sc;
-    File aseg = new File("Seguros.txt");
-    File DocCoche = new File("DocumentacionCoche.txt");
+public class Documentos implements Serializable {
+     HashMap<String, Seguros> listaseg = new HashMap<>();
+     HashMap<String, DocCoche> listaco = new HashMap<>();
+         transient ObjectOutputStream fich;
+    transient FileOutputStream f;
+    transient ObjectInputStream fich1 = null;
+    transient FileInputStream f1 = null;
+//    transient PrintWriter f = null;
+    transient Scanner sc;
+    transient File aseg = new File("Seguros.txt");
+    transient File DocCoche = new File("DocumentacionCoche.txt");
 
     //Seguros
     //Método para comprobar Documentación
-    public boolean comprobarDocSeguros(File nomFich, String dni) {
-        try {
-            sc = new Scanner(nomFich);
-            while (sc.hasNextLine()) {
-                String[] datos = sc.nextLine().split(" ");
-                if (datos[0].equalsIgnoreCase(dni)) {
-                    sc.close();
-                    return true;
-
-                }
+    
+        public boolean comprobarDocSeguros(String nomFich, String dni) throws IOException, ClassNotFoundException {
+try {
+            f1 = new FileInputStream(nomFich + ".dat");
+            fich1 = new ObjectInputStream(f1);
+            fileToHashSeg("Seguros");
+            if (listaseg.containsKey(dni)) {
+                f1.close();
+                fich1.close();
+                return true;
 
             }
-            sc.close();
+            f1.close();
+            fich1.close();
             return false;
         } catch (FileNotFoundException ex) {
-            Seguros seg2 = new Seguros("-", "-", "-", "-");
-            añadirDocumentoSeguros("Seguros", seg2);
-            return this.comprobarDocSeguros(nomFich, dni);
+            f = new FileOutputStream("Seguros.dat");
+            f.close();
+            return false;
         }
 
     }
+    
 
     //Método para recibir un boolean junto a un String si se ha encontrado o no el documento
-    public Boolean mostrarEncontradoSeguros(File nomFich, String dni) {
+    public Boolean mostrarEncontradoSeguros(String nomFich, String dni) throws IOException, ClassNotFoundException {
         Documentos doc = new Documentos();
         if (doc.comprobarDocSeguros(nomFich, dni) == true) {
             JOptionPane.showMessageDialog(null, "Documento validado");
@@ -58,56 +71,65 @@ public class Documentos {
     }
 
     //Método para añadir un Seguro
-    public void añadirDocumentoSeguros(String nomFich) {
-        try {
-            f = new PrintWriter(new FileWriter(nomFich + ".txt", true));
-            Seguros seg2 = new Seguros(pedirDatos.string("dni"), pedirDatos.string("nPoliza"), pedirDatos.string("nomCompania"), pedirDatos.string("matricula"));
-            f.println(seg2);
-            f.close();
-        } catch (IOException ex) {
-            Logger.getLogger(Documentos.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        public void añadirDocumentoSeguros(String nomeFich, String dni) throws IOException {
+        Seguros seg2 = new Seguros(pedirDatos.string("nPoliza"), pedirDatos.string("nomCompania"), pedirDatos.string("matricula"));
+        fich = new ObjectOutputStream(new FileOutputStream(nomeFich + ".dat"));
+        listaseg.put(dni, seg2);
+        fich.writeObject(listaseg);
+        fich.close();
     }
+    
 
-    // Método en caso que el archivo esté vacío
-    public void añadirDocumentoSeguros(String nomFich, Seguros seg2) {
-        try {
-            f = new PrintWriter(new FileWriter(nomFich + ".txt", true));
-            f.println(seg2);
-            f.close();
-        } catch (IOException ex) {
-            Logger.getLogger(Documentos.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-    }
 
     ///Documentación Coche
     //Método para comprobar Documentación
-    public boolean comprobarDocCoche(File nomFich, String matricula) {
-        try {
-            sc = new Scanner(nomFich);
-            while (sc.hasNextLine()) {
-                String[] datos = sc.nextLine().split(" ");
-                if (datos[0].equalsIgnoreCase(matricula)) {
-                    sc.close();
-                    return true;
-
-                }
+        
+         public boolean comprobarDocCoche(String nomFich, String matricula) throws IOException, ClassNotFoundException {
+try {
+            f1 = new FileInputStream(nomFich + ".dat");
+            fich1 = new ObjectInputStream(f1);
+            fileToHashCo("DocumentacionCoche");
+            if (listaco.containsKey(matricula)) {
+                f1.close();
+                fich1.close();
+                return true;
 
             }
-            sc.close();
+            f1.close();
+            fich1.close();
             return false;
         } catch (FileNotFoundException ex) {
-            DocCoche coche2 = new DocCoche("-", "-", "-", "-", "-");
-            añadirDocumentoCoche("DocumentacionCoche", coche2);
-            return this.comprobarDocCoche(nomFich, matricula);
+            f = new FileOutputStream("DocumentacionCoche.dat");
+            f.close();
+            return false;
         }
+
     }
+//    public boolean comprobarDocCoche(File nomFich, String matricula) {
+//        try {
+//            sc = new Scanner(nomFich);
+//            while (sc.hasNextLine()) {
+//                String[] datos = sc.nextLine().split(" ");
+//                if (datos[0].equalsIgnoreCase(matricula)) {
+//                    sc.close();
+//                    return true;
+//
+//                }
+//
+//            }
+//            sc.close();
+//            return false;
+//        } catch (FileNotFoundException ex) {
+//            DocCoche coche2 = new DocCoche("-", "-", "-", "-", "-");
+//            añadirDocumentoCoche("DocumentacionCoche", coche2);
+//            return this.comprobarDocCoche(nomFich, matricula);
+//        }
+//    }
 
     //Método para recibir un boolean junto a un String si se ha encontrado o no el documento
-    public boolean mostrarEncontradoCoche(File nomFich, String matricula) {
+    public boolean mostrarEncontradoCoche(String nomeFich, String matricula) throws IOException, ClassNotFoundException {
         Documentos doc = new Documentos();
-        if (doc.comprobarDocCoche(nomFich, matricula) == true) {
+        if (doc.comprobarDocCoche(nomeFich, matricula) == true) {
             JOptionPane.showMessageDialog(null, "Documento validado");
             return true;
 
@@ -118,64 +140,74 @@ public class Documentos {
     }
 //Método para añadir un DocCoche
 
-    public void añadirDocumentoCoche(String nomFich) {
-        try {
-            f = new PrintWriter(new FileWriter(nomFich + ".txt", true));
-            DocCoche coche2 = new DocCoche(pedirDatos.string("matricula"), pedirDatos.string("numero bastidor"), pedirDatos.string("marca"), pedirDatos.string("modelo"), pedirDatos.string("anomatriculacion"));
-            f.println(coche2);
-            f.close();
-        } catch (IOException ex) {
-            Logger.getLogger(Documentos.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
+      public void añadirDocumentoCoche(String nomeFich, String matricula) throws IOException {
+        DocCoche coche2 = new DocCoche(pedirDatos.string("numero bastidor"), pedirDatos.string("marca"), pedirDatos.string("modelo"), pedirDatos.string("anomatriculacion"));
+        fich = new ObjectOutputStream(new FileOutputStream(nomeFich + ".dat"));
+        listaco.put(matricula, coche2);
+        fich.writeObject(listaco);
+        fich.close();
     }
-
-    //Método en caso de que el archivo esté vacío
-    public void añadirDocumentoCoche(String nomFich, DocCoche coche2) {
-        try {
-            f = new PrintWriter(new FileWriter(nomFich + ".txt", true));
-            coche2 = new DocCoche("-", "-", "-", "-", "-");
-            f.println(coche2);
-            f.close();
-        } catch (IOException ex) {
-            Logger.getLogger(Documentos.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-    }
+    
+//    public void añadirDocumentoCoche(String nomFich) {
+//        try {
+//            f = new PrintWriter(new FileWriter(nomFich + ".txt", true));
+//            DocCoche coche2 = new DocCoche(pedirDatos.string("matricula"), pedirDatos.string("numero bastidor"), pedirDatos.string("marca"), pedirDatos.string("modelo"), pedirDatos.string("anomatriculacion"));
+//            f.println(coche2);
+//            f.close();
+//        } catch (IOException ex) {
+//            Logger.getLogger(Documentos.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//
+//    }
+//
+//    //Método en caso de que el archivo esté vacío
+//    public void añadirDocumentoCoche(String nomFich, DocCoche coche2) {
+//        try {
+//            f = new PrintWriter(new FileWriter(nomFich + ".txt", true));
+//            coche2 = new DocCoche("-", "-", "-", "-", "-");
+//            f.println(coche2);
+//            f.close();
+//        } catch (IOException ex) {
+//            Logger.getLogger(Documentos.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//
+//    }
 
     //Métodos que salta la opción de añadir o no un documento
-    public void opcionEngadirA(File nomfich, String dni, String nomefich) {
+    public void opcionEngadirA(String dni, String nomefich) throws IOException, ClassNotFoundException {
         boolean c;
         int dialogButton;
         int dialogResult;
-        c = mostrarEncontradoSeguros(nomfich, dni);
+        c = mostrarEncontradoSeguros(nomefich, dni);
         if (!c) {
             dialogButton = JOptionPane.YES_NO_OPTION;
             dialogResult = JOptionPane.showConfirmDialog(null, "¿Desea añadir la documentación?", null, dialogButton);
             if (dialogResult == 0) {
-                añadirDocumentoSeguros(nomefich);
+                añadirDocumentoSeguros(nomefich,dni);
             }
         }
     }
 
-    public void opcionEngadirB(File nomfich, String dni, String nomefich) {
+    public void opcionEngadirB(String matricula, String nomeFich) throws IOException, ClassNotFoundException {
         boolean c;
         int dialogButton;
         int dialogResult;
-        c = mostrarEncontradoCoche(nomfich, dni);
+        c = mostrarEncontradoCoche(nomeFich, matricula);
         if (!c) {
             dialogButton = JOptionPane.YES_NO_OPTION;
             dialogResult = JOptionPane.showConfirmDialog(null, "¿Desea añadir la documentación?", null, dialogButton);
             if (dialogResult == 0) {
-                añadirDocumentoCoche(nomefich);
+                añadirDocumentoCoche(nomeFich,matricula);
             }
         }
     }
     //Menú con las opciones
 
-    public void menuDoc() {
+    public void menuDoc() throws IOException, ClassNotFoundException {
 
         int opcion;
+        String dni = pedirDatos.string("Introduzca DNI");
+        String matricula = pedirDatos.string("Introduzca matrícula");
         do {
             opcion = pedirDatos.enteiro("\n 1: Comprobar Seguro"
                     + "\n 2: Comprobar Documentación de Coche"
@@ -183,21 +215,38 @@ public class Documentos {
                     + "\n 4: Añadir Documentación de Coche");
             switch (opcion) {
                 case 1:
-                    opcionEngadirA(aseg, pedirDatos.string("Introduzca DNI"), "Seguros");
+                    opcionEngadirA(dni, "Seguros");
                     break;
                 case 2:
-                    opcionEngadirB(DocCoche, pedirDatos.string("Introduzca Matricula"), "DocumentacionCoche");
+                    opcionEngadirB(matricula, "DocumentacionCoche");
                     break;
                 case 3:
-                    añadirDocumentoSeguros("Seguros");
+                    añadirDocumentoSeguros("Seguros",dni);
                     break;
                 case 4:
-                    añadirDocumentoCoche("DocumentacionCoche");
+                    añadirDocumentoCoche("DocumentacionCoche",matricula);
                     break;
                 default:
                     break;
             }
         } while (opcion > 4);
+    }
+    
+        //Método para pasar binario a HashMap
+    public void fileToHashSeg(String nomFich) throws FileNotFoundException, IOException, ClassNotFoundException {
+        f1 = new FileInputStream(nomFich + ".dat");
+        fich1 = new ObjectInputStream(f1);
+        listaseg = (HashMap)fich1.readObject();
+        f1.close();
+        fich1.close();
+    }
+    
+        public void fileToHashCo(String nomFich) throws FileNotFoundException, IOException, ClassNotFoundException {
+        f1 = new FileInputStream(nomFich + ".dat");
+        fich1 = new ObjectInputStream(f1);
+        listaco = (HashMap)fich1.readObject();
+        f1.close();
+        fich1.close();
     }
 
 }

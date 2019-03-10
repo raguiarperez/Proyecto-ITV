@@ -1,19 +1,19 @@
 
 package Documentación;
 
+import java.io.Serializable;
+
 /**
  *
  * @author rafa2
  */
-public class DocCoche {
-    private String matricula;
+public class DocCoche implements Serializable{
     private String numBastidor;
     private String marca;
     private String modelo;
     private String anoMatriculacion;
 
-    public DocCoche(String matricula, String numBastidor, String marca, String modelo, String anoMatriculacion) {
-        this.matricula = matricula;
+    public DocCoche(String numBastidor, String marca, String modelo, String anoMatriculacion) {
         this.numBastidor = numBastidor;
         this.marca = marca;
         this.modelo = modelo;
@@ -23,16 +23,6 @@ public class DocCoche {
     public DocCoche() {
     }
 
-    
-    
-    
-    public String getMatricula() {
-        return matricula;
-    }
-
-    public void setMatricula(String matricula) {
-        this.matricula = matricula;
-    }
 
     public String getNumBastidor() {
         return numBastidor;
@@ -71,7 +61,7 @@ public class DocCoche {
 
     @Override
     public String toString() {
-        return matricula +" "+ numBastidor + " " + marca + " " + modelo + " " + anoMatriculacion;
+        return numBastidor + " " + marca + " " + modelo + " " + anoMatriculacion;
     }
     
     
