@@ -2,10 +2,13 @@ package proyecto;
 
 import Citas.Cita;
 import Documentación.Documentos;
+import Taller.Ingreso;
 import Utilidades.pedirDatos;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import javax.swing.JOptionPane;
 
 /*
@@ -16,33 +19,32 @@ public class Proyecto {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws InterruptedException, IOException, ParseException {
+    public static void main(String[] args) throws InterruptedException, IOException, ParseException, FileNotFoundException, ClassNotFoundException {
+        ArrayList<String> Cprev = new ArrayList<>();
         int opcion;
         boolean m;
         boolean f;
+        String dni = pedirDatos.string("Introduzca DNI");
         do {
             opcion = pedirDatos.enteiro("ITV"
                     + "\n 1: Cita Previa"
                     + "\n 2: Documentación"
-                    + "\n 3: cita previa");
+                    + "\n 3: Taller");
             switch (opcion) {
-                case 1:
-                    ArrayList<String> Cprev = new ArrayList<>();
+                case 1:                  
                     Cita cit = new Cita();
-                    cit.setDni(pedirDatos.string("Introduzca DNI"));
-                    //ARREGLAR/////////////
+                    cit.setDni(dni);
                     m = cit.comprobarCita("Citas");
                     if (m) {
                         JOptionPane.showMessageDialog(null, "Ya tiene cita");
                         break;
                     }
-                    ////////////////
                     cit.crearArray(Cprev);
                     cit.selLocalidad(Cprev);
                     cit.selFecha();
                     f = cit.comprobarFechaHora();
                     if (f) {
-                        cit.engadir("Citas");
+                        cit.engadir("Citas",cit);
                         JOptionPane.showMessageDialog(null, "Aquí tiene su cita: \n" + cit.getLocalidad() + " " + cit.getFecha() + " " + cit.getTime());
                         break;
                     } else {
@@ -54,11 +56,15 @@ public class Proyecto {
                     doc.menuDoc();
                     break;
                 case 3:
-
+                    Ingreso tall = new Ingreso();
+                    tall.comprobarIngreso(dni);
                     break;
                 default:
                     break;
             }
         } while (opcion > 3);
+    
     }
 }
+
+
