@@ -9,8 +9,11 @@ import Citas.Cita;
 import Documentación.*;
 import java.awt.event.ActionEvent;
 import java.io.IOException;
-import java.text.*;
-import java.util.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Random;
 import javax.swing.AbstractAction;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
@@ -52,17 +55,17 @@ public class Ingreso {
                 dialog.setContentPane(op);
                 dialog.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
                 dialog.pack();
-                //Método para cerrar la ventana tras 5 segundos
+                    //Método para cerrar la ventana tras 5 segundos
                 Timer timer = new Timer(5000, new AbstractAction() {
                     @Override
                     public void actionPerformed(ActionEvent ae) {
                         dialog.dispose();
                     }
                 });
-                timer.setRepeats(false); //Para que el timer solo funcione una vez
-                timer.start();//Para empezar el Timer
-                dialog.setVisible(true);//Para mostrar la ventana
-                JOptionPane.showMessageDialog(null, "Pase por la puerta: \n" + "               " + (1 + rand.nextInt(5)));
+                  timer.setRepeats(false); //Para que el timer solo funcione una vez
+                  timer.start();//Para empezar el Timer
+                  dialog.setVisible(true);//Para mostrar la ventana
+                JOptionPane.showMessageDialog(null, "Pase por la puerta: \n" +"               "+ (1 + rand.nextInt(5)));
 
             } else {
                 JOptionPane.showMessageDialog(null, "Su cita no es para este día, vuelva más tarde.");
