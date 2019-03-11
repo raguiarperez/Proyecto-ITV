@@ -1,19 +1,15 @@
-
 package Documentación;
 
 import java.io.Serializable;
 
-
-
-
 /**
  * @author Mirroriced y Rafsniper
  */
-public class Seguros implements Serializable{
+public class Seguros implements Serializable {
+
     private String nPoliza;
     private String nomCompania;
     private String matricula;
-    
 
     public Seguros(String nPoliza, String nomCompania, String matricula) {
         this.nPoliza = nPoliza;
@@ -21,8 +17,8 @@ public class Seguros implements Serializable{
         this.matricula = matricula;
     }
 
-    public Seguros(){
-        
+    public Seguros() {
+
     }
 
     public String getnPoliza() {
@@ -32,7 +28,6 @@ public class Seguros implements Serializable{
     public void setnPoliza(String nPoliza) {
         this.nPoliza = nPoliza;
     }
-
 
     public String getNomCompania() {
         return nomCompania;
@@ -50,16 +45,9 @@ public class Seguros implements Serializable{
         this.matricula = matricula;
     }
 
-
-
-
     @Override
     public String toString() {
-        return  nPoliza +" "+ nomCompania +" "+ matricula;
+        return nPoliza + " " + nomCompania + " " + matricula;
     }
 
-    
-
-
-    
 }

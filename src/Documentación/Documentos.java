@@ -1,43 +1,26 @@
 package Documentación;
 
 import Utilidades.pedirDatos;
-import java.io.EOFException;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.io.PrintWriter;
-import java.io.Serializable;
-import java.util.HashMap;
-import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.io.*;
+import java.util.*;
 import javax.swing.JOptionPane;
 
 /**
  * @author Mirroriced y Rafsniper
  */
 public class Documentos implements Serializable {
-     HashMap<String, Seguros> listaseg = new HashMap<>();
-     HashMap<String, DocCoche> listaco = new HashMap<>();
-         transient ObjectOutputStream fich;
+
+    HashMap<String, Seguros> listaseg = new HashMap<>();
+    HashMap<String, DocCoche> listaco = new HashMap<>();
+    transient ObjectOutputStream fich;
     transient FileOutputStream f;
     transient ObjectInputStream fich1 = null;
     transient FileInputStream f1 = null;
-//    transient PrintWriter f = null;
-    transient Scanner sc;
-    transient File aseg = new File("Seguros.txt");
-    transient File DocCoche = new File("DocumentacionCoche.txt");
 
     //Seguros
     //Método para comprobar Documentación
-    
-        public boolean comprobarDocSeguros(String nomFich, String dni) throws IOException, ClassNotFoundException {
-try {
+    public boolean comprobarDocSeguros(String nomFich, String dni) throws IOException, ClassNotFoundException {
+        try {
             f1 = new FileInputStream(nomFich + ".dat");
             fich1 = new ObjectInputStream(f1);
             fileToHashSeg("Seguros");
@@ -54,12 +37,11 @@ try {
             f = new FileOutputStream("Seguros.dat");
             f.close();
             return false;
-        }catch (EOFException ex2){
+        } catch (EOFException ex2) {
             return false;
         }
 
     }
-    
 
     //Método para recibir un boolean junto a un String si se ha encontrado o no el documento
     public Boolean mostrarEncontradoSeguros(String nomFich, String dni) throws IOException, ClassNotFoundException {
@@ -74,21 +56,18 @@ try {
     }
 
     //Método para añadir un Seguro
-        public void añadirDocumentoSeguros(String nomeFich, String dni) throws IOException {
+    public void añadirDocumentoSeguros(String nomeFich, String dni) throws IOException {
         Seguros seg2 = new Seguros(pedirDatos.string("nPoliza"), pedirDatos.string("nomCompania"), pedirDatos.string("matricula"));
         fich = new ObjectOutputStream(new FileOutputStream(nomeFich + ".dat"));
         listaseg.put(dni, seg2);
         fich.writeObject(listaseg);
         fich.close();
     }
-    
-
 
     ///Documentación Coche
     //Método para comprobar Documentación
-        
-         public boolean comprobarDocCoche(String nomFich, String matricula) throws IOException, ClassNotFoundException {
-try {
+    public boolean comprobarDocCoche(String nomFich, String matricula) throws IOException, ClassNotFoundException {
+        try {
             f1 = new FileInputStream(nomFich + ".dat");
             fich1 = new ObjectInputStream(f1);
             fileToHashCo("DocumentacionCoche");
@@ -105,11 +84,12 @@ try {
             f = new FileOutputStream("DocumentacionCoche.dat");
             f.close();
             return false;
-        }catch (EOFException ex2){
+        } catch (EOFException ex2) {
             return false;
         }
 
     }
+
     //Método para recibir un boolean junto a un String si se ha encontrado o no el documento
     public boolean mostrarEncontradoCoche(String nomeFich, String matricula) throws IOException, ClassNotFoundException {
         Documentos doc = new Documentos();
@@ -124,7 +104,7 @@ try {
     }
 //Método para añadir un DocCoche
 
-      public void añadirDocumentoCoche(String nomeFich, String matricula) throws IOException {
+    public void añadirDocumentoCoche(String nomeFich, String matricula) throws IOException {
         DocCoche coche2 = new DocCoche(pedirDatos.string("numero bastidor"), pedirDatos.string("marca"), pedirDatos.string("modelo"), pedirDatos.string("anomatriculacion"));
         fich = new ObjectOutputStream(new FileOutputStream(nomeFich + ".dat"));
         listaco.put(matricula, coche2);
@@ -142,7 +122,7 @@ try {
             dialogButton = JOptionPane.YES_NO_OPTION;
             dialogResult = JOptionPane.showConfirmDialog(null, "¿Desea añadir la documentación?", null, dialogButton);
             if (dialogResult == 0) {
-                añadirDocumentoSeguros(nomefich,dni);
+                añadirDocumentoSeguros(nomefich, dni);
             }
         }
     }
@@ -156,7 +136,7 @@ try {
             dialogButton = JOptionPane.YES_NO_OPTION;
             dialogResult = JOptionPane.showConfirmDialog(null, "¿Desea añadir la documentación?", null, dialogButton);
             if (dialogResult == 0) {
-                añadirDocumentoCoche(nomeFich,matricula);
+                añadirDocumentoCoche(nomeFich, matricula);
             }
         }
     }
@@ -180,30 +160,30 @@ try {
                     opcionEngadirB(matricula, "DocumentacionCoche");
                     break;
                 case 3:
-                    añadirDocumentoSeguros("Seguros",dni);
+                    añadirDocumentoSeguros("Seguros", dni);
                     break;
                 case 4:
-                    añadirDocumentoCoche("DocumentacionCoche",matricula);
+                    añadirDocumentoCoche("DocumentacionCoche", matricula);
                     break;
                 default:
                     break;
             }
         } while (opcion > 4);
     }
-    
-        //Método para pasar binario a HashMap
+
+    //Método para pasar binario a HashMap
     public void fileToHashSeg(String nomFich) throws FileNotFoundException, IOException, ClassNotFoundException {
         f1 = new FileInputStream(nomFich + ".dat");
         fich1 = new ObjectInputStream(f1);
-        listaseg = (HashMap)fich1.readObject();
+        listaseg = (HashMap) fich1.readObject();
         f1.close();
         fich1.close();
     }
-    
-        public void fileToHashCo(String nomFich) throws FileNotFoundException, IOException, ClassNotFoundException {
+
+    public void fileToHashCo(String nomFich) throws FileNotFoundException, IOException, ClassNotFoundException {
         f1 = new FileInputStream(nomFich + ".dat");
         fich1 = new ObjectInputStream(f1);
-        listaco = (HashMap)fich1.readObject();
+        listaco = (HashMap) fich1.readObject();
         f1.close();
         fich1.close();
     }

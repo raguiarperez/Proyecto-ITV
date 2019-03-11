@@ -1,4 +1,3 @@
-
 package Documentación;
 
 import java.io.Serializable;
@@ -7,7 +6,8 @@ import java.io.Serializable;
  *
  * @author Mirroriced y Rafsniper
  */
-public class DocCoche implements Serializable{
+public class DocCoche implements Serializable {
+
     private String numBastidor;
     private String marca;
     private String modelo;
@@ -22,7 +22,6 @@ public class DocCoche implements Serializable{
 
     public DocCoche() {
     }
-
 
     public String getNumBastidor() {
         return numBastidor;
@@ -56,13 +55,9 @@ public class DocCoche implements Serializable{
         this.anoMatriculacion = anoMatriculacion;
     }
 
-    
-    
-
     @Override
     public String toString() {
         return numBastidor + " " + marca + " " + modelo + " " + anoMatriculacion;
     }
-    
-    
+
 }

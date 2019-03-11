@@ -7,23 +7,17 @@ package Citas;
 
 import Utilidades.pedirDatos;
 import java.io.*;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.text.*;
 import java.time.LocalTime;
 import java.util.*;
-import javax.swing.JOptionPane;
-
-
-
-
 
 /**
  *
  * @author Mirroriced y Rafsniper
  */
 public class Cita implements Serializable {
+
     public HashMap<String, Cita> lista = new HashMap<>();
-    transient Scanner sc;
     transient ObjectOutputStream fich;
     transient FileOutputStream f;
     transient ObjectInputStream fich1 = null;
@@ -33,7 +27,6 @@ public class Cita implements Serializable {
     public String fecha2;
     public LocalTime time2;
     private String localidad;
-
 
     public Cita() {
 
@@ -45,9 +38,7 @@ public class Cita implements Serializable {
         this.localidad = localidad;
     }
 
-
     //ArrayList de Localidades
-
     public ArrayList<String> crearArray(ArrayList<String> ciudad) {
 
         ciudad.add("Vigo");
@@ -57,8 +48,6 @@ public class Cita implements Serializable {
         ciudad.add("Ourense");
         return ciudad;
     }
-
-
 
     public String getFecha2() {
         return fecha2;
@@ -75,8 +64,6 @@ public class Cita implements Serializable {
     public void setTime2(LocalTime time2) {
         this.time2 = time2;
     }
-
-
 
     public String getFecha() {
         return fecha;
@@ -178,7 +165,7 @@ public class Cita implements Serializable {
             f = new FileOutputStream("Citas.dat");
             f.close();
             return false;
-        } catch (EOFException ex2){
+        } catch (EOFException ex2) {
             return false;
         }
 
@@ -188,7 +175,7 @@ public class Cita implements Serializable {
     public void fileToHash(String nomFich) throws FileNotFoundException, IOException, ClassNotFoundException {
         f1 = new FileInputStream(nomFich + ".dat");
         fich1 = new ObjectInputStream(f1);
-        lista = (HashMap)fich1.readObject();
+        lista = (HashMap) fich1.readObject();
         f1.close();
         fich1.close();
     }

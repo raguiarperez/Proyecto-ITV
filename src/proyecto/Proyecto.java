@@ -4,11 +4,9 @@ import Citas.Cita;
 import Documentación.Documentos;
 import Taller.Ingreso;
 import Utilidades.pedirDatos;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
 import java.text.ParseException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import javax.swing.JOptionPane;
 
 /*
@@ -31,9 +29,9 @@ public class Proyecto {
                     + "\n 2: Documentación"
                     + "\n 3: Taller");
             switch (opcion) {
-                case 1:                  
+                case 1:
                     Cita cit = new Cita();
-                    dni= pedirDatos.string("Introduzca DNI");
+                    dni = pedirDatos.string("Introduzca DNI");
                     m = cit.comprobarCita("Citas", dni);
                     if (m) {
                         JOptionPane.showMessageDialog(null, "Ya tiene cita");
@@ -44,7 +42,7 @@ public class Proyecto {
                     cit.selFecha();
                     f = cit.comprobarFechaHora();
                     if (f) {
-                        cit.engadir("Citas",cit, dni);
+                        cit.engadir("Citas", cit, dni);
                         JOptionPane.showMessageDialog(null, "Aquí tiene su cita: \n" + cit.getLocalidad() + " " + cit.getFecha() + " " + cit.getTime());
                         System.exit(0);
                     } else {
@@ -56,7 +54,7 @@ public class Proyecto {
                     doc.menuDoc();
                     break;
                 case 3:
-                    dni= pedirDatos.string("Introduzca DNI");
+                    dni = pedirDatos.string("Introduzca DNI");
                     Ingreso tall = new Ingreso();
                     tall.comprobarIngreso(dni);
                     break;
@@ -64,8 +62,6 @@ public class Proyecto {
                     break;
             }
         } while (opcion > 3);
-    
+
     }
 }
-
-
