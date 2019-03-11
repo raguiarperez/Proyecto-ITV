@@ -10,6 +10,8 @@ import java.io.*;
 import java.text.*;
 import java.time.LocalTime;
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -130,15 +132,20 @@ public class Cita implements Serializable {
     }
 
     //Metodo con JFrame para seleccionar Fecha y Hora
-    public Cita selFecha() throws InterruptedException {
+    public Cita selFecha(){
+        try {
         FechaCita cit = new FechaCita();
          cit.setVisible(true);
         while (cit.isVisible()) {
-            Thread.sleep(1000);
+                Thread.sleep(1000);
         }
         this.setFecha2(fecha);
         this.setTime2(time);
         return this;
+         } catch (InterruptedException ex) {
+                System.out.println("4"+ex.getMessage());
+                return this;
+            }
         
     }
 
@@ -176,7 +183,7 @@ public class Cita implements Serializable {
     }
 
     //Método para pasar binario a HashMap
-    public void fileToHash(String nomFich) throws FileNotFoundException, IOException, ClassNotFoundException {
+    public void fileToHash(String nomFich) throws FileNotFoundException, IOException, ClassNotFoundException{
         f1 = new FileInputStream(nomFich + ".dat");
         fich1 = new ObjectInputStream(f1);
         lista = (HashMap) fich1.readObject();
