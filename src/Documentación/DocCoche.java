@@ -5,7 +5,7 @@ import java.io.Serializable;
 
 /**
  *
- * @author rafa2
+ * @author Mirroriced y Rafsniper
  */
 public class DocCoche implements Serializable{
     private String numBastidor;

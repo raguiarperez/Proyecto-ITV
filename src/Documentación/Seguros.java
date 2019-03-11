@@ -7,7 +7,7 @@ import java.io.Serializable;
 
 
 /**
- * @author Rafa y Edu
+ * @author Mirroriced y Rafsniper
  */
 public class Seguros implements Serializable{
     private String nPoliza;

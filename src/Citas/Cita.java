@@ -19,7 +19,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author rafa2
+ * @author Mirroriced y Rafsniper
  */
 public class Cita implements Serializable {
     public HashMap<String, Cita> lista = new HashMap<>();

@@ -12,7 +12,7 @@ import java.util.HashMap;
 import javax.swing.JOptionPane;
 
 /*
- * @author rafa2
+ * @author Mirroriced y Rafsniper
  */
 public class Proyecto {
 

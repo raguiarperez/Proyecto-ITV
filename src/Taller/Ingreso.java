@@ -23,7 +23,7 @@ import javax.swing.Timer;
 
 /**
  *
- * @author Mirroriced
+ * @author Mirroriced y Rafsniper
  */
 public class Ingreso {
 

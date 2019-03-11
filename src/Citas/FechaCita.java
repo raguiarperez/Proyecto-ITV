@@ -9,7 +9,7 @@ import java.time.format.DateTimeFormatter;
 
 /**
  *
- * @author ecollazodominguez
+ * @author Mirroriced y Rafsniper
  */
 public class FechaCita extends javax.swing.JFrame {
 
@@ -32,6 +32,7 @@ public class FechaCita extends javax.swing.JFrame {
         dateTimePicker1 = new com.github.lgooddatepicker.components.DateTimePicker();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        dateTimePicker2 = new com.github.lgooddatepicker.components.DateTimePicker();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -60,20 +61,20 @@ public class FechaCita extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(47, 47, 47)
-                        .addComponent(dateTimePicker1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(148, 148, 148)
-                        .addComponent(jButton1)))
-                .addContainerGap(61, Short.MAX_VALUE))
+                        .addComponent(jButton1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addComponent(dateTimePicker2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(21, 21, 21)
-                .addComponent(dateTimePicker1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14)
+                .addComponent(dateTimePicker2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
                 .addContainerGap(31, Short.MAX_VALUE))
@@ -131,6 +132,7 @@ public class FechaCita extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.github.lgooddatepicker.components.DateTimePicker dateTimePicker1;
+    private com.github.lgooddatepicker.components.DateTimePicker dateTimePicker2;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables

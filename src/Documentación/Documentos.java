@@ -19,7 +19,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
- * @author rafa2
+ * @author Mirroriced y Rafsniper
  */
 public class Documentos implements Serializable {
      HashMap<String, Seguros> listaseg = new HashMap<>();
