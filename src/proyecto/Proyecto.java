@@ -46,9 +46,9 @@ public class Proyecto {
                     if (f) {
                         cit.engadir("Citas",cit, dni);
                         JOptionPane.showMessageDialog(null, "Aquí tiene su cita: \n" + cit.getLocalidad() + " " + cit.getFecha() + " " + cit.getTime());
-                        break;
+                        System.exit(0);
                     } else {
-                        JOptionPane.showMessageDialog(null, "Introduzca una hora de 07 a 21 y que no sobrepase el año 2020");
+                        JOptionPane.showMessageDialog(null, "Introduzca una hora de 07 a 21 del día siguiente y que no sobrepase el año 2020");
                     }
                     break;
                 case 2:

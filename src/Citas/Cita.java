@@ -159,7 +159,7 @@ public class Cita implements Serializable {
         fich.close();
     }
 
-    //
+    //Método para comprobar si la cita existe o no
     public boolean comprobarCita(String nomFich, String dni) throws IOException, ClassNotFoundException {
         try {
             f1 = new FileInputStream(nomFich + ".dat");
@@ -177,6 +177,8 @@ public class Cita implements Serializable {
         } catch (FileNotFoundException ex) {
             f = new FileOutputStream("Citas.dat");
             f.close();
+            return false;
+        } catch (EOFException ex2){
             return false;
         }
 

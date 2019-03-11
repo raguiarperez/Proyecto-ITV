@@ -33,6 +33,7 @@ public class Ingreso {
     Seguros seg;
     HashMap<String, Cita> lista = new HashMap<>();
 
+    //Método que comprueba si hay una cita y si es en el mismo día te deja pasar indicando la puerta a acceder
     public void comprobarIngreso(String dni) throws IOException, ClassNotFoundException, ParseException, InterruptedException {
         cit = new Cita();
         cit.fileToHash("Citas");
@@ -46,8 +47,8 @@ public class Ingreso {
             double fecha1Millis = fecha1.getTime();
             double daMillis = da.getTime();
             double dayMillis = 24 * 60 * 60 * 1000;
-
-            if (fecha1Millis < daMillis + 1 * dayMillis) {
+            // Comparamos la cita con la fecha actual.Si la fecha es el mismo día, deja pasar (para probar poner 2 días)
+            if (fecha1Millis < daMillis + 2 * dayMillis) {
                 JOptionPane op = new JOptionPane("Por favor espere unos segundos...", JOptionPane.INFORMATION_MESSAGE, JOptionPane.DEFAULT_OPTION, null, new Object[]{}, null);
 
                 JDialog dialog = new JDialog();
@@ -66,10 +67,10 @@ public class Ingreso {
                   timer.setRepeats(false); //Para que el timer solo funcione una vez
                   timer.start();//Para empezar el Timer
                   dialog.setVisible(true);//Para mostrar la ventana
-                JOptionPane.showMessageDialog(null, "Pase por la puerta: \n" + (1 + rand.nextInt(3)));
+                JOptionPane.showMessageDialog(null, "Pase por la puerta: \n" +"               "+ (1 + rand.nextInt(5)));
 
             } else {
-                JOptionPane.showMessageDialog(null, "Su cita es para dentro de un año, vuelva más tarde.");
+                JOptionPane.showMessageDialog(null, "Su cita no es para este día, vuelva más tarde.");
             }
 
         }
