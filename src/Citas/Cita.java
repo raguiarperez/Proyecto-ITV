@@ -10,6 +10,7 @@ import java.io.*;
 import java.text.*;
 import java.time.LocalTime;
 import java.util.*;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -93,14 +94,13 @@ public class Cita implements Serializable {
     public Cita selLocalidad(ArrayList<String> local) {
         String acum = "";
         String opcion;
+        try{
         for (String localidades : local) {
             acum = acum + localidades + "           ";
         }
 
-        do {
             opcion = pedirDatos.string("                                            Eliga localidad\n\n" + acum
                     + "\n\n                                                     SAIR");
-
             switch (opcion) {
                 case "Vigo":
                     this.setLocalidad(local.get(0));
@@ -120,22 +120,26 @@ public class Cita implements Serializable {
                     this.setLocalidad(local.get(4));
                     return this;
                 default:
-                    return null;
+                    return selLocalidad(local);
 
             }
-        } while (!"sair".equals(opcion));
+        }catch (NullPointerException ex){
+            System.exit(0);
+            return null;
+        }
     }
 
     //Metodo con JFrame para seleccionar Fecha y Hora
     public Cita selFecha() throws InterruptedException {
         FechaCita cit = new FechaCita();
-        cit.setVisible(true);
+         cit.setVisible(true);
         while (cit.isVisible()) {
             Thread.sleep(1000);
         }
         this.setFecha2(fecha);
         this.setTime2(time);
         return this;
+        
     }
 
     //Metodo para añadir al fichero los datos

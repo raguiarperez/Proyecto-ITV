@@ -1,5 +1,6 @@
 package Documentación;
 
+import Utilidades.ComprobarString;
 import Utilidades.pedirDatos;
 import java.io.*;
 import java.util.*;
@@ -146,7 +147,9 @@ public class Documentos implements Serializable {
 
         int opcion;
         String dni = pedirDatos.string("Introduzca DNI");
+        ComprobarString.longitudLetraFinal(9, dni);
         String matricula = pedirDatos.string("Introduzca matrícula");
+        ComprobarString.longitud(6, matricula);
         do {
             opcion = pedirDatos.enteiro("\n 1: Comprobar Seguro"
                     + "\n 2: Comprobar Documentación de Coche"

@@ -6,6 +6,7 @@
 package Citas;
 
 import java.time.format.DateTimeFormatter;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -73,6 +74,7 @@ public class FechaCita extends javax.swing.JFrame {
         Cita.fecha=dateTimePicker1.datePicker.getDate().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
         setVisible(false); //you can't see me!
         dispose();
+
     }//GEN-LAST:event_jButton1MouseClicked
 
     /**

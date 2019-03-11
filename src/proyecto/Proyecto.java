@@ -3,6 +3,7 @@ package proyecto;
 import Citas.Cita;
 import Documentación.Documentos;
 import Taller.Ingreso;
+import Utilidades.ComprobarString;
 import Utilidades.pedirDatos;
 import java.io.*;
 import java.text.ParseException;
@@ -23,6 +24,7 @@ public class Proyecto {
         boolean m;
         boolean f;
         String dni;
+        try{
         do {
             opcion = pedirDatos.enteiro("ITV"
                     + "\n 1: Cita Previa"
@@ -30,8 +32,10 @@ public class Proyecto {
                     + "\n 3: Taller");
             switch (opcion) {
                 case 1:
+                    
                     Cita cit = new Cita();
-                    dni = pedirDatos.string("Introduzca DNI");
+                    dni = pedirDatos.string("Introduzca DNI");                   
+                    ComprobarString.longitudLetraFinal(9, dni);
                     m = cit.comprobarCita("Citas", dni);
                     if (m) {
                         JOptionPane.showMessageDialog(null, "Ya tiene cita");
@@ -54,14 +58,18 @@ public class Proyecto {
                     doc.menuDoc();
                     break;
                 case 3:
-                    dni = pedirDatos.string("Introduzca DNI");
                     Ingreso tall = new Ingreso();
+                    dni = pedirDatos.string("Introduzca DNI");
+                    ComprobarString.longitudLetraFinal(9, dni);
                     tall.comprobarIngreso(dni);
+                    
                     break;
                 default:
                     break;
             }
         } while (opcion > 3);
-
+        }catch (NumberFormatException ex){
+            System.exit(0);
+        }
     }
 }
