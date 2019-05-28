@@ -230,8 +230,8 @@ public class Interfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_PanelSairMouseClicked
 
     private void BtDocumentacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtDocumentacionActionPerformed
-        InterfazDoc Idoc=new InterfazDoc();
-        Idoc.setVisible(true);
+        IntAccesoDoc IAdoc=new IntAccesoDoc();
+        IAdoc.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_BtDocumentacionActionPerformed
 
