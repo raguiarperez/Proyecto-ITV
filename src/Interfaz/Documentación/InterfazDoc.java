@@ -5,6 +5,8 @@
  */
 package Interfaz.Documentación;
 
+import Interfaz.Interfaz;
+
 /**
  *
  * @author rafa2
@@ -57,8 +59,9 @@ public class InterfazDoc extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 102, 204));
 
-        BtPtPrinc.setText("Pantalla Principal");
+        BtPtPrinc.setText("Menú Principal");
         BtPtPrinc.setBackground(new java.awt.Color(0, 102, 204));
+        BtPtPrinc.setForeground(new java.awt.Color(255, 255, 255));
         BtPtPrinc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtPtPrincActionPerformed(evt);
@@ -147,6 +150,7 @@ public class InterfazDoc extends javax.swing.JFrame {
 
         BtInsertarCoche.setText("Insertar Coche");
         BtInsertarCoche.setBackground(new java.awt.Color(0, 102, 204));
+        BtInsertarCoche.setForeground(new java.awt.Color(255, 255, 255));
         BtInsertarCoche.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtInsertarCocheActionPerformed(evt);
@@ -155,6 +159,7 @@ public class InterfazDoc extends javax.swing.JFrame {
 
         BtInsertarSeguro.setText("Insertar Seguro");
         BtInsertarSeguro.setBackground(new java.awt.Color(0, 102, 204));
+        BtInsertarSeguro.setForeground(new java.awt.Color(255, 255, 255));
         BtInsertarSeguro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtInsertarSeguroActionPerformed(evt);
@@ -240,7 +245,9 @@ public class InterfazDoc extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtPtPrincActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtPtPrincActionPerformed
-
+        Interfaz Int=new Interfaz();
+        Int.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_BtPtPrincActionPerformed
 
     private void jSair1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jSair1MouseClicked

@@ -79,8 +79,9 @@ public class IntinsDocSeguro extends javax.swing.JFrame {
             }
         });
 
-        BtInsertar.setBackground(new java.awt.Color(0, 102, 204));
         BtInsertar.setText("Insertar / Modificar");
+        BtInsertar.setBackground(new java.awt.Color(0, 102, 204));
+        BtInsertar.setForeground(new java.awt.Color(255, 255, 255));
         BtInsertar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtInsertarActionPerformed(evt);
@@ -95,11 +96,11 @@ public class IntinsDocSeguro extends javax.swing.JFrame {
             }
         });
 
-        jSair1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jSair1.setForeground(new java.awt.Color(255, 255, 255));
         jSair1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jSair1.setText("X");
         jSair1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jSair1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jSair1.setForeground(new java.awt.Color(255, 255, 255));
         jSair1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jSair1MouseClicked(evt);

@@ -3,30 +3,42 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Interfaz.Citas;
+package Interfaz.Taller;
 
-import Citas.Cita;
 import Interfaz.Interfaz;
-import Interfaz.Interfaz;
-import Utilidades.ComprobarString;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JOptionPane;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.Timer;
 
 /**
  *
  * @author rafa2
  */
-public class IntAccesoCita extends javax.swing.JFrame {
+public class IntEspera extends javax.swing.JFrame {
 
     /**
-     * Creates new form IntAccesoCita
+     * Creates new form IntEspera
      */
-    public IntAccesoCita() {
+    public IntEspera() {
         initComponents();
     }
+    public class progreso implements ActionListener{
+        public void actionPerformed(ActionEvent evt){
+            int n=jProTaller.getValue();
+            
+            if(n<100){
+                n++;
+                jProTaller.setValue(n);
+            }else{
+                timer.stop();
+                
+            }
+            
+        }
+    }
+    
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -38,33 +50,17 @@ public class IntAccesoCita extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jTextDNI = new javax.swing.JTextField();
         jLogo = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        BtContinuar = new javax.swing.JButton();
         PanelSair = new javax.swing.JPanel();
         jSair1 = new javax.swing.JLabel();
         BtMenuPrincipal = new javax.swing.JButton();
+        jProTaller = new javax.swing.JProgressBar();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.blue, java.awt.Color.blue));
-
-        jLabel1.setBackground(new java.awt.Color(0, 102, 204));
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 102, 204));
-        jLabel1.setText("DNI :");
-
-        jTextDNI.setForeground(new java.awt.Color(0, 102, 204));
-        jTextDNI.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 204)));
-        jTextDNI.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextDNIActionPerformed(evt);
-            }
-        });
 
         jLogo.setBackground(new java.awt.Color(0, 102, 204));
         jLogo.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -74,16 +70,7 @@ public class IntAccesoCita extends javax.swing.JFrame {
         jLabel2.setBackground(new java.awt.Color(0, 102, 204));
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 102, 204));
-        jLabel2.setText("Acceso a Cita Previa");
-
-        BtContinuar.setBackground(new java.awt.Color(0, 102, 204));
-        BtContinuar.setForeground(new java.awt.Color(255, 255, 255));
-        BtContinuar.setText("Continuar");
-        BtContinuar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtContinuarActionPerformed(evt);
-            }
-        });
+        jLabel2.setText("Acceso a Taller");
 
         PanelSair.setBackground(new java.awt.Color(0, 102, 204));
         PanelSair.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -134,30 +121,24 @@ public class IntAccesoCita extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(179, 179, 179)
-                .addComponent(jLogo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 106, Short.MAX_VALUE)
-                .addComponent(PanelSair, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
+                .addComponent(BtMenuPrincipal)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(179, 179, 179)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(BtMenuPrincipal)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(BtContinuar)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(137, 137, 137))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(97, 97, 97))))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLogo)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 106, Short.MAX_VALUE)
+                        .addComponent(PanelSair, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jProTaller, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(99, 99, 99))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -169,14 +150,10 @@ public class IntAccesoCita extends javax.swing.JFrame {
                     .addComponent(PanelSair, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextDNI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BtContinuar)
-                    .addComponent(BtMenuPrincipal))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                .addComponent(jProTaller, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(51, 51, 51)
+                .addComponent(BtMenuPrincipal)
                 .addContainerGap())
         );
 
@@ -192,21 +169,7 @@ public class IntAccesoCita extends javax.swing.JFrame {
         );
 
         pack();
-        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jTextDNIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextDNIActionPerformed
-        String dni = jTextDNI.getText();
-    }//GEN-LAST:event_jTextDNIActionPerformed
-
-    private void BtContinuarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtContinuarActionPerformed
-        if(ComprobarString.longitudLetraFinal(9, jTextDNI.getText())){
-        IntSelLocalidades ISLocal =new IntSelLocalidades();
-        ISLocal.setVisible(true);
-        this.setVisible(false);
-        }
-
-    }//GEN-LAST:event_BtContinuarActionPerformed
 
     private void jSair1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jSair1MouseClicked
         this.setVisible(false);
@@ -239,33 +202,31 @@ public class IntAccesoCita extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(IntAccesoCita.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(IntEspera.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(IntAccesoCita.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(IntEspera.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(IntAccesoCita.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(IntEspera.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(IntAccesoCita.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(IntEspera.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new IntAccesoCita().setVisible(true);
+                new IntEspera().setVisible(true);
             }
         });
     }
-
+    private Timer timer;
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BtContinuar;
     private javax.swing.JButton BtMenuPrincipal;
     private javax.swing.JPanel PanelSair;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLogo;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JProgressBar jProTaller;
     private javax.swing.JLabel jSair1;
-    private javax.swing.JTextField jTextDNI;
     // End of variables declaration//GEN-END:variables
 }
