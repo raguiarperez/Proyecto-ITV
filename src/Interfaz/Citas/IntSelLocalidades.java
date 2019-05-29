@@ -3,18 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Interfaz;
+package Interfaz.Citas;
+
+import Interfaz.Interfaz;
+import Interfaz.Interfaz;
 
 /**
  *
  * @author rafa2
  */
-public class InterfazDoc extends javax.swing.JFrame {
+public class IntSelLocalidades extends javax.swing.JFrame {
 
     /**
-     * Creates new form InterfazDoc
+     * Creates new form IntSelLocalidades
      */
-    public InterfazDoc() {
+    public IntSelLocalidades() {
         initComponents();
     }
 
@@ -27,17 +30,21 @@ public class InterfazDoc extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        dateTimePicker1 = new com.github.lgooddatepicker.components.DateTimePicker();
         jPanel1 = new javax.swing.JPanel();
         jLogo = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        BtPtPrinc = new javax.swing.JButton();
+        BtContinuar = new javax.swing.JButton();
         PanelSair = new javax.swing.JPanel();
         jSair1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        BtMenuPrincipal = new javax.swing.JButton();
+        jSeleccionLoc = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.blue, java.awt.Color.blue));
 
         jLogo.setBackground(new java.awt.Color(0, 102, 204));
         jLogo.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -47,13 +54,14 @@ public class InterfazDoc extends javax.swing.JFrame {
         jLabel2.setBackground(new java.awt.Color(0, 102, 204));
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 102, 204));
-        jLabel2.setText("Documentación Previa");
+        jLabel2.setText("Acceso a Cita Previa");
 
-        BtPtPrinc.setBackground(new java.awt.Color(0, 102, 204));
-        BtPtPrinc.setText("Pantalla Principal");
-        BtPtPrinc.addActionListener(new java.awt.event.ActionListener() {
+        BtContinuar.setBackground(new java.awt.Color(0, 102, 204));
+        BtContinuar.setForeground(new java.awt.Color(255, 255, 255));
+        BtContinuar.setText("Continuar");
+        BtContinuar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtPtPrincActionPerformed(evt);
+                BtContinuarActionPerformed(evt);
             }
         });
 
@@ -93,24 +101,56 @@ public class InterfazDoc extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jLabel3.setBackground(new java.awt.Color(0, 102, 204));
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 102, 204));
+        jLabel3.setText("Selección de Localidad");
+
+        BtMenuPrincipal.setBackground(new java.awt.Color(0, 102, 204));
+        BtMenuPrincipal.setForeground(new java.awt.Color(255, 255, 255));
+        BtMenuPrincipal.setText("Menú Principal");
+        BtMenuPrincipal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtMenuPrincipalActionPerformed(evt);
+            }
+        });
+
+        jSeleccionLoc.setBackground(new java.awt.Color(0, 102, 204));
+        jSeleccionLoc.setForeground(new java.awt.Color(255, 255, 255));
+        jSeleccionLoc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Madrid", "Vigo", "Valencia", "Barcelona", "Ourense" }));
+        jSeleccionLoc.setAutoscrolls(true);
+        jSeleccionLoc.setName(""); // NOI18N
+        jSeleccionLoc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jSeleccionLocActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(179, 179, 179)
-                .addComponent(jLogo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 120, Short.MAX_VALUE)
-                .addComponent(PanelSair, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(BtPtPrinc)
+                        .addComponent(BtMenuPrincipal)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(BtContinuar)
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(129, 129, 129))))
+                        .addGap(0, 118, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLogo)
+                                .addGap(107, 107, 107)
+                                .addComponent(PanelSair, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jSeleccionLoc, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(137, 137, 137))))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -120,10 +160,16 @@ public class InterfazDoc extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jLogo))
                     .addComponent(PanelSair, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(12, 12, 12)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 193, Short.MAX_VALUE)
-                .addComponent(BtPtPrinc)
+                .addGap(17, 17, 17)
+                .addComponent(jLabel3)
+                .addGap(41, 41, 41)
+                .addComponent(jSeleccionLoc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BtContinuar)
+                    .addComponent(BtMenuPrincipal))
                 .addContainerGap())
         );
 
@@ -139,19 +185,32 @@ public class InterfazDoc extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void BtPtPrincActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtPtPrincActionPerformed
+    private void BtContinuarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtContinuarActionPerformed
 
-    }//GEN-LAST:event_BtPtPrincActionPerformed
+    }//GEN-LAST:event_BtContinuarActionPerformed
 
     private void jSair1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jSair1MouseClicked
         this.setVisible(false);
+        System.exit(0);
     }//GEN-LAST:event_jSair1MouseClicked
 
     private void PanelSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PanelSairMouseClicked
         this.setVisible(false);
+        System.exit(0);
     }//GEN-LAST:event_PanelSairMouseClicked
+
+    private void BtMenuPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtMenuPrincipalActionPerformed
+        Interfaz Int=new Interfaz();
+        Int.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_BtMenuPrincipalActionPerformed
+
+    private void jSeleccionLocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jSeleccionLocActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jSeleccionLocActionPerformed
 
     /**
      * @param args the command line arguments
@@ -170,31 +229,33 @@ public class InterfazDoc extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(InterfazDoc.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(IntSelLocalidades.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(InterfazDoc.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(IntSelLocalidades.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(InterfazDoc.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(IntSelLocalidades.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(InterfazDoc.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(IntSelLocalidades.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new InterfazDoc().setVisible(true);
+                new IntSelLocalidades().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BtPtPrinc;
+    private javax.swing.JButton BtContinuar;
+    private javax.swing.JButton BtMenuPrincipal;
     private javax.swing.JPanel PanelSair;
-    private com.github.lgooddatepicker.components.DateTimePicker dateTimePicker1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLogo;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel jSair1;
+    private javax.swing.JComboBox<String> jSeleccionLoc;
     // End of variables declaration//GEN-END:variables
 }

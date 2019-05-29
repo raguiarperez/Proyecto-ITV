@@ -5,6 +5,8 @@
  */
 package Interfaz;
 
+import Interfaz.Documentación.IntAccesoDoc;
+import Interfaz.Citas.IntAccesoCita;
 import Citas.Cita;
 import Utilidades.ComprobarString;
 import Utilidades.pedirDatos;
@@ -66,6 +68,7 @@ public class Interfaz extends javax.swing.JFrame {
         setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.blue, java.awt.Color.blue));
 
         jPanel2.setBackground(new java.awt.Color(0, 102, 204));
 
@@ -146,6 +149,7 @@ public class Interfaz extends javax.swing.JFrame {
         );
 
         BtCitaPrevia.setBackground(new java.awt.Color(0, 102, 204));
+        BtCitaPrevia.setForeground(new java.awt.Color(255, 255, 255));
         BtCitaPrevia.setText("Cita Previa");
         BtCitaPrevia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -154,6 +158,7 @@ public class Interfaz extends javax.swing.JFrame {
         });
 
         BtDocumentacion.setBackground(new java.awt.Color(0, 102, 204));
+        BtDocumentacion.setForeground(new java.awt.Color(255, 255, 255));
         BtDocumentacion.setText("Documentación");
         BtDocumentacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -162,6 +167,7 @@ public class Interfaz extends javax.swing.JFrame {
         });
 
         BtTaller.setBackground(new java.awt.Color(0, 102, 204));
+        BtTaller.setForeground(new java.awt.Color(255, 255, 255));
         BtTaller.setText("Taller");
         BtTaller.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -175,7 +181,7 @@ public class Interfaz extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 102, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 98, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -213,12 +219,14 @@ public class Interfaz extends javax.swing.JFrame {
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        setSize(new java.awt.Dimension(566, 418));
+        setSize(new java.awt.Dimension(566, 422));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtCitaPreviaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtCitaPreviaActionPerformed
-
+       IntAccesoCita IAcita=new IntAccesoCita();
+       IAcita.setVisible(true);
+       this.setVisible(false);
     }//GEN-LAST:event_BtCitaPreviaActionPerformed
 
     private void BtTallerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtTallerActionPerformed
@@ -227,6 +235,7 @@ public class Interfaz extends javax.swing.JFrame {
 
     private void PanelSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PanelSairMouseClicked
         this.setVisible(false);
+        System.exit(0);
     }//GEN-LAST:event_PanelSairMouseClicked
 
     private void BtDocumentacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtDocumentacionActionPerformed
@@ -237,6 +246,7 @@ public class Interfaz extends javax.swing.JFrame {
 
     private void jSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jSairMouseClicked
         this.setVisible(false);
+        System.exit(0);
     }//GEN-LAST:event_jSairMouseClicked
 
     /**
