@@ -5,25 +5,20 @@
  */
 package Interfaz;
 
-import Interfaz.Documentación.IntAccesoDoc;
-import Interfaz.Citas.IntAccesoCita;
-import Citas.Cita;
+import Interfaz.Citas.InterfazCita;
+import Interfaz.Documentación.InterfazDoc;
 import Interfaz.Taller.IntAccesoTaller;
-import Utilidades.ComprobarString;
-import Utilidades.pedirDatos;
-import java.util.ArrayList;
-import javax.swing.JOptionPane;
 
 /**
  *
  * @author rafa2
  */
-public class Interfaz extends javax.swing.JFrame {
+public class Administrador extends javax.swing.JFrame {
 
     /**
-     * Creates new form Interfaz
+     * Creates new form Administrador
      */
-    public Interfaz() {
+    public Administrador() {
         initComponents();
     }
 
@@ -36,38 +31,20 @@ public class Interfaz extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu3 = new javax.swing.JMenu();
-        jMenu4 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         PanelSair = new javax.swing.JPanel();
         jSair = new javax.swing.JLabel();
         BtCitaPrevia = new javax.swing.JButton();
         BtDocumentacion = new javax.swing.JButton();
         BtTaller = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-
-        jMenu1.setText("jMenu1");
-
-        jMenu2.setText("jMenu2");
-
-        jMenu3.setText("File");
-        jMenuBar1.add(jMenu3);
-
-        jMenu4.setText("Edit");
-        jMenuBar1.add(jMenu4);
-
-        jMenuItem1.setText("jMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.blue, java.awt.Color.blue));
@@ -86,6 +63,13 @@ public class Interfaz extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("ITV ERD");
 
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 3)); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\rafa2\\OneDrive\\Documentos\\DANIELCASTELAO\\INSTITUTO\\DAM\\PROGRAMACIÓN\\PROYECTOS\\2ª EVALUACIÓN\\Proyecto\\Proyecto-Programacion\\Imagenes\\usuario.png")); // NOI18N
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("Modo Administrador");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -99,19 +83,32 @@ public class Interfaz extends javax.swing.JFrame {
                         .addGap(52, 52, 52)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
-                            .addComponent(jLabel2))))
-                .addContainerGap(45, Short.MAX_VALUE))
+                            .addComponent(jLabel2)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel6)))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(37, 37, 37)
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 54, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(111, 111, 111)
+                .addGap(55, 55, 55)
                 .addComponent(jLabel2)
-                .addGap(129, 129, 129))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(82, 82, 82)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel6)
+                        .addGap(19, 19, 19))))
         );
 
         PanelSair.setBackground(new java.awt.Color(0, 102, 204));
@@ -177,20 +174,13 @@ public class Interfaz extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 98, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -201,10 +191,7 @@ public class Interfaz extends javax.swing.JFrame {
                                 .addComponent(BtDocumentacion)
                                 .addComponent(BtTaller))
                             .addContainerGap()))
-                    .addComponent(PanelSair, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addContainerGap())))
+                    .addComponent(PanelSair, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -217,57 +204,50 @@ public class Interfaz extends javax.swing.JFrame {
                 .addComponent(BtDocumentacion)
                 .addGap(63, 63, 63)
                 .addComponent(BtTaller)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addContainerGap())
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 401, Short.MAX_VALUE)
         );
 
-        setSize(new java.awt.Dimension(566, 422));
-        setLocationRelativeTo(null);
+        pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void BtCitaPreviaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtCitaPreviaActionPerformed
-       IntAccesoCita IAcita=new IntAccesoCita();
-       IAcita.setVisible(true);
-       this.setVisible(false);
-    }//GEN-LAST:event_BtCitaPreviaActionPerformed
-
-    private void BtTallerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtTallerActionPerformed
-        IntAccesoTaller IATaller=new IntAccesoTaller();
-        IATaller.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_BtTallerActionPerformed
-
-    private void PanelSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PanelSairMouseClicked
-        this.setVisible(false);
-        System.exit(0);
-    }//GEN-LAST:event_PanelSairMouseClicked
-
-    private void BtDocumentacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtDocumentacionActionPerformed
-        IntAccesoDoc IAdoc=new IntAccesoDoc();
-        IAdoc.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_BtDocumentacionActionPerformed
 
     private void jSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jSairMouseClicked
         this.setVisible(false);
         System.exit(0);
     }//GEN-LAST:event_jSairMouseClicked
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void PanelSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PanelSairMouseClicked
+        this.setVisible(false);
+        System.exit(0);
+    }//GEN-LAST:event_PanelSairMouseClicked
+
+    private void BtCitaPreviaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtCitaPreviaActionPerformed
+        InterfazCita Icita=new InterfazCita();
+        Icita.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_BtCitaPreviaActionPerformed
+
+    private void BtDocumentacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtDocumentacionActionPerformed
+        InterfazDoc Idoc=new InterfazDoc();
+        Idoc.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_BtDocumentacionActionPerformed
+
+    private void BtTallerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtTallerActionPerformed
+        IntAccesoTaller IATaller=new IntAccesoTaller();
+        IATaller.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_BtTallerActionPerformed
 
     /**
      * @param args the command line arguments
@@ -286,20 +266,20 @@ public class Interfaz extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Interfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Administrador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Interfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Administrador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Interfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Administrador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Interfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Administrador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Interfaz().setVisible(true);
+                new Administrador().setVisible(true);
             }
         });
     }
@@ -309,16 +289,11 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JButton BtDocumentacion;
     private javax.swing.JButton BtTaller;
     private javax.swing.JPanel PanelSair;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel jSair;

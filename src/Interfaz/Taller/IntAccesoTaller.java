@@ -29,6 +29,7 @@ public class IntAccesoTaller extends javax.swing.JFrame {
     
     public IntAccesoTaller() {
         initComponents();
+        jProgressBar1.setVisible(false);
     }
 
     /**
@@ -53,36 +54,37 @@ public class IntAccesoTaller extends javax.swing.JFrame {
         jLabelCargando = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.blue, java.awt.Color.blue));
 
-        jLabel1.setText("DNI :");
         jLabel1.setBackground(new java.awt.Color(0, 102, 204));
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 102, 204));
+        jLabel1.setText("DNI :");
 
-        jTextDNI.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 204)));
         jTextDNI.setForeground(new java.awt.Color(0, 102, 204));
+        jTextDNI.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 204)));
         jTextDNI.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextDNIActionPerformed(evt);
             }
         });
 
-        jLogo.setText("ITV ERD");
         jLogo.setBackground(new java.awt.Color(0, 102, 204));
         jLogo.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLogo.setForeground(new java.awt.Color(0, 102, 204));
+        jLogo.setText("ITV ERD");
 
-        jLabel2.setText("Acceso a Taller");
         jLabel2.setBackground(new java.awt.Color(0, 102, 204));
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 102, 204));
+        jLabel2.setText("Acceso a Taller");
 
-        BtContinuar.setText("Continuar");
         BtContinuar.setBackground(new java.awt.Color(0, 102, 204));
         BtContinuar.setForeground(new java.awt.Color(255, 255, 255));
+        BtContinuar.setText("Continuar");
         BtContinuar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtContinuarActionPerformed(evt);
@@ -97,11 +99,11 @@ public class IntAccesoTaller extends javax.swing.JFrame {
             }
         });
 
+        jSair1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jSair1.setForeground(new java.awt.Color(255, 255, 255));
         jSair1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jSair1.setText("X");
         jSair1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jSair1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jSair1.setForeground(new java.awt.Color(255, 255, 255));
         jSair1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jSair1MouseClicked(evt);
@@ -125,9 +127,9 @@ public class IntAccesoTaller extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        BtMenuPrincipal.setText("Menú Principal");
         BtMenuPrincipal.setBackground(new java.awt.Color(0, 102, 204));
         BtMenuPrincipal.setForeground(new java.awt.Color(255, 255, 255));
+        BtMenuPrincipal.setText("Menú Principal");
         BtMenuPrincipal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtMenuPrincipalActionPerformed(evt);
@@ -167,11 +169,12 @@ public class IntAccesoTaller extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabelCargando, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(120, 120, 120))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabelCargando, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(140, 140, 140))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(130, 130, 130))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -187,16 +190,16 @@ public class IntAccesoTaller extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextDNI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(38, 38, 38)
-                .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(BtContinuar)
                             .addComponent(BtMenuPrincipal))
                         .addContainerGap())
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(38, 38, 38)
+                        .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabelCargando, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(24, Short.MAX_VALUE))))
@@ -214,6 +217,7 @@ public class IntAccesoTaller extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextDNIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextDNIActionPerformed
@@ -222,9 +226,47 @@ public class IntAccesoTaller extends javax.swing.JFrame {
 
     private void BtContinuarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtContinuarActionPerformed
         if(ComprobarString.longitudLetraFinal(9, jTextDNI.getText())){
-            jProgressBar1.setStringPainted(true);
+            jProgressBar1.setVisible(true);
+            final Thread t;
+            //Inicializamos
+            t = new Thread(new Runnable() {
+            //Implementamos el método run()
+            @Override
+            public void run() {
+                //Permite mostrar el valor del progreso
+                jProgressBar1.setStringPainted(true);
+                int x = 1;
+                //Utilizamos un while para emular el valor mínimo y máximo
+                //En este caso 0 - 100
+                while(x <= 100){
+                    //Asignamos valor a nuestro JProgressBar por cada siclo del bucle
+                    jProgressBar1.setValue(x);
+                    if(x<=50){
+                        jProgressBar1.setString("Cargando Datos..");
+                    }else if(x>50&&x<=75){
+                        jProgressBar1.setString("Seleccionando Puerta..");
+                    }
+                    
+                    //Hacemos una parada de medio segundo por cada siclo while
+                    try {
+                        Thread.sleep(100);
+                    } catch (InterruptedException e) {
+                    }
+                    //Se incrementa el valor de x
+                    x++;
+                }
+            }
+        });
+        //Se ejecuta el Thread
+        t.start();
+    }
+    
 
-        }
+  
+            
+            
+            
+       
     }//GEN-LAST:event_BtContinuarActionPerformed
 
     private void jSair1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jSair1MouseClicked
