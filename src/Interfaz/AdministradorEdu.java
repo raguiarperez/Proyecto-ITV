@@ -7,19 +7,28 @@ package Interfaz;
 
 import Interfaz.Citas.InterfazCita;
 import Interfaz.Documentación.InterfazDoc;
+import static Interfaz.Interfaz.fecha;
 import Interfaz.Taller.IntAccesoTaller;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 
 /**
  *
  * @author rafa2
  */
-public class Administrador extends javax.swing.JFrame {
-
+public class AdministradorEdu extends javax.swing.JFrame implements Runnable{
+    String hora,minutos,segundos;
+    Thread hilo;
     /**
      * Creates new form Administrador
      */
-    public Administrador() {
+    public AdministradorEdu() {
         initComponents();
+        lbFecha.setText(fecha());
+        hilo=new Thread(this);
+        hilo.start();
+        setVisible(true);
     }
 
     /**
@@ -38,6 +47,9 @@ public class Administrador extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        lbFecha = new javax.swing.JLabel();
+        lbHora = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         PanelSair = new javax.swing.JPanel();
         jSair = new javax.swing.JLabel();
         BtCitaPrevia = new javax.swing.JButton();
@@ -45,6 +57,7 @@ public class Administrador extends javax.swing.JFrame {
         BtTaller = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.blue, java.awt.Color.blue));
@@ -70,15 +83,22 @@ public class Administrador extends javax.swing.JFrame {
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Modo Administrador");
 
+        lbFecha.setForeground(new java.awt.Color(255, 255, 255));
+        lbFecha.setText("DD/MM/YYYY");
+
+        lbHora.setForeground(new java.awt.Color(255, 255, 255));
+        lbHora.setText("00:00:00");
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Edu Collazo");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(73, 73, 73)
-                        .addComponent(jLabel3))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(52, 52, 52)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -88,17 +108,31 @@ public class Administrador extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel6)))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel5)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lbFecha)
+                        .addGap(18, 18, 18)
+                        .addComponent(lbHora))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(72, 72, 72)
+                        .addComponent(jLabel3)))
                 .addContainerGap(19, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(37, 37, 37)
+                .addGap(12, 12, 12)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbFecha)
+                    .addComponent(lbHora))
+                .addGap(39, 39, 39)
                 .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(55, 55, 55)
+                .addGap(27, 27, 27)
                 .addComponent(jLabel2)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -107,6 +141,8 @@ public class Administrador extends javax.swing.JFrame {
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel5)
+                        .addGap(18, 18, 18)
                         .addComponent(jLabel6)
                         .addGap(19, 19, 19))))
         );
@@ -219,16 +255,19 @@ public class Administrador extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jSairMouseClicked
+        Interfaz Int=new Interfaz();
+        Int.setVisible(true);
         this.setVisible(false);
-        System.exit(0);
     }//GEN-LAST:event_jSairMouseClicked
 
     private void PanelSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PanelSairMouseClicked
+        Interfaz Int=new Interfaz();
+        Int.setVisible(true);
         this.setVisible(false);
-        System.exit(0);
     }//GEN-LAST:event_PanelSairMouseClicked
 
     private void BtCitaPreviaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtCitaPreviaActionPerformed
@@ -249,6 +288,22 @@ public class Administrador extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_BtTallerActionPerformed
 
+    
+        public void hora(){
+        Calendar calendario=new GregorianCalendar();
+        Date horactual=new Date();
+        calendario.setTime(horactual);
+        hora=calendario.get(Calendar.HOUR_OF_DAY)>9?""+calendario.get(Calendar.HOUR_OF_DAY):"0"+calendario.get(Calendar.HOUR_OF_DAY);
+        minutos=calendario.get(Calendar.MINUTE)>9?""+calendario.get(Calendar.MINUTE):"0"+calendario.get(Calendar.MINUTE);
+        segundos=calendario.get(Calendar.SECOND)>9?""+calendario.get(Calendar.SECOND):"0"+calendario.get(Calendar.SECOND);
+    }
+    public void run(){
+        Thread current=Thread.currentThread();
+        while(current==hilo){
+            hora();
+            lbHora.setText(hora+":"+minutos+":"+segundos);
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -266,20 +321,21 @@ public class Administrador extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Administrador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdministradorEdu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Administrador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdministradorEdu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Administrador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdministradorEdu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Administrador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdministradorEdu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Administrador().setVisible(true);
+                new AdministradorEdu().setVisible(true);
             }
         });
     }
@@ -293,9 +349,12 @@ public class Administrador extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel jSair;
+    private javax.swing.JLabel lbFecha;
+    private javax.swing.JLabel lbHora;
     // End of variables declaration//GEN-END:variables
 }

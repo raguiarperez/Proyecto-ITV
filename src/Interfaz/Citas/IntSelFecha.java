@@ -103,10 +103,10 @@ public class IntSelFecha extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jLabel3.setText("Selección de Fecha");
         jLabel3.setBackground(new java.awt.Color(0, 102, 204));
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 102, 204));
-        jLabel3.setText("Selección de Fecha");
 
         BtMenuPrincipal.setBackground(new java.awt.Color(0, 102, 204));
         BtMenuPrincipal.setForeground(new java.awt.Color(255, 255, 255));
@@ -130,7 +130,7 @@ public class IntSelFecha extends javax.swing.JFrame {
                         .addComponent(BtContinuar)
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGap(0, 70, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLogo)
@@ -140,11 +140,10 @@ public class IntSelFecha extends javax.swing.JFrame {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jLabel2))
-                                .addGap(137, 137, 137))))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(80, Short.MAX_VALUE)
-                .addComponent(dateTimePicker1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(73, 73, 73))
+                                .addGap(137, 137, 137))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(dateTimePicker1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(73, 73, 73))))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -185,6 +184,10 @@ public class IntSelFecha extends javax.swing.JFrame {
     private void BtContinuarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtContinuarActionPerformed
         Cita.time=dateTimePicker1.timePicker.getTime();
         Cita.fecha=dateTimePicker1.datePicker.getDate().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+        
+        InterfazCita Icita=new InterfazCita();
+        Icita.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_BtContinuarActionPerformed
 
     private void jSair1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jSair1MouseClicked

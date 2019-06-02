@@ -9,6 +9,7 @@ import Citas.Cita;
 import Interfaz.Interfaz;
 import Interfaz.Interfaz;
 import Utilidades.ComprobarString;
+import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -63,6 +64,11 @@ public class IntAccesoCita extends javax.swing.JFrame {
         jTextDNI.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextDNIActionPerformed(evt);
+            }
+        });
+        jTextDNI.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextDNIKeyPressed(evt);
             }
         });
 
@@ -221,6 +227,16 @@ public class IntAccesoCita extends javax.swing.JFrame {
         Int.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_BtMenuPrincipalActionPerformed
+
+    private void jTextDNIKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextDNIKeyPressed
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            if(ComprobarString.longitudLetraFinal(9, jTextDNI.getText())){
+                IntSelLocalidades ISLocal =new IntSelLocalidades();
+                ISLocal.setVisible(true);
+                this.setVisible(false);
+        }
+        }
+    }//GEN-LAST:event_jTextDNIKeyPressed
 
     /**
      * @param args the command line arguments

@@ -189,7 +189,9 @@ public class IntSelLocalidades extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtContinuarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtContinuarActionPerformed
-
+        IntSelFecha Ifecha= new IntSelFecha();
+        Ifecha.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_BtContinuarActionPerformed
 
     private void jSair1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jSair1MouseClicked
