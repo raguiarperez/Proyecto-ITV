@@ -27,16 +27,18 @@ public class Cita implements Serializable {
     transient public static LocalTime time;
     public String fecha2;
     public LocalTime time2;
-    private String localidad;
+    transient public static String localidad;
+    public String localidad2;
+
 
     public Cita() {
 
     }
 
-    public Cita(String fecha2, LocalTime time2, String localidad) {
+    public Cita(String fecha2, LocalTime time2, String localidad2) {
         this.fecha2 = fecha2;
         this.time2 = time2;
-        this.localidad = localidad;
+        this.localidad2 = localidad2;
     }
 
     //ArrayList de Localidades
@@ -77,6 +79,15 @@ public class Cita implements Serializable {
     public String getLocalidad() {
         return localidad;
     }
+    public void setLocalidad2(String localidad2) {
+        this.localidad2 = localidad2;
+    }
+
+    public String getLocalidad2() {
+        return localidad2;
+    }
+    
+
 
     public static LocalTime getTime() {
         return time;

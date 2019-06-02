@@ -32,11 +32,12 @@ public class Ingreso {
     HashMap<String, Cita> lista = new HashMap<>();
 
     //Método que comprueba si hay una cita y si es en el mismo día te deja pasar indicando la puerta a acceder
-    public void comprobarIngreso(String dni) throws IOException, ClassNotFoundException, ParseException, InterruptedException {
+    public boolean comprobarIngreso(String dni) throws IOException, ClassNotFoundException, ParseException, InterruptedException {
         cit = new Cita();
         cit.fileToHash("Citas");
         if (!cit.lista.containsKey(dni)) {
             JOptionPane.showMessageDialog(null, "Usted no tiene cita");
+            return false;
         } else {
             cit = cit.lista.get(dni);
             SimpleDateFormat formatd = new SimpleDateFormat("dd/MM/yyyy");
@@ -47,30 +48,12 @@ public class Ingreso {
             double dayMillis = 24 * 60 * 60 * 1000;
             // Comparamos la cita con la fecha actual.Si la fecha es el mismo día, deja pasar (para probar poner 2 días)
             if (fecha1Millis < daMillis + 2 * dayMillis) {
-                JOptionPane op = new JOptionPane("Por favor espere unos segundos...", JOptionPane.INFORMATION_MESSAGE, JOptionPane.DEFAULT_OPTION, null, new Object[]{}, null);
-
-                JDialog dialog = new JDialog();
-                dialog.setTitle("Message");
-                dialog.setModal(true);
-                dialog.setContentPane(op);
-                dialog.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
-                dialog.pack();
-                    //Método para cerrar la ventana tras 5 segundos
-                Timer timer = new Timer(5000, new AbstractAction() {
-                    @Override
-                    public void actionPerformed(ActionEvent ae) {
-                        dialog.dispose();
-                    }
-                });
-                  timer.setRepeats(false); //Para que el timer solo funcione una vez
-                  timer.start();//Para empezar el Timer
-                  dialog.setVisible(true);//Para mostrar la ventana
-                JOptionPane.showMessageDialog(null, "Pase por la puerta: \n" +"               "+ (1 + rand.nextInt(5)));
-
+               return true;
             } else {
-                JOptionPane.showMessageDialog(null, "Su cita no es para este día, vuelva más tarde.");
+                return false;
             }
 
         }
+        
     }
 }

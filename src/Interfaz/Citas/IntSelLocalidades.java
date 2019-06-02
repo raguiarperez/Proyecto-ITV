@@ -7,13 +7,15 @@ package Interfaz.Citas;
 
 import Interfaz.Interfaz;
 import Interfaz.Interfaz;
+import javax.swing.JOptionPane;
+import Citas.Cita;
 
 /**
  *
  * @author rafa2
  */
 public class IntSelLocalidades extends javax.swing.JFrame {
-
+    String ciudad;
     /**
      * Creates new form IntSelLocalidades
      */
@@ -39,6 +41,8 @@ public class IntSelLocalidades extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         BtMenuPrincipal = new javax.swing.JButton();
         jSeleccionLoc = new javax.swing.JComboBox<>();
+        jLabel1 = new javax.swing.JLabel();
+        txtCiudad = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -46,19 +50,19 @@ public class IntSelLocalidades extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.blue, java.awt.Color.blue));
 
+        jLogo.setText("ITV ERD");
         jLogo.setBackground(new java.awt.Color(0, 102, 204));
         jLogo.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLogo.setForeground(new java.awt.Color(0, 102, 204));
-        jLogo.setText("ITV ERD");
 
+        jLabel2.setText("Acceso a Cita Previa");
         jLabel2.setBackground(new java.awt.Color(0, 102, 204));
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 102, 204));
-        jLabel2.setText("Acceso a Cita Previa");
 
+        BtContinuar.setText("Continuar");
         BtContinuar.setBackground(new java.awt.Color(0, 102, 204));
         BtContinuar.setForeground(new java.awt.Color(255, 255, 255));
-        BtContinuar.setText("Continuar");
         BtContinuar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtContinuarActionPerformed(evt);
@@ -73,11 +77,11 @@ public class IntSelLocalidades extends javax.swing.JFrame {
             }
         });
 
-        jSair1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jSair1.setForeground(new java.awt.Color(255, 255, 255));
         jSair1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jSair1.setText("X");
         jSair1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jSair1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jSair1.setForeground(new java.awt.Color(255, 255, 255));
         jSair1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jSair1MouseClicked(evt);
@@ -101,28 +105,41 @@ public class IntSelLocalidades extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jLabel3.setText("Selección de Localidad");
         jLabel3.setBackground(new java.awt.Color(0, 102, 204));
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 102, 204));
-        jLabel3.setText("Selección de Localidad");
 
+        BtMenuPrincipal.setText("Menú Principal");
         BtMenuPrincipal.setBackground(new java.awt.Color(0, 102, 204));
         BtMenuPrincipal.setForeground(new java.awt.Color(255, 255, 255));
-        BtMenuPrincipal.setText("Menú Principal");
         BtMenuPrincipal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtMenuPrincipalActionPerformed(evt);
             }
         });
 
-        jSeleccionLoc.setBackground(new java.awt.Color(0, 102, 204));
-        jSeleccionLoc.setForeground(new java.awt.Color(255, 255, 255));
         jSeleccionLoc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Madrid", "Vigo", "Valencia", "Barcelona", "Ourense" }));
         jSeleccionLoc.setAutoscrolls(true);
+        jSeleccionLoc.setBackground(new java.awt.Color(0, 102, 204));
+        jSeleccionLoc.setForeground(new java.awt.Color(255, 255, 255));
         jSeleccionLoc.setName(""); // NOI18N
+        jSeleccionLoc.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jSeleccionLocItemStateChanged(evt);
+            }
+        });
         jSeleccionLoc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jSeleccionLocActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Seleccionado:");
+
+        txtCiudad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCiudadActionPerformed(evt);
             }
         });
 
@@ -151,6 +168,12 @@ public class IntSelLocalidades extends javax.swing.JFrame {
                                     .addComponent(jLabel2)
                                     .addComponent(jSeleccionLoc, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(137, 137, 137))))))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(94, 94, 94)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtCiudad)
+                .addGap(137, 137, 137))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -164,9 +187,13 @@ public class IntSelLocalidades extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addGap(17, 17, 17)
                 .addComponent(jLabel3)
-                .addGap(41, 41, 41)
+                .addGap(26, 26, 26)
                 .addComponent(jSeleccionLoc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(txtCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BtContinuar)
                     .addComponent(BtMenuPrincipal))
@@ -189,6 +216,8 @@ public class IntSelLocalidades extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtContinuarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtContinuarActionPerformed
+        Cita.localidad=(String)jSeleccionLoc.getSelectedItem();
+        txtCiudad.setText(jSeleccionLoc.getSelectedItem().toString());
         IntSelFecha Ifecha= new IntSelFecha();
         Ifecha.setVisible(true);
         this.setVisible(false);
@@ -211,8 +240,16 @@ public class IntSelLocalidades extends javax.swing.JFrame {
     }//GEN-LAST:event_BtMenuPrincipalActionPerformed
 
     private void jSeleccionLocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jSeleccionLocActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_jSeleccionLocActionPerformed
+
+    private void txtCiudadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCiudadActionPerformed
+
+    }//GEN-LAST:event_txtCiudadActionPerformed
+
+    private void jSeleccionLocItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jSeleccionLocItemStateChanged
+        txtCiudad.setText(jSeleccionLoc.getSelectedItem().toString());
+    }//GEN-LAST:event_jSeleccionLocItemStateChanged
 
     /**
      * @param args the command line arguments
@@ -253,11 +290,13 @@ public class IntSelLocalidades extends javax.swing.JFrame {
     private javax.swing.JButton BtContinuar;
     private javax.swing.JButton BtMenuPrincipal;
     private javax.swing.JPanel PanelSair;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLogo;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel jSair1;
-    private javax.swing.JComboBox<String> jSeleccionLoc;
+    public javax.swing.JComboBox<String> jSeleccionLoc;
+    public javax.swing.JTextField txtCiudad;
     // End of variables declaration//GEN-END:variables
 }

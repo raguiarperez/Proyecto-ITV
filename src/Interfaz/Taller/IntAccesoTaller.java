@@ -1,10 +1,16 @@
 package Interfaz.Taller;
 
 import Interfaz.Interfaz;
+import Taller.Ingreso;
 import Utilidades.ComprobarString;
 import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
+import java.io.IOException;
+import java.text.ParseException;
+import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
 import javax.swing.UIManager;
@@ -223,37 +229,60 @@ public class IntAccesoTaller extends javax.swing.JFrame {
         if(ComprobarString.longitudLetraFinal(9, jTextDNI.getText())){
             jProgressBar1.setVisible(true);
             final Thread t;
-            //Inicializamos
-            t = new Thread(new Runnable() {
-            //Implementamos el método run()
-            @Override
-            public void run() {
-                //Permite mostrar el valor del progreso
-                jProgressBar1.setStringPainted(true);
-                int x = 1;
-                //Utilizamos un while para emular el valor mínimo y máximo
-                //En este caso 0 - 100
-                while(x <= 100){
-                    //Asignamos valor a nuestro JProgressBar por cada siclo del bucle
-                    jProgressBar1.setValue(x);
-                    if(x<=50){
-                        jProgressBar1.setString("Cargando Datos..");
-                    }else if(x>50&&x<=75){
-                        jProgressBar1.setString("Seleccionando Puerta..");
-                    }
+            Random rand = new Random();
+            Ingreso tall=new Ingreso();
+            try {
+                if(tall.comprobarIngreso(jTextDNI.getText())){
                     
-                    //Hacemos una parada de medio segundo por cada siclo while
-                    try {
-                        Thread.sleep(100);
-                    } catch (InterruptedException e) {
-                    }
-                    //Se incrementa el valor de x
-                    x++;
+                    
+                    //Inicializamos
+                    t = new Thread(new Runnable() {
+                        //Implementamos el método run()
+                        @Override
+                        public void run() {
+                            //Permite mostrar el valor del progreso
+                            jProgressBar1.setStringPainted(true);
+                            int x = 1;
+                            
+                            //Utilizamos un while para emular el valor mínimo y máximo
+                            //En este caso 0 - 100
+                            while(x <= 100){
+                                //Asignamos valor a nuestro JProgressBar por cada siclo del bucle
+                                jProgressBar1.setValue(x);
+                                if(x<=50){
+                                    jProgressBar1.setString("Cargando Datos..");
+                                }else if(x>50&&x<=75){
+                                    jProgressBar1.setString("Seleccionando Puerta..");
+                                }else if(x==100){
+                                    JOptionPane.showMessageDialog(null, "Pase por la puerta: \n" +"               "+ (1 + rand.nextInt(5)));
+                                }
+                                
+                                //Hacemos una parada de medio segundo por cada siclo while
+                                try {
+                                    Thread.sleep(100);
+                                } catch (InterruptedException e) {
+                                }
+                                //Se incrementa el valor de x
+                                x++;
+                            }
+                        }
+                    });
+                    
+                    //Se ejecuta el Thread
+                    t.start();
+                }else {
+                    jProgressBar1.setVisible(false);
+                    JOptionPane.showMessageDialog(null, "Su cita no es para este día, vuelva más tarde.");
                 }
+            } catch (IOException ex) {
+                Logger.getLogger(IntAccesoTaller.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(IntAccesoTaller.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ParseException ex) {
+                Logger.getLogger(IntAccesoTaller.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(IntAccesoTaller.class.getName()).log(Level.SEVERE, null, ex);
             }
-        });
-        //Se ejecuta el Thread
-        t.start();
     }
     
 
@@ -280,10 +309,65 @@ public class IntAccesoTaller extends javax.swing.JFrame {
 
     private void jTextDNIKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextDNIKeyPressed
         if(evt.getKeyCode()==KeyEvent.VK_ENTER){
-            if(ComprobarString.longitudLetraFinal(9, jTextDNI.getText())){
-
-                this.setVisible(false);
-        }
+       if(ComprobarString.longitudLetraFinal(9, jTextDNI.getText())){
+            jProgressBar1.setVisible(true);
+            final Thread t;
+            Random rand = new Random();
+            Ingreso tall=new Ingreso();
+            try {
+                if(tall.comprobarIngreso(jTextDNI.getText())){
+                    
+                    
+                    //Inicializamos
+                    t = new Thread(new Runnable() {
+                        //Implementamos el método run()
+                        @Override
+                        public void run() {
+                            //Permite mostrar el valor del progreso
+                            jProgressBar1.setStringPainted(true);
+                            int x = 1;
+                            
+                            //Utilizamos un while para emular el valor mínimo y máximo
+                            //En este caso 0 - 100
+                            while(x <= 100){
+                                //Asignamos valor a nuestro JProgressBar por cada siclo del bucle
+                                jProgressBar1.setValue(x);
+                                if(x<=50){
+                                    jProgressBar1.setString("Cargando Datos..");
+                                }else if(x>50&&x<=75){
+                                    jProgressBar1.setString("Seleccionando Puerta..");
+                                }else if(x==100){
+                                    JOptionPane.showMessageDialog(null, "Pase por la puerta: \n" +"               "+ (1 + rand.nextInt(5)));
+                                }
+                                
+                                //Hacemos una parada de medio segundo por cada siclo while
+                                try {
+                                    Thread.sleep(100);
+                                } catch (InterruptedException e) {
+                                }
+                                //Se incrementa el valor de x
+                                x++;
+                            }
+                        }
+                    });
+                    
+                    //Se ejecuta el Thread
+                    t.start();
+                }else {
+                    jProgressBar1.setVisible(false);
+                    JOptionPane.showMessageDialog(null, "Su cita no es para este día, vuelva más tarde.");
+                }
+            } catch (IOException ex) {
+                Logger.getLogger(IntAccesoTaller.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(IntAccesoTaller.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ParseException ex) {
+                Logger.getLogger(IntAccesoTaller.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(IntAccesoTaller.class.getName()).log(Level.SEVERE, null, ex);
+            }
+    }
+    
         }
     }//GEN-LAST:event_jTextDNIKeyPressed
 

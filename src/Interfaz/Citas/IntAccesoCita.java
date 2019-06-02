@@ -207,9 +207,25 @@ public class IntAccesoCita extends javax.swing.JFrame {
 
     private void BtContinuarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtContinuarActionPerformed
         if(ComprobarString.longitudLetraFinal(9, jTextDNI.getText())){
+            boolean m=false;
+            Cita cit = new Cita();
+            try {
+                m = cit.comprobarCita("Citas", jTextDNI.getText());
+            } catch (IOException ex) {
+                Logger.getLogger(IntAccesoCita.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(IntAccesoCita.class.getName()).log(Level.SEVERE, null, ex);
+            }
+                    if (m) {
+                        JOptionPane.showMessageDialog(null, "Ya tiene cita");
+                        InterfazCita InP=new InterfazCita();
+                        InP.setVisible(true);
+                        this.setVisible(false);
+                    }else{
         IntSelLocalidades ISLocal =new IntSelLocalidades();
         ISLocal.setVisible(true);
         this.setVisible(false);
+        }
         }
 
     }//GEN-LAST:event_BtContinuarActionPerformed
@@ -230,11 +246,28 @@ public class IntAccesoCita extends javax.swing.JFrame {
 
     private void jTextDNIKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextDNIKeyPressed
         if(evt.getKeyCode()==KeyEvent.VK_ENTER){
-            if(ComprobarString.longitudLetraFinal(9, jTextDNI.getText())){
-                IntSelLocalidades ISLocal =new IntSelLocalidades();
-                ISLocal.setVisible(true);
-                this.setVisible(false);
+        if(ComprobarString.longitudLetraFinal(9, jTextDNI.getText())){
+            boolean m=false;
+            Cita cit = new Cita();
+            try {
+                m = cit.comprobarCita("Citas", jTextDNI.getText());
+            } catch (IOException ex) {
+                Logger.getLogger(IntAccesoCita.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(IntAccesoCita.class.getName()).log(Level.SEVERE, null, ex);
+            }
+                    if (m) {
+                        JOptionPane.showMessageDialog(null, "Ya tiene cita");
+                        InterfazCita InP=new InterfazCita();
+                        InP.setVisible(true);
+                        this.setVisible(false);
+                    }else{
+        IntSelLocalidades ISLocal =new IntSelLocalidades();
+        ISLocal.setVisible(true);
+        this.setVisible(false);
         }
+        }
+
         }
     }//GEN-LAST:event_jTextDNIKeyPressed
 
@@ -282,6 +315,6 @@ public class IntAccesoCita extends javax.swing.JFrame {
     private javax.swing.JLabel jLogo;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel jSair1;
-    private javax.swing.JTextField jTextDNI;
+    public static javax.swing.JTextField jTextDNI;
     // End of variables declaration//GEN-END:variables
 }

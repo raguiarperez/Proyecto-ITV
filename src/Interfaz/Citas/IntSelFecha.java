@@ -7,7 +7,11 @@ package Interfaz.Citas;
 
 import Citas.Cita;
 import Interfaz.Interfaz;
+import java.io.IOException;
+import java.text.ParseException;
 import java.time.format.DateTimeFormatter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -184,10 +188,29 @@ public class IntSelFecha extends javax.swing.JFrame {
     private void BtContinuarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtContinuarActionPerformed
         Cita.time=dateTimePicker1.timePicker.getTime();
         Cita.fecha=dateTimePicker1.datePicker.getDate().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
-        
-        InterfazCita Icita=new InterfazCita();
-        Icita.setVisible(true);
-        this.setVisible(false);
+        Cita cit = new Cita();
+        cit.setFecha2(Cita.fecha);
+        cit.setTime2(Cita.time);
+        cit.setLocalidad2(Cita.localidad);
+        Boolean f=false;
+        try {
+            f = cit.comprobarFechaHora();
+        } catch (ParseException ex) {
+            Logger.getLogger(IntSelFecha.class.getName()).log(Level.SEVERE, null, ex);
+        }
+                    if (f) {
+            try {
+                cit.engadir("Citas", cit, IntAccesoCita.jTextDNI.getText());
+            } catch (IOException ex) {
+                Logger.getLogger(IntSelFecha.class.getName()).log(Level.SEVERE, null, ex);
+            }
+                        InterfazCita Icita=new InterfazCita();
+                        Icita.setVisible(true);
+                        this.setVisible(false);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Introduzca una hora de 07 a 21 del día siguiente y que no sobrepase el año 2020");
+                    }
+
     }//GEN-LAST:event_BtContinuarActionPerformed
 
     private void jSair1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jSair1MouseClicked
