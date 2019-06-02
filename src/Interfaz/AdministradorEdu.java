@@ -5,6 +5,8 @@
  */
 package Interfaz;
 
+import BaseDatos.TablaDocCoche;
+import BaseDatos.TablaSeguros;
 import Interfaz.Citas.InterfazCita;
 import Interfaz.Documentación.InterfazDoc;
 import static Interfaz.Interfaz.fecha;
@@ -278,6 +280,8 @@ public class AdministradorEdu extends javax.swing.JFrame implements Runnable{
 
     private void BtDocumentacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtDocumentacionActionPerformed
         InterfazDoc Idoc=new InterfazDoc();
+        TablaSeguros.actualizarTablaSeguros(InterfazDoc.tablaSeguro);
+        TablaDocCoche.actualizarTablaDocCoche(InterfazDoc.jTable1);
         Idoc.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_BtDocumentacionActionPerformed

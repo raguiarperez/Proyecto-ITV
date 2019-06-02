@@ -5,13 +5,18 @@
  */
 package Interfaz.Documentación;
 
+import BaseDatos.*;
+import Documentación.Seguros;
 import Utilidades.ComprobarString;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author rafa2
  */
 public class IntinsDocSeguro extends javax.swing.JFrame {
+
 
     /**
      * Creates new form IntinsDocSeguro
@@ -79,9 +84,9 @@ public class IntinsDocSeguro extends javax.swing.JFrame {
             }
         });
 
-        BtInsertar.setText("Insertar / Modificar");
         BtInsertar.setBackground(new java.awt.Color(0, 102, 204));
         BtInsertar.setForeground(new java.awt.Color(255, 255, 255));
+        BtInsertar.setText("Insertar / Modificar");
         BtInsertar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtInsertarActionPerformed(evt);
@@ -96,11 +101,11 @@ public class IntinsDocSeguro extends javax.swing.JFrame {
             }
         });
 
+        jSair1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jSair1.setForeground(new java.awt.Color(255, 255, 255));
         jSair1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jSair1.setText("X");
         jSair1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jSair1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jSair1.setForeground(new java.awt.Color(255, 255, 255));
         jSair1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jSair1MouseClicked(evt);
@@ -231,7 +236,7 @@ public class IntinsDocSeguro extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextDNIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextDNIActionPerformed
-        ComprobarString.longitudLetraFinal(9, jTextDNI.getText());
+
     }//GEN-LAST:event_jTextDNIActionPerformed
 
     private void jTextNUMPOLIZAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextNUMPOLIZAActionPerformed
@@ -239,7 +244,32 @@ public class IntinsDocSeguro extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextNUMPOLIZAActionPerformed
 
     private void BtInsertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtInsertarActionPerformed
-
+        if(InterfazDoc.tablaSeguro.contains(0, 3)== true){
+                   String matri = (String)InterfazDoc.tablaSeguro.getValueAt(0, 3);
+            if(ComprobarString.longitud(6, jTextMATRICULA.getText())==true && !jTextNUMPOLIZA.getText().isEmpty() && !jTextCOMPANIA.getText().isEmpty() && !jTextMATRICULA.getText().isEmpty()){
+                JOptionPane.showMessageDialog(null,TablaSeguros.modificarSeguro(jTextDNI, jTextNUMPOLIZA, jTextCOMPANIA, jTextMATRICULA));
+                if(!jTextMATRICULA.getText().equalsIgnoreCase((String)InterfazDoc.tablaSeguro.getValueAt(0, 3)))
+                    TablaDocCoche.borrarDocCoche(matri);}
+            else{
+                JOptionPane.showMessageDialog(null, "Todos los campos deben ser rellenados.");
+            }
+        }
+        else{
+        if(!jTextNUMPOLIZA.getText().isEmpty() && !jTextCOMPANIA.getText().isEmpty() && !jTextMATRICULA.getText().isEmpty()){
+        
+        }else{
+         JOptionPane.showMessageDialog(null, "Todos los campos deben ser rellenados.");
+                } if (ComprobarString.longitud(6, jTextMATRICULA.getText())==true){
+            JOptionPane.showMessageDialog(null,TablaSeguros.añadirSeguro(jTextDNI, jTextNUMPOLIZA, jTextCOMPANIA, jTextMATRICULA));
+        }
+        }
+        ArrayList<Seguros> conS = new ArrayList<>();
+        conS=TablaSeguros.consultaSeguros(IntAccesoDoc.jTextDNI);
+        TablaDocCoche.añadirArrayDocConsulta(conS);
+        TablaSeguros.actuConsultaSeguros(conS, InterfazDoc.tablaSeguro);
+        TablaDocCoche.actuConsultaSegDocCoche(conS, InterfazDoc.jTable1);
+        
+            
         this.setVisible(false);
     }//GEN-LAST:event_BtInsertarActionPerformed
 
@@ -256,7 +286,7 @@ public class IntinsDocSeguro extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextCOMPANIAActionPerformed
 
     private void jTextMATRICULAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextMATRICULAActionPerformed
-        String Matricula= jTextMATRICULA.getText();
+
     }//GEN-LAST:event_jTextMATRICULAActionPerformed
 
     /**
@@ -306,8 +336,8 @@ public class IntinsDocSeguro extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel jSair1;
     private javax.swing.JTextField jTextCOMPANIA;
-    private javax.swing.JTextField jTextDNI;
-    private javax.swing.JTextField jTextMATRICULA;
+    public javax.swing.JTextField jTextDNI;
+    public javax.swing.JTextField jTextMATRICULA;
     private javax.swing.JTextField jTextNUMPOLIZA;
     // End of variables declaration//GEN-END:variables
 }

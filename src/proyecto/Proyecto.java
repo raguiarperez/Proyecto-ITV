@@ -1,7 +1,6 @@
 package proyecto;
 
 import Citas.Cita;
-import Documentación.Documentos;
 import Interfaz.Interfaz;
 import Taller.Ingreso;
 import Utilidades.ComprobarString;
@@ -74,7 +73,7 @@ public class Proyecto {
 //            System.exit(0);
 //        }
 //    }
-    Interfaz inter=new Interfaz();
+    Interfaz inter=new Interfaz("Documentos");
     inter.setVisible(true);
     }
 }

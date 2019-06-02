@@ -5,13 +5,16 @@
  */
 package Interfaz;
 
+import BaseDatos.General;
 import Interfaz.Documentación.IntAccesoDoc;
 import Interfaz.Citas.IntAccesoCita;
-import Citas.Cita;
+import Interfaz.Documentación.InterfazDoc;
 import Interfaz.Taller.IntAccesoTaller;
-import Utilidades.ComprobarString;
-import Utilidades.pedirDatos;
-import javax.swing.JOptionPane;
+import java.io.File;
+import java.sql.Connection;
+import java.sql.DatabaseMetaData;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -32,6 +35,37 @@ public class Interfaz extends javax.swing.JFrame implements Runnable {
         hilo=new Thread(this);
         hilo.start();
         setVisible(true);
+    }
+    
+    public Interfaz(String filename){
+    String url = "jdbc:sqlite:" + filename + ".db";
+             File file = new File(filename + ".db");
+        if (file.exists() == false){
+        try (Connection conn = DriverManager.getConnection(url)) {
+            if (conn != null ) {
+                InterfazDoc id = new InterfazDoc();
+                DatabaseMetaData meta = conn.getMetaData();
+                System.out.println("The driver name is " + meta.getDriverName());
+                System.out.println("Una nueva DB ha sido creada");
+                General.crearTablas(filename,id.tablaSeguro,id.jTable1);
+
+            }
+        }catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+        }
+        try {
+            Connection conn = DriverManager.getConnection(url);
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        System.out.println("La conexión a SQLite ha sido establecida");
+            initComponents();
+            lbfecha.setText(fecha());
+            hilo=new Thread(this);
+            hilo.start();
+            setVisible(true);
     }
     
 

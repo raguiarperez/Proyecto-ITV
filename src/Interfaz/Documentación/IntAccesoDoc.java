@@ -5,9 +5,14 @@
  */
 package Interfaz.Documentación;
 
+import BaseDatos.TablaDocCoche;
+import BaseDatos.TablaSeguros;
+import Documentación.Seguros;
 import Interfaz.Interfaz;
 import Utilidades.ComprobarString;
 import Utilidades.pedirDatos;
+import java.util.ArrayList;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -235,8 +240,12 @@ public class IntAccesoDoc extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextMATRICULAActionPerformed
 
     private void BtContinuarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtContinuarActionPerformed
-        if(ComprobarString.longitudLetraFinal(9, jTextDNI.getText())==true&&ComprobarString.longitud(7, jTextMATRICULA.getText())==true){
+        if(ComprobarString.longitudLetraFinal(9, jTextDNI.getText())==true){
         InterfazDoc Idoc= new InterfazDoc();
+        ArrayList<Seguros> conS = new ArrayList<>();
+        conS=TablaSeguros.consultaSeguros(jTextDNI);
+        TablaSeguros.actuConsultaSeguros(conS, Idoc.tablaSeguro);
+        TablaDocCoche.actuConsultaSegDocCoche(conS, Idoc.jTable1);
         Idoc.setVisible(true);
         this.setVisible(false);
         }
@@ -304,7 +313,7 @@ public class IntAccesoDoc extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel jSair1;
     private javax.swing.JScrollBar jScrollBar1;
-    private javax.swing.JTextField jTextDNI;
+    public static javax.swing.JTextField jTextDNI;
     private javax.swing.JTextField jTextDNI1;
     private javax.swing.JTextField jTextMATRICULA;
     // End of variables declaration//GEN-END:variables

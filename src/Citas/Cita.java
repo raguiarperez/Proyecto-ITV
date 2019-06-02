@@ -10,9 +10,7 @@ import java.io.*;
 import java.text.*;
 import java.time.LocalTime;
 import java.util.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JOptionPane;
+
 
 /**
  *
@@ -132,22 +130,22 @@ public class Cita implements Serializable {
     }
 
     //Metodo con JFrame para seleccionar Fecha y Hora
-    public Cita selFecha(){
-        try {
-        FechaCita cit = new FechaCita();
-         cit.setVisible(true);
-        while (cit.isVisible()) {
-                Thread.sleep(1000);
-        }
-        this.setFecha2(fecha);
-        this.setTime2(time);
-        return this;
-         } catch (InterruptedException ex) {
-                System.out.println("4"+ex.getMessage());
-                return this;
-            }
-        
-    }
+//    public Cita selFecha(){
+//        try {
+//        FechaCita cit = new FechaCita();
+//         cit.setVisible(true);
+//        while (cit.isVisible()) {
+//                Thread.sleep(1000);
+//        }
+//        this.setFecha2(fecha);
+//        this.setTime2(time);
+//        return this;
+//         } catch (InterruptedException ex) {
+//                System.out.println("4"+ex.getMessage());
+//                return this;
+//            }
+//        
+//    }
 
     //Metodo para añadir al fichero los datos
     public void engadir(String nomeFich, Cita cit, String dni) throws IOException {

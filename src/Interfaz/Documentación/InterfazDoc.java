@@ -6,6 +6,8 @@
 package Interfaz.Documentación;
 
 import Interfaz.Interfaz;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -260,14 +262,34 @@ public class InterfazDoc extends javax.swing.JFrame {
 
     private void BtInsertarCocheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtInsertarCocheActionPerformed
         IntinsDocCoche IDocoche=new IntinsDocCoche();
+        if(jTable1.contains(0, 1)== true){
+         JOptionPane.showMessageDialog(null,"Su coche ya está listado");
+
+        }else if(tablaSeguro.contains(0,1)==true){
+        IntinsDocCoche.jTextMatricula.setText((String)tablaSeguro.getValueAt(0, 3));
+        IntinsDocCoche.jTextMatricula.setEditable(false);
         IDocoche.setVisible(true);
+        }else{
+            JOptionPane.showMessageDialog(null,"Debes añadir un seguro primero");
+        }
     }//GEN-LAST:event_BtInsertarCocheActionPerformed
 
     private void BtInsertarSeguroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtInsertarSeguroActionPerformed
         IntinsDocSeguro IDoseguro=new IntinsDocSeguro();
+        IDoseguro.jTextDNI.setText(IntAccesoDoc.jTextDNI.getText());
+        if(tablaSeguro.contains(0, 3)== true){
+        IDoseguro.jTextMATRICULA.setText((String)tablaSeguro.getValueAt(0, 3));
+        }        
+        IDoseguro.jTextDNI.setEditable(false);
         IDoseguro.setVisible(true);
     }//GEN-LAST:event_BtInsertarSeguroActionPerformed
 
+    
+    public JFrame inte(){
+        return this;
+    }
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -317,7 +339,7 @@ public class InterfazDoc extends javax.swing.JFrame {
     private javax.swing.JLabel jSair1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable tablaSeguro;
+    public static javax.swing.JTable jTable1;
+    public static javax.swing.JTable tablaSeguro;
     // End of variables declaration//GEN-END:variables
 }

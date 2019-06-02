@@ -6,22 +6,29 @@ import java.io.Serializable;
  *
  * @author Mirroriced y Rafsniper
  */
-public class DocCoche implements Serializable {
-
+public class DocCoche {
+    private String matricula;
     private String numBastidor;
     private String marca;
     private String modelo;
     private String anoMatriculacion;
 
-    public DocCoche(String numBastidor, String marca, String modelo, String anoMatriculacion) {
+    public DocCoche(String matricula, String numBastidor, String marca, String modelo,String anoMatriculacion) {
+        this.matricula= matricula;
         this.numBastidor = numBastidor;
         this.marca = marca;
         this.modelo = modelo;
         this.anoMatriculacion = anoMatriculacion;
     }
-
+    
+    
     public DocCoche() {
     }
+
+    public String getMatricula() {
+        return matricula;
+    }
+
 
     public String getNumBastidor() {
         return numBastidor;

@@ -119,6 +119,9 @@
       <SubComponents>
         <Component class="javax.swing.JTextField" name="jTextDNI">
           <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="cc" green="66" red="0" type="rgb"/>
+            </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                 <LineBorder>
@@ -126,17 +129,16 @@
                 </LineBorder>
               </Border>
             </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="cc" green="66" red="0" type="rgb"/>
-            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextDNIActionPerformed"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="jLogo">
           <Properties>
-            <Property name="text" type="java.lang.String" value="ITV ERD"/>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="66" red="0" type="rgb"/>
             </Property>
@@ -146,11 +148,11 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="66" red="0" type="rgb"/>
             </Property>
+            <Property name="text" type="java.lang.String" value="ITV ERD"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Acceso a Documentaci&#xf3;n Previa"/>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="66" red="0" type="rgb"/>
             </Property>
@@ -160,11 +162,11 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="66" red="0" type="rgb"/>
             </Property>
+            <Property name="text" type="java.lang.String" value="Acceso a Documentaci&#xf3;n Previa"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel3">
           <Properties>
-            <Property name="text" type="java.lang.String" value="DNI:"/>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="66" red="0" type="rgb"/>
             </Property>
@@ -174,19 +176,20 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="66" red="0" type="rgb"/>
             </Property>
+            <Property name="text" type="java.lang.String" value="DNI:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextNUMPOLIZA">
           <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="cc" green="66" red="0" type="rgb"/>
+            </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                 <LineBorder>
                   <Color PropertyName="color" blue="cc" green="66" red="0" type="rgb"/>
                 </LineBorder>
               </Border>
-            </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="cc" green="66" red="0" type="rgb"/>
             </Property>
           </Properties>
           <Events>
@@ -195,13 +198,13 @@
         </Component>
         <Component class="javax.swing.JButton" name="BtInsertar">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Insertar / Modificar"/>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="66" red="0" type="rgb"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
+            <Property name="text" type="java.lang.String" value="Insertar / Modificar"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtInsertarActionPerformed"/>
@@ -243,16 +246,16 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="jSair1">
               <Properties>
-                <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="X"/>
-                <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Cursor de Mano"/>
-                </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="24" style="0"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="text" type="java.lang.String" value="X"/>
+                <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                  <Color id="Cursor de Mano"/>
                 </Property>
               </Properties>
               <Events>
@@ -263,7 +266,6 @@
         </Container>
         <Component class="javax.swing.JLabel" name="jLabel4">
           <Properties>
-            <Property name="text" type="java.lang.String" value="N&#xda;MERO P&#xd3;LIZA:"/>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="66" red="0" type="rgb"/>
             </Property>
@@ -273,11 +275,11 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="66" red="0" type="rgb"/>
             </Property>
+            <Property name="text" type="java.lang.String" value="N&#xda;MERO P&#xd3;LIZA:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel5">
           <Properties>
-            <Property name="text" type="java.lang.String" value="NOMBRE COMPA&#xd1;&#xcd;A:"/>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="66" red="0" type="rgb"/>
             </Property>
@@ -287,19 +289,20 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="66" red="0" type="rgb"/>
             </Property>
+            <Property name="text" type="java.lang.String" value="NOMBRE COMPA&#xd1;&#xcd;A:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextCOMPANIA">
           <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="cc" green="66" red="0" type="rgb"/>
+            </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                 <LineBorder>
                   <Color PropertyName="color" blue="cc" green="66" red="0" type="rgb"/>
                 </LineBorder>
               </Border>
-            </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="cc" green="66" red="0" type="rgb"/>
             </Property>
           </Properties>
           <Events>
@@ -308,6 +311,9 @@
         </Component>
         <Component class="javax.swing.JTextField" name="jTextMATRICULA">
           <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="cc" green="66" red="0" type="rgb"/>
+            </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                 <LineBorder>
@@ -315,17 +321,16 @@
                 </LineBorder>
               </Border>
             </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="cc" green="66" red="0" type="rgb"/>
-            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextMATRICULAActionPerformed"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel6">
           <Properties>
-            <Property name="text" type="java.lang.String" value="MATR&#xcd;CULA:"/>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="66" red="0" type="rgb"/>
             </Property>
@@ -335,6 +340,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="66" red="0" type="rgb"/>
             </Property>
+            <Property name="text" type="java.lang.String" value="MATR&#xcd;CULA:"/>
           </Properties>
         </Component>
       </SubComponents>

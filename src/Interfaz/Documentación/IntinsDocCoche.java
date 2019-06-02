@@ -5,7 +5,13 @@
  */
 package Interfaz.Documentación;
 
+import BaseDatos.TablaDocCoche;
+import BaseDatos.TablaSeguros;
+import Documentación.Seguros;
+import static Interfaz.Documentación.InterfazDoc.tablaSeguro;
 import Utilidades.ComprobarString;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -58,23 +64,23 @@ public class IntinsDocCoche extends javax.swing.JFrame {
             }
         });
 
+        jLogo.setText("ITV ERD");
         jLogo.setBackground(new java.awt.Color(0, 102, 204));
         jLogo.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLogo.setForeground(new java.awt.Color(0, 102, 204));
-        jLogo.setText("ITV ERD");
 
+        jLabel2.setText("Acceso a Documentación Previa");
         jLabel2.setBackground(new java.awt.Color(0, 102, 204));
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 102, 204));
-        jLabel2.setText("Acceso a Documentación Previa");
 
+        jLabel3.setText("MATRICULA:");
         jLabel3.setBackground(new java.awt.Color(0, 102, 204));
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 102, 204));
-        jLabel3.setText("MATRICULA:");
 
-        jTextNUMBASTIDOR.setForeground(new java.awt.Color(0, 102, 204));
         jTextNUMBASTIDOR.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 204)));
+        jTextNUMBASTIDOR.setForeground(new java.awt.Color(0, 102, 204));
         jTextNUMBASTIDOR.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextNUMBASTIDORActionPerformed(evt);
@@ -98,11 +104,11 @@ public class IntinsDocCoche extends javax.swing.JFrame {
             }
         });
 
+        jSair1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jSair1.setForeground(new java.awt.Color(255, 255, 255));
         jSair1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jSair1.setText("X");
         jSair1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jSair1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jSair1.setForeground(new java.awt.Color(255, 255, 255));
         jSair1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jSair1MouseClicked(evt);
@@ -126,49 +132,49 @@ public class IntinsDocCoche extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jLabel4.setText("NUMERO BASTIDOR:");
         jLabel4.setBackground(new java.awt.Color(0, 102, 204));
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 102, 204));
-        jLabel4.setText("NUMERO BASTIDOR:");
 
+        jLabel5.setText("MARCA:");
         jLabel5.setBackground(new java.awt.Color(0, 102, 204));
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 102, 204));
-        jLabel5.setText("MARCA:");
 
-        jTextMARCA.setForeground(new java.awt.Color(0, 102, 204));
         jTextMARCA.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 204)));
+        jTextMARCA.setForeground(new java.awt.Color(0, 102, 204));
         jTextMARCA.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextMARCAActionPerformed(evt);
             }
         });
 
-        jTextMODELO.setForeground(new java.awt.Color(0, 102, 204));
         jTextMODELO.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 204)));
+        jTextMODELO.setForeground(new java.awt.Color(0, 102, 204));
         jTextMODELO.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextMODELOActionPerformed(evt);
             }
         });
 
+        jLabel6.setText("MODELO:");
         jLabel6.setBackground(new java.awt.Color(0, 102, 204));
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 102, 204));
-        jLabel6.setText("MODELO:");
 
-        jTextANOMATRICULA.setForeground(new java.awt.Color(0, 102, 204));
         jTextANOMATRICULA.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 204)));
+        jTextANOMATRICULA.setForeground(new java.awt.Color(0, 102, 204));
         jTextANOMATRICULA.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextANOMATRICULAActionPerformed(evt);
             }
         });
 
+        jLabel7.setText("AÑO MATRICULACIÓN:");
         jLabel7.setBackground(new java.awt.Color(0, 102, 204));
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 102, 204));
-        jLabel7.setText("AÑO MATRICULACIÓN:");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -260,8 +266,16 @@ public class IntinsDocCoche extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextNUMBASTIDORActionPerformed
 
     private void BtInsertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtInsertarActionPerformed
-        
-        this.setVisible(false);
+        if(!jTextNUMBASTIDOR.getText().isEmpty() && !jTextMARCA.getText().isEmpty() && !jTextMODELO.getText().isEmpty() && !jTextANOMATRICULA.getText().isEmpty()){
+        JOptionPane.showMessageDialog(null,TablaDocCoche.añadirDocCoche(jTextMatricula, jTextNUMBASTIDOR, jTextMARCA, jTextMODELO,jTextANOMATRICULA));
+        ArrayList<Seguros> conS = new ArrayList<>();
+        conS=TablaSeguros.consultaSeguros(IntAccesoDoc.jTextDNI);
+        TablaSeguros.actuConsultaSeguros(conS, InterfazDoc.tablaSeguro);
+        TablaDocCoche.actuConsultaSegDocCoche(conS, InterfazDoc.jTable1);
+        this.setVisible(false);        
+        }else{
+        JOptionPane.showMessageDialog(null, "Todos los campos deben ser rellenados.");
+    }
 
     }//GEN-LAST:event_BtInsertarActionPerformed
 
@@ -335,7 +349,7 @@ public class IntinsDocCoche extends javax.swing.JFrame {
     private javax.swing.JTextField jTextANOMATRICULA;
     private javax.swing.JTextField jTextMARCA;
     private javax.swing.JTextField jTextMODELO;
-    private javax.swing.JTextField jTextMatricula;
+    public static javax.swing.JTextField jTextMatricula;
     private javax.swing.JTextField jTextNUMBASTIDOR;
     // End of variables declaration//GEN-END:variables
 }
