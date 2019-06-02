@@ -20,7 +20,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Mirroriced
+ * @author Mirroriced y Rafsniper
  */
 public class TablaSeguros {
     static String sql;

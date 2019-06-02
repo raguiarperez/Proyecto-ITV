@@ -11,8 +11,7 @@ import javax.swing.JOptionPane;
 import Citas.Cita;
 
 /**
- *
- * @author rafa2
+ * @author Mirroriced y Rafsniper
  */
 public class IntSelLocalidades extends javax.swing.JFrame {
     String ciudad;
@@ -36,93 +35,54 @@ public class IntSelLocalidades extends javax.swing.JFrame {
         jLogo = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         BtContinuar = new javax.swing.JButton();
-        PanelSair = new javax.swing.JPanel();
-        jSair1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         BtMenuPrincipal = new javax.swing.JButton();
         jSeleccionLoc = new javax.swing.JComboBox<>();
-        jLabel1 = new javax.swing.JLabel();
-        txtCiudad = new javax.swing.JTextField();
+        jlbCerrar = new javax.swing.JLabel();
+        jLbMin = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.blue, java.awt.Color.blue));
+        jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.darkGray, java.awt.Color.darkGray));
 
-        jLogo.setText("ITV ERD");
-        jLogo.setBackground(new java.awt.Color(0, 102, 204));
+        jLogo.setBackground(new java.awt.Color(51, 51, 51));
         jLogo.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLogo.setForeground(new java.awt.Color(0, 102, 204));
+        jLogo.setForeground(new java.awt.Color(51, 51, 51));
+        jLogo.setText("ITV ERD");
 
-        jLabel2.setText("Acceso a Cita Previa");
-        jLabel2.setBackground(new java.awt.Color(0, 102, 204));
+        jLabel2.setBackground(new java.awt.Color(51, 51, 51));
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 102, 204));
+        jLabel2.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel2.setText("Acceso a Cita Previa");
 
-        BtContinuar.setText("Continuar");
-        BtContinuar.setBackground(new java.awt.Color(0, 102, 204));
+        BtContinuar.setBackground(new java.awt.Color(51, 51, 51));
         BtContinuar.setForeground(new java.awt.Color(255, 255, 255));
+        BtContinuar.setText("Continuar");
         BtContinuar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtContinuarActionPerformed(evt);
             }
         });
 
-        PanelSair.setBackground(new java.awt.Color(0, 102, 204));
-        PanelSair.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        PanelSair.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                PanelSairMouseClicked(evt);
-            }
-        });
-
-        jSair1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jSair1.setText("X");
-        jSair1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jSair1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jSair1.setForeground(new java.awt.Color(255, 255, 255));
-        jSair1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jSair1MouseClicked(evt);
-            }
-        });
-
-        javax.swing.GroupLayout PanelSairLayout = new javax.swing.GroupLayout(PanelSair);
-        PanelSair.setLayout(PanelSairLayout);
-        PanelSairLayout.setHorizontalGroup(
-            PanelSairLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelSairLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jSair1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        PanelSairLayout.setVerticalGroup(
-            PanelSairLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelSairLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jSair1)
-                .addContainerGap())
-        );
-
-        jLabel3.setText("Selección de Localidad");
-        jLabel3.setBackground(new java.awt.Color(0, 102, 204));
+        jLabel3.setBackground(new java.awt.Color(51, 51, 51));
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 102, 204));
+        jLabel3.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel3.setText("Selección de Localidad");
 
-        BtMenuPrincipal.setText("Menú Principal");
-        BtMenuPrincipal.setBackground(new java.awt.Color(0, 102, 204));
+        BtMenuPrincipal.setBackground(new java.awt.Color(51, 51, 51));
         BtMenuPrincipal.setForeground(new java.awt.Color(255, 255, 255));
+        BtMenuPrincipal.setText("Menú Principal");
         BtMenuPrincipal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtMenuPrincipalActionPerformed(evt);
             }
         });
 
+        jSeleccionLoc.setForeground(new java.awt.Color(51, 51, 51));
         jSeleccionLoc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Madrid", "Vigo", "Valencia", "Barcelona", "Ourense" }));
         jSeleccionLoc.setAutoscrolls(true);
-        jSeleccionLoc.setBackground(new java.awt.Color(0, 102, 204));
-        jSeleccionLoc.setForeground(new java.awt.Color(255, 255, 255));
         jSeleccionLoc.setName(""); // NOI18N
         jSeleccionLoc.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -135,11 +95,35 @@ public class IntSelLocalidades extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("Seleccionado:");
+        jlbCerrar.setIcon(new javax.swing.ImageIcon("C:\\Users\\rafa2\\OneDrive\\Documentos\\DANIELCASTELAO\\INSTITUTO\\DAM\\PROGRAMACIÓN\\PROYECTOS\\2ª EVALUACIÓN\\Proyecto\\Proyecto-Programacion\\Imagenes\\icons8_Multiply_32px.png")); // NOI18N
+        jlbCerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jlbCerrar.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jlbCerrarMouseMoved(evt);
+            }
+        });
+        jlbCerrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jlbCerrarMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jlbCerrarMouseExited(evt);
+            }
+        });
 
-        txtCiudad.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCiudadActionPerformed(evt);
+        jLbMin.setIcon(new javax.swing.ImageIcon("C:\\Users\\rafa2\\OneDrive\\Documentos\\DANIELCASTELAO\\INSTITUTO\\DAM\\PROGRAMACIÓN\\PROYECTOS\\2ª EVALUACIÓN\\Proyecto\\Proyecto-Programacion\\Imagenes\\icons8_Expand_Arrow_32px.png")); // NOI18N
+        jLbMin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLbMin.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jLbMinMouseMoved(evt);
+            }
+        });
+        jLbMin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLbMinMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLbMinMouseExited(evt);
             }
         });
 
@@ -160,40 +144,34 @@ public class IntSelLocalidades extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLogo)
-                                .addGap(107, 107, 107)
-                                .addComponent(PanelSair, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(73, 73, 73)
+                                .addComponent(jLbMin)
+                                .addGap(8, 8, 8)
+                                .addComponent(jlbCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap())
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jLabel2)
                                     .addComponent(jSeleccionLoc, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(137, 137, 137))))))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(94, 94, 94)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtCiudad)
-                .addGap(137, 137, 137))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLogo))
-                    .addComponent(PanelSair, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(0, 0, 0)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLogo)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLbMin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jlbCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(29, 29, 29)
                 .addComponent(jLabel2)
                 .addGap(17, 17, 17)
                 .addComponent(jLabel3)
                 .addGap(26, 26, 26)
                 .addComponent(jSeleccionLoc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(txtCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BtContinuar)
                     .addComponent(BtMenuPrincipal))
@@ -217,21 +195,11 @@ public class IntSelLocalidades extends javax.swing.JFrame {
 
     private void BtContinuarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtContinuarActionPerformed
         Cita.localidad=(String)jSeleccionLoc.getSelectedItem();
-        txtCiudad.setText(jSeleccionLoc.getSelectedItem().toString());
+
         IntSelFecha Ifecha= new IntSelFecha();
         Ifecha.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_BtContinuarActionPerformed
-
-    private void jSair1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jSair1MouseClicked
-        this.setVisible(false);
-        System.exit(0);
-    }//GEN-LAST:event_jSair1MouseClicked
-
-    private void PanelSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PanelSairMouseClicked
-        this.setVisible(false);
-        System.exit(0);
-    }//GEN-LAST:event_PanelSairMouseClicked
 
     private void BtMenuPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtMenuPrincipalActionPerformed
         Interfaz Int=new Interfaz();
@@ -243,13 +211,37 @@ public class IntSelLocalidades extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jSeleccionLocActionPerformed
 
-    private void txtCiudadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCiudadActionPerformed
-
-    }//GEN-LAST:event_txtCiudadActionPerformed
-
     private void jSeleccionLocItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jSeleccionLocItemStateChanged
-        txtCiudad.setText(jSeleccionLoc.getSelectedItem().toString());
+
     }//GEN-LAST:event_jSeleccionLocItemStateChanged
+
+    private void jlbCerrarMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbCerrarMouseMoved
+        jlbCerrar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153,153,153)));
+    }//GEN-LAST:event_jlbCerrarMouseMoved
+
+    private void jlbCerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbCerrarMouseClicked
+        int dialog =JOptionPane.YES_NO_OPTION;
+        int result = JOptionPane.showConfirmDialog(null,"Desea salir del programa?","Exit",dialog);
+        if(result==0){
+            System.exit(0);
+        }
+    }//GEN-LAST:event_jlbCerrarMouseClicked
+
+    private void jlbCerrarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbCerrarMouseExited
+        jlbCerrar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255,255,255)));
+    }//GEN-LAST:event_jlbCerrarMouseExited
+
+    private void jLbMinMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLbMinMouseMoved
+        jLbMin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153,153,153)));
+    }//GEN-LAST:event_jLbMinMouseMoved
+
+    private void jLbMinMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLbMinMouseClicked
+        this.setState(IntSelLocalidades.ICONIFIED);
+    }//GEN-LAST:event_jLbMinMouseClicked
+
+    private void jLbMinMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLbMinMouseExited
+        jLbMin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255,255,255)));
+    }//GEN-LAST:event_jLbMinMouseExited
 
     /**
      * @param args the command line arguments
@@ -289,14 +281,12 @@ public class IntSelLocalidades extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtContinuar;
     private javax.swing.JButton BtMenuPrincipal;
-    private javax.swing.JPanel PanelSair;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLbMin;
     private javax.swing.JLabel jLogo;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel jSair1;
     public javax.swing.JComboBox<String> jSeleccionLoc;
-    public javax.swing.JTextField txtCiudad;
+    private javax.swing.JLabel jlbCerrar;
     // End of variables declaration//GEN-END:variables
 }

@@ -18,7 +18,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Mirroriced
+ * @author Mirroriced y Rafsniper
  */
 public class TablaDocCoche {
     static String sql;

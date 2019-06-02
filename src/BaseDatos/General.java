@@ -18,7 +18,7 @@ import javax.swing.JTextField;
 
 /**
  *
- * @author Mirroriced
+ * @author Mirroriced y Rafsniper
  */
 public class General {
     static String sql;

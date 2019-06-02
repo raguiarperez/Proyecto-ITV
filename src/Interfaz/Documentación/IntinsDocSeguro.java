@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author rafa2
+ * @author Mirroriced y Rafsniper
  */
 public class IntinsDocSeguro extends javax.swing.JFrame {
 
@@ -41,50 +41,51 @@ public class IntinsDocSeguro extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jTextNUMPOLIZA = new javax.swing.JTextField();
         BtInsertar = new javax.swing.JButton();
-        PanelSair = new javax.swing.JPanel();
-        jSair1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jTextCOMPANIA = new javax.swing.JTextField();
         jTextMATRICULA = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
+        jlbCerrar = new javax.swing.JLabel();
+        jLbMin = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.darkGray, java.awt.Color.darkGray));
 
-        jTextDNI.setForeground(new java.awt.Color(0, 102, 204));
-        jTextDNI.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 204)));
+        jTextDNI.setForeground(new java.awt.Color(51, 51, 51));
+        jTextDNI.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51)));
         jTextDNI.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextDNIActionPerformed(evt);
             }
         });
 
-        jLogo.setBackground(new java.awt.Color(0, 102, 204));
+        jLogo.setBackground(new java.awt.Color(51, 51, 51));
         jLogo.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLogo.setForeground(new java.awt.Color(0, 102, 204));
+        jLogo.setForeground(new java.awt.Color(51, 51, 51));
         jLogo.setText("ITV ERD");
 
-        jLabel2.setBackground(new java.awt.Color(0, 102, 204));
+        jLabel2.setBackground(new java.awt.Color(51, 51, 51));
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 102, 204));
+        jLabel2.setForeground(new java.awt.Color(51, 51, 51));
         jLabel2.setText("Acceso a Documentación Previa");
 
-        jLabel3.setBackground(new java.awt.Color(0, 102, 204));
+        jLabel3.setBackground(new java.awt.Color(51, 51, 51));
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 102, 204));
+        jLabel3.setForeground(new java.awt.Color(51, 51, 51));
         jLabel3.setText("DNI:");
 
-        jTextNUMPOLIZA.setForeground(new java.awt.Color(0, 102, 204));
-        jTextNUMPOLIZA.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 204)));
+        jTextNUMPOLIZA.setForeground(new java.awt.Color(51, 51, 51));
+        jTextNUMPOLIZA.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51)));
         jTextNUMPOLIZA.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextNUMPOLIZAActionPerformed(evt);
             }
         });
 
-        BtInsertar.setBackground(new java.awt.Color(0, 102, 204));
+        BtInsertar.setBackground(new java.awt.Color(51, 51, 51));
         BtInsertar.setForeground(new java.awt.Color(255, 255, 255));
         BtInsertar.setText("Insertar / Modificar");
         BtInsertar.addActionListener(new java.awt.event.ActionListener() {
@@ -93,112 +94,112 @@ public class IntinsDocSeguro extends javax.swing.JFrame {
             }
         });
 
-        PanelSair.setBackground(new java.awt.Color(0, 102, 204));
-        PanelSair.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        PanelSair.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                PanelSairMouseClicked(evt);
-            }
-        });
-
-        jSair1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jSair1.setForeground(new java.awt.Color(255, 255, 255));
-        jSair1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jSair1.setText("X");
-        jSair1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jSair1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jSair1MouseClicked(evt);
-            }
-        });
-
-        javax.swing.GroupLayout PanelSairLayout = new javax.swing.GroupLayout(PanelSair);
-        PanelSair.setLayout(PanelSairLayout);
-        PanelSairLayout.setHorizontalGroup(
-            PanelSairLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelSairLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jSair1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        PanelSairLayout.setVerticalGroup(
-            PanelSairLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelSairLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jSair1)
-                .addContainerGap())
-        );
-
-        jLabel4.setBackground(new java.awt.Color(0, 102, 204));
+        jLabel4.setBackground(new java.awt.Color(51, 51, 51));
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 102, 204));
+        jLabel4.setForeground(new java.awt.Color(51, 51, 51));
         jLabel4.setText("NÚMERO PÓLIZA:");
 
-        jLabel5.setBackground(new java.awt.Color(0, 102, 204));
+        jLabel5.setBackground(new java.awt.Color(51, 51, 51));
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 102, 204));
+        jLabel5.setForeground(new java.awt.Color(51, 51, 51));
         jLabel5.setText("NOMBRE COMPAÑÍA:");
 
-        jTextCOMPANIA.setForeground(new java.awt.Color(0, 102, 204));
-        jTextCOMPANIA.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 204)));
+        jTextCOMPANIA.setForeground(new java.awt.Color(51, 51, 51));
+        jTextCOMPANIA.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51)));
         jTextCOMPANIA.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextCOMPANIAActionPerformed(evt);
             }
         });
 
-        jTextMATRICULA.setForeground(new java.awt.Color(0, 102, 204));
-        jTextMATRICULA.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 204)));
+        jTextMATRICULA.setForeground(new java.awt.Color(51, 51, 51));
+        jTextMATRICULA.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51)));
         jTextMATRICULA.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextMATRICULAActionPerformed(evt);
             }
         });
 
-        jLabel6.setBackground(new java.awt.Color(0, 102, 204));
+        jLabel6.setBackground(new java.awt.Color(51, 51, 51));
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 102, 204));
+        jLabel6.setForeground(new java.awt.Color(51, 51, 51));
         jLabel6.setText("MATRÍCULA:");
+
+        jlbCerrar.setIcon(new javax.swing.ImageIcon("C:\\Users\\rafa2\\OneDrive\\Documentos\\DANIELCASTELAO\\INSTITUTO\\DAM\\PROGRAMACIÓN\\PROYECTOS\\2ª EVALUACIÓN\\Proyecto\\Proyecto-Programacion\\Imagenes\\icons8_Multiply_32px.png")); // NOI18N
+        jlbCerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jlbCerrar.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jlbCerrarMouseMoved(evt);
+            }
+        });
+        jlbCerrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jlbCerrarMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jlbCerrarMouseExited(evt);
+            }
+        });
+
+        jLbMin.setIcon(new javax.swing.ImageIcon("C:\\Users\\rafa2\\OneDrive\\Documentos\\DANIELCASTELAO\\INSTITUTO\\DAM\\PROGRAMACIÓN\\PROYECTOS\\2ª EVALUACIÓN\\Proyecto\\Proyecto-Programacion\\Imagenes\\icons8_Expand_Arrow_32px.png")); // NOI18N
+        jLbMin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLbMin.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jLbMinMouseMoved(evt);
+            }
+        });
+        jLbMin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLbMinMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLbMinMouseExited(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(BtInsertar)
-                .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(BtInsertar))
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel6))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextNUMPOLIZA, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2)
-                            .addComponent(jTextCOMPANIA, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextMATRICULA, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 97, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLogo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(PanelSair, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLogo)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLbMin)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jlbCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextNUMPOLIZA, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jTextCOMPANIA, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextMATRICULA, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 87, Short.MAX_VALUE)))))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLogo))
-                    .addComponent(PanelSair, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(0, 0, 0)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLogo)
+                    .addComponent(jlbCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLbMin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
                 .addComponent(jLabel2)
                 .addGap(28, 28, 28)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -273,14 +274,6 @@ public class IntinsDocSeguro extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_BtInsertarActionPerformed
 
-    private void jSair1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jSair1MouseClicked
-        this.setVisible(false);
-    }//GEN-LAST:event_jSair1MouseClicked
-
-    private void PanelSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PanelSairMouseClicked
-        this.setVisible(false);
-    }//GEN-LAST:event_PanelSairMouseClicked
-
     private void jTextCOMPANIAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextCOMPANIAActionPerformed
         String compañia=jTextCOMPANIA.getText();
     }//GEN-LAST:event_jTextCOMPANIAActionPerformed
@@ -288,6 +281,34 @@ public class IntinsDocSeguro extends javax.swing.JFrame {
     private void jTextMATRICULAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextMATRICULAActionPerformed
 
     }//GEN-LAST:event_jTextMATRICULAActionPerformed
+
+    private void jlbCerrarMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbCerrarMouseMoved
+        jlbCerrar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153,153,153)));
+    }//GEN-LAST:event_jlbCerrarMouseMoved
+
+    private void jlbCerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbCerrarMouseClicked
+        int dialog =JOptionPane.YES_NO_OPTION;
+        int result = JOptionPane.showConfirmDialog(null,"Desea salir del programa?","Exit",dialog);
+        if(result==0){
+            System.exit(0);
+        }
+    }//GEN-LAST:event_jlbCerrarMouseClicked
+
+    private void jlbCerrarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbCerrarMouseExited
+        jlbCerrar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255,255,255)));
+    }//GEN-LAST:event_jlbCerrarMouseExited
+
+    private void jLbMinMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLbMinMouseMoved
+        jLbMin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153,153,153)));
+    }//GEN-LAST:event_jLbMinMouseMoved
+
+    private void jLbMinMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLbMinMouseClicked
+        this.setState(IntinsDocSeguro.ICONIFIED);
+    }//GEN-LAST:event_jLbMinMouseClicked
+
+    private void jLbMinMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLbMinMouseExited
+        jLbMin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255,255,255)));
+    }//GEN-LAST:event_jLbMinMouseExited
 
     /**
      * @param args the command line arguments
@@ -326,18 +347,18 @@ public class IntinsDocSeguro extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtInsertar;
-    private javax.swing.JPanel PanelSair;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLbMin;
     private javax.swing.JLabel jLogo;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel jSair1;
     private javax.swing.JTextField jTextCOMPANIA;
     public javax.swing.JTextField jTextDNI;
     public javax.swing.JTextField jTextMATRICULA;
     private javax.swing.JTextField jTextNUMPOLIZA;
+    private javax.swing.JLabel jlbCerrar;
     // End of variables declaration//GEN-END:variables
 }

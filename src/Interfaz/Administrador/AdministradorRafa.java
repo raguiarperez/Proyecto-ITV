@@ -3,76 +3,36 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Interfaz;
+package Interfaz.Administrador;
 
-import Interfaz.Administrador.AccesAdmin;
-import BaseDatos.General;
-import Interfaz.Documentación.IntAccesoDoc;
-import Interfaz.Citas.IntAccesoCita;
+import BaseDatos.TablaDocCoche;
+import BaseDatos.TablaSeguros;
+import Interfaz.Citas.InterfazCita;
 import Interfaz.Documentación.InterfazDoc;
+import Interfaz.Interfaz;
+import static Interfaz.Interfaz.fecha;
 import Interfaz.Taller.IntAccesoTaller;
-import java.io.File;
-import java.sql.Connection;
-import java.sql.DatabaseMetaData;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import javax.swing.JOptionPane;
 
 /**
- *
  * @author Mirroriced y Rafsniper
  */
-public class Interfaz extends javax.swing.JFrame implements Runnable {
+public class AdministradorRafa extends javax.swing.JFrame implements Runnable{
     String hora,minutos,segundos;
     Thread hilo;
     /**
-     * Creates new form Interfaz
+     * Creates new form Administrador
      */
-
-    public Interfaz() {
+    public AdministradorRafa() {
         initComponents();
-        this.setLocationRelativeTo(null);
         lbfecha.setText(fecha());
         hilo=new Thread(this);
         hilo.start();
         setVisible(true);
-
     }
-    
-    public Interfaz(String filename){
-    String url = "jdbc:sqlite:" + filename + ".db";
-             File file = new File(filename + ".db");
-        if (file.exists() == false){
-        try (Connection conn = DriverManager.getConnection(url)) {
-            if (conn != null ) {
-                InterfazDoc id = new InterfazDoc();
-                DatabaseMetaData meta = conn.getMetaData();
-                System.out.println("The driver name is " + meta.getDriverName());
-                System.out.println("Una nueva DB ha sido creada");
-                General.crearTablas(filename,id.tablaSeguro,id.jTable1);
-
-            }
-        }catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-
-        }
-        try {
-            Connection conn = DriverManager.getConnection(url);
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-        }
-        System.out.println("La conexión a SQLite ha sido establecida");
-            initComponents();
-            lbfecha.setText(fecha());
-            hilo=new Thread(this);
-            hilo.start();
-            setVisible(true);
-    }
-    
-
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -83,12 +43,6 @@ public class Interfaz extends javax.swing.JFrame implements Runnable {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu3 = new javax.swing.JMenu();
-        jMenu4 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -96,7 +50,9 @@ public class Interfaz extends javax.swing.JFrame implements Runnable {
         jLabel3 = new javax.swing.JLabel();
         lbfecha = new javax.swing.JLabel();
         lbHora = new javax.swing.JLabel();
-        BtAdmin = new javax.swing.JButton();
+        lbAdmin = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         lbCitaPrevia = new javax.swing.JLabel();
         lbinfoCitaPrev = new javax.swing.JLabel();
         lbDoc = new javax.swing.JLabel();
@@ -105,18 +61,6 @@ public class Interfaz extends javax.swing.JFrame implements Runnable {
         lbinfoTaller = new javax.swing.JLabel();
         jLbMin = new javax.swing.JLabel();
         jlbCerrar = new javax.swing.JLabel();
-
-        jMenu1.setText("jMenu1");
-
-        jMenu2.setText("jMenu2");
-
-        jMenu3.setText("File");
-        jMenuBar1.add(jMenu3);
-
-        jMenu4.setText("Edit");
-        jMenuBar1.add(jMenu4);
-
-        jMenuItem1.setText("jMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -136,7 +80,7 @@ public class Interfaz extends javax.swing.JFrame implements Runnable {
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("¿Que desea realizar?");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, -1, -1));
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -151,17 +95,20 @@ public class Interfaz extends javax.swing.JFrame implements Runnable {
         lbHora.setText("00:00:00");
         jPanel2.add(lbHora, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, -1, -1));
 
-        BtAdmin.setBackground(new java.awt.Color(204, 204, 204));
-        BtAdmin.setText("Administrador");
-        BtAdmin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        BtAdmin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtAdminActionPerformed(evt);
-            }
-        });
-        jPanel2.add(BtAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, -1, -1));
+        lbAdmin.setIcon(new javax.swing.ImageIcon("C:\\Users\\rafa2\\OneDrive\\Documentos\\DANIELCASTELAO\\INSTITUTO\\DAM\\PROGRAMACIÓN\\PROYECTOS\\2ª EVALUACIÓN\\Proyecto\\Proyecto-Programacion\\Imagenes\\usuario.png")); // NOI18N
+        jPanel2.add(lbAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 80, 100));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, 2, 260, 420));
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("MODO ADMINISTRADOR");
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 380, -1, -1));
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Rafa Aguiar");
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 340, -1, -1));
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, 2, 270, 420));
 
         lbCitaPrevia.setIcon(new javax.swing.ImageIcon("C:\\Users\\rafa2\\OneDrive\\Documentos\\DANIELCASTELAO\\INSTITUTO\\DAM\\PROGRAMACIÓN\\PROYECTOS\\2ª EVALUACIÓN\\Proyecto\\Proyecto-Programacion\\Imagenes\\oie_2215717jQP2UlIT.png")); // NOI18N
         lbCitaPrevia.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -284,56 +231,29 @@ public class Interfaz extends javax.swing.JFrame implements Runnable {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    
-    
-    private void BtAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtAdminActionPerformed
-        AccesAdmin adminA=new AccesAdmin();
-        adminA.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_BtAdminActionPerformed
-
-    private void lbCitaPreviaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbCitaPreviaMouseClicked
-       IntAccesoCita IAcita=new IntAccesoCita();
-       IAcita.setVisible(true);
-       this.setVisible(false);
-    }//GEN-LAST:event_lbCitaPreviaMouseClicked
-
-    private void lbDocMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbDocMouseClicked
-        IntAccesoDoc IAdoc=new IntAccesoDoc();
-        IAdoc.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_lbDocMouseClicked
-
-    private void lbTallerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbTallerMouseClicked
-        IntAccesoTaller IATaller=new IntAccesoTaller();
-        IATaller.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_lbTallerMouseClicked
-
     private void lbCitaPreviaMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbCitaPreviaMouseMoved
         lbCitaPrevia.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153,153,153)));
     }//GEN-LAST:event_lbCitaPreviaMouseMoved
 
-    private void jLbMinMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLbMinMouseClicked
-        this.setState(Interfaz.ICONIFIED);
-    }//GEN-LAST:event_jLbMinMouseClicked
+    private void lbCitaPreviaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbCitaPreviaMouseClicked
+        InterfazCita Icita=new InterfazCita();
+        Icita.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_lbCitaPreviaMouseClicked
 
-    private void jlbCerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbCerrarMouseClicked
-        int dialog =JOptionPane.YES_NO_OPTION;
-        int result = JOptionPane.showConfirmDialog(null,"Desea salir del programa?","Exit",dialog);
-        if(result==0){
-            System.exit(0);
-        }
-    }//GEN-LAST:event_jlbCerrarMouseClicked
+    private void lbCitaPreviaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbCitaPreviaMouseExited
+        lbCitaPrevia.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255,255,255)));
+    }//GEN-LAST:event_lbCitaPreviaMouseExited
 
     private void lbDocMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbDocMouseMoved
         lbDoc.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153,153,153)));
     }//GEN-LAST:event_lbDocMouseMoved
 
-    private void lbCitaPreviaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbCitaPreviaMouseExited
-        lbCitaPrevia.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255,255,255)));
-
-    }//GEN-LAST:event_lbCitaPreviaMouseExited
+    private void lbDocMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbDocMouseClicked
+        InterfazDoc IAdoc=new InterfazDoc();
+        IAdoc.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_lbDocMouseClicked
 
     private void lbDocMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbDocMouseExited
         lbDoc.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255,255,255)));
@@ -343,6 +263,12 @@ public class Interfaz extends javax.swing.JFrame implements Runnable {
         lbTaller.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153,153,153)));
     }//GEN-LAST:event_lbTallerMouseMoved
 
+    private void lbTallerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbTallerMouseClicked
+        IntAccesoTaller IATaller=new IntAccesoTaller();
+        IATaller.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_lbTallerMouseClicked
+
     private void lbTallerMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbTallerMouseExited
         lbTaller.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255,255,255)));
     }//GEN-LAST:event_lbTallerMouseExited
@@ -350,6 +276,10 @@ public class Interfaz extends javax.swing.JFrame implements Runnable {
     private void jLbMinMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLbMinMouseMoved
         jLbMin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153,153,153)));
     }//GEN-LAST:event_jLbMinMouseMoved
+
+    private void jLbMinMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLbMinMouseClicked
+        this.setState(AdministradorRafa.ICONIFIED);
+    }//GEN-LAST:event_jLbMinMouseClicked
 
     private void jLbMinMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLbMinMouseExited
         jLbMin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255,255,255)));
@@ -359,12 +289,20 @@ public class Interfaz extends javax.swing.JFrame implements Runnable {
         jlbCerrar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153,153,153)));
     }//GEN-LAST:event_jlbCerrarMouseMoved
 
+    private void jlbCerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbCerrarMouseClicked
+        int dialog =JOptionPane.YES_NO_OPTION;
+        int result = JOptionPane.showConfirmDialog(null,"Desea salir del programa?","Exit",dialog);
+        if(result==0){
+            System.exit(0);
+        }
+    }//GEN-LAST:event_jlbCerrarMouseClicked
+
     private void jlbCerrarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbCerrarMouseExited
         jlbCerrar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255,255,255)));
     }//GEN-LAST:event_jlbCerrarMouseExited
 
     
-    public void hora(){
+        public void hora(){
         Calendar calendario=new GregorianCalendar();
         Date horactual=new Date();
         calendario.setTime(horactual);
@@ -382,11 +320,6 @@ public class Interfaz extends javax.swing.JFrame implements Runnable {
     /**
      * @param args the command line arguments
      */
-        public static String fecha(){
-        Date fecha =new Date();
-        SimpleDateFormat formatofecha=new SimpleDateFormat("dd/MM/YYYY");
-        return formatofecha.format(fecha);
-    }
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -401,39 +334,36 @@ public class Interfaz extends javax.swing.JFrame implements Runnable {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Interfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdministradorRafa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Interfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdministradorRafa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Interfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdministradorRafa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Interfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdministradorRafa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Interfaz().setVisible(true);
+                new AdministradorRafa().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BtAdmin;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLbMin;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel jlbCerrar;
+    private javax.swing.JLabel lbAdmin;
     private javax.swing.JLabel lbCitaPrevia;
     private javax.swing.JLabel lbDoc;
     private javax.swing.JLabel lbHora;
