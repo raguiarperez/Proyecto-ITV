@@ -1,17 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Interfaz.Citas;
 
 import Citas.Cita;
 import Interfaz.Interfaz;
-import Interfaz.Interfaz;
 import Utilidades.ComprobarString;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -205,8 +199,8 @@ public class IntAccesoCita extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextDNIActionPerformed
 
     private void BtContinuarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtContinuarActionPerformed
-        if(ComprobarString.longitudLetraFinal(9, jTextDNI.getText())){
-            boolean m=false;
+        if (ComprobarString.longitudLetraFinal(9, jTextDNI.getText())) {
+            boolean m = false;
             Cita cit = new Cita();
             try {
                 m = cit.comprobarCita("Citas", jTextDNI.getText());
@@ -215,71 +209,85 @@ public class IntAccesoCita extends javax.swing.JFrame {
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(IntAccesoCita.class.getName()).log(Level.SEVERE, null, ex);
             }
-                    if (m) {
-                        JOptionPane.showMessageDialog(null, "Ya tiene cita");
-                        InterfazCita InP=new InterfazCita();
-                        InP.setVisible(true);
-                        this.setVisible(false);
-                    }else{
-        IntSelLocalidades ISLocal =new IntSelLocalidades();
-        ISLocal.setVisible(true);
-        this.setVisible(false);
-        }
+            if (m) {
+                JOptionPane.showMessageDialog(null, "Ya tiene cita");
+                try {
+                    cit = cit.getCita("Citas", jTextDNI.getText());
+                } catch (IOException ex) {
+                    Logger.getLogger(IntAccesoCita.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (ClassNotFoundException ex) {
+                    Logger.getLogger(IntAccesoCita.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                InterfazCita InP = new InterfazCita(cit);
+                InP.setVisible(true);
+                this.setVisible(false);
+            } else {
+                IntSelLocalidades ISLocal = new IntSelLocalidades();
+                ISLocal.setVisible(true);
+                this.setVisible(false);
+            }
         }
 
     }//GEN-LAST:event_BtContinuarActionPerformed
 
     private void BtMenuPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtMenuPrincipalActionPerformed
-        Interfaz Int=new Interfaz();
+        Interfaz Int = new Interfaz();
         Int.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_BtMenuPrincipalActionPerformed
 
     private void jTextDNIKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextDNIKeyPressed
-        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
-        if(ComprobarString.longitudLetraFinal(9, jTextDNI.getText())){
-            boolean m=false;
-            Cita cit = new Cita();
-            try {
-                m = cit.comprobarCita("Citas", jTextDNI.getText());
-            } catch (IOException ex) {
-                Logger.getLogger(IntAccesoCita.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (ClassNotFoundException ex) {
-                Logger.getLogger(IntAccesoCita.class.getName()).log(Level.SEVERE, null, ex);
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            if (ComprobarString.longitudLetraFinal(9, jTextDNI.getText())) {
+                boolean m = false;
+                Cita cit = new Cita();
+                try {
+                    m = cit.comprobarCita("Citas", jTextDNI.getText());
+                } catch (IOException ex) {
+                    Logger.getLogger(IntAccesoCita.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (ClassNotFoundException ex) {
+                    Logger.getLogger(IntAccesoCita.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                if (m) {
+                    JOptionPane.showMessageDialog(null, "Ya tiene cita");
+                    try {
+                        cit = cit.getCita("Citas", jTextDNI.getText());
+                    } catch (IOException ex) {
+                        Logger.getLogger(IntAccesoCita.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (ClassNotFoundException ex) {
+                        Logger.getLogger(IntAccesoCita.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    InterfazCita InP = new InterfazCita(cit);
+                    InP.setVisible(true);
+                    this.setVisible(false);
+                } else {
+                    IntSelLocalidades ISLocal = new IntSelLocalidades();
+                    ISLocal.setVisible(true);
+                    this.setVisible(false);
+                }
             }
-                    if (m) {
-                        JOptionPane.showMessageDialog(null, "Ya tiene cita");
-                        InterfazCita InP=new InterfazCita();
-                        InP.setVisible(true);
-                        this.setVisible(false);
-                    }else{
-        IntSelLocalidades ISLocal =new IntSelLocalidades();
-        ISLocal.setVisible(true);
-        this.setVisible(false);
-        }
-        }
 
         }
     }//GEN-LAST:event_jTextDNIKeyPressed
 
     private void jlbCerrarMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbCerrarMouseMoved
-        jlbCerrar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153,153,153)));
+        jlbCerrar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
     }//GEN-LAST:event_jlbCerrarMouseMoved
 
     private void jlbCerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbCerrarMouseClicked
-        int dialog =JOptionPane.YES_NO_OPTION;
-        int result = JOptionPane.showConfirmDialog(null,"Desea salir del programa?","Exit",dialog);
-        if(result==0){
+        int dialog = JOptionPane.YES_NO_OPTION;
+        int result = JOptionPane.showConfirmDialog(null, "Desea salir del programa?", "Exit", dialog);
+        if (result == 0) {
             System.exit(0);
         }
     }//GEN-LAST:event_jlbCerrarMouseClicked
 
     private void jlbCerrarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbCerrarMouseExited
-        jlbCerrar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255,255,255)));
+        jlbCerrar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
     }//GEN-LAST:event_jlbCerrarMouseExited
 
     private void jLbMinMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLbMinMouseMoved
-        jLbMin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153,153,153)));
+        jLbMin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
     }//GEN-LAST:event_jLbMinMouseMoved
 
     private void jLbMinMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLbMinMouseClicked
@@ -287,7 +295,7 @@ public class IntAccesoCita extends javax.swing.JFrame {
     }//GEN-LAST:event_jLbMinMouseClicked
 
     private void jLbMinMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLbMinMouseExited
-        jLbMin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255,255,255)));
+        jLbMin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
     }//GEN-LAST:event_jLbMinMouseExited
 
     /**

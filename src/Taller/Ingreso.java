@@ -6,18 +6,14 @@
 package Taller;
 
 import Citas.Cita;
-import Documentación.*;
-import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Random;
-import javax.swing.AbstractAction;
-import javax.swing.JDialog;
 import javax.swing.JOptionPane;
-import javax.swing.Timer;
+
 
 /**
  *
@@ -27,8 +23,6 @@ public class Ingreso {
 
     Random rand = new Random();
     Cita cit;
-    DocCoche doc;
-    Seguros seg;
     HashMap<String, Cita> lista = new HashMap<>();
 
     //Método que comprueba si hay una cita y si es en el mismo día te deja pasar indicando la puerta a acceder

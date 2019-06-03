@@ -1,28 +1,20 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package BaseDatos;
 
-import Documentación.Seguros;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
 import javax.swing.JTable;
-import javax.swing.JTextField;
 
 /**
  *
  * @author Mirroriced y Rafsniper
  */
 public class General {
+
     static String sql;
-    
+
     public static Connection connect() {
 
         // parámetro BD
@@ -36,8 +28,8 @@ public class General {
         }
         return conn;
     }
-    
-public static void crearTablas(String filename, JTable a, JTable b) {
+
+    public static void crearTablas(String filename, JTable a, JTable b) {
         String url = "jdbc:sqlite:" + filename + ".db";
 
         sql = "CREATE TABLE IF NOT EXISTS DocCoche (\n"
@@ -49,7 +41,7 @@ public static void crearTablas(String filename, JTable a, JTable b) {
                 + ");";
 
         try (Connection conn = DriverManager.getConnection(url);
-            Statement stmt = conn.createStatement()) {
+                Statement stmt = conn.createStatement()) {
             stmt.execute(sql);
         } catch (SQLException e) {
             System.out.println(e.getMessage() + "1");
@@ -64,7 +56,7 @@ public static void crearTablas(String filename, JTable a, JTable b) {
                 + ");";
 
         try (Connection conn = DriverManager.getConnection(url);
-            Statement stmt = conn.createStatement()) {
+                Statement stmt = conn.createStatement()) {
             stmt.execute(sql);
         } catch (SQLException e) {
             System.out.println(e.getMessage());

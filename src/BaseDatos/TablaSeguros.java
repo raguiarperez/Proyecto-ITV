@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package BaseDatos;
 
 import static BaseDatos.General.connect;
@@ -23,13 +19,14 @@ import javax.swing.table.DefaultTableModel;
  * @author Mirroriced y Rafsniper
  */
 public class TablaSeguros {
+
     static String sql;
     static ArrayList<Seguros> listaseg = new ArrayList<>();
-    
+
     //AÑADIR LINEA
-    public static String añadirSeguro(JTextField dni,JTextField poliza, JTextField compania, JTextField matricula){
+    public static String añadirSeguro(JTextField dni, JTextField poliza, JTextField compania, JTextField matricula) {
         sql = "INSERT INTO Seguros(dni,nPoliza,compania,matricula) VALUES(?,?,?,?)";
-       try (Connection conn = General.connect();
+        try (Connection conn = General.connect();
                 PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, dni.getText());
             pstmt.setString(2, poliza.getText());
@@ -37,7 +34,7 @@ public class TablaSeguros {
             pstmt.setString(4, matricula.getText());
             pstmt.executeUpdate();
             return "Seguro añadido"
-                    + "\n" + dni.getText() + " " + poliza.getText() + " " + compania.getText()+ " " + matricula.getText();
+                    + "\n" + dni.getText() + " " + poliza.getText() + " " + compania.getText() + " " + matricula.getText();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -45,7 +42,7 @@ public class TablaSeguros {
     }
 
     //ACTUALIZAR TABLA
-public static void actualizarTablaSeguros(JTable a) {
+    public static void actualizarTablaSeguros(JTable a) {
         DefaultTableModel model = (DefaultTableModel) a.getModel();
         Object O[] = null;
         model.setRowCount(0);
@@ -60,7 +57,7 @@ public static void actualizarTablaSeguros(JTable a) {
         }
     }
 
-public static ArrayList<Seguros> añadirArraySeguros() {
+    public static ArrayList<Seguros> añadirArraySeguros() {
         String dni, npoliza, compania, matricula;
         sql = "SELECT dni,npoliza,compania,matricula FROM seguros";
         try (Connection conn = General.connect();
@@ -74,7 +71,7 @@ public static ArrayList<Seguros> añadirArraySeguros() {
                 npoliza = rs.getString("npoliza");
                 compania = rs.getString("compania");
                 matricula = rs.getString("matricula");
-                listaseg.add(new Seguros(dni,npoliza,compania,matricula));
+                listaseg.add(new Seguros(dni, npoliza, compania, matricula));
             }
             return listaseg;
 
@@ -85,29 +82,26 @@ public static ArrayList<Seguros> añadirArraySeguros() {
     }
 
     //CONSULTA
-public static ArrayList<Seguros> consultaSeguros(JTextField a) {
-    String dni, npoliza, compania, matricula;
-    ArrayList<Seguros> conS = new ArrayList<>();
+    public static ArrayList<Seguros> consultaSeguros(JTextField a) {
+        String dni, npoliza, compania, matricula;
+        ArrayList<Seguros> conS = new ArrayList<>();
         try (Connection conn = connect();) {
 
             PreparedStatement pstmt = null;
 
-           
-                sql = "SELECT dni,npoliza,compania,matricula FROM seguros WHERE dni = ?";       
-                pstmt = conn.prepareStatement(sql);
-                pstmt.setString(1, a.getText());
+            sql = "SELECT dni,npoliza,compania,matricula FROM seguros WHERE dni = ?";
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, a.getText());
 
-            
-            
             ResultSet rs = pstmt.executeQuery();
             while (rs.next()) {
                 dni = rs.getString("dni");
                 npoliza = rs.getString("npoliza");
                 compania = rs.getString("compania");
                 matricula = rs.getString("matricula");
-                conS.add(new Seguros(dni,npoliza,compania,matricula));
+                conS.add(new Seguros(dni, npoliza, compania, matricula));
             }
-            
+
             return conS;
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -116,7 +110,7 @@ public static ArrayList<Seguros> consultaSeguros(JTextField a) {
     }
 
     //ACTUALIZAR TABLA PARA CONSULTA
-public static void actuConsultaSeguros(ArrayList<Seguros> conS, JTable a) {
+    public static void actuConsultaSeguros(ArrayList<Seguros> conS, JTable a) {
         //PLANTAS
         DefaultTableModel model = (DefaultTableModel) a.getModel();
         Object O[] = null;
@@ -132,26 +126,25 @@ public static void actuConsultaSeguros(ArrayList<Seguros> conS, JTable a) {
     }
 
     //MODIFICAR
-
-public static String modificarSeguro(JTextField dni,JTextField poliza, JTextField compania, JTextField matricula){
+    public static String modificarSeguro(JTextField dni, JTextField poliza, JTextField compania, JTextField matricula) {
         try (Connection conn = General.connect();) {
             PreparedStatement pstmt = null;
             if (poliza.getText().isEmpty() && compania.getText().isEmpty() && matricula.getText().isEmpty()) {
                 throw new NullPointerException();
             }
 
-                sql = "UPDATE seguros SET npoliza = ? , "
-                        + "compania = ?, "
-                        + "matricula = ? "
-                        + "WHERE dni = ?";
-                pstmt = conn.prepareStatement(sql);
-                pstmt.setString(1, poliza.getText());
-                pstmt.setString(2, compania.getText());
-                ComprobarString.longitud(6, matricula.getText());
-                pstmt.setString(3, matricula.getText());
-                pstmt.setString(4, dni.getText());
-                pstmt.executeUpdate();
-           
+            sql = "UPDATE seguros SET npoliza = ? , "
+                    + "compania = ?, "
+                    + "matricula = ? "
+                    + "WHERE dni = ?";
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, poliza.getText());
+            pstmt.setString(2, compania.getText());
+            ComprobarString.longitud(6, matricula.getText());
+            pstmt.setString(3, matricula.getText());
+            pstmt.setString(4, dni.getText());
+            pstmt.executeUpdate();
+
             return "Seguro modificado";
         } catch (SQLException e) {
             System.out.println(e.getMessage());

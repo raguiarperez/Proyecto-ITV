@@ -1,16 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Citas;
 
-import Utilidades.pedirDatos;
 import java.io.*;
 import java.text.*;
 import java.time.LocalTime;
 import java.util.*;
-
 
 /**
  *
@@ -18,7 +12,7 @@ import java.util.*;
  */
 public class Cita implements Serializable {
 
-    public HashMap<String, Cita> lista = new HashMap<>();
+    public static HashMap<String, Cita> lista = new HashMap<>();
     transient ObjectOutputStream fich;
     transient FileOutputStream f;
     transient ObjectInputStream fich1 = null;
@@ -30,7 +24,6 @@ public class Cita implements Serializable {
     transient public static String localidad;
     public String localidad2;
 
-
     public Cita() {
 
     }
@@ -39,17 +32,6 @@ public class Cita implements Serializable {
         this.fecha2 = fecha2;
         this.time2 = time2;
         this.localidad2 = localidad2;
-    }
-
-    //ArrayList de Localidades
-    public ArrayList<String> crearArray(ArrayList<String> ciudad) {
-
-        ciudad.add("Vigo");
-        ciudad.add("Madrid");
-        ciudad.add("Barcelona");
-        ciudad.add("Valencia");
-        ciudad.add("Ourense");
-        return ciudad;
     }
 
     public String getFecha2() {
@@ -79,6 +61,7 @@ public class Cita implements Serializable {
     public String getLocalidad() {
         return localidad;
     }
+
     public void setLocalidad2(String localidad2) {
         this.localidad2 = localidad2;
     }
@@ -86,8 +69,6 @@ public class Cita implements Serializable {
     public String getLocalidad2() {
         return localidad2;
     }
-    
-
 
     public static LocalTime getTime() {
         return time;
@@ -100,63 +81,6 @@ public class Cita implements Serializable {
     public void setLocalidad(String localidad) {
         this.localidad = localidad;
     }
-
-    //Metodo Ventana que muestra el Array de Localidades a elegir
-    public Cita selLocalidad(ArrayList<String> local) {
-        String acum = "";
-        String opcion;
-        try{
-        for (String localidades : local) {
-            acum = acum + localidades + "           ";
-        }
-
-            opcion = pedirDatos.string("                                            Eliga localidad\n\n" + acum
-                    + "\n\n                                                     SAIR");
-            switch (opcion) {
-                case "Vigo":
-                    this.setLocalidad(local.get(0));
-                    return this;
-
-                case "Madrid":
-                    this.setLocalidad(local.get(1));
-                    return this;
-
-                case "Barcelona":
-                    this.setLocalidad(local.get(2));
-                    return this;
-                case "Valencia":
-                    this.setLocalidad(local.get(3));
-                    return this;
-                case "Ourense":
-                    this.setLocalidad(local.get(4));
-                    return this;
-                default:
-                    return selLocalidad(local);
-
-            }
-        }catch (NullPointerException ex){
-            System.exit(0);
-            return null;
-        }
-    }
-
-    //Metodo con JFrame para seleccionar Fecha y Hora
-//    public Cita selFecha(){
-//        try {
-//        FechaCita cit = new FechaCita();
-//         cit.setVisible(true);
-//        while (cit.isVisible()) {
-//                Thread.sleep(1000);
-//        }
-//        this.setFecha2(fecha);
-//        this.setTime2(time);
-//        return this;
-//         } catch (InterruptedException ex) {
-//                System.out.println("4"+ex.getMessage());
-//                return this;
-//            }
-//        
-//    }
 
     //Metodo para añadir al fichero los datos
     public void engadir(String nomeFich, Cita cit, String dni) throws IOException {
@@ -191,8 +115,31 @@ public class Cita implements Serializable {
 
     }
 
+    public Cita getCita(String nomFich, String dni) throws IOException, ClassNotFoundException {
+        Cita cit;
+        try {
+            f1 = new FileInputStream(nomFich + ".dat");
+            fich1 = new ObjectInputStream(f1);
+            fileToHash("Citas");
+            if (lista.containsKey(dni)) {
+                cit = lista.get(dni);
+                f1.close();
+                fich1.close();
+                return cit;
+
+            }
+            f1.close();
+            fich1.close();
+        } catch (FileNotFoundException ex) {
+            f = new FileOutputStream("Citas.dat");
+            f.close();
+        } catch (EOFException ex2) {
+        }
+        return null;
+    }
+
     //Método para pasar binario a HashMap
-    public void fileToHash(String nomFich) throws FileNotFoundException, IOException, ClassNotFoundException{
+    public void fileToHash(String nomFich) throws FileNotFoundException, IOException, ClassNotFoundException {
         f1 = new FileInputStream(nomFich + ".dat");
         fich1 = new ObjectInputStream(f1);
         lista = (HashMap) fich1.readObject();

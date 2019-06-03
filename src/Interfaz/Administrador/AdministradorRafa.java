@@ -1,17 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Interfaz.Administrador;
 
 import BaseDatos.TablaDocCoche;
 import BaseDatos.TablaSeguros;
-import Interfaz.Citas.InterfazCita;
 import Interfaz.Documentación.InterfazDoc;
-import Interfaz.Interfaz;
 import static Interfaz.Interfaz.fecha;
-import Interfaz.Taller.IntAccesoTaller;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -20,16 +13,18 @@ import javax.swing.JOptionPane;
 /**
  * @author Mirroriced y Rafsniper
  */
-public class AdministradorRafa extends javax.swing.JFrame implements Runnable{
-    String hora,minutos,segundos;
+public class AdministradorRafa extends javax.swing.JFrame implements Runnable {
+
+    String hora, minutos, segundos;
     Thread hilo;
+
     /**
      * Creates new form Administrador
      */
     public AdministradorRafa() {
         initComponents();
         lbfecha.setText(fecha());
-        hilo=new Thread(this);
+        hilo = new Thread(this);
         hilo.start();
         setVisible(true);
     }
@@ -53,12 +48,8 @@ public class AdministradorRafa extends javax.swing.JFrame implements Runnable{
         lbAdmin = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        lbCitaPrevia = new javax.swing.JLabel();
-        lbinfoCitaPrev = new javax.swing.JLabel();
         lbDoc = new javax.swing.JLabel();
         lbinfodoc = new javax.swing.JLabel();
-        lbTaller = new javax.swing.JLabel();
-        lbinfoTaller = new javax.swing.JLabel();
         jLbMin = new javax.swing.JLabel();
         jlbCerrar = new javax.swing.JLabel();
 
@@ -110,28 +101,6 @@ public class AdministradorRafa extends javax.swing.JFrame implements Runnable{
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, 2, 270, 420));
 
-        lbCitaPrevia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Cita.png"))); // NOI18N
-        lbCitaPrevia.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        lbCitaPrevia.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                lbCitaPreviaMouseMoved(evt);
-            }
-        });
-        lbCitaPrevia.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lbCitaPreviaMouseClicked(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                lbCitaPreviaMouseExited(evt);
-            }
-        });
-        jPanel1.add(lbCitaPrevia, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 30, 100, 120));
-
-        lbinfoCitaPrev.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        lbinfoCitaPrev.setForeground(new java.awt.Color(102, 102, 102));
-        lbinfoCitaPrev.setText("Cita Previa");
-        jPanel1.add(lbinfoCitaPrev, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 130, -1, -1));
-
         lbDoc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Documentacion.png"))); // NOI18N
         lbDoc.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lbDoc.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -153,28 +122,6 @@ public class AdministradorRafa extends javax.swing.JFrame implements Runnable{
         lbinfodoc.setForeground(new java.awt.Color(102, 102, 102));
         lbinfodoc.setText("Documentación");
         jPanel1.add(lbinfodoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 250, -1, -1));
-
-        lbTaller.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Taller.png"))); // NOI18N
-        lbTaller.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        lbTaller.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                lbTallerMouseMoved(evt);
-            }
-        });
-        lbTaller.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lbTallerMouseClicked(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                lbTallerMouseExited(evt);
-            }
-        });
-        jPanel1.add(lbTaller, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 280, -1, 110));
-
-        lbinfoTaller.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        lbinfoTaller.setForeground(new java.awt.Color(102, 102, 102));
-        lbinfoTaller.setText("Taller");
-        jPanel1.add(lbinfoTaller, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 370, 30, -1));
 
         jLbMin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Minimizar.png"))); // NOI18N
         jLbMin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -231,50 +178,24 @@ public class AdministradorRafa extends javax.swing.JFrame implements Runnable{
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void lbCitaPreviaMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbCitaPreviaMouseMoved
-        lbCitaPrevia.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153,153,153)));
-    }//GEN-LAST:event_lbCitaPreviaMouseMoved
-
-    private void lbCitaPreviaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbCitaPreviaMouseClicked
-        InterfazCita Icita=new InterfazCita();
-        Icita.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_lbCitaPreviaMouseClicked
-
-    private void lbCitaPreviaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbCitaPreviaMouseExited
-        lbCitaPrevia.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255,255,255)));
-    }//GEN-LAST:event_lbCitaPreviaMouseExited
-
     private void lbDocMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbDocMouseMoved
-        lbDoc.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153,153,153)));
+        lbDoc.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
     }//GEN-LAST:event_lbDocMouseMoved
 
     private void lbDocMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbDocMouseClicked
-        InterfazDoc IAdoc=new InterfazDoc();
-        IAdoc.setVisible(true);
+        InterfazDoc Idoc = new InterfazDoc();
+        TablaSeguros.actualizarTablaSeguros(InterfazDoc.TablaSeguro);
+        TablaDocCoche.actualizarTablaDocCoche(InterfazDoc.TablaCoche);
+        Idoc.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_lbDocMouseClicked
 
     private void lbDocMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbDocMouseExited
-        lbDoc.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255,255,255)));
+        lbDoc.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
     }//GEN-LAST:event_lbDocMouseExited
 
-    private void lbTallerMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbTallerMouseMoved
-        lbTaller.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153,153,153)));
-    }//GEN-LAST:event_lbTallerMouseMoved
-
-    private void lbTallerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbTallerMouseClicked
-        IntAccesoTaller IATaller=new IntAccesoTaller();
-        IATaller.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_lbTallerMouseClicked
-
-    private void lbTallerMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbTallerMouseExited
-        lbTaller.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255,255,255)));
-    }//GEN-LAST:event_lbTallerMouseExited
-
     private void jLbMinMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLbMinMouseMoved
-        jLbMin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153,153,153)));
+        jLbMin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
     }//GEN-LAST:event_jLbMinMouseMoved
 
     private void jLbMinMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLbMinMouseClicked
@@ -282,41 +203,42 @@ public class AdministradorRafa extends javax.swing.JFrame implements Runnable{
     }//GEN-LAST:event_jLbMinMouseClicked
 
     private void jLbMinMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLbMinMouseExited
-        jLbMin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255,255,255)));
+        jLbMin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
     }//GEN-LAST:event_jLbMinMouseExited
 
     private void jlbCerrarMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbCerrarMouseMoved
-        jlbCerrar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153,153,153)));
+        jlbCerrar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
     }//GEN-LAST:event_jlbCerrarMouseMoved
 
     private void jlbCerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbCerrarMouseClicked
-        int dialog =JOptionPane.YES_NO_OPTION;
-        int result = JOptionPane.showConfirmDialog(null,"Desea salir del programa?","Exit",dialog);
-        if(result==0){
+        int dialog = JOptionPane.YES_NO_OPTION;
+        int result = JOptionPane.showConfirmDialog(null, "Desea salir del programa?", "Exit", dialog);
+        if (result == 0) {
             System.exit(0);
         }
     }//GEN-LAST:event_jlbCerrarMouseClicked
 
     private void jlbCerrarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbCerrarMouseExited
-        jlbCerrar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255,255,255)));
+        jlbCerrar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
     }//GEN-LAST:event_jlbCerrarMouseExited
 
-    
-        public void hora(){
-        Calendar calendario=new GregorianCalendar();
-        Date horactual=new Date();
+    public void hora() {
+        Calendar calendario = new GregorianCalendar();
+        Date horactual = new Date();
         calendario.setTime(horactual);
-        hora=calendario.get(Calendar.HOUR_OF_DAY)>9?""+calendario.get(Calendar.HOUR_OF_DAY):"0"+calendario.get(Calendar.HOUR_OF_DAY);
-        minutos=calendario.get(Calendar.MINUTE)>9?""+calendario.get(Calendar.MINUTE):"0"+calendario.get(Calendar.MINUTE);
-        segundos=calendario.get(Calendar.SECOND)>9?""+calendario.get(Calendar.SECOND):"0"+calendario.get(Calendar.SECOND);
+        hora = calendario.get(Calendar.HOUR_OF_DAY) > 9 ? "" + calendario.get(Calendar.HOUR_OF_DAY) : "0" + calendario.get(Calendar.HOUR_OF_DAY);
+        minutos = calendario.get(Calendar.MINUTE) > 9 ? "" + calendario.get(Calendar.MINUTE) : "0" + calendario.get(Calendar.MINUTE);
+        segundos = calendario.get(Calendar.SECOND) > 9 ? "" + calendario.get(Calendar.SECOND) : "0" + calendario.get(Calendar.SECOND);
     }
-    public void run(){
-        Thread current=Thread.currentThread();
-        while(current==hilo){
+
+    public void run() {
+        Thread current = Thread.currentThread();
+        while (current == hilo) {
             hora();
-            lbHora.setText(hora+":"+minutos+":"+segundos);
+            lbHora.setText(hora + ":" + minutos + ":" + segundos);
         }
     }
+
     /**
      * @param args the command line arguments
      */
@@ -364,13 +286,9 @@ public class AdministradorRafa extends javax.swing.JFrame implements Runnable{
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel jlbCerrar;
     private javax.swing.JLabel lbAdmin;
-    private javax.swing.JLabel lbCitaPrevia;
     private javax.swing.JLabel lbDoc;
     private javax.swing.JLabel lbHora;
-    private javax.swing.JLabel lbTaller;
     private javax.swing.JLabel lbfecha;
-    private javax.swing.JLabel lbinfoCitaPrev;
-    private javax.swing.JLabel lbinfoTaller;
     private javax.swing.JLabel lbinfodoc;
     // End of variables declaration//GEN-END:variables
 }

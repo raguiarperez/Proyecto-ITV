@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Interfaz;
 
 import Interfaz.Administrador.AccesAdmin;
@@ -25,8 +21,10 @@ import javax.swing.JOptionPane;
  * @author Mirroriced y Rafsniper
  */
 public class Interfaz extends javax.swing.JFrame implements Runnable {
-    String hora,minutos,segundos;
+
+    String hora, minutos, segundos;
     Thread hilo;
+
     /**
      * Creates new form Interfaz
      */
@@ -35,28 +33,28 @@ public class Interfaz extends javax.swing.JFrame implements Runnable {
         initComponents();
         this.setLocationRelativeTo(null);
         lbfecha.setText(fecha());
-        hilo=new Thread(this);
+        hilo = new Thread(this);
         hilo.start();
         setVisible(true);
 
     }
-    
-    public Interfaz(String filename){
-    String url = "jdbc:sqlite:" + filename + ".db";
-             File file = new File(filename + ".db");
-        if (file.exists() == false){
-        try (Connection conn = DriverManager.getConnection(url)) {
-            if (conn != null ) {
-                InterfazDoc id = new InterfazDoc();
-                DatabaseMetaData meta = conn.getMetaData();
-                System.out.println("The driver name is " + meta.getDriverName());
-                System.out.println("Una nueva DB ha sido creada");
-                General.crearTablas(filename,id.tablaSeguro,id.jTable1);
 
+    public Interfaz(String filename) {
+        String url = "jdbc:sqlite:" + filename + ".db";
+        File file = new File(filename + ".db");
+        if (file.exists() == false) {
+            try (Connection conn = DriverManager.getConnection(url)) {
+                if (conn != null) {
+                    InterfazDoc id = new InterfazDoc();
+                    DatabaseMetaData meta = conn.getMetaData();
+                    System.out.println("The driver name is " + meta.getDriverName());
+                    System.out.println("Una nueva DB ha sido creada");
+                    General.crearTablas(filename, id.TablaSeguro, id.TablaCoche);
+
+                }
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
             }
-        }catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
 
         }
         try {
@@ -65,14 +63,12 @@ public class Interfaz extends javax.swing.JFrame implements Runnable {
             System.out.println(ex.getMessage());
         }
         System.out.println("La conexión a SQLite ha sido establecida");
-            initComponents();
-            lbfecha.setText(fecha());
-            hilo=new Thread(this);
-            hilo.start();
-            setVisible(true);
+        initComponents();
+        lbfecha.setText(fecha());
+        hilo = new Thread(this);
+        hilo.start();
+        setVisible(true);
     }
-    
-
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -96,7 +92,8 @@ public class Interfaz extends javax.swing.JFrame implements Runnable {
         jLabel3 = new javax.swing.JLabel();
         lbfecha = new javax.swing.JLabel();
         lbHora = new javax.swing.JLabel();
-        BtAdmin = new javax.swing.JButton();
+        lbAdmin = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         lbCitaPrevia = new javax.swing.JLabel();
         lbinfoCitaPrev = new javax.swing.JLabel();
         lbDoc = new javax.swing.JLabel();
@@ -151,15 +148,26 @@ public class Interfaz extends javax.swing.JFrame implements Runnable {
         lbHora.setText("00:00:00");
         jPanel2.add(lbHora, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, -1, -1));
 
-        BtAdmin.setBackground(new java.awt.Color(204, 204, 204));
-        BtAdmin.setText("Administrador");
-        BtAdmin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        BtAdmin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtAdminActionPerformed(evt);
+        lbAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icon admin.png"))); // NOI18N
+        lbAdmin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lbAdmin.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                lbAdminMouseMoved(evt);
             }
         });
-        jPanel2.add(BtAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, -1, -1));
+        lbAdmin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbAdminMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lbAdminMouseExited(evt);
+            }
+        });
+        jPanel2.add(lbAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 90, 110));
+
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Admin");
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 390, -1, -1));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, 2, 260, 420));
 
@@ -284,34 +292,27 @@ public class Interfaz extends javax.swing.JFrame implements Runnable {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    
-    
-    private void BtAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtAdminActionPerformed
-        AccesAdmin adminA=new AccesAdmin();
-        adminA.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_BtAdminActionPerformed
 
     private void lbCitaPreviaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbCitaPreviaMouseClicked
-       IntAccesoCita IAcita=new IntAccesoCita();
-       IAcita.setVisible(true);
-       this.setVisible(false);
+        IntAccesoCita IAcita = new IntAccesoCita();
+        IAcita.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_lbCitaPreviaMouseClicked
 
     private void lbDocMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbDocMouseClicked
-        IntAccesoDoc IAdoc=new IntAccesoDoc();
+        IntAccesoDoc IAdoc = new IntAccesoDoc();
         IAdoc.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_lbDocMouseClicked
 
     private void lbTallerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbTallerMouseClicked
-        IntAccesoTaller IATaller=new IntAccesoTaller();
+        IntAccesoTaller IATaller = new IntAccesoTaller();
         IATaller.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_lbTallerMouseClicked
 
     private void lbCitaPreviaMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbCitaPreviaMouseMoved
-        lbCitaPrevia.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153,153,153)));
+        lbCitaPrevia.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
     }//GEN-LAST:event_lbCitaPreviaMouseMoved
 
     private void jLbMinMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLbMinMouseClicked
@@ -319,74 +320,90 @@ public class Interfaz extends javax.swing.JFrame implements Runnable {
     }//GEN-LAST:event_jLbMinMouseClicked
 
     private void jlbCerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbCerrarMouseClicked
-        int dialog =JOptionPane.YES_NO_OPTION;
-        int result = JOptionPane.showConfirmDialog(null,"Desea salir del programa?","Exit",dialog);
-        if(result==0){
+        int dialog = JOptionPane.YES_NO_OPTION;
+        int result = JOptionPane.showConfirmDialog(null, "Desea salir del programa?", "Exit", dialog);
+        if (result == 0) {
             System.exit(0);
         }
     }//GEN-LAST:event_jlbCerrarMouseClicked
 
     private void lbDocMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbDocMouseMoved
-        lbDoc.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153,153,153)));
+        lbDoc.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
     }//GEN-LAST:event_lbDocMouseMoved
 
     private void lbCitaPreviaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbCitaPreviaMouseExited
-        lbCitaPrevia.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255,255,255)));
+        lbCitaPrevia.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
 
     }//GEN-LAST:event_lbCitaPreviaMouseExited
 
     private void lbDocMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbDocMouseExited
-        lbDoc.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255,255,255)));
+        lbDoc.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
     }//GEN-LAST:event_lbDocMouseExited
 
     private void lbTallerMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbTallerMouseMoved
-        lbTaller.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153,153,153)));
+        lbTaller.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
     }//GEN-LAST:event_lbTallerMouseMoved
 
     private void lbTallerMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbTallerMouseExited
-        lbTaller.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255,255,255)));
+        lbTaller.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
     }//GEN-LAST:event_lbTallerMouseExited
 
     private void jLbMinMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLbMinMouseMoved
-        jLbMin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153,153,153)));
+        jLbMin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
     }//GEN-LAST:event_jLbMinMouseMoved
 
     private void jLbMinMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLbMinMouseExited
-        jLbMin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255,255,255)));
+        jLbMin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
     }//GEN-LAST:event_jLbMinMouseExited
 
     private void jlbCerrarMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbCerrarMouseMoved
-        jlbCerrar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153,153,153)));
+        jlbCerrar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
     }//GEN-LAST:event_jlbCerrarMouseMoved
 
     private void jlbCerrarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbCerrarMouseExited
-        jlbCerrar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255,255,255)));
+        jlbCerrar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
     }//GEN-LAST:event_jlbCerrarMouseExited
 
-    
-    public void hora(){
-        Calendar calendario=new GregorianCalendar();
-        Date horactual=new Date();
+    private void lbAdminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbAdminMouseClicked
+        AccesAdmin adminA = new AccesAdmin();
+        adminA.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_lbAdminMouseClicked
+
+    private void lbAdminMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbAdminMouseMoved
+        lbAdmin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+    }//GEN-LAST:event_lbAdminMouseMoved
+
+    private void lbAdminMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbAdminMouseExited
+        lbAdmin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51)));
+    }//GEN-LAST:event_lbAdminMouseExited
+
+    public void hora() {
+        Calendar calendario = new GregorianCalendar();
+        Date horactual = new Date();
         calendario.setTime(horactual);
-        hora=calendario.get(Calendar.HOUR_OF_DAY)>9?""+calendario.get(Calendar.HOUR_OF_DAY):"0"+calendario.get(Calendar.HOUR_OF_DAY);
-        minutos=calendario.get(Calendar.MINUTE)>9?""+calendario.get(Calendar.MINUTE):"0"+calendario.get(Calendar.MINUTE);
-        segundos=calendario.get(Calendar.SECOND)>9?""+calendario.get(Calendar.SECOND):"0"+calendario.get(Calendar.SECOND);
+        hora = calendario.get(Calendar.HOUR_OF_DAY) > 9 ? "" + calendario.get(Calendar.HOUR_OF_DAY) : "0" + calendario.get(Calendar.HOUR_OF_DAY);
+        minutos = calendario.get(Calendar.MINUTE) > 9 ? "" + calendario.get(Calendar.MINUTE) : "0" + calendario.get(Calendar.MINUTE);
+        segundos = calendario.get(Calendar.SECOND) > 9 ? "" + calendario.get(Calendar.SECOND) : "0" + calendario.get(Calendar.SECOND);
     }
-    public void run(){
-        Thread current=Thread.currentThread();
-        while(current==hilo){
+
+    public void run() {
+        Thread current = Thread.currentThread();
+        while (current == hilo) {
             hora();
-            lbHora.setText(hora+":"+minutos+":"+segundos);
+            lbHora.setText(hora + ":" + minutos + ":" + segundos);
         }
     }
+
     /**
      * @param args the command line arguments
      */
-        public static String fecha(){
-        Date fecha =new Date();
-        SimpleDateFormat formatofecha=new SimpleDateFormat("dd/MM/YYYY");
+    public static String fecha() {
+        Date fecha = new Date();
+        SimpleDateFormat formatofecha = new SimpleDateFormat("dd/MM/YYYY");
         return formatofecha.format(fecha);
     }
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -420,10 +437,10 @@ public class Interfaz extends javax.swing.JFrame implements Runnable {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BtAdmin;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLbMin;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
@@ -434,6 +451,7 @@ public class Interfaz extends javax.swing.JFrame implements Runnable {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel jlbCerrar;
+    private javax.swing.JLabel lbAdmin;
     private javax.swing.JLabel lbCitaPrevia;
     private javax.swing.JLabel lbDoc;
     private javax.swing.JLabel lbHora;

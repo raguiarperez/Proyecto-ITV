@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Interfaz.Administrador;
 
 import Interfaz.Interfaz;
@@ -24,8 +20,8 @@ public class AccesAdmin extends javax.swing.JFrame {
     private Timer t;
     int cont;
     //diracion segundos
-    public final static int TWO_SECOND=50;
-    
+    public final static int TWO_SECOND = 50;
+
     public AccesAdmin() {
         initComponents();
         setLocationRelativeTo(null);
@@ -233,35 +229,35 @@ public class AccesAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_txtUsuarioActionPerformed
 
     private void BtMenuPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtMenuPrincipalActionPerformed
-        Interfaz Int=new Interfaz();
+        Interfaz Int = new Interfaz();
         Int.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_BtMenuPrincipalActionPerformed
 
     private void jPassClaveKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPassClaveKeyPressed
-        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             inicioSesion();
         }
     }//GEN-LAST:event_jPassClaveKeyPressed
 
     private void jlbCerrarMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbCerrarMouseMoved
-        jlbCerrar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153,153,153)));
+        jlbCerrar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
     }//GEN-LAST:event_jlbCerrarMouseMoved
 
     private void jlbCerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbCerrarMouseClicked
-        int dialog =JOptionPane.YES_NO_OPTION;
-        int result = JOptionPane.showConfirmDialog(null,"Desea salir del programa?","Exit",dialog);
-        if(result==0){
+        int dialog = JOptionPane.YES_NO_OPTION;
+        int result = JOptionPane.showConfirmDialog(null, "Desea salir del programa?", "Exit", dialog);
+        if (result == 0) {
             System.exit(0);
         }
     }//GEN-LAST:event_jlbCerrarMouseClicked
 
     private void jlbCerrarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbCerrarMouseExited
-        jlbCerrar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255,255,255)));
+        jlbCerrar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
     }//GEN-LAST:event_jlbCerrarMouseExited
 
     private void jLbMinMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLbMinMouseMoved
-        jLbMin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153,153,153)));
+        jLbMin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
     }//GEN-LAST:event_jLbMinMouseMoved
 
     private void jLbMinMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLbMinMouseClicked
@@ -269,62 +265,68 @@ public class AccesAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_jLbMinMouseClicked
 
     private void jLbMinMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLbMinMouseExited
-        jLbMin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255,255,255)));
+        jLbMin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
     }//GEN-LAST:event_jLbMinMouseExited
 
     /**
      * @param args the command line arguments
      */
-    class TimerListener implements ActionListener{
+    class TimerListener implements ActionListener {
 
         public void actionPerformed(ActionEvent e) {
-            String usuario=txtUsuario.getText();
+            String usuario = txtUsuario.getText();
             cont++;
             BarraLogin.setValue(cont);
-            if(cont<100){
-                if(cont<=50){
-                        BarraLogin.setString("Cargando Datos..");
-                    }else if(cont>50&&cont<=75){
-                        BarraLogin.setString("Accediendo..");
-                    }
+            if (cont < 100) {
+                if (cont <= 50) {
+                    BarraLogin.setString("Cargando Datos..");
+                } else if (cont > 50 && cont <= 75) {
+                    BarraLogin.setString("Accediendo..");
+                }
             }
-            if(cont==100){
+            if (cont == 100) {
                 t.stop();
-                
-                if(usuario.equals("AdminRafa")){
-                AdministradorRafa admin1 = new AdministradorRafa();
-                admin1.setVisible(true);
-                }else if(usuario.equals("AdminEdu")){
-                AdministradorEdu admin2 = new AdministradorEdu();
-                admin2.setVisible(true);
+
+                if (usuario.equals("AdminRafa")) {
+                    AdministradorRafa admin1 = new AdministradorRafa();
+                    admin1.setVisible(true);
+                } else if (usuario.equals("AdminEdu")) {
+                    AdministradorEdu admin2 = new AdministradorEdu();
+                    admin2.setVisible(true);
                 }
                 esconder();
             }
-            
+
         }
-        
+
     }
-    public void esconder(){this.setVisible(false);}
-    public void activar(){t.start();}
-    
-    public void inicioSesion(){
-        String usuario=txtUsuario.getText();
-        String contra=String.valueOf(jPassClave.getPassword());
-        if (usuario.equals("AdminRafa") && contra.equals("itvRafa")||usuario.equals("AdminEdu") && contra.equals("itvEdu")){
-                    
-                    BarraLogin.setVisible(true);
-                    cont=-1;
-                    BarraLogin.setValue(0);
-                    BarraLogin.setStringPainted(true);
-                    t=new Timer(TWO_SECOND,new TimerListener());
-                    activar();
-            }else {
-                    JOptionPane.showMessageDialog(null, "Acceso denegado:\n"
+
+    public void esconder() {
+        this.setVisible(false);
+    }
+
+    public void activar() {
+        t.start();
+    }
+
+    public void inicioSesion() {
+        String usuario = txtUsuario.getText();
+        String contra = String.valueOf(jPassClave.getPassword());
+        if (usuario.equals("AdminRafa") && contra.equals("itvRafa") || usuario.equals("AdminEdu") && contra.equals("itvEdu")) {
+
+            BarraLogin.setVisible(true);
+            cont = -1;
+            BarraLogin.setValue(0);
+            BarraLogin.setStringPainted(true);
+            t = new Timer(TWO_SECOND, new TimerListener());
+            activar();
+        } else {
+            JOptionPane.showMessageDialog(null, "Acceso denegado:\n"
                     + "Por favor ingrese un usuario y/o contraseña correctos", "Acceso denegado",
                     JOptionPane.ERROR_MESSAGE);
-           }
+        }
     }
-    
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

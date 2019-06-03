@@ -8,7 +8,6 @@ package Interfaz.Documentación;
 import BaseDatos.TablaDocCoche;
 import BaseDatos.TablaSeguros;
 import Documentación.Seguros;
-import static Interfaz.Documentación.InterfazDoc.tablaSeguro;
 import Utilidades.ComprobarString;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
@@ -52,6 +51,7 @@ public class IntinsDocCoche extends javax.swing.JFrame {
         jlbCerrar = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.darkGray, java.awt.Color.darkGray));
@@ -238,7 +238,7 @@ public class IntinsDocCoche extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextANOMATRICULA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
                 .addComponent(BtInsertar)
                 .addContainerGap())
         );
@@ -251,10 +251,13 @@ public class IntinsDocCoche extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, 0))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextMatriculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextMatriculaActionPerformed
@@ -270,8 +273,8 @@ public class IntinsDocCoche extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null,TablaDocCoche.añadirDocCoche(jTextMatricula, jTextNUMBASTIDOR, jTextMARCA, jTextMODELO,jTextANOMATRICULA));
         ArrayList<Seguros> conS = new ArrayList<>();
         conS=TablaSeguros.consultaSeguros(IntAccesoDoc.jTextDNI);
-        TablaSeguros.actuConsultaSeguros(conS, InterfazDoc.tablaSeguro);
-        TablaDocCoche.actuConsultaSegDocCoche(conS, InterfazDoc.jTable1);
+        TablaSeguros.actuConsultaSeguros(conS, InterfazDoc.TablaSeguro);
+        TablaDocCoche.actuConsultaSegDocCoche(conS, InterfazDoc.TablaCoche);
         this.setVisible(false);        
         }else{
         JOptionPane.showMessageDialog(null, "Todos los campos deben ser rellenados.");

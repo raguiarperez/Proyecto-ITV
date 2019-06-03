@@ -36,41 +36,47 @@ public class InterfazDoc extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         BtPtPrinc = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        TablaCoche = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
-        tablaSeguro = new javax.swing.JTable();
+        TablaSeguro = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         BtInsertarCoche = new javax.swing.JButton();
         BtInsertarSeguro = new javax.swing.JButton();
         jLbMin = new javax.swing.JLabel();
         jlbCerrar = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.darkGray, java.awt.Color.darkGray));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLogo.setText("ITV ERD");
         jLogo.setBackground(new java.awt.Color(51, 51, 51));
         jLogo.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLogo.setForeground(new java.awt.Color(51, 51, 51));
+        jPanel1.add(jLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(306, 13, -1, -1));
 
         jLabel2.setText("Documentación Previa");
         jLabel2.setBackground(new java.awt.Color(51, 51, 51));
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(51, 51, 51));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(281, 56, -1, -1));
 
-        BtPtPrinc.setText("Menú Principal");
         BtPtPrinc.setBackground(new java.awt.Color(51, 51, 51));
         BtPtPrinc.setForeground(new java.awt.Color(255, 255, 255));
+        BtPtPrinc.setText("Menú Principal");
         BtPtPrinc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtPtPrincActionPerformed(evt);
             }
         });
+        jPanel1.add(BtPtPrinc, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 470, -1, -1));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        TablaCoche.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -85,10 +91,13 @@ public class InterfazDoc extends javax.swing.JFrame {
                 "	Matrícula", "Número Bastidor", "Marca", "Modelo", "Año "
             }
         ));
-        jTable1.setForeground(new java.awt.Color(51, 51, 51));
-        jScrollPane1.setViewportView(jTable1);
+        TablaCoche.setForeground(new java.awt.Color(51, 51, 51));
+        jScrollPane1.setViewportView(TablaCoche);
 
-        tablaSeguro.setModel(new javax.swing.table.DefaultTableModel(
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 301, 699, 155));
+
+        TablaSeguro.setForeground(new java.awt.Color(51, 51, 51));
+        TablaSeguro.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -103,20 +112,23 @@ public class InterfazDoc extends javax.swing.JFrame {
                 "DNI", "Numero Poliza", "Nombre Compañia", "Matrícula"
             }
         ));
-        tablaSeguro.setForeground(new java.awt.Color(51, 51, 51));
-        jScrollPane2.setViewportView(tablaSeguro);
+        jScrollPane2.setViewportView(TablaSeguro);
+
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 118, 699, 155));
 
         jLabel3.setText("Documentación Seguro");
         jLabel3.setBackground(new java.awt.Color(51, 51, 51));
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(51, 51, 51));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(281, 91, -1, -1));
 
         jLabel4.setText("Documentación Coche");
         jLabel4.setBackground(new java.awt.Color(51, 51, 51));
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(51, 51, 51));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 279, -1, -1));
 
-        BtInsertarCoche.setText("Insertar Coche");
+        BtInsertarCoche.setText("Insertar/Modificar Coche");
         BtInsertarCoche.setBackground(new java.awt.Color(51, 51, 51));
         BtInsertarCoche.setForeground(new java.awt.Color(255, 255, 255));
         BtInsertarCoche.addActionListener(new java.awt.event.ActionListener() {
@@ -124,8 +136,9 @@ public class InterfazDoc extends javax.swing.JFrame {
                 BtInsertarCocheActionPerformed(evt);
             }
         });
+        jPanel1.add(BtInsertarCoche, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 470, -1, -1));
 
-        BtInsertarSeguro.setText("Insertar Seguro");
+        BtInsertarSeguro.setText("Insertar/Modificar Seguro");
         BtInsertarSeguro.setBackground(new java.awt.Color(51, 51, 51));
         BtInsertarSeguro.setForeground(new java.awt.Color(255, 255, 255));
         BtInsertarSeguro.addActionListener(new java.awt.event.ActionListener() {
@@ -133,6 +146,7 @@ public class InterfazDoc extends javax.swing.JFrame {
                 BtInsertarSeguroActionPerformed(evt);
             }
         });
+        jPanel1.add(BtInsertarSeguro, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 470, -1, -1));
 
         jLbMin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Minimizar.png"))); // NOI18N
         jLbMin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -149,6 +163,7 @@ public class InterfazDoc extends javax.swing.JFrame {
                 jLbMinMouseExited(evt);
             }
         });
+        jPanel1.add(jLbMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(643, 2, -1, 40));
 
         jlbCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Close.png"))); // NOI18N
         jlbCerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -165,82 +180,24 @@ public class InterfazDoc extends javax.swing.JFrame {
                 jlbCerrarMouseExited(evt);
             }
         });
+        jPanel1.add(jlbCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(681, 2, 30, 40));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(288, 288, 288)
-                .addComponent(jLabel4)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(279, 279, 279)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel2))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(BtInsertarSeguro)
-                        .addGap(40, 40, 40)
-                        .addComponent(BtInsertarCoche)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(BtPtPrinc))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(0, 294, Short.MAX_VALUE)
-                                .addComponent(jLogo)
-                                .addGap(248, 248, 248)
-                                .addComponent(jLbMin)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jlbCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jScrollPane2)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING))))
-                .addContainerGap())
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLogo)
-                    .addComponent(jlbCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLbMin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel3)
-                .addGap(10, 10, 10)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4)
-                .addGap(5, 5, 5)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BtPtPrinc)
-                    .addComponent(BtInsertarCoche)
-                    .addComponent(BtInsertarSeguro))
-                .addGap(227, 227, 227))
-        );
+        jLabel1.setText("* Para añadir un coche nuevo modificar primero el Seguro");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 500, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 728, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 531, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 525, Short.MAX_VALUE)
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtPtPrincActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtPtPrincActionPerformed
@@ -251,11 +208,11 @@ public class InterfazDoc extends javax.swing.JFrame {
 
     private void BtInsertarCocheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtInsertarCocheActionPerformed
         IntinsDocCoche IDocoche=new IntinsDocCoche();
-        if(jTable1.contains(0, 1)== true){
+        if(TablaCoche.contains(0, 1)== true){
          JOptionPane.showMessageDialog(null,"Su coche ya está listado");
 
-        }else if(tablaSeguro.contains(0,1)==true){
-        IntinsDocCoche.jTextMatricula.setText((String)tablaSeguro.getValueAt(0, 3));
+        }else if(TablaSeguro.contains(0,1)==true){
+        IntinsDocCoche.jTextMatricula.setText((String)TablaSeguro.getValueAt(0, 3));
         IntinsDocCoche.jTextMatricula.setEditable(false);
         IDocoche.setVisible(true);
         }else{
@@ -266,8 +223,8 @@ public class InterfazDoc extends javax.swing.JFrame {
     private void BtInsertarSeguroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtInsertarSeguroActionPerformed
         IntinsDocSeguro IDoseguro=new IntinsDocSeguro();
         IDoseguro.jTextDNI.setText(IntAccesoDoc.jTextDNI.getText());
-        if(tablaSeguro.contains(0, 3)== true){
-        IDoseguro.jTextMATRICULA.setText((String)tablaSeguro.getValueAt(0, 3));
+        if(TablaSeguro.contains(0, 3)== true){
+        IDoseguro.jTextMATRICULA.setText((String)TablaSeguro.getValueAt(0, 3));
         }        
         IDoseguro.jTextDNI.setEditable(false);
         IDoseguro.setVisible(true);
@@ -346,7 +303,10 @@ public class InterfazDoc extends javax.swing.JFrame {
     private javax.swing.JButton BtInsertarCoche;
     private javax.swing.JButton BtInsertarSeguro;
     private javax.swing.JButton BtPtPrinc;
+    public static javax.swing.JTable TablaCoche;
+    public static javax.swing.JTable TablaSeguro;
     private com.github.lgooddatepicker.components.DateTimePicker dateTimePicker1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -355,8 +315,6 @@ public class InterfazDoc extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    public static javax.swing.JTable jTable1;
     private javax.swing.JLabel jlbCerrar;
-    public static javax.swing.JTable tablaSeguro;
     // End of variables declaration//GEN-END:variables
 }

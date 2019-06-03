@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package BaseDatos;
 
 import Documentación.DocCoche;
@@ -21,12 +17,13 @@ import javax.swing.table.DefaultTableModel;
  * @author Mirroriced y Rafsniper
  */
 public class TablaDocCoche {
+
     static String sql;
     static ArrayList<DocCoche> listaco = new ArrayList<>();
-    
-    public static String añadirDocCoche(JTextField matricula,JTextField nbastidor, JTextField marca, JTextField modelo, JTextField anomatri){
+
+    public static String añadirDocCoche(JTextField matricula, JTextField nbastidor, JTextField marca, JTextField modelo, JTextField anomatri) {
         sql = "INSERT INTO Doccoche(matricula,nbastidor,marca,modelo,anomatricula) VALUES(?,?,?,?,?)";
-       try (Connection conn = General.connect();
+        try (Connection conn = General.connect();
                 PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, matricula.getText());
             pstmt.setString(2, nbastidor.getText());
@@ -35,16 +32,16 @@ public class TablaDocCoche {
             pstmt.setString(5, anomatri.getText());
             pstmt.executeUpdate();
             return "Linea añadida"
-                    + "\n" + matricula.getText() + " " + nbastidor.getText() + " " + marca.getText()+ " " + modelo.getText()+" "+anomatri.getText();
+                    + "\n" + matricula.getText() + " " + nbastidor.getText() + " " + marca.getText() + " " + modelo.getText() + " " + anomatri.getText();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
         return "Ha habido un error. Algun campo ya existía en la tabla.";
     }
 
-public static ArrayList<DocCoche> añadirArrayDocCoche() {
+    public static ArrayList<DocCoche> añadirArrayDocCoche() {
         TablaSeguros.listaseg = TablaSeguros.añadirArraySeguros();
-        String matricula,nbastidor,marca,modelo,anomatricula;
+        String matricula, nbastidor, marca, modelo, anomatricula;
         sql = "SELECT matricula,nbastidor,marca,modelo,anomatricula FROM DocCoche WHERE matricula in(SELECT matricula FROM Seguros WHERE dni = ?)";
         try (Connection conn = General.connect();
                 PreparedStatement pstmt = conn.prepareStatement(sql);) {
@@ -53,12 +50,12 @@ public static ArrayList<DocCoche> añadirArrayDocCoche() {
                 pstmt.setString(1, TablaSeguros.listaseg.get(i).getDni());
                 ResultSet rs = pstmt.executeQuery();
                 while (rs.next()) {
-                matricula = rs.getString("matricula");
-                nbastidor = rs.getString("nbastidor");
-                marca = rs.getString("marca");
-                modelo = rs.getString("modelo");
-                anomatricula = rs.getString("anomatricula");
-                    listaco.add(new DocCoche(matricula,nbastidor,marca,modelo,anomatricula));
+                    matricula = rs.getString("matricula");
+                    nbastidor = rs.getString("nbastidor");
+                    marca = rs.getString("marca");
+                    modelo = rs.getString("modelo");
+                    anomatricula = rs.getString("anomatricula");
+                    listaco.add(new DocCoche(matricula, nbastidor, marca, modelo, anomatricula));
 
                 }
             }
@@ -69,11 +66,11 @@ public static ArrayList<DocCoche> añadirArrayDocCoche() {
         return listaco;
     }
 
-public static void actualizarTablaDocCoche(JTable a) {
+    public static void actualizarTablaDocCoche(JTable a) {
         DefaultTableModel model = (DefaultTableModel) a.getModel();
         Object O[] = null;
         model.setRowCount(0);
-        listaco= añadirArrayDocCoche();
+        listaco = añadirArrayDocCoche();
         for (int i = 0; i < listaco.size(); i++) {
             model.addRow(O);
             DocCoche getD = listaco.get(i);
@@ -84,8 +81,9 @@ public static void actualizarTablaDocCoche(JTable a) {
             model.setValueAt(getD.getAnoMatriculacion(), i, 4);
         }
     }
-public static ArrayList<DocCoche> añadirArrayDocConsulta(ArrayList<Seguros> conS) {
-        String matricula,nbastidor,marca,modelo,anomatricula;
+
+    public static ArrayList<DocCoche> añadirArrayDocConsulta(ArrayList<Seguros> conS) {
+        String matricula, nbastidor, marca, modelo, anomatricula;
         sql = "SELECT matricula,nbastidor,marca,modelo,anomatricula FROM DocCoche WHERE matricula in(SELECT matricula from seguros WHERE dni = ?)";
         try (Connection conn = General.connect();
                 PreparedStatement pstmt = conn.prepareStatement(sql);) {
@@ -95,12 +93,12 @@ public static ArrayList<DocCoche> añadirArrayDocConsulta(ArrayList<Seguros> con
                 pstmt.setString(1, conS.get(i).getDni());
                 ResultSet rs = pstmt.executeQuery();
                 while (rs.next()) {
-                matricula = rs.getString("matricula");
-                nbastidor = rs.getString("nbastidor");
-                marca = rs.getString("marca");
-                modelo = rs.getString("modelo");
-                anomatricula = rs.getString("anomatricula");
-                 listaco.add(new DocCoche(matricula,nbastidor,marca,modelo,anomatricula));
+                    matricula = rs.getString("matricula");
+                    nbastidor = rs.getString("nbastidor");
+                    marca = rs.getString("marca");
+                    modelo = rs.getString("modelo");
+                    anomatricula = rs.getString("anomatricula");
+                    listaco.add(new DocCoche(matricula, nbastidor, marca, modelo, anomatricula));
 
                 }
             }
@@ -110,9 +108,9 @@ public static ArrayList<DocCoche> añadirArrayDocConsulta(ArrayList<Seguros> con
         }
         return listaco;
     }
-    
+
     //ACTU CONSULTA DE SEGUROS PARA MOSTRAR TABLA DOCCOCHE
-public static void actuConsultaSegDocCoche(ArrayList<Seguros> conS, JTable a) {
+    public static void actuConsultaSegDocCoche(ArrayList<Seguros> conS, JTable a) {
         //EXPOSICIONES
         DefaultTableModel model2 = (DefaultTableModel) a.getModel();
         Object O[] = null;
@@ -129,26 +127,25 @@ public static void actuConsultaSegDocCoche(ArrayList<Seguros> conS, JTable a) {
         }
     }
 
-        //MODIFICAR
-
-public static String modificarDocCoche(JTextField matricula,JTextField nbastidor, JTextField marca, JTextField modelo, JTextField anomatri){
+    //MODIFICAR
+    public static String modificarDocCoche(JTextField matricula, JTextField nbastidor, JTextField marca, JTextField modelo, JTextField anomatri) {
         try (Connection conn = General.connect();) {
             PreparedStatement pstmt = null;
             if (nbastidor.getText().isEmpty() && marca.getText().isEmpty() && modelo.getText().isEmpty() && anomatri.getText().isEmpty()) {
                 throw new NullPointerException();
             }
 
-                sql = "UPDATE doccoche SET nbastidor = ? , "
-                        + "marca = ?, "
-                        + "modelo = ? "
-                        + "anomatriculacion = ? "
-                        + "WHERE matricula = ?";
-                pstmt = conn.prepareStatement(sql);
-                pstmt.setString(1, nbastidor.getText());
-                pstmt.setString(2, marca.getText());
-                pstmt.setString(3, modelo.getText());
-                pstmt.setString(4, anomatri.getText());
-                pstmt.setString(5, matricula.getText());
+            sql = "UPDATE doccoche SET nbastidor = ? , "
+                    + "marca = ?, "
+                    + "modelo = ? "
+                    + "anomatriculacion = ? "
+                    + "WHERE matricula = ?";
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, nbastidor.getText());
+            pstmt.setString(2, marca.getText());
+            pstmt.setString(3, modelo.getText());
+            pstmt.setString(4, anomatri.getText());
+            pstmt.setString(5, matricula.getText());
 
             return "Documentación del coche modificada";
         } catch (SQLException e) {
@@ -157,16 +154,15 @@ public static String modificarDocCoche(JTextField matricula,JTextField nbastidor
         return "No ha habido cambios";
     }
 
-        //BORRAR
-
-public static void borrarDocCoche(String matri){
-            sql = "DELETE FROM DocCoche WHERE matricula = ?";
-            try (Connection conn = General.connect();
-                    PreparedStatement pstmt = conn.prepareStatement(sql);) {;
-                pstmt.setString(1, matri);
-                pstmt.executeUpdate();
-            } catch (SQLException e) {
-                System.out.println(e.getMessage());
-            }
+    //BORRAR
+    public static void borrarDocCoche(String matri) {
+        sql = "DELETE FROM DocCoche WHERE matricula = ?";
+        try (Connection conn = General.connect();
+                PreparedStatement pstmt = conn.prepareStatement(sql);) {;
+            pstmt.setString(1, matri);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
     }
 }

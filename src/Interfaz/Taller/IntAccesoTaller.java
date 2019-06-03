@@ -3,8 +3,6 @@ package Interfaz.Taller;
 import Interfaz.Interfaz;
 import Taller.Ingreso;
 import Utilidades.ComprobarString;
-import java.awt.Color;
-import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.text.ParseException;
@@ -12,8 +10,7 @@ import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import javax.swing.Timer;
-import javax.swing.UIManager;
+
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -197,7 +194,7 @@ public class IntAccesoTaller extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextDNI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
                 .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -254,7 +251,10 @@ public class IntAccesoTaller extends javax.swing.JFrame {
                                 }else if(x>50&&x<=75){
                                     jProgressBar1.setString("Seleccionando Puerta..");
                                 }else if(x==100){
-                                    JOptionPane.showMessageDialog(null, "Pase por la puerta: \n" +"               "+ (1 + rand.nextInt(5)));
+                                    InterfazTaller ital=new InterfazTaller();
+                                    ital.setVisible(true);
+                                    IntAccesoTaller.this.setVisible(false);
+                                    
                                 }
                                 
                                 //Hacemos una parada de medio segundo por cada siclo while
@@ -300,7 +300,7 @@ public class IntAccesoTaller extends javax.swing.JFrame {
     }//GEN-LAST:event_BtMenuPrincipalActionPerformed
 
     private void jTextDNIKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextDNIKeyPressed
-        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+    if(evt.getKeyCode()==KeyEvent.VK_ENTER){
        if(ComprobarString.longitudLetraFinal(9, jTextDNI.getText())){
             jProgressBar1.setVisible(true);
             final Thread t;
@@ -329,7 +329,9 @@ public class IntAccesoTaller extends javax.swing.JFrame {
                                 }else if(x>50&&x<=75){
                                     jProgressBar1.setString("Seleccionando Puerta..");
                                 }else if(x==100){
-                                    JOptionPane.showMessageDialog(null, "Pase por la puerta: \n" +"               "+ (1 + rand.nextInt(5)));
+                                    InterfazTaller ital=new InterfazTaller();
+                                    ital.setVisible(true);
+                                    IntAccesoTaller.this.setVisible(false);
                                 }
                                 
                                 //Hacemos una parada de medio segundo por cada siclo while

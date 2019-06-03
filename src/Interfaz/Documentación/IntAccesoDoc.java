@@ -10,10 +10,7 @@ import BaseDatos.TablaSeguros;
 import Documentación.Seguros;
 import Interfaz.Interfaz;
 import Utilidades.ComprobarString;
-import Utilidades.pedirDatos;
-import java.awt.event.KeyEvent;
 import java.util.ArrayList;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -44,8 +41,6 @@ public class IntAccesoDoc extends javax.swing.JFrame {
         jTextDNI = new javax.swing.JTextField();
         jLogo = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jTextMATRICULA = new javax.swing.JTextField();
         BtContinuar = new javax.swing.JButton();
         BtPtPrincipal = new javax.swing.JButton();
         jlbCerrar = new javax.swing.JLabel();
@@ -88,24 +83,6 @@ public class IntAccesoDoc extends javax.swing.JFrame {
         jLabel2.setBackground(new java.awt.Color(51, 51, 51));
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(51, 51, 51));
-
-        jLabel3.setText("MATRICULA:");
-        jLabel3.setBackground(new java.awt.Color(51, 51, 51));
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(51, 51, 51));
-
-        jTextMATRICULA.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51)));
-        jTextMATRICULA.setForeground(new java.awt.Color(51, 51, 51));
-        jTextMATRICULA.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextMATRICULAActionPerformed(evt);
-            }
-        });
-        jTextMATRICULA.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                jTextMATRICULAKeyPressed(evt);
-            }
-        });
 
         BtContinuar.setText("Continuar");
         BtContinuar.setBackground(new java.awt.Color(51, 51, 51));
@@ -164,15 +141,12 @@ public class IntAccesoDoc extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(39, 39, 39)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel1))
+                        .addGap(84, 84, 84)
+                        .addComponent(jLabel1)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextMATRICULA, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jTextDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel2))
                                 .addGap(0, 0, Short.MAX_VALUE))
@@ -204,11 +178,7 @@ public class IntAccesoDoc extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextDNI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(33, 33, 33)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jTextMATRICULA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BtContinuar)
                     .addComponent(BtPtPrincipal))
@@ -226,7 +196,7 @@ public class IntAccesoDoc extends javax.swing.JFrame {
             .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
-        setSize(new java.awt.Dimension(420, 262));
+        setSize(new java.awt.Dimension(420, 234));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -238,18 +208,13 @@ public class IntAccesoDoc extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextDNI1ActionPerformed
 
-    private void jTextMATRICULAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextMATRICULAActionPerformed
-        String matricula = jTextMATRICULA.getText();
-
-    }//GEN-LAST:event_jTextMATRICULAActionPerformed
-
     private void BtContinuarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtContinuarActionPerformed
         if(ComprobarString.longitudLetraFinal(9, jTextDNI.getText())==true){
         InterfazDoc Idoc= new InterfazDoc();
         ArrayList<Seguros> conS = new ArrayList<>();
         conS=TablaSeguros.consultaSeguros(jTextDNI);
-        TablaSeguros.actuConsultaSeguros(conS, Idoc.tablaSeguro);
-        TablaDocCoche.actuConsultaSegDocCoche(conS, Idoc.jTable1);
+        TablaSeguros.actuConsultaSeguros(conS, Idoc.TablaSeguro);
+        TablaDocCoche.actuConsultaSegDocCoche(conS, Idoc.TablaCoche);
         Idoc.setVisible(true);
         this.setVisible(false);
         }
@@ -289,20 +254,6 @@ public class IntAccesoDoc extends javax.swing.JFrame {
     private void jLbMinMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLbMinMouseExited
         jLbMin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255,255,255)));
     }//GEN-LAST:event_jLbMinMouseExited
-
-    private void jTextMATRICULAKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextMATRICULAKeyPressed
- if(evt.getKeyCode()==KeyEvent.VK_ENTER){
-             if(ComprobarString.longitudLetraFinal(9, jTextDNI.getText())==true){
-        InterfazDoc Idoc= new InterfazDoc();
-        ArrayList<Seguros> conS = new ArrayList<>();
-        conS=TablaSeguros.consultaSeguros(jTextDNI);
-        TablaSeguros.actuConsultaSeguros(conS, Idoc.tablaSeguro);
-        TablaDocCoche.actuConsultaSegDocCoche(conS, Idoc.jTable1);
-        Idoc.setVisible(true);
-        this.setVisible(false);
-        }
- }
-    }//GEN-LAST:event_jTextMATRICULAKeyPressed
 
     /**
      * @param args the command line arguments
@@ -345,14 +296,12 @@ public class IntAccesoDoc extends javax.swing.JFrame {
     private javax.swing.JButton BtPtPrincipal;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLbMin;
     private javax.swing.JLabel jLogo;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollBar jScrollBar1;
     public static javax.swing.JTextField jTextDNI;
     private javax.swing.JTextField jTextDNI1;
-    private javax.swing.JTextField jTextMATRICULA;
     private javax.swing.JLabel jlbCerrar;
     // End of variables declaration//GEN-END:variables
 }
