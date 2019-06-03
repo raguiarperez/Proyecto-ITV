@@ -251,7 +251,7 @@ public class IntinsDocSeguro extends javax.swing.JFrame {
     private void BtInsertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtInsertarActionPerformed
         if(InterfazDoc.TablaSeguro.contains(0, 3)== true){
                    String matri = (String)InterfazDoc.TablaSeguro.getValueAt(0, 3);
-            if(ComprobarString.longitud(6, jTextMATRICULA.getText())==true && !jTextNUMPOLIZA.getText().isEmpty() && !jTextCOMPANIA.getText().isEmpty() && !jTextMATRICULA.getText().isEmpty()){
+            if(ComprobarString.longitud(7, jTextMATRICULA.getText())==true && !jTextNUMPOLIZA.getText().isEmpty() && !jTextCOMPANIA.getText().isEmpty() && !jTextMATRICULA.getText().isEmpty()){
                 JOptionPane.showMessageDialog(null,TablaSeguros.modificarSeguro(jTextDNI, jTextNUMPOLIZA, jTextCOMPANIA, jTextMATRICULA));
                 if(!jTextMATRICULA.getText().equalsIgnoreCase((String)InterfazDoc.TablaSeguro.getValueAt(0, 3)))
                     TablaDocCoche.borrarDocCoche(matri);}
@@ -264,7 +264,7 @@ public class IntinsDocSeguro extends javax.swing.JFrame {
         
         }else{
          JOptionPane.showMessageDialog(null, "Todos los campos deben ser rellenados.");
-                } if (ComprobarString.longitud(6, jTextMATRICULA.getText())==true){
+                } if (ComprobarString.longitud(7, jTextMATRICULA.getText())==true){
             JOptionPane.showMessageDialog(null,TablaSeguros.añadirSeguro(jTextDNI, jTextNUMPOLIZA, jTextCOMPANIA, jTextMATRICULA));
         }
         }

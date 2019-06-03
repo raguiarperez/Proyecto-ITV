@@ -68,6 +68,11 @@ public class AccesAdmin extends javax.swing.JFrame {
                 txtUsuarioActionPerformed(evt);
             }
         });
+        txtUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtUsuarioKeyPressed(evt);
+            }
+        });
 
         jLogo.setBackground(new java.awt.Color(51, 51, 51));
         jLogo.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -268,14 +273,20 @@ public class AccesAdmin extends javax.swing.JFrame {
         jLbMin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
     }//GEN-LAST:event_jLbMinMouseExited
 
+    private void txtUsuarioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsuarioKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            inicioSesion();
+        }
+    }//GEN-LAST:event_txtUsuarioKeyPressed
+
     /**
      * @param args the command line arguments
      */
     class TimerListener implements ActionListener {
 
         public void actionPerformed(ActionEvent e) {
-            String usuario = txtUsuario.getText();
-            cont++;
+            String usuario = txtUsuario.getText(); //metemos un usuario para el login
+            cont++; //d
             BarraLogin.setValue(cont);
             if (cont < 100) {
                 if (cont <= 50) {
@@ -287,7 +298,7 @@ public class AccesAdmin extends javax.swing.JFrame {
             if (cont == 100) {
                 t.stop();
 
-                if (usuario.equals("AdminRafa")) {
+                if (usuario.equals("AdminRafa")) { //compara el contenido introducido con el login correcto
                     AdministradorRafa admin1 = new AdministradorRafa();
                     admin1.setVisible(true);
                 } else if (usuario.equals("AdminEdu")) {

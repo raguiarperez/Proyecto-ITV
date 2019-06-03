@@ -22,8 +22,8 @@ import javax.swing.JOptionPane;
  */
 public class Interfaz extends javax.swing.JFrame implements Runnable {
 
-    String hora, minutos, segundos;
-    Thread hilo;
+    String hora, minutos, segundos; //declaramos variables String Hora,Min,Seg
+    Thread hilo; //declaramos un hilo para la hora
 
     /**
      * Creates new form Interfaz
@@ -387,9 +387,10 @@ public class Interfaz extends javax.swing.JFrame implements Runnable {
         segundos = calendario.get(Calendar.SECOND) > 9 ? "" + calendario.get(Calendar.SECOND) : "0" + calendario.get(Calendar.SECOND);
     }
 
+    @Override
     public void run() {
-        Thread current = Thread.currentThread();
-        while (current == hilo) {
+        Thread current = Thread.currentThread(); //definir hilo nuevo
+        while (current == hilo) { //mientras el hilo nuevo y el definido al inicio 
             hora();
             lbHora.setText(hora + ":" + minutos + ":" + segundos);
         }

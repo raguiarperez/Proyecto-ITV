@@ -57,7 +57,7 @@ public class About extends javax.swing.JFrame {
         txtAbout.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
         txtAbout.setForeground(new java.awt.Color(51, 51, 51));
         txtAbout.setRows(5);
-        txtAbout.setText("Versión: 2.0\nCopyright(c) 2019 Rafa Aguiar Edu Collazo\nAll Rights Reserved This product is protected \nby copyright and distributed under licenses \nrestricting copying, distribution, and decompilation.");
+        txtAbout.setText("Versión: 2.0\nCopyright(c) 2019 Rafa Aguiar, Edu Collazo\nAll Rights Reserved This product is protected \nby copyright and distributed under licenses \nrestricting copying, distribution, and decompilation.");
         txtAbout.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         txtAbout.setSelectionColor(new java.awt.Color(51, 51, 51));
         jScrollPane1.setViewportView(txtAbout);

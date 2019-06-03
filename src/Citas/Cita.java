@@ -1,10 +1,18 @@
 
 package Citas;
 
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
 import java.io.*;
 import java.text.*;
 import java.time.LocalTime;
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
 
 /**
  *
@@ -81,7 +89,36 @@ public class Cita implements Serializable {
     public void setLocalidad(String localidad) {
         this.localidad = localidad;
     }
+    
+    //método para imprimir en pdf
+    public static void generarPDF(JTextField dni,JLabel fecha, JLabel hora,JLabel Localidad) throws FileNotFoundException {
+        FileOutputStream archivo;
+        archivo = new FileOutputStream(dni.getText()+".pdf");
+        Document documento=new Document();
+        try {
+            PdfWriter.getInstance(documento, archivo);
+        } catch (DocumentException ex) {
+            Logger.getLogger(Cita.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        documento.open();
+        
+        Paragraph parrafo= new Paragraph("Cita Previa");
+        parrafo.setAlignment(1);
+        try {
+            documento.add(parrafo);
 
+        
+        documento.add(new Paragraph("Fecha: "+fecha.getText()));
+        documento.add(new Paragraph("Hora: "+hora.getText()));        
+        documento.add(new Paragraph("Localidad: "+Localidad.getText())); 
+                } catch (DocumentException ex) {
+            Logger.getLogger(Cita.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        documento.close();
+        
+    }
+    
+    
     //Metodo para añadir al fichero los datos
     public void engadir(String nomeFich, Cita cit, String dni) throws IOException {
         fich = new ObjectOutputStream(new FileOutputStream(nomeFich + ".dat"));

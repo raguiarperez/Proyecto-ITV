@@ -300,13 +300,13 @@ public class InterfazDoc extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BtInsertarCoche;
-    private javax.swing.JButton BtInsertarSeguro;
+    public static javax.swing.JButton BtInsertarCoche;
+    public static javax.swing.JButton BtInsertarSeguro;
     private javax.swing.JButton BtPtPrinc;
     public static javax.swing.JTable TablaCoche;
     public static javax.swing.JTable TablaSeguro;
     private com.github.lgooddatepicker.components.DateTimePicker dateTimePicker1;
-    private javax.swing.JLabel jLabel1;
+    public static javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

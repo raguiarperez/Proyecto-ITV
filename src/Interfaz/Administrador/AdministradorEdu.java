@@ -187,6 +187,9 @@ public class AdministradorEdu extends javax.swing.JFrame implements Runnable {
         TablaSeguros.actualizarTablaSeguros(InterfazDoc.TablaSeguro);
         TablaDocCoche.actualizarTablaDocCoche(InterfazDoc.TablaCoche);
         Idoc.setVisible(true);
+        InterfazDoc.BtInsertarCoche.setVisible(false);
+        InterfazDoc.BtInsertarSeguro.setVisible(false);
+        InterfazDoc.jLabel1.setVisible(false);
         this.setVisible(false);
     }//GEN-LAST:event_lbDocMouseClicked
 
