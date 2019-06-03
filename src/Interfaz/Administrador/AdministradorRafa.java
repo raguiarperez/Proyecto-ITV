@@ -95,7 +95,7 @@ public class AdministradorRafa extends javax.swing.JFrame implements Runnable{
         lbHora.setText("00:00:00");
         jPanel2.add(lbHora, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, -1, -1));
 
-        lbAdmin.setIcon(new javax.swing.ImageIcon("C:\\Users\\rafa2\\OneDrive\\Documentos\\DANIELCASTELAO\\INSTITUTO\\DAM\\PROGRAMACIÓN\\PROYECTOS\\2ª EVALUACIÓN\\Proyecto\\Proyecto-Programacion\\Imagenes\\usuario.png")); // NOI18N
+        lbAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/usuario.png"))); // NOI18N
         jPanel2.add(lbAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 80, 100));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -110,7 +110,7 @@ public class AdministradorRafa extends javax.swing.JFrame implements Runnable{
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, 2, 270, 420));
 
-        lbCitaPrevia.setIcon(new javax.swing.ImageIcon("C:\\Users\\rafa2\\OneDrive\\Documentos\\DANIELCASTELAO\\INSTITUTO\\DAM\\PROGRAMACIÓN\\PROYECTOS\\2ª EVALUACIÓN\\Proyecto\\Proyecto-Programacion\\Imagenes\\oie_2215717jQP2UlIT.png")); // NOI18N
+        lbCitaPrevia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Cita.png"))); // NOI18N
         lbCitaPrevia.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lbCitaPrevia.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
@@ -132,7 +132,7 @@ public class AdministradorRafa extends javax.swing.JFrame implements Runnable{
         lbinfoCitaPrev.setText("Cita Previa");
         jPanel1.add(lbinfoCitaPrev, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 130, -1, -1));
 
-        lbDoc.setIcon(new javax.swing.ImageIcon("C:\\Users\\rafa2\\OneDrive\\Documentos\\DANIELCASTELAO\\INSTITUTO\\DAM\\PROGRAMACIÓN\\PROYECTOS\\2ª EVALUACIÓN\\Proyecto\\Proyecto-Programacion\\Imagenes\\oie_222438P0JwZH0W.png")); // NOI18N
+        lbDoc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Documentacion.png"))); // NOI18N
         lbDoc.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lbDoc.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
@@ -154,7 +154,7 @@ public class AdministradorRafa extends javax.swing.JFrame implements Runnable{
         lbinfodoc.setText("Documentación");
         jPanel1.add(lbinfodoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 250, -1, -1));
 
-        lbTaller.setIcon(new javax.swing.ImageIcon("C:\\Users\\rafa2\\OneDrive\\Documentos\\DANIELCASTELAO\\INSTITUTO\\DAM\\PROGRAMACIÓN\\PROYECTOS\\2ª EVALUACIÓN\\Proyecto\\Proyecto-Programacion\\Imagenes\\oie_22254FbMvUfDs.png")); // NOI18N
+        lbTaller.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Taller.png"))); // NOI18N
         lbTaller.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lbTaller.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
@@ -176,7 +176,7 @@ public class AdministradorRafa extends javax.swing.JFrame implements Runnable{
         lbinfoTaller.setText("Taller");
         jPanel1.add(lbinfoTaller, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 370, 30, -1));
 
-        jLbMin.setIcon(new javax.swing.ImageIcon("C:\\Users\\rafa2\\OneDrive\\Documentos\\DANIELCASTELAO\\INSTITUTO\\DAM\\PROGRAMACIÓN\\PROYECTOS\\2ª EVALUACIÓN\\Proyecto\\Proyecto-Programacion\\Imagenes\\icons8_Expand_Arrow_32px.png")); // NOI18N
+        jLbMin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Minimizar.png"))); // NOI18N
         jLbMin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLbMin.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
@@ -193,7 +193,7 @@ public class AdministradorRafa extends javax.swing.JFrame implements Runnable{
         });
         jPanel1.add(jLbMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 0, -1, 40));
 
-        jlbCerrar.setIcon(new javax.swing.ImageIcon("C:\\Users\\rafa2\\OneDrive\\Documentos\\DANIELCASTELAO\\INSTITUTO\\DAM\\PROGRAMACIÓN\\PROYECTOS\\2ª EVALUACIÓN\\Proyecto\\Proyecto-Programacion\\Imagenes\\icons8_Multiply_32px.png")); // NOI18N
+        jlbCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Close.png"))); // NOI18N
         jlbCerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jlbCerrar.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {

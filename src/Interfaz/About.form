@@ -161,7 +161,7 @@
         <Component class="javax.swing.JLabel" name="jlbCerrar">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\rafa2\OneDrive\Documentos\DANIELCASTELAO\INSTITUTO\DAM\PROGRAMACI&#xd3;N\PROYECTOS\2&#xaa; EVALUACI&#xd3;N\Proyecto\Proyecto-Programacion\Imagenes\icons8_Multiply_32px.png"/>
+              <Image iconType="3" name="/Imagenes/Close.png"/>
             </Property>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Cursor de Mano"/>
@@ -176,7 +176,7 @@
         <Component class="javax.swing.JLabel" name="jLbMin">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\rafa2\OneDrive\Documentos\DANIELCASTELAO\INSTITUTO\DAM\PROGRAMACI&#xd3;N\PROYECTOS\2&#xaa; EVALUACI&#xd3;N\Proyecto\Proyecto-Programacion\Imagenes\icons8_Expand_Arrow_32px.png"/>
+              <Image iconType="3" name="/Imagenes/Minimizar.png"/>
             </Property>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Cursor de Mano"/>
