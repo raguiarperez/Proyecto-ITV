@@ -140,7 +140,7 @@ public class TablaSeguros {
             pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, poliza.getText());
             pstmt.setString(2, compania.getText());
-            ComprobarString.longitud(6, matricula.getText());
+            ComprobarString.longitud(7, matricula.getText());
             pstmt.setString(3, matricula.getText());
             pstmt.setString(4, dni.getText());
             pstmt.executeUpdate();
