@@ -1,4 +1,3 @@
-
 package Citas;
 
 import com.itextpdf.text.Document;
@@ -16,7 +15,7 @@ import javax.swing.JTextField;
 
 /**
  *
- * @author Mirroriced y Rafsniper
+ * @author 
  */
 public class Cita implements Serializable {
 

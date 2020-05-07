@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Interfaz.Documentación;
+package Interfaz.Citas;
 
+import Interfaz.Citas.IntAccesoCita;
+import Interfaz.Citas.InterfazCita;
 import Interfaz.Interfaz;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -12,12 +14,12 @@ import javax.swing.JOptionPane;
 /**
  * @author Mirroriced y Rafsniper
  */
-public class InterfazDoc extends javax.swing.JFrame {
+public class IntDoc extends javax.swing.JFrame {
 
     /**
      * Creates new form InterfazDoc
      */
-    public InterfazDoc() {
+    public IntDoc() {
         initComponents();
     }
 
@@ -34,7 +36,6 @@ public class InterfazDoc extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLogo = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        BtPtPrinc = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         TablaCoche = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -46,6 +47,8 @@ public class InterfazDoc extends javax.swing.JFrame {
         jLbMin = new javax.swing.JLabel();
         jlbCerrar = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        BtReCita = new javax.swing.JButton();
+        BtPtPrinc2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -65,16 +68,6 @@ public class InterfazDoc extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(51, 51, 51));
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(281, 56, -1, -1));
-
-        BtPtPrinc.setBackground(new java.awt.Color(51, 51, 51));
-        BtPtPrinc.setForeground(new java.awt.Color(255, 255, 255));
-        BtPtPrinc.setText("Menú Principal");
-        BtPtPrinc.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtPtPrincActionPerformed(evt);
-            }
-        });
-        jPanel1.add(BtPtPrinc, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 470, -1, -1));
 
         TablaCoche.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -185,6 +178,26 @@ public class InterfazDoc extends javax.swing.JFrame {
         jLabel1.setText("* Para añadir un coche nuevo modificar primero el Seguro");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 500, -1, -1));
 
+        BtReCita.setBackground(new java.awt.Color(51, 51, 51));
+        BtReCita.setForeground(new java.awt.Color(255, 255, 255));
+        BtReCita.setText("Resumen Cita");
+        BtReCita.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtReCitaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(BtReCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 470, -1, -1));
+
+        BtPtPrinc2.setBackground(new java.awt.Color(51, 51, 51));
+        BtPtPrinc2.setForeground(new java.awt.Color(255, 255, 255));
+        BtPtPrinc2.setText("Menú Principal");
+        BtPtPrinc2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtPtPrinc2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(BtPtPrinc2, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 470, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -199,12 +212,6 @@ public class InterfazDoc extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void BtPtPrincActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtPtPrincActionPerformed
-        Interfaz Int=new Interfaz();
-        Int.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_BtPtPrincActionPerformed
 
     private void BtInsertarCocheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtInsertarCocheActionPerformed
         IntinsDocCoche IDocoche=new IntinsDocCoche();
@@ -222,7 +229,7 @@ public class InterfazDoc extends javax.swing.JFrame {
 
     private void BtInsertarSeguroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtInsertarSeguroActionPerformed
         IntinsDocSeguro IDoseguro=new IntinsDocSeguro();
-        IDoseguro.jTextDNI.setText(IntAccesoDoc.jTextDNI.getText());
+        IDoseguro.jTextDNI.setText(IntAccesoCita.jTextDNI.getText());
         if(TablaSeguro.contains(0, 3)== true){
         IDoseguro.jTextMATRICULA.setText((String)TablaSeguro.getValueAt(0, 3));
         }        
@@ -235,7 +242,7 @@ public class InterfazDoc extends javax.swing.JFrame {
     }//GEN-LAST:event_jLbMinMouseMoved
 
     private void jLbMinMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLbMinMouseClicked
-        this.setState(InterfazDoc.ICONIFIED);
+        this.setState(IntDoc.ICONIFIED);
     }//GEN-LAST:event_jLbMinMouseClicked
 
     private void jLbMinMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLbMinMouseExited
@@ -258,6 +265,24 @@ public class InterfazDoc extends javax.swing.JFrame {
         jlbCerrar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255,255,255)));
     }//GEN-LAST:event_jlbCerrarMouseExited
 
+    private void BtReCitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtReCitaActionPerformed
+        if(TablaCoche.contains(0, 1)== true && TablaSeguro.contains(0,1)==true){
+        InterfazCita RCita= new InterfazCita();
+        RCita.setVisible(true);
+        this.setVisible(false);
+        }else{
+            JOptionPane.showMessageDialog(null,"Debes añadir la documentacion primero");
+        }
+        
+    }//GEN-LAST:event_BtReCitaActionPerformed
+
+    private void BtPtPrinc2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtPtPrinc2ActionPerformed
+        Interfaz Int=new Interfaz();
+        Int.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_BtPtPrinc2ActionPerformed
+
+    
     
     public JFrame inte(){
         return this;
@@ -281,20 +306,23 @@ public class InterfazDoc extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(InterfazDoc.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(IntDoc.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(InterfazDoc.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(IntDoc.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(InterfazDoc.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(IntDoc.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(InterfazDoc.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(IntDoc.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new InterfazDoc().setVisible(true);
+                new IntDoc().setVisible(true);
             }
         });
     }
@@ -302,7 +330,8 @@ public class InterfazDoc extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JButton BtInsertarCoche;
     public static javax.swing.JButton BtInsertarSeguro;
-    private javax.swing.JButton BtPtPrinc;
+    private javax.swing.JButton BtPtPrinc2;
+    private javax.swing.JButton BtReCita;
     public static javax.swing.JTable TablaCoche;
     public static javax.swing.JTable TablaSeguro;
     private com.github.lgooddatepicker.components.DateTimePicker dateTimePicker1;

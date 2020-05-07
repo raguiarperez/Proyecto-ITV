@@ -3,25 +3,26 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Interfaz.Documentación;
+package Interfaz.Administrador;
 
-import BaseDatos.TablaDocCoche;
-import BaseDatos.TablaSeguros;
-import Documentación.Seguros;
+
+import Interfaz.Administrador.AccesAdmin;
 import Interfaz.Interfaz;
 import Utilidades.ComprobarString;
+import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.Timer;
 
 /**
  * @author Mirroriced y Rafsniper
  */
-public class IntAccesoDoc extends javax.swing.JFrame {
+public class IntConAdmin extends javax.swing.JFrame {
 
     /**
      * Creates new form InterfazDoc
      */
-    public IntAccesoDoc() {
+    public IntConAdmin() {
         initComponents();
     }
 
@@ -38,13 +39,13 @@ public class IntAccesoDoc extends javax.swing.JFrame {
         jTextDNI1 = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jTextDNI = new javax.swing.JTextField();
         jLogo = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         BtContinuar = new javax.swing.JButton();
         BtPtPrincipal = new javax.swing.JButton();
         jlbCerrar = new javax.swing.JLabel();
         jLbMin = new javax.swing.JLabel();
+        jpsswdField = new javax.swing.JPasswordField();
 
         jTextDNI1.setForeground(new java.awt.Color(0, 102, 204));
         jTextDNI1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 204)));
@@ -61,41 +62,33 @@ public class IntAccesoDoc extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.darkGray, java.awt.Color.darkGray));
 
-        jLabel1.setText("DNI :");
         jLabel1.setBackground(new java.awt.Color(51, 51, 51));
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel1.setText("Contraseña :");
 
-        jTextDNI.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51)));
-        jTextDNI.setForeground(new java.awt.Color(51, 51, 51));
-        jTextDNI.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextDNIActionPerformed(evt);
-            }
-        });
-
-        jLogo.setText("ITV ERD");
         jLogo.setBackground(new java.awt.Color(51, 51, 51));
         jLogo.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLogo.setForeground(new java.awt.Color(51, 51, 51));
+        jLogo.setText("ITV ERD");
 
-        jLabel2.setText("Acceso a Documentación Previa");
         jLabel2.setBackground(new java.awt.Color(51, 51, 51));
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel2.setText("Acceso a Documentación Previa");
 
-        BtContinuar.setText("Continuar");
         BtContinuar.setBackground(new java.awt.Color(51, 51, 51));
         BtContinuar.setForeground(new java.awt.Color(255, 255, 255));
+        BtContinuar.setText("Continuar");
         BtContinuar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtContinuarActionPerformed(evt);
             }
         });
 
-        BtPtPrincipal.setText("Menú Principal");
         BtPtPrincipal.setBackground(new java.awt.Color(51, 51, 51));
         BtPtPrincipal.setForeground(new java.awt.Color(255, 255, 255));
+        BtPtPrincipal.setText("Menú Principal");
         BtPtPrincipal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtPtPrincipalActionPerformed(evt);
@@ -141,22 +134,20 @@ public class IntAccesoDoc extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(84, 84, 84)
-                        .addComponent(jLabel1)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel2))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(63, 63, 63)
-                                .addComponent(jLogo)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
-                                .addComponent(jLbMin)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jlbCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(37, 37, 37)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jpsswdField))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(179, 179, 179)
+                        .addComponent(jLogo)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
+                        .addComponent(jLbMin)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jlbCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(BtPtPrincipal)
@@ -177,8 +168,8 @@ public class IntAccesoDoc extends javax.swing.JFrame {
                 .addGap(30, 30, 30)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextDNI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
+                    .addComponent(jpsswdField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BtContinuar)
                     .addComponent(BtPtPrincipal))
@@ -196,28 +187,16 @@ public class IntAccesoDoc extends javax.swing.JFrame {
             .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
-        setSize(new java.awt.Dimension(420, 234));
+        setSize(new java.awt.Dimension(420, 238));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jTextDNIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextDNIActionPerformed
-        String dni = jTextDNI.getText();
-    }//GEN-LAST:event_jTextDNIActionPerformed
 
     private void jTextDNI1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextDNI1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextDNI1ActionPerformed
 
     private void BtContinuarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtContinuarActionPerformed
-        if(ComprobarString.longitudLetraFinal(9, jTextDNI.getText())==true){
-        InterfazDoc Idoc= new InterfazDoc();
-        ArrayList<Seguros> conS = new ArrayList<>();
-        conS=TablaSeguros.consultaSeguros(jTextDNI);
-        TablaSeguros.actuConsultaSeguros(conS, Idoc.TablaSeguro);
-        TablaDocCoche.actuConsultaSegDocCoche(conS, Idoc.TablaCoche);
-        Idoc.setVisible(true);
-        this.setVisible(false);
-        }
+
         
     }//GEN-LAST:event_BtContinuarActionPerformed
 
@@ -248,16 +227,30 @@ public class IntAccesoDoc extends javax.swing.JFrame {
     }//GEN-LAST:event_jLbMinMouseMoved
 
     private void jLbMinMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLbMinMouseClicked
-        this.setState(IntAccesoDoc.ICONIFIED);
+        this.setState(IntConAdmin.ICONIFIED);
     }//GEN-LAST:event_jLbMinMouseClicked
 
     private void jLbMinMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLbMinMouseExited
         jLbMin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255,255,255)));
     }//GEN-LAST:event_jLbMinMouseExited
 
-    /**
-     * @param args the command line arguments
-     */
+    public void actionPerformed(ActionEvent e) {
+                
+        String password = String.valueOf(jpsswdField.getPassword());
+        if (password.equals("1205978")) {
+           AccesAdmin IntAA=new AccesAdmin();
+            IntAA.setVisible(true);
+            this.setVisible(false);
+            
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Acceso denegado:\n"
+                    + "Usted no tiene permiso", "Acceso denegado",
+                    JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -272,21 +265,23 @@ public class IntAccesoDoc extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(IntAccesoDoc.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(IntConAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(IntAccesoDoc.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(IntConAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(IntAccesoDoc.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(IntConAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(IntAccesoDoc.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(IntConAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new IntAccesoDoc().setVisible(true);
+                new IntConAdmin().setVisible(true);
             }
         });
     }
@@ -300,8 +295,8 @@ public class IntAccesoDoc extends javax.swing.JFrame {
     private javax.swing.JLabel jLogo;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollBar jScrollBar1;
-    public static javax.swing.JTextField jTextDNI;
     private javax.swing.JTextField jTextDNI1;
     private javax.swing.JLabel jlbCerrar;
+    private javax.swing.JPasswordField jpsswdField;
     // End of variables declaration//GEN-END:variables
 }

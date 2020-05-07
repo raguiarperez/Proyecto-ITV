@@ -1,13 +1,19 @@
 package Interfaz.Citas;
 
+import BaseDatos.TablaDocCoche;
+import BaseDatos.TablaSeguros;
 import Citas.Cita;
+import Documentación.Seguros;
 import Interfaz.Interfaz;
+import Utilidades.ComprobarString;
 import java.io.IOException;
 import java.text.ParseException;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+
 
 /**
  * @author Mirroriced y Rafsniper
@@ -198,9 +204,16 @@ public class IntSelFecha extends javax.swing.JFrame {
             } catch (IOException ex) {
                 Logger.getLogger(IntSelFecha.class.getName()).log(Level.SEVERE, null, ex);
             }
-            InterfazCita Icita = new InterfazCita();
-            Icita.setVisible(true);
-            this.setVisible(false);
+            /*interfaz Documentacion*/
+                IntDoc Idoc= new IntDoc();
+                ArrayList<Seguros> conS = new ArrayList<>();
+                conS=TablaSeguros.consultaSeguros(IntAccesoCita.jTextDNI);
+                TablaSeguros.actuConsultaSeguros(conS, Idoc.TablaSeguro);
+                TablaDocCoche.actuConsultaSegDocCoche(conS, Idoc.TablaCoche);
+                Idoc.setVisible(true);
+                this.setVisible(false);
+        
+
         } else {
             JOptionPane.showMessageDialog(null, "Introduzca una hora de 07 a 21 del día siguiente y que no sobrepase el año 2020");
         }

@@ -301,8 +301,8 @@ public class AccesAdmin extends javax.swing.JFrame {
                 if (usuario.equals("AdminRafa")) { //compara el contenido introducido con el login correcto
                     AdministradorRafa admin1 = new AdministradorRafa();
                     admin1.setVisible(true);
-                } else if (usuario.equals("AdminEdu")) {
-                    AdministradorEdu admin2 = new AdministradorEdu();
+                } else if (usuario.equals("AdminSergio")) {
+                    AdministradorSergio admin2 = new AdministradorSergio();
                     admin2.setVisible(true);
                 }
                 esconder();
@@ -323,7 +323,7 @@ public class AccesAdmin extends javax.swing.JFrame {
     public void inicioSesion() {
         String usuario = txtUsuario.getText();
         String contra = String.valueOf(jPassClave.getPassword());
-        if (usuario.equals("AdminRafa") && contra.equals("itvRafa") || usuario.equals("AdminEdu") && contra.equals("itvEdu")) {
+        if (usuario.equals("AdminRafa") && contra.equals("itvRafa") || usuario.equals("AdminSergio") && contra.equals("itvSergio")) {
 
             BarraLogin.setVisible(true);
             cont = -1;

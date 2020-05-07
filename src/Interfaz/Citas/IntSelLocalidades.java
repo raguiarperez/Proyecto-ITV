@@ -76,9 +76,9 @@ public class IntSelLocalidades extends javax.swing.JFrame {
             }
         });
 
-        jSeleccionLoc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Madrid", "Vigo", "Valencia", "Barcelona", "Ourense" }));
-        jSeleccionLoc.setAutoscrolls(true);
         jSeleccionLoc.setForeground(new java.awt.Color(51, 51, 51));
+        jSeleccionLoc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Vigo", "A Coruña", "Pontovedra", "Lugo", "Ourense" }));
+        jSeleccionLoc.setAutoscrolls(true);
         jSeleccionLoc.setName(""); // NOI18N
         jSeleccionLoc.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {

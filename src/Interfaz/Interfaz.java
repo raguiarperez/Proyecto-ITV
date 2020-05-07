@@ -3,9 +3,9 @@ package Interfaz;
 
 import Interfaz.Administrador.AccesAdmin;
 import BaseDatos.General;
-import Interfaz.Documentación.IntAccesoDoc;
+import Interfaz.Administrador.IntConAdmin;
 import Interfaz.Citas.IntAccesoCita;
-import Interfaz.Documentación.InterfazDoc;
+import Interfaz.Citas.IntDoc;
 import Interfaz.Taller.IntAccesoTaller;
 import java.io.File;
 import java.sql.Connection;
@@ -45,7 +45,7 @@ public class Interfaz extends javax.swing.JFrame implements Runnable {
         if (file.exists() == false) {
             try (Connection conn = DriverManager.getConnection(url)) {
                 if (conn != null) {
-                    InterfazDoc id = new InterfazDoc();
+                    IntDoc id = new IntDoc();
                     DatabaseMetaData meta = conn.getMetaData();
                     System.out.println("The driver name is " + meta.getDriverName());
                     System.out.println("Una nueva DB ha sido creada");
@@ -137,7 +137,7 @@ public class Interfaz extends javax.swing.JFrame implements Runnable {
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("ITV ERD");
+        jLabel3.setText("ITV GAL");
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, -1, 47));
 
         lbfecha.setForeground(new java.awt.Color(255, 255, 255));
@@ -212,7 +212,7 @@ public class Interfaz extends javax.swing.JFrame implements Runnable {
 
         lbinfodoc.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         lbinfodoc.setForeground(new java.awt.Color(102, 102, 102));
-        lbinfodoc.setText("Documentación");
+        lbinfodoc.setText("Consulta de Citas");
         jPanel1.add(lbinfodoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 250, -1, -1));
 
         lbTaller.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Taller.png"))); // NOI18N
@@ -230,12 +230,12 @@ public class Interfaz extends javax.swing.JFrame implements Runnable {
                 lbTallerMouseExited(evt);
             }
         });
-        jPanel1.add(lbTaller, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 280, -1, 110));
+        jPanel1.add(lbTaller, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 270, -1, 110));
 
         lbinfoTaller.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         lbinfoTaller.setForeground(new java.awt.Color(102, 102, 102));
-        lbinfoTaller.setText("Taller");
-        jPanel1.add(lbinfoTaller, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 370, 30, -1));
+        lbinfoTaller.setText("Resultados");
+        jPanel1.add(lbinfoTaller, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 370, 70, -1));
 
         jLbMin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Minimizar.png"))); // NOI18N
         jLbMin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -300,7 +300,7 @@ public class Interfaz extends javax.swing.JFrame implements Runnable {
     }//GEN-LAST:event_lbCitaPreviaMouseClicked
 
     private void lbDocMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbDocMouseClicked
-        IntAccesoDoc IAdoc = new IntAccesoDoc();
+        IntConAdmin IAdoc = new IntConAdmin();
         IAdoc.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_lbDocMouseClicked

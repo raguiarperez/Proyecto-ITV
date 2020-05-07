@@ -3,7 +3,7 @@ package Interfaz.Administrador;
 
 import BaseDatos.TablaDocCoche;
 import BaseDatos.TablaSeguros;
-import Interfaz.Documentación.InterfazDoc;
+import Interfaz.Citas.IntDoc;
 import static Interfaz.Interfaz.fecha;
 import java.util.Calendar;
 import java.util.Date;
@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
 /**
  * @author Mirroriced y Rafsniper
  */
-public class AdministradorEdu extends javax.swing.JFrame implements Runnable {
+public class AdministradorSergio extends javax.swing.JFrame implements Runnable {
 
     String hora, minutos, segundos;
     Thread hilo;
@@ -21,7 +21,7 @@ public class AdministradorEdu extends javax.swing.JFrame implements Runnable {
     /**
      * Creates new form Administrador
      */
-    public AdministradorEdu() {
+    public AdministradorSergio() {
         initComponents();
         lbfecha.setText(fecha());
         hilo = new Thread(this);
@@ -96,7 +96,7 @@ public class AdministradorEdu extends javax.swing.JFrame implements Runnable {
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Edu Collazo");
+        jLabel5.setText("Sergio Lorenzo");
         jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 340, -1, -1));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, 2, 270, 420));
@@ -183,13 +183,13 @@ public class AdministradorEdu extends javax.swing.JFrame implements Runnable {
     }//GEN-LAST:event_lbDocMouseMoved
 
     private void lbDocMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbDocMouseClicked
-        InterfazDoc Idoc = new InterfazDoc();
-        TablaSeguros.actualizarTablaSeguros(InterfazDoc.TablaSeguro);
-        TablaDocCoche.actualizarTablaDocCoche(InterfazDoc.TablaCoche);
+        IntDoc Idoc = new IntDoc();
+        TablaSeguros.actualizarTablaSeguros(IntDoc.TablaSeguro);
+        TablaDocCoche.actualizarTablaDocCoche(IntDoc.TablaCoche);
         Idoc.setVisible(true);
-        InterfazDoc.BtInsertarCoche.setVisible(false);
-        InterfazDoc.BtInsertarSeguro.setVisible(false);
-        InterfazDoc.jLabel1.setVisible(false);
+        IntDoc.BtInsertarCoche.setVisible(false);
+        IntDoc.BtInsertarSeguro.setVisible(false);
+        IntDoc.jLabel1.setVisible(false);
         this.setVisible(false);
     }//GEN-LAST:event_lbDocMouseClicked
 
@@ -202,7 +202,7 @@ public class AdministradorEdu extends javax.swing.JFrame implements Runnable {
     }//GEN-LAST:event_jLbMinMouseMoved
 
     private void jLbMinMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLbMinMouseClicked
-        this.setState(AdministradorEdu.ICONIFIED);
+        this.setState(AdministradorSergio.ICONIFIED);
     }//GEN-LAST:event_jLbMinMouseClicked
 
     private void jLbMinMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLbMinMouseExited
@@ -259,21 +259,23 @@ public class AdministradorEdu extends javax.swing.JFrame implements Runnable {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AdministradorEdu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdministradorSergio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AdministradorEdu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdministradorSergio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AdministradorEdu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdministradorSergio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AdministradorEdu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdministradorSergio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AdministradorEdu().setVisible(true);
+                new AdministradorSergio().setVisible(true);
             }
         });
     }

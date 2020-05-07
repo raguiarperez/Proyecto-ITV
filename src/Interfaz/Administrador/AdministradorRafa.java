@@ -3,7 +3,7 @@ package Interfaz.Administrador;
 
 import BaseDatos.TablaDocCoche;
 import BaseDatos.TablaSeguros;
-import Interfaz.Documentación.InterfazDoc;
+import Interfaz.Citas.IntDoc;
 import static Interfaz.Interfaz.fecha;
 import java.util.Calendar;
 import java.util.Date;
@@ -183,13 +183,13 @@ public class AdministradorRafa extends javax.swing.JFrame implements Runnable {
     }//GEN-LAST:event_lbDocMouseMoved
 
     private void lbDocMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbDocMouseClicked
-        InterfazDoc Idoc = new InterfazDoc();
-        TablaSeguros.actualizarTablaSeguros(InterfazDoc.TablaSeguro);
-        TablaDocCoche.actualizarTablaDocCoche(InterfazDoc.TablaCoche);
+        IntDoc Idoc = new IntDoc();
+        TablaSeguros.actualizarTablaSeguros(IntDoc.TablaSeguro);
+        TablaDocCoche.actualizarTablaDocCoche(IntDoc.TablaCoche);
         Idoc.setVisible(true);
-        InterfazDoc.BtInsertarCoche.setVisible(false);
-        InterfazDoc.BtInsertarSeguro.setVisible(false);
-        InterfazDoc.jLabel1.setVisible(false);
+        IntDoc.BtInsertarCoche.setVisible(false);
+        IntDoc.BtInsertarSeguro.setVisible(false);
+        IntDoc.jLabel1.setVisible(false);
         this.setVisible(false);
     }//GEN-LAST:event_lbDocMouseClicked
 
