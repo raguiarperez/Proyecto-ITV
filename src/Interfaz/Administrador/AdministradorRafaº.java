@@ -5,6 +5,7 @@ import BaseDatos.TablaDocCoche;
 import BaseDatos.TablaSeguros;
 import Interfaz.Citas.IntDoc;
 import static Interfaz.Interfaz.fecha;
+import Interfaz.Taller.IntAccesoTaller;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -13,7 +14,7 @@ import javax.swing.JOptionPane;
 /**
  * @author Mirroriced y Rafsniper
  */
-public class AdministradorRafa extends javax.swing.JFrame implements Runnable {
+public class AdministradorRafaº extends javax.swing.JFrame implements Runnable {
 
     String hora, minutos, segundos;
     Thread hilo;
@@ -21,7 +22,7 @@ public class AdministradorRafa extends javax.swing.JFrame implements Runnable {
     /**
      * Creates new form Administrador
      */
-    public AdministradorRafa() {
+    public AdministradorRafaº() {
         initComponents();
         lbfecha.setText(fecha());
         hilo = new Thread(this);
@@ -52,6 +53,8 @@ public class AdministradorRafa extends javax.swing.JFrame implements Runnable {
         lbinfodoc = new javax.swing.JLabel();
         jLbMin = new javax.swing.JLabel();
         jlbCerrar = new javax.swing.JLabel();
+        lbTaller = new javax.swing.JLabel();
+        lbinfoTaller = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -157,6 +160,28 @@ public class AdministradorRafa extends javax.swing.JFrame implements Runnable {
         });
         jPanel1.add(jlbCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 0, 30, 40));
 
+        lbTaller.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Taller.png"))); // NOI18N
+        lbTaller.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lbTaller.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                lbTallerMouseMoved(evt);
+            }
+        });
+        lbTaller.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbTallerMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lbTallerMouseExited(evt);
+            }
+        });
+        jPanel1.add(lbTaller, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 270, -1, 100));
+
+        lbinfoTaller.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        lbinfoTaller.setForeground(new java.awt.Color(102, 102, 102));
+        lbinfoTaller.setText("Crear Resultados");
+        jPanel1.add(lbinfoTaller, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 355, 100, 30));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -202,7 +227,7 @@ public class AdministradorRafa extends javax.swing.JFrame implements Runnable {
     }//GEN-LAST:event_jLbMinMouseMoved
 
     private void jLbMinMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLbMinMouseClicked
-        this.setState(AdministradorRafa.ICONIFIED);
+        this.setState(AdministradorRafaº.ICONIFIED);
     }//GEN-LAST:event_jLbMinMouseClicked
 
     private void jLbMinMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLbMinMouseExited
@@ -224,6 +249,20 @@ public class AdministradorRafa extends javax.swing.JFrame implements Runnable {
     private void jlbCerrarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbCerrarMouseExited
         jlbCerrar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
     }//GEN-LAST:event_jlbCerrarMouseExited
+
+    private void lbTallerMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbTallerMouseMoved
+        lbTaller.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+    }//GEN-LAST:event_lbTallerMouseMoved
+
+    private void lbTallerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbTallerMouseClicked
+        crResulta icr =new crResulta();
+        icr.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_lbTallerMouseClicked
+
+    private void lbTallerMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbTallerMouseExited
+        lbTaller.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+    }//GEN-LAST:event_lbTallerMouseExited
 
     public void hora() {
         Calendar calendario = new GregorianCalendar();
@@ -259,21 +298,23 @@ public class AdministradorRafa extends javax.swing.JFrame implements Runnable {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AdministradorRafa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdministradorRafaº.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AdministradorRafa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdministradorRafaº.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AdministradorRafa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdministradorRafaº.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AdministradorRafa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdministradorRafaº.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AdministradorRafa().setVisible(true);
+                new AdministradorRafaº().setVisible(true);
             }
         });
     }
@@ -291,7 +332,9 @@ public class AdministradorRafa extends javax.swing.JFrame implements Runnable {
     private javax.swing.JLabel lbAdmin;
     private javax.swing.JLabel lbDoc;
     private javax.swing.JLabel lbHora;
+    private javax.swing.JLabel lbTaller;
     private javax.swing.JLabel lbfecha;
+    private javax.swing.JLabel lbinfoTaller;
     private javax.swing.JLabel lbinfodoc;
     // End of variables declaration//GEN-END:variables
 }

@@ -213,7 +213,7 @@ public class Interfaz extends javax.swing.JFrame implements Runnable {
         lbinfodoc.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         lbinfodoc.setForeground(new java.awt.Color(102, 102, 102));
         lbinfodoc.setText("Consulta de Citas");
-        jPanel1.add(lbinfodoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 250, -1, -1));
+        jPanel1.add(lbinfodoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(353, 245, 100, 20));
 
         lbTaller.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Taller.png"))); // NOI18N
         lbTaller.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -230,12 +230,12 @@ public class Interfaz extends javax.swing.JFrame implements Runnable {
                 lbTallerMouseExited(evt);
             }
         });
-        jPanel1.add(lbTaller, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 270, -1, 110));
+        jPanel1.add(lbTaller, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 270, 90, -1));
 
         lbinfoTaller.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         lbinfoTaller.setForeground(new java.awt.Color(102, 102, 102));
         lbinfoTaller.setText("Resultados");
-        jPanel1.add(lbinfoTaller, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 370, 70, -1));
+        jPanel1.add(lbinfoTaller, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 355, 70, 30));
 
         jLbMin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Minimizar.png"))); // NOI18N
         jLbMin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -365,8 +365,8 @@ public class Interfaz extends javax.swing.JFrame implements Runnable {
     }//GEN-LAST:event_jlbCerrarMouseExited
 
     private void lbAdminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbAdminMouseClicked
-        AccesAdmin adminA = new AccesAdmin();
-        adminA.setVisible(true);
+       IntConAdmin IAdoc = new IntConAdmin();
+        IAdoc.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_lbAdminMouseClicked
 

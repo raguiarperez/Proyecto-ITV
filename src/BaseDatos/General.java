@@ -46,7 +46,7 @@ public class General {
         } catch (SQLException e) {
             System.out.println(e.getMessage() + "1");
         }
-
+        /*********************************************/
         sql = "CREATE TABLE IF NOT EXISTS Seguros (\n"
                 + "	dni text PRIMARY KEY,\n"
                 + "	nPoliza text NOT NULL UNIQUE,\n"
@@ -61,5 +61,19 @@ public class General {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+        
+        /*********************************************/
+                sql = "CREATE TABLE IF NOT EXISTS Fallos (\n"
+                + "	Fallo text PRIMARY KEY,\n"
+                + "	Descripcion text NOT NULL,\n"
+                + ");";
+
+        try (Connection conn = DriverManager.getConnection(url);
+                Statement stmt = conn.createStatement()) {
+            stmt.execute(sql);
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
     }
 }

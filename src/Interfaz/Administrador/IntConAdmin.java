@@ -196,8 +196,9 @@ public class IntConAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextDNI1ActionPerformed
 
     private void BtContinuarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtContinuarActionPerformed
-
-        
+        AccesAdmin adminA = new AccesAdmin();
+        adminA.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_BtContinuarActionPerformed
 
     private void BtPtPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtPtPrincipalActionPerformed

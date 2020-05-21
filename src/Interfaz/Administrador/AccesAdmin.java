@@ -299,10 +299,10 @@ public class AccesAdmin extends javax.swing.JFrame {
                 t.stop();
 
                 if (usuario.equals("AdminRafa")) { //compara el contenido introducido con el login correcto
-                    AdministradorRafa admin1 = new AdministradorRafa();
+                    AdministradorRafaº admin1 = new AdministradorRafaº();
                     admin1.setVisible(true);
                 } else if (usuario.equals("AdminSergio")) {
-                    AdministradorSergio admin2 = new AdministradorSergio();
+                    AdministradorSergioº admin2 = new AdministradorSergioº();
                     admin2.setVisible(true);
                 }
                 esconder();

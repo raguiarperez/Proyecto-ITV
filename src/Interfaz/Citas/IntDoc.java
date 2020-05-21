@@ -83,13 +83,21 @@ public class IntDoc extends javax.swing.JFrame {
             new String [] {
                 "	Matrícula", "Número Bastidor", "Marca", "Modelo", "Año "
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, true, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         TablaCoche.setForeground(new java.awt.Color(51, 51, 51));
         jScrollPane1.setViewportView(TablaCoche);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 301, 699, 155));
 
-        TablaSeguro.setForeground(new java.awt.Color(51, 51, 51));
+        TablaSeguro.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         TablaSeguro.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -105,6 +113,7 @@ public class IntDoc extends javax.swing.JFrame {
                 "DNI", "Numero Poliza", "Nombre Compañia", "Matrícula"
             }
         ));
+        TablaSeguro.setForeground(new java.awt.Color(51, 51, 51));
         jScrollPane2.setViewportView(TablaSeguro);
 
         jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 118, 699, 155));
