@@ -119,12 +119,12 @@ public class AdministradorRafaº extends javax.swing.JFrame implements Runnable 
                 lbDocMouseExited(evt);
             }
         });
-        jPanel1.add(lbDoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 150, 100, 120));
+        jPanel1.add(lbDoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 50, 100, 120));
 
         lbinfodoc.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         lbinfodoc.setForeground(new java.awt.Color(102, 102, 102));
         lbinfodoc.setText("Documentación");
-        jPanel1.add(lbinfodoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 250, -1, -1));
+        jPanel1.add(lbinfodoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 150, -1, -1));
 
         jLbMin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Minimizar.png"))); // NOI18N
         jLbMin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -175,12 +175,12 @@ public class AdministradorRafaº extends javax.swing.JFrame implements Runnable 
                 lbTallerMouseExited(evt);
             }
         });
-        jPanel1.add(lbTaller, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 270, -1, 100));
+        jPanel1.add(lbTaller, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 210, -1, 100));
 
         lbinfoTaller.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         lbinfoTaller.setForeground(new java.awt.Color(102, 102, 102));
         lbinfoTaller.setText("Crear Resultados");
-        jPanel1.add(lbinfoTaller, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 355, 100, 30));
+        jPanel1.add(lbinfoTaller, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 300, 100, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

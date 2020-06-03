@@ -37,7 +37,7 @@ public class General {
                 + "	nBastidor text NOT NULL UNIQUE,\n"
                 + "	marca text NOT NULL,\n"
                 + "	modelo text NOT NULL,\n"
-                + "	Anomatricula text NOT NULL UNIQUE\n"
+                + "	Anomatricula text NOT NULL\n"
                 + ");";
 
         try (Connection conn = DriverManager.getConnection(url);

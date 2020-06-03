@@ -5,9 +5,12 @@
  */
 package Interfaz.Administrador;
 
-import Documentación.Fallos;
+import Resultado.*;
 import Utilidades.ComprobarString;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -21,7 +24,7 @@ public class crResulta extends javax.swing.JFrame {
      * Creates new form crResulta
      */
     public crResulta() {
-        initComponents();
+        initComponents();            
             jLbAFall.setVisible(false);
             jComBoxFall.setVisible(false);
             BtInsertFallo.setVisible(false);
@@ -45,7 +48,7 @@ public class crResulta extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jTextMatr = new javax.swing.JTextField();
-        BtInsertar = new javax.swing.JButton();
+        BtGenerar = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLbAFall = new javax.swing.JLabel();
@@ -64,8 +67,8 @@ public class crResulta extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.darkGray, java.awt.Color.darkGray));
 
-        jTextDni.setForeground(new java.awt.Color(51, 51, 51));
         jTextDni.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51)));
+        jTextDni.setForeground(new java.awt.Color(51, 51, 51));
         jTextDni.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextDniActionPerformed(evt);
@@ -82,37 +85,37 @@ public class crResulta extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(51, 51, 51));
         jLabel2.setText("Creacion de Resultados");
 
+        jLabel3.setText("DNI:");
         jLabel3.setBackground(new java.awt.Color(51, 51, 51));
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel3.setText("DNI:");
 
-        jTextMatr.setForeground(new java.awt.Color(51, 51, 51));
         jTextMatr.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51)));
+        jTextMatr.setForeground(new java.awt.Color(51, 51, 51));
         jTextMatr.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextMatrActionPerformed(evt);
             }
         });
 
-        BtInsertar.setBackground(new java.awt.Color(51, 51, 51));
-        BtInsertar.setForeground(new java.awt.Color(255, 255, 255));
-        BtInsertar.setText("Insertar Resultado");
-        BtInsertar.addActionListener(new java.awt.event.ActionListener() {
+        BtGenerar.setText("Generar Resultado");
+        BtGenerar.setBackground(new java.awt.Color(51, 51, 51));
+        BtGenerar.setForeground(new java.awt.Color(255, 255, 255));
+        BtGenerar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtInsertarActionPerformed(evt);
+                BtGenerarActionPerformed(evt);
             }
         });
 
+        jLabel4.setText("MATRICULA:");
         jLabel4.setBackground(new java.awt.Color(51, 51, 51));
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel4.setText("MATRICULA:");
 
+        jLabel5.setText("RESULTADO:");
         jLabel5.setBackground(new java.awt.Color(51, 51, 51));
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel5.setText("RESULTADO:");
 
         jLbAFall.setBackground(new java.awt.Color(51, 51, 51));
         jLbAFall.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -175,7 +178,6 @@ public class crResulta extends javax.swing.JFrame {
             }
         });
 
-        TablaFallos.setForeground(new java.awt.Color(51, 51, 51));
         TablaFallos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -184,11 +186,12 @@ public class crResulta extends javax.swing.JFrame {
                 "Fallos", "Descripcion"
             }
         ));
+        TablaFallos.setForeground(new java.awt.Color(51, 51, 51));
         jScrollPane2.setViewportView(TablaFallos);
 
+        BtInsertFallo.setText("Insertar Fallo");
         BtInsertFallo.setBackground(new java.awt.Color(51, 51, 51));
         BtInsertFallo.setForeground(new java.awt.Color(255, 255, 255));
-        BtInsertFallo.setText("Insertar Fallo");
         BtInsertFallo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtInsertFalloActionPerformed(evt);
@@ -219,15 +222,9 @@ public class crResulta extends javax.swing.JFrame {
                                 .addComponent(BtInsertFallo))
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                            .addGap(86, 86, 86)
-                                            .addComponent(jLabel3)
-                                            .addGap(266, 266, 266))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                            .addContainerGap()
-                                            .addComponent(jLogo)
-                                            .addGap(105, 105, 105)))
+                                    .addContainerGap(100, Short.MAX_VALUE)
+                                    .addComponent(jLogo)
+                                    .addGap(105, 105, 105)
                                     .addComponent(jLbMinRes))
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addContainerGap()
@@ -235,7 +232,8 @@ public class crResulta extends javax.swing.JFrame {
                                         .addGroup(jPanel1Layout.createSequentialGroup()
                                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                                 .addComponent(jLabel4)
-                                                .addComponent(jLabel5))
+                                                .addComponent(jLabel5)
+                                                .addComponent(jLabel3))
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                 .addComponent(jTextDni, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -253,7 +251,7 @@ public class crResulta extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(BtInsertar)
+                .addComponent(BtGenerar)
                 .addGap(18, 18, 18))
         );
         jPanel1Layout.setVerticalGroup(
@@ -299,7 +297,7 @@ public class crResulta extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(BtInsertar)
+                .addComponent(BtGenerar)
                 .addContainerGap())
         );
 
@@ -324,12 +322,17 @@ public class crResulta extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextDniActionPerformed
 
     private void jTextMatrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextMatrActionPerformed
-        String numBastidor = jTextMatr.getText();
+        String matricula = jTextMatr.getText();
     }//GEN-LAST:event_jTextMatrActionPerformed
 
-    private void BtInsertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtInsertarActionPerformed
-
-    }//GEN-LAST:event_BtInsertarActionPerformed
+    private void BtGenerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtGenerarActionPerformed
+        try{
+            Resultado.generarPDF(jTextDni,jTextMatr,jCBOXRES,TablaFallos);
+            JOptionPane.showMessageDialog(null, "Impresión realizada");
+        }catch (FileNotFoundException ex) {
+            Logger.getLogger(crResulta.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_BtGenerarActionPerformed
 
     private void jLbMinResMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLbMinResMouseMoved
         jLbMinRes.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153,153,153)));
@@ -369,10 +372,7 @@ public class crResulta extends javax.swing.JFrame {
 
     private void BtInsertFalloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtInsertFalloActionPerformed
         DefaultTableModel modelo = (DefaultTableModel) TablaFallos.getModel();
-
-
         Object [] fila=new Object[2];
-
         fila[0]=jComBoxFall.getSelectedItem().toString();
         fila[1]=jTxtFiDes.getText();
         modelo.addRow(fila);
@@ -401,6 +401,7 @@ public class crResulta extends javax.swing.JFrame {
             BtInsertFallo.setVisible(true);
             jLbFallD.setVisible(true);
             TablaFallos.setVisible(true);
+            jTxtFiDes.setVisible(true);
         }
     }//GEN-LAST:event_jCBOXRESItemStateChanged
 
@@ -444,8 +445,8 @@ public class crResulta extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtGenerar;
     private javax.swing.JButton BtInsertFallo;
-    private javax.swing.JButton BtInsertar;
     public static javax.swing.JTable TablaFallos;
     private javax.swing.JComboBox<String> jCBOXRES;
     private javax.swing.JComboBox<String> jComBoxFall;

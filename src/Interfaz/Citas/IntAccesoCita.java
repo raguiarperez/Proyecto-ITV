@@ -40,6 +40,8 @@ public class IntAccesoCita extends javax.swing.JFrame {
         BtMenuPrincipal = new javax.swing.JButton();
         jlbCerrar = new javax.swing.JLabel();
         jLbMin = new javax.swing.JLabel();
+        jTextNom = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -47,13 +49,13 @@ public class IntAccesoCita extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.darkGray, java.awt.Color.darkGray));
 
+        jLabel1.setText("DNI :");
         jLabel1.setBackground(new java.awt.Color(51, 51, 51));
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel1.setText("DNI :");
 
-        jTextDNI.setForeground(new java.awt.Color(51, 51, 51));
         jTextDNI.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51)));
+        jTextDNI.setForeground(new java.awt.Color(51, 51, 51));
         jTextDNI.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextDNIActionPerformed(evt);
@@ -65,28 +67,28 @@ public class IntAccesoCita extends javax.swing.JFrame {
             }
         });
 
+        jLogo.setText("ITV GAL");
         jLogo.setBackground(new java.awt.Color(51, 51, 51));
         jLogo.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLogo.setForeground(new java.awt.Color(51, 51, 51));
-        jLogo.setText("ITV GAL");
 
+        jLabel2.setText("Acceso a Cita Previa");
         jLabel2.setBackground(new java.awt.Color(51, 51, 51));
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel2.setText("Acceso a Cita Previa");
 
+        BtContinuar.setText("Continuar");
         BtContinuar.setBackground(new java.awt.Color(51, 51, 51));
         BtContinuar.setForeground(new java.awt.Color(255, 255, 255));
-        BtContinuar.setText("Continuar");
         BtContinuar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtContinuarActionPerformed(evt);
             }
         });
 
+        BtMenuPrincipal.setText("Menú Principal");
         BtMenuPrincipal.setBackground(new java.awt.Color(51, 51, 51));
         BtMenuPrincipal.setForeground(new java.awt.Color(255, 255, 255));
-        BtMenuPrincipal.setText("Menú Principal");
         BtMenuPrincipal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtMenuPrincipalActionPerformed(evt);
@@ -125,6 +127,13 @@ public class IntAccesoCita extends javax.swing.JFrame {
             }
         });
 
+        jTextNom.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jLabel3.setText("NOMBRE:");
+        jLabel3.setBackground(new java.awt.Color(153, 153, 153));
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(51, 51, 51));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -132,7 +141,7 @@ public class IntAccesoCita extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(179, 179, 179)
                 .addComponent(jLogo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
                 .addComponent(jLbMin)
                 .addGap(8, 8, 8)
                 .addComponent(jlbCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -146,16 +155,17 @@ public class IntAccesoCita extends javax.swing.JFrame {
                         .addComponent(BtContinuar)
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 74, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(137, 137, 137))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(97, 97, 97))))))
+                        .addComponent(jLabel2)
+                        .addGap(137, 137, 137))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel3))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTextNom)
+                            .addComponent(jTextDNI, javax.swing.GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE))
+                        .addGap(97, 97, 97))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -172,7 +182,11 @@ public class IntAccesoCita extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextDNI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextNom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BtContinuar)
                     .addComponent(BtMenuPrincipal))
@@ -338,10 +352,12 @@ public class IntAccesoCita extends javax.swing.JFrame {
     private javax.swing.JButton BtMenuPrincipal;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLbMin;
     private javax.swing.JLabel jLogo;
     private javax.swing.JPanel jPanel1;
     public static javax.swing.JTextField jTextDNI;
+    public static javax.swing.JTextField jTextNom;
     private javax.swing.JLabel jlbCerrar;
     // End of variables declaration//GEN-END:variables
 }

@@ -120,7 +120,7 @@ public class Cita implements Serializable {
     
     //Metodo para añadir al fichero los datos
     public void engadir(String nomeFich, Cita cit, String dni) throws IOException {
-        fich = new ObjectOutputStream(new FileOutputStream(nomeFich + ".dat"));
+        fich = new ObjectOutputStream(new FileOutputStream(nomeFich + ".txt"));
         lista.put(dni, cit);
         fich.writeObject(lista);
         fich.close();
@@ -129,7 +129,7 @@ public class Cita implements Serializable {
     //Método para comprobar si la cita existe o no
     public boolean comprobarCita(String nomFich, String dni) throws IOException, ClassNotFoundException {
         try {
-            f1 = new FileInputStream(nomFich + ".dat");
+            f1 = new FileInputStream(nomFich + ".text");
             fich1 = new ObjectInputStream(f1);
             fileToHash("Citas");
             if (lista.containsKey(dni)) {
@@ -142,7 +142,7 @@ public class Cita implements Serializable {
             fich1.close();
             return false;
         } catch (FileNotFoundException ex) {
-            f = new FileOutputStream("Citas.dat");
+            f = new FileOutputStream("Citas.txt");
             f.close();
             return false;
         } catch (EOFException ex2) {
@@ -154,7 +154,7 @@ public class Cita implements Serializable {
     public Cita getCita(String nomFich, String dni) throws IOException, ClassNotFoundException {
         Cita cit;
         try {
-            f1 = new FileInputStream(nomFich + ".dat");
+            f1 = new FileInputStream(nomFich + ".txt");
             fich1 = new ObjectInputStream(f1);
             fileToHash("Citas");
             if (lista.containsKey(dni)) {
@@ -167,7 +167,7 @@ public class Cita implements Serializable {
             f1.close();
             fich1.close();
         } catch (FileNotFoundException ex) {
-            f = new FileOutputStream("Citas.dat");
+            f = new FileOutputStream("Citas.txt");
             f.close();
         } catch (EOFException ex2) {
         }
@@ -176,7 +176,7 @@ public class Cita implements Serializable {
 
     //Método para pasar binario a HashMap
     public void fileToHash(String nomFich) throws FileNotFoundException, IOException, ClassNotFoundException {
-        f1 = new FileInputStream(nomFich + ".dat");
+        f1 = new FileInputStream(nomFich + ".txt");
         fich1 = new ObjectInputStream(f1);
         lista = (HashMap) fich1.readObject();
         f1.close();
