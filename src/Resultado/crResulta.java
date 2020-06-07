@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Interfaz.Administrador;
+package Resultado;
 
 import Resultado.*;
 import Utilidades.ComprobarString;
@@ -75,15 +75,15 @@ public class crResulta extends javax.swing.JFrame {
             }
         });
 
+        jLogo.setText("ITV ERD");
         jLogo.setBackground(new java.awt.Color(51, 51, 51));
         jLogo.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLogo.setForeground(new java.awt.Color(51, 51, 51));
-        jLogo.setText("ITV ERD");
 
+        jLabel2.setText("Creacion de Resultados");
         jLabel2.setBackground(new java.awt.Color(51, 51, 51));
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel2.setText("Creacion de Resultados");
 
         jLabel3.setText("DNI:");
         jLabel3.setBackground(new java.awt.Color(51, 51, 51));
@@ -117,15 +117,15 @@ public class crResulta extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(51, 51, 51));
 
+        jLbAFall.setText("AÑADIR FALLOS:");
         jLbAFall.setBackground(new java.awt.Color(51, 51, 51));
         jLbAFall.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLbAFall.setForeground(new java.awt.Color(51, 51, 51));
-        jLbAFall.setText("AÑADIR FALLOS:");
 
+        jLbFallD.setText("FALLOS A DESTACAR:");
         jLbFallD.setBackground(new java.awt.Color(51, 51, 51));
         jLbFallD.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLbFallD.setForeground(new java.awt.Color(51, 51, 51));
-        jLbFallD.setText("FALLOS A DESTACAR:");
 
         jLbMinRes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Minimizar.png"))); // NOI18N
         jLbMinRes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));

@@ -37,14 +37,14 @@ public class About extends javax.swing.JFrame {
         setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.darkGray, java.awt.Color.darkGray));
+        jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(51, 153, 255), new java.awt.Color(51, 153, 255)));
 
         jLogo.setBackground(new java.awt.Color(51, 51, 51));
         jLogo.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLogo.setForeground(new java.awt.Color(51, 51, 51));
-        jLogo.setText("ITV ERD");
+        jLogo.setForeground(new java.awt.Color(51, 153, 255));
+        jLogo.setText("ITV GAL");
 
-        BtMenuPrincipal.setBackground(new java.awt.Color(51, 51, 51));
+        BtMenuPrincipal.setBackground(new java.awt.Color(51, 153, 255));
         BtMenuPrincipal.setForeground(new java.awt.Color(255, 255, 255));
         BtMenuPrincipal.setText("Menú Principal");
         BtMenuPrincipal.addActionListener(new java.awt.event.ActionListener() {
@@ -57,12 +57,12 @@ public class About extends javax.swing.JFrame {
         txtAbout.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
         txtAbout.setForeground(new java.awt.Color(51, 51, 51));
         txtAbout.setRows(5);
-        txtAbout.setText("Versión: 2.0\nCopyright(c) 2019 Rafa Aguiar, Edu Collazo\nAll Rights Reserved This product is protected \nby copyright and distributed under licenses \nrestricting copying, distribution, and decompilation.");
+        txtAbout.setText("Versión: 1.0\nCopyright(c) 2020 Rafa Aguiar, Sergio Lorenzo\nAll Rights Reserved This product is protected \nby copyright and distributed under licenses \nrestricting copying, distribution, and decompilation.");
         txtAbout.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         txtAbout.setSelectionColor(new java.awt.Color(51, 51, 51));
         jScrollPane1.setViewportView(txtAbout);
 
-        jlbCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Close.png"))); // NOI18N
+        jlbCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/imagen cerrar.png"))); // NOI18N
         jlbCerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jlbCerrar.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
@@ -78,7 +78,7 @@ public class About extends javax.swing.JFrame {
             }
         });
 
-        jLbMin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Minimizar.png"))); // NOI18N
+        jLbMin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/imagen minimizar.png"))); // NOI18N
         jLbMin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLbMin.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
@@ -121,12 +121,16 @@ public class About extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLogo)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLbMin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jlbCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(11, 11, 11)
+                        .addComponent(jLogo))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(8, 8, 8)
+                        .addComponent(jLbMin))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jlbCerrar)))
                 .addGap(32, 32, 32)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)

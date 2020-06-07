@@ -3,7 +3,7 @@ package Interfaz.Administrador;
 
 import BaseDatos.TablaDocCoche;
 import BaseDatos.TablaSeguros;
-import Interfaz.Citas.IntDoc;
+import Interfaz.Citas.IntDocu;
 import static Interfaz.Interfaz.fecha;
 import java.util.Calendar;
 import java.util.Date;
@@ -183,13 +183,13 @@ public class AdministradorSergioº extends javax.swing.JFrame implements Runnabl
     }//GEN-LAST:event_lbDocMouseMoved
 
     private void lbDocMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbDocMouseClicked
-        IntDoc Idoc = new IntDoc();
-        TablaSeguros.actualizarTablaSeguros(IntDoc.TablaSeguro);
-        TablaDocCoche.actualizarTablaDocCoche(IntDoc.TablaCoche);
+        IntDocu Idoc = new IntDocu();
+        TablaSeguros.actualizarTablaSeguros(IntDocu.TablaSeguro);
+        TablaDocCoche.actualizarTablaDocCoche(IntDocu.TablaCoche);
         Idoc.setVisible(true);
-        IntDoc.BtInsertarCoche.setVisible(false);
-        IntDoc.BtInsertarSeguro.setVisible(false);
-        IntDoc.jLabel1.setVisible(false);
+        IntDocu.BtInsertarCoche.setVisible(false);
+        IntDocu.BtInsertarSeguro.setVisible(false);
+        IntDocu.jLabel1.setVisible(false);
         this.setVisible(false);
     }//GEN-LAST:event_lbDocMouseClicked
 

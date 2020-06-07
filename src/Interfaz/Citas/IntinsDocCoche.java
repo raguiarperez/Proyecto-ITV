@@ -55,93 +55,93 @@ public class IntinsDocCoche extends javax.swing.JFrame {
         setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.darkGray, java.awt.Color.darkGray));
+        jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(51, 153, 255), new java.awt.Color(51, 153, 255)));
 
+        jTextMatricula.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 153, 255)));
         jTextMatricula.setForeground(new java.awt.Color(51, 51, 51));
-        jTextMatricula.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51)));
         jTextMatricula.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextMatriculaActionPerformed(evt);
             }
         });
 
+        jLogo.setText("ITV GAL");
         jLogo.setBackground(new java.awt.Color(51, 51, 51));
         jLogo.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLogo.setForeground(new java.awt.Color(51, 51, 51));
-        jLogo.setText("ITV ERD");
+        jLogo.setForeground(new java.awt.Color(51, 153, 255));
 
+        jLabel2.setText("Acceso a Documentación Previa");
         jLabel2.setBackground(new java.awt.Color(51, 51, 51));
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel2.setText("Acceso a Documentación Previa");
+        jLabel2.setForeground(new java.awt.Color(51, 153, 255));
 
+        jLabel3.setText("MATRICULA:");
         jLabel3.setBackground(new java.awt.Color(51, 51, 51));
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel3.setText("MATRICULA:");
+        jLabel3.setForeground(new java.awt.Color(51, 153, 255));
 
+        jTextNUMBASTIDOR.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 153, 255)));
         jTextNUMBASTIDOR.setForeground(new java.awt.Color(51, 51, 51));
-        jTextNUMBASTIDOR.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51)));
         jTextNUMBASTIDOR.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextNUMBASTIDORActionPerformed(evt);
             }
         });
 
-        BtInsertar.setBackground(new java.awt.Color(51, 51, 51));
-        BtInsertar.setForeground(new java.awt.Color(255, 255, 255));
         BtInsertar.setText("Insertar / Modificar");
+        BtInsertar.setBackground(new java.awt.Color(51, 153, 255));
+        BtInsertar.setForeground(new java.awt.Color(255, 255, 255));
         BtInsertar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtInsertarActionPerformed(evt);
             }
         });
 
+        jLabel4.setText("NUMERO BASTIDOR:");
         jLabel4.setBackground(new java.awt.Color(51, 51, 51));
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel4.setText("NUMERO BASTIDOR:");
+        jLabel4.setForeground(new java.awt.Color(51, 153, 255));
 
+        jLabel5.setText("MARCA:");
         jLabel5.setBackground(new java.awt.Color(51, 51, 51));
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel5.setText("MARCA:");
+        jLabel5.setForeground(new java.awt.Color(51, 153, 255));
 
+        jTextMARCA.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 153, 255)));
         jTextMARCA.setForeground(new java.awt.Color(51, 51, 51));
-        jTextMARCA.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51)));
         jTextMARCA.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextMARCAActionPerformed(evt);
             }
         });
 
+        jTextMODELO.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 153, 255)));
         jTextMODELO.setForeground(new java.awt.Color(51, 51, 51));
-        jTextMODELO.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51)));
         jTextMODELO.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextMODELOActionPerformed(evt);
             }
         });
 
+        jLabel6.setText("MODELO:");
         jLabel6.setBackground(new java.awt.Color(51, 51, 51));
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel6.setText("MODELO:");
+        jLabel6.setForeground(new java.awt.Color(51, 153, 255));
 
+        jTextANOMATRICULA.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 153, 255)));
         jTextANOMATRICULA.setForeground(new java.awt.Color(51, 51, 51));
-        jTextANOMATRICULA.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51)));
         jTextANOMATRICULA.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextANOMATRICULAActionPerformed(evt);
             }
         });
 
+        jLabel7.setText("AÑO MATRICULACIÓN:");
         jLabel7.setBackground(new java.awt.Color(51, 51, 51));
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel7.setText("AÑO MATRICULACIÓN:");
+        jLabel7.setForeground(new java.awt.Color(51, 153, 255));
 
-        jLbMin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Minimizar.png"))); // NOI18N
+        jLbMin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/imagen minimizar.png"))); // NOI18N
         jLbMin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLbMin.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
@@ -157,7 +157,7 @@ public class IntinsDocCoche extends javax.swing.JFrame {
             }
         });
 
-        jlbCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Close.png"))); // NOI18N
+        jlbCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/imagen cerrar.png"))); // NOI18N
         jlbCerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jlbCerrar.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
@@ -202,24 +202,27 @@ public class IntinsDocCoche extends javax.swing.JFrame {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jTextNUMBASTIDOR, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jTextMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel2)
                                     .addComponent(jTextMARCA, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jTextMODELO, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jTextANOMATRICULA, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(0, 87, Short.MAX_VALUE)))))
                 .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(134, 134, 134)
+                .addComponent(jLabel2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, 0)
+                .addGap(8, 8, 8)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLogo)
-                    .addComponent(jlbCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLbMin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
+                    .addComponent(jLbMin)
+                    .addComponent(jlbCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addComponent(jLabel2)
-                .addGap(28, 28, 28)
+                .addGap(39, 39, 39)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
@@ -274,8 +277,8 @@ public class IntinsDocCoche extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null,TablaDocCoche.añadirDocCoche(jTextMatricula, jTextNUMBASTIDOR, jTextMARCA, jTextMODELO,jTextANOMATRICULA));
         ArrayList<Seguros> conS = new ArrayList<>();
         conS=TablaSeguros.consultaSeguros(IntAccesoCita.jTextDNI);
-        TablaSeguros.actuConsultaSeguros(conS, IntDoc.TablaSeguro);
-        TablaDocCoche.actuConsultaSegDocCoche(conS, IntDoc.TablaCoche);
+        TablaSeguros.actuConsultaSeguros(conS, IntDocu.TablaSeguro);
+        TablaDocCoche.actuConsultaSegDocCoche(conS, IntDocu.TablaCoche);
         this.setVisible(false);        
         }else{
         JOptionPane.showMessageDialog(null, "Todos los campos deben ser rellenados.");

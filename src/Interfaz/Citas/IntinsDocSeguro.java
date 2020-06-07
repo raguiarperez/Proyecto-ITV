@@ -54,80 +54,80 @@ public class IntinsDocSeguro extends javax.swing.JFrame {
         setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.darkGray, java.awt.Color.darkGray));
+        jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(51, 153, 255), new java.awt.Color(51, 153, 255)));
 
+        jTextDNI.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 153, 255)));
         jTextDNI.setForeground(new java.awt.Color(51, 51, 51));
-        jTextDNI.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51)));
         jTextDNI.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextDNIActionPerformed(evt);
             }
         });
 
+        jLogo.setText("ITV GAL");
         jLogo.setBackground(new java.awt.Color(51, 51, 51));
         jLogo.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLogo.setForeground(new java.awt.Color(51, 51, 51));
-        jLogo.setText("ITV ERD");
+        jLogo.setForeground(new java.awt.Color(51, 153, 255));
 
+        jLabel2.setText("Acceso a Documentación Previa");
         jLabel2.setBackground(new java.awt.Color(51, 51, 51));
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel2.setText("Acceso a Documentación Previa");
+        jLabel2.setForeground(new java.awt.Color(51, 153, 255));
 
+        jLabel3.setText("DNI:");
         jLabel3.setBackground(new java.awt.Color(51, 51, 51));
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel3.setText("DNI:");
+        jLabel3.setForeground(new java.awt.Color(51, 153, 255));
 
+        jTextNUMPOLIZA.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 153, 255)));
         jTextNUMPOLIZA.setForeground(new java.awt.Color(51, 51, 51));
-        jTextNUMPOLIZA.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51)));
         jTextNUMPOLIZA.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextNUMPOLIZAActionPerformed(evt);
             }
         });
 
-        BtInsertar.setBackground(new java.awt.Color(51, 51, 51));
-        BtInsertar.setForeground(new java.awt.Color(255, 255, 255));
         BtInsertar.setText("Insertar / Modificar");
+        BtInsertar.setBackground(new java.awt.Color(51, 153, 255));
+        BtInsertar.setForeground(new java.awt.Color(255, 255, 255));
         BtInsertar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtInsertarActionPerformed(evt);
             }
         });
 
+        jLabel4.setText("NÚMERO PÓLIZA:");
         jLabel4.setBackground(new java.awt.Color(51, 51, 51));
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel4.setText("NÚMERO PÓLIZA:");
+        jLabel4.setForeground(new java.awt.Color(51, 153, 255));
 
+        jLabel5.setText("NOMBRE COMPAÑÍA:");
         jLabel5.setBackground(new java.awt.Color(51, 51, 51));
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel5.setText("NOMBRE COMPAÑÍA:");
+        jLabel5.setForeground(new java.awt.Color(51, 153, 255));
 
+        jTextCOMPANIA.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 153, 255)));
         jTextCOMPANIA.setForeground(new java.awt.Color(51, 51, 51));
-        jTextCOMPANIA.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51)));
         jTextCOMPANIA.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextCOMPANIAActionPerformed(evt);
             }
         });
 
+        jTextMATRICULA.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 153, 255)));
         jTextMATRICULA.setForeground(new java.awt.Color(51, 51, 51));
-        jTextMATRICULA.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51)));
         jTextMATRICULA.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextMATRICULAActionPerformed(evt);
             }
         });
 
+        jLabel6.setText("MATRÍCULA:");
         jLabel6.setBackground(new java.awt.Color(51, 51, 51));
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel6.setText("MATRÍCULA:");
+        jLabel6.setForeground(new java.awt.Color(51, 153, 255));
 
-        jlbCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Close.png"))); // NOI18N
+        jlbCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/imagen cerrar.png"))); // NOI18N
         jlbCerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jlbCerrar.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
@@ -143,7 +143,7 @@ public class IntinsDocSeguro extends javax.swing.JFrame {
             }
         });
 
-        jLbMin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Minimizar.png"))); // NOI18N
+        jLbMin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/imagen minimizar.png"))); // NOI18N
         jLbMin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLbMin.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
@@ -181,29 +181,32 @@ public class IntinsDocSeguro extends javax.swing.JFrame {
                                 .addComponent(jLogo)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLbMin)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jlbCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(4, 4, 4)
+                                .addComponent(jlbCerrar))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jTextNUMPOLIZA, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jTextDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel2)
                                     .addComponent(jTextCOMPANIA, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jTextMATRICULA, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(0, 87, Short.MAX_VALUE)))))
                 .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(137, 137, 137)
+                .addComponent(jLabel2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLogo)
-                    .addComponent(jlbCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLbMin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
+                .addGap(8, 8, 8)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLogo, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLbMin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jlbCerrar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
                 .addComponent(jLabel2)
-                .addGap(28, 28, 28)
+                .addGap(39, 39, 39)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextDNI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
@@ -250,11 +253,11 @@ public class IntinsDocSeguro extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextNUMPOLIZAActionPerformed
 
     private void BtInsertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtInsertarActionPerformed
-        if(IntDoc.TablaSeguro.contains(0, 3)== true){
-                   String matri = (String)IntDoc.TablaSeguro.getValueAt(0, 3);
+        if(IntDocu.TablaSeguro.contains(0, 3)== true){
+                   String matri = (String)IntDocu.TablaSeguro.getValueAt(0, 3);
             if(ComprobarString.longitud(7, jTextMATRICULA.getText())==true && !jTextNUMPOLIZA.getText().isEmpty() && !jTextCOMPANIA.getText().isEmpty() && !jTextMATRICULA.getText().isEmpty()){
                 JOptionPane.showMessageDialog(null,TablaSeguros.modificarSeguro(jTextDNI, jTextNUMPOLIZA, jTextCOMPANIA, jTextMATRICULA));
-                if(!jTextMATRICULA.getText().equalsIgnoreCase((String)IntDoc.TablaSeguro.getValueAt(0, 3)))
+                if(!jTextMATRICULA.getText().equalsIgnoreCase((String)IntDocu.TablaSeguro.getValueAt(0, 3)))
                     TablaDocCoche.borrarDocCoche(matri);}
             else{
                 JOptionPane.showMessageDialog(null, "Todos los campos deben ser rellenados.");
@@ -272,8 +275,8 @@ public class IntinsDocSeguro extends javax.swing.JFrame {
         ArrayList<Seguros> conS = new ArrayList<>();
         conS=TablaSeguros.consultaSeguros(IntAccesoCita.jTextDNI);
         TablaDocCoche.añadirArrayDocConsulta(conS);
-        TablaSeguros.actuConsultaSeguros(conS, IntDoc.TablaSeguro);
-        TablaDocCoche.actuConsultaSegDocCoche(conS, IntDoc.TablaCoche);
+        TablaSeguros.actuConsultaSeguros(conS, IntDocu.TablaSeguro);
+        TablaDocCoche.actuConsultaSegDocCoche(conS, IntDocu.TablaCoche);
         
             
         this.setVisible(false);

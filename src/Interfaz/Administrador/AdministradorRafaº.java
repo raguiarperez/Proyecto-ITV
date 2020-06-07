@@ -1,11 +1,12 @@
 
 package Interfaz.Administrador;
 
+import Resultado.crResulta;
 import BaseDatos.TablaDocCoche;
 import BaseDatos.TablaSeguros;
-import Interfaz.Citas.IntDoc;
+import Interfaz.Citas.IntDocu;
 import static Interfaz.Interfaz.fecha;
-import Interfaz.Taller.IntAccesoTaller;
+import Interfaz.Documentación.IntAccesoDoc;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -48,7 +49,6 @@ public class AdministradorRafaº extends javax.swing.JFrame implements Runnable 
         lbHora = new javax.swing.JLabel();
         lbAdmin = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         lbDoc = new javax.swing.JLabel();
         lbinfodoc = new javax.swing.JLabel();
         jLbMin = new javax.swing.JLabel();
@@ -63,7 +63,7 @@ public class AdministradorRafaº extends javax.swing.JFrame implements Runnable 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.darkGray, java.awt.Color.darkGray));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel2.setBackground(new java.awt.Color(0, 204, 204));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
@@ -96,11 +96,6 @@ public class AdministradorRafaº extends javax.swing.JFrame implements Runnable 
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("MODO ADMINISTRADOR");
         jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 380, -1, -1));
-
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Rafa Aguiar");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 340, -1, -1));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, 2, 270, 420));
 
@@ -208,13 +203,13 @@ public class AdministradorRafaº extends javax.swing.JFrame implements Runnable 
     }//GEN-LAST:event_lbDocMouseMoved
 
     private void lbDocMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbDocMouseClicked
-        IntDoc Idoc = new IntDoc();
-        TablaSeguros.actualizarTablaSeguros(IntDoc.TablaSeguro);
-        TablaDocCoche.actualizarTablaDocCoche(IntDoc.TablaCoche);
+        IntDocu Idoc = new IntDocu();
+        TablaSeguros.actualizarTablaSeguros(IntDocu.TablaSeguro);
+        TablaDocCoche.actualizarTablaDocCoche(IntDocu.TablaCoche);
         Idoc.setVisible(true);
-        IntDoc.BtInsertarCoche.setVisible(false);
-        IntDoc.BtInsertarSeguro.setVisible(false);
-        IntDoc.jLabel1.setVisible(false);
+        IntDocu.BtInsertarCoche.setVisible(false);
+        IntDocu.BtInsertarSeguro.setVisible(false);
+        IntDocu.jLabel1.setVisible(false);
         this.setVisible(false);
     }//GEN-LAST:event_lbDocMouseClicked
 
@@ -324,7 +319,6 @@ public class AdministradorRafaº extends javax.swing.JFrame implements Runnable 
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLbMin;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

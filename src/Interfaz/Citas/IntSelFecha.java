@@ -50,20 +50,20 @@ public class IntSelFecha extends javax.swing.JFrame {
         setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.darkGray, java.awt.Color.darkGray));
+        jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(51, 153, 255), new java.awt.Color(51, 153, 255)));
 
-        jLogo.setText("ITV ERD");
+        jLogo.setText("ITV GAL");
         jLogo.setBackground(new java.awt.Color(51, 51, 51));
         jLogo.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLogo.setForeground(new java.awt.Color(51, 51, 51));
+        jLogo.setForeground(new java.awt.Color(51, 153, 255));
 
         jLabel2.setText("Acceso a Cita Previa");
         jLabel2.setBackground(new java.awt.Color(51, 51, 51));
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel2.setForeground(new java.awt.Color(51, 153, 255));
 
         BtContinuar.setText("Continuar");
-        BtContinuar.setBackground(new java.awt.Color(51, 51, 51));
+        BtContinuar.setBackground(new java.awt.Color(51, 153, 255));
         BtContinuar.setForeground(new java.awt.Color(255, 255, 255));
         BtContinuar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -74,10 +74,10 @@ public class IntSelFecha extends javax.swing.JFrame {
         jLabel3.setText("Selección de Fecha");
         jLabel3.setBackground(new java.awt.Color(51, 51, 51));
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel3.setForeground(new java.awt.Color(51, 153, 255));
 
         BtMenuPrincipal.setText("Menú Principal");
-        BtMenuPrincipal.setBackground(new java.awt.Color(51, 51, 51));
+        BtMenuPrincipal.setBackground(new java.awt.Color(51, 153, 255));
         BtMenuPrincipal.setForeground(new java.awt.Color(255, 255, 255));
         BtMenuPrincipal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -85,7 +85,9 @@ public class IntSelFecha extends javax.swing.JFrame {
             }
         });
 
-        jLbMin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Minimizar.png"))); // NOI18N
+        dateTimePicker1.setForeground(new java.awt.Color(51, 153, 255));
+
+        jLbMin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/imagen minimizar.png"))); // NOI18N
         jLbMin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLbMin.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
@@ -101,7 +103,7 @@ public class IntSelFecha extends javax.swing.JFrame {
             }
         });
 
-        jlbCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Close.png"))); // NOI18N
+        jlbCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/imagen cerrar.png"))); // NOI18N
         jlbCerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jlbCerrar.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
@@ -151,12 +153,16 @@ public class IntSelFecha extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLogo)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLbMin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jlbCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(11, 11, 11)
+                        .addComponent(jLogo))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(8, 8, 8)
+                        .addComponent(jlbCerrar))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLbMin)))
                 .addGap(29, 29, 29)
                 .addComponent(jLabel2)
                 .addGap(17, 17, 17)
@@ -205,7 +211,7 @@ public class IntSelFecha extends javax.swing.JFrame {
                 Logger.getLogger(IntSelFecha.class.getName()).log(Level.SEVERE, null, ex);
             }
             /*interfaz Documentacion*/
-                IntDoc Idoc= new IntDoc();
+                IntDocu Idoc= new IntDocu();
                 ArrayList<Seguros> conS = new ArrayList<>();
                 conS=TablaSeguros.consultaSeguros(IntAccesoCita.jTextDNI);
                 TablaSeguros.actuConsultaSeguros(conS, Idoc.TablaSeguro);

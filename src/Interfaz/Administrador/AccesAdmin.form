@@ -42,8 +42,8 @@
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
             <EtchetBorder>
-              <Color PropertyName="highlight" blue="40" green="40" id="darkGray" palette="1" red="40" type="palette"/>
-              <Color PropertyName="shadow" blue="40" green="40" id="darkGray" palette="1" red="40" type="palette"/>
+              <Color PropertyName="highlight" blue="ff" green="99" red="33" type="rgb"/>
+              <Color PropertyName="shadow" blue="ff" green="99" red="33" type="rgb"/>
             </EtchetBorder>
           </Border>
         </Property>
@@ -103,12 +103,18 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="jLogo" min="-2" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLbMin" min="-2" pref="40" max="-2" attributes="0"/>
-                          <Component id="jlbCerrar" min="-2" pref="40" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                          <Component id="jLogo" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                          <Component id="jLbMin" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jlbCerrar" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
@@ -152,7 +158,7 @@
               <Font name="Tahoma" size="14" style="0"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="33" green="33" red="33" type="rgb"/>
+              <Color blue="ff" green="99" red="33" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="USUARIO:"/>
           </Properties>
@@ -165,7 +171,7 @@
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                 <LineBorder>
-                  <Color PropertyName="color" blue="33" green="33" red="33" type="rgb"/>
+                  <Color PropertyName="color" blue="ff" green="99" red="33" type="rgb"/>
                 </LineBorder>
               </Border>
             </Property>
@@ -184,9 +190,9 @@
               <Font name="Tahoma" size="24" style="0"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="33" green="33" red="33" type="rgb"/>
+              <Color blue="ff" green="99" red="33" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="ITV ERD"/>
+            <Property name="text" type="java.lang.String" value="ITV GAL"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel2">
@@ -198,7 +204,7 @@
               <Font name="Tahoma" size="14" style="0"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="33" green="33" red="33" type="rgb"/>
+              <Color blue="ff" green="99" red="33" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Acceso a Administrador"/>
           </Properties>
@@ -206,7 +212,7 @@
         <Component class="javax.swing.JButton" name="BtMenuPrincipal">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="33" green="33" red="33" type="rgb"/>
+              <Color blue="ff" green="99" red="33" type="rgb"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -220,7 +226,7 @@
         <Component class="javax.swing.JProgressBar" name="BarraLogin">
           <Properties>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="33" green="33" red="33" type="rgb"/>
+              <Color blue="ff" green="99" red="33" type="rgb"/>
             </Property>
             <Property name="string" type="java.lang.String" value=""/>
             <Property name="stringPainted" type="boolean" value="true"/>
@@ -237,7 +243,7 @@
               <Font name="Tahoma" size="14" style="0"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="33" green="33" red="33" type="rgb"/>
+              <Color blue="ff" green="99" red="33" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="CONTRASE&#xd1;A:"/>
           </Properties>
@@ -250,7 +256,7 @@
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                 <LineBorder>
-                  <Color PropertyName="color" blue="33" green="33" red="33" type="rgb"/>
+                  <Color PropertyName="color" blue="ff" green="99" red="33" type="rgb"/>
                 </LineBorder>
               </Border>
             </Property>
@@ -262,7 +268,7 @@
         <Component class="javax.swing.JLabel" name="jlbCerrar">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Imagenes/Close.png"/>
+              <Image iconType="3" name="/Imagenes/imagen cerrar.png"/>
             </Property>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Cursor de Mano"/>
@@ -277,7 +283,7 @@
         <Component class="javax.swing.JLabel" name="jLbMin">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Imagenes/Minimizar.png"/>
+              <Image iconType="3" name="/Imagenes/imagen minimizar.png"/>
             </Property>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Cursor de Mano"/>

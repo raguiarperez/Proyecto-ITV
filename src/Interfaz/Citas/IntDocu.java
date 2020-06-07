@@ -6,7 +6,11 @@
 package Interfaz.Citas;
 
 import Interfaz.Citas.IntAccesoCita;
+import Interfaz.Citas.IntAccesoCita;
 import Interfaz.Citas.InterfazCita;
+import Interfaz.Citas.InterfazCita;
+import Interfaz.Citas.IntinsDocCoche;
+import Interfaz.Citas.IntinsDocSeguro;
 import Interfaz.Interfaz;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -14,12 +18,12 @@ import javax.swing.JOptionPane;
 /**
  * @author Mirroriced y Rafsniper
  */
-public class IntDoc extends javax.swing.JFrame {
+public class IntDocu extends javax.swing.JFrame {
 
     /**
      * Creates new form InterfazDoc
      */
-    public IntDoc() {
+    public IntDocu() {
         initComponents();
     }
 
@@ -54,20 +58,20 @@ public class IntDoc extends javax.swing.JFrame {
         setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.darkGray, java.awt.Color.darkGray));
+        jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(51, 153, 255), new java.awt.Color(51, 153, 255)));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLogo.setText("ITV ERD");
+        jLogo.setText("ITV GAL");
         jLogo.setBackground(new java.awt.Color(51, 51, 51));
         jLogo.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLogo.setForeground(new java.awt.Color(51, 51, 51));
+        jLogo.setForeground(new java.awt.Color(51, 153, 255));
         jPanel1.add(jLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(306, 13, -1, -1));
 
         jLabel2.setText("Documentación Previa");
         jLabel2.setBackground(new java.awt.Color(51, 51, 51));
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(51, 51, 51));
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(281, 56, -1, -1));
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(51, 153, 255));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 50, 240, 20));
 
         TablaCoche.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -97,7 +101,7 @@ public class IntDoc extends javax.swing.JFrame {
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 301, 699, 155));
 
-        TablaSeguro.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        TablaSeguro.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
         TablaSeguro.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -113,7 +117,8 @@ public class IntDoc extends javax.swing.JFrame {
                 "DNI", "Numero Poliza", "Nombre Compañia", "Matrícula"
             }
         ));
-        TablaSeguro.setForeground(new java.awt.Color(51, 51, 51));
+        TablaSeguro.setForeground(new java.awt.Color(51, 153, 255));
+        TablaSeguro.setGridColor(new java.awt.Color(153, 153, 153));
         jScrollPane2.setViewportView(TablaSeguro);
 
         jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 118, 699, 155));
@@ -121,17 +126,17 @@ public class IntDoc extends javax.swing.JFrame {
         jLabel3.setText("Documentación Seguro");
         jLabel3.setBackground(new java.awt.Color(51, 51, 51));
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(51, 51, 51));
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(281, 91, -1, -1));
+        jLabel3.setForeground(new java.awt.Color(51, 153, 255));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 90, -1, -1));
 
         jLabel4.setText("Documentación Coche");
         jLabel4.setBackground(new java.awt.Color(51, 51, 51));
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel4.setForeground(new java.awt.Color(51, 153, 255));
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 279, -1, -1));
 
         BtInsertarCoche.setText("Insertar/Modificar Coche");
-        BtInsertarCoche.setBackground(new java.awt.Color(51, 51, 51));
+        BtInsertarCoche.setBackground(new java.awt.Color(51, 153, 255));
         BtInsertarCoche.setForeground(new java.awt.Color(255, 255, 255));
         BtInsertarCoche.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -141,7 +146,7 @@ public class IntDoc extends javax.swing.JFrame {
         jPanel1.add(BtInsertarCoche, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 470, -1, -1));
 
         BtInsertarSeguro.setText("Insertar/Modificar Seguro");
-        BtInsertarSeguro.setBackground(new java.awt.Color(51, 51, 51));
+        BtInsertarSeguro.setBackground(new java.awt.Color(51, 153, 255));
         BtInsertarSeguro.setForeground(new java.awt.Color(255, 255, 255));
         BtInsertarSeguro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -150,7 +155,7 @@ public class IntDoc extends javax.swing.JFrame {
         });
         jPanel1.add(BtInsertarSeguro, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 470, -1, -1));
 
-        jLbMin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Minimizar.png"))); // NOI18N
+        jLbMin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/imagen minimizar.png"))); // NOI18N
         jLbMin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLbMin.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
@@ -165,9 +170,9 @@ public class IntDoc extends javax.swing.JFrame {
                 jLbMinMouseExited(evt);
             }
         });
-        jPanel1.add(jLbMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(643, 2, -1, 40));
+        jPanel1.add(jLbMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(643, 12, -1, 30));
 
-        jlbCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Close.png"))); // NOI18N
+        jlbCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/imagen cerrar.png"))); // NOI18N
         jlbCerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jlbCerrar.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
@@ -182,14 +187,14 @@ public class IntDoc extends javax.swing.JFrame {
                 jlbCerrarMouseExited(evt);
             }
         });
-        jPanel1.add(jlbCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(681, 2, 30, 40));
+        jPanel1.add(jlbCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 10, 30, 40));
 
         jLabel1.setText("* Para añadir un coche nuevo modificar primero el Seguro");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 500, -1, -1));
 
-        BtReCita.setBackground(new java.awt.Color(51, 51, 51));
-        BtReCita.setForeground(new java.awt.Color(255, 255, 255));
         BtReCita.setText("Resumen Cita");
+        BtReCita.setBackground(new java.awt.Color(51, 153, 255));
+        BtReCita.setForeground(new java.awt.Color(255, 255, 255));
         BtReCita.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtReCitaActionPerformed(evt);
@@ -197,9 +202,9 @@ public class IntDoc extends javax.swing.JFrame {
         });
         jPanel1.add(BtReCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 470, -1, -1));
 
-        BtPtPrinc2.setBackground(new java.awt.Color(51, 51, 51));
-        BtPtPrinc2.setForeground(new java.awt.Color(255, 255, 255));
         BtPtPrinc2.setText("Menú Principal");
+        BtPtPrinc2.setBackground(new java.awt.Color(51, 153, 255));
+        BtPtPrinc2.setForeground(new java.awt.Color(255, 255, 255));
         BtPtPrinc2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtPtPrinc2ActionPerformed(evt);
@@ -251,7 +256,7 @@ public class IntDoc extends javax.swing.JFrame {
     }//GEN-LAST:event_jLbMinMouseMoved
 
     private void jLbMinMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLbMinMouseClicked
-        this.setState(IntDoc.ICONIFIED);
+        this.setState(IntDocu.ICONIFIED);
     }//GEN-LAST:event_jLbMinMouseClicked
 
     private void jLbMinMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLbMinMouseExited
@@ -315,14 +320,26 @@ public class IntDoc extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(IntDoc.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(IntDocu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(IntDoc.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(IntDocu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(IntDoc.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(IntDocu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(IntDoc.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(IntDocu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -331,7 +348,7 @@ public class IntDoc extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new IntDoc().setVisible(true);
+                new IntDocu().setVisible(true);
             }
         });
     }
