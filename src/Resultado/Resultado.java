@@ -13,6 +13,7 @@ import java.io.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComboBox;
+import javax.swing.JFileChooser;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 /**
@@ -69,8 +70,8 @@ public class Resultado implements Serializable {
     }
        //método para imprimir en pdf
     public static void generarPDF(JTextField dni,JTextField matricula, JComboBox Resultado ,JTable Fallos) throws FileNotFoundException {
-        FileOutputStream archivo;
-        archivo = new FileOutputStream(dni.getText()+" Resultado "+".pdf");
+        String d=crResulta.jTxtFieldRuta.getText();
+        FileOutputStream archivo= new FileOutputStream(d+" Resultado "+".pdf");
         Document documento=new Document();
         try {
             PdfWriter.getInstance(documento, archivo);
