@@ -43,7 +43,6 @@ public class IntConAdmin extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         BtContinuar = new javax.swing.JButton();
         BtPtPrincipal = new javax.swing.JButton();
-        jlbCerrar = new javax.swing.JLabel();
         jLbMin = new javax.swing.JLabel();
         jpsswdField = new javax.swing.JPasswordField();
 
@@ -60,24 +59,24 @@ public class IntConAdmin extends javax.swing.JFrame {
         setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.darkGray, java.awt.Color.darkGray));
+        jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(0, 204, 204), new java.awt.Color(0, 204, 204)));
 
         jLabel1.setBackground(new java.awt.Color(51, 51, 51));
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel1.setForeground(new java.awt.Color(0, 204, 204));
         jLabel1.setText("Contraseña :");
 
         jLogo.setBackground(new java.awt.Color(51, 51, 51));
         jLogo.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLogo.setForeground(new java.awt.Color(51, 51, 51));
-        jLogo.setText("ITV ERD");
+        jLogo.setForeground(new java.awt.Color(0, 204, 204));
+        jLogo.setText("ITV GAL");
 
         jLabel2.setBackground(new java.awt.Color(51, 51, 51));
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel2.setForeground(new java.awt.Color(0, 204, 204));
         jLabel2.setText("Acceso a Documentación Previa");
 
-        BtContinuar.setBackground(new java.awt.Color(51, 51, 51));
+        BtContinuar.setBackground(new java.awt.Color(0, 204, 204));
         BtContinuar.setForeground(new java.awt.Color(255, 255, 255));
         BtContinuar.setText("Continuar");
         BtContinuar.addActionListener(new java.awt.event.ActionListener() {
@@ -86,28 +85,12 @@ public class IntConAdmin extends javax.swing.JFrame {
             }
         });
 
-        BtPtPrincipal.setBackground(new java.awt.Color(51, 51, 51));
+        BtPtPrincipal.setBackground(new java.awt.Color(0, 204, 204));
         BtPtPrincipal.setForeground(new java.awt.Color(255, 255, 255));
         BtPtPrincipal.setText("Menú Principal");
         BtPtPrincipal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtPtPrincipalActionPerformed(evt);
-            }
-        });
-
-        jlbCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Close.png"))); // NOI18N
-        jlbCerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jlbCerrar.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                jlbCerrarMouseMoved(evt);
-            }
-        });
-        jlbCerrar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jlbCerrarMouseClicked(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jlbCerrarMouseExited(evt);
             }
         });
 
@@ -140,14 +123,13 @@ public class IntConAdmin extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jpsswdField))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(0, 84, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(179, 179, 179)
                         .addComponent(jLogo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 104, Short.MAX_VALUE)
                         .addComponent(jLbMin)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jlbCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(36, 36, 36))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(BtPtPrincipal)
@@ -161,7 +143,6 @@ public class IntConAdmin extends javax.swing.JFrame {
                 .addGap(0, 0, 0)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLogo)
-                    .addComponent(jlbCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLbMin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
                 .addComponent(jLabel2)
@@ -195,11 +176,17 @@ public class IntConAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextDNI1ActionPerformed
 
-    private void BtContinuarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtContinuarActionPerformed
-        AccesAdmin adminA = new AccesAdmin();
-        adminA.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_BtContinuarActionPerformed
+    private void jLbMinMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLbMinMouseExited
+        jLbMin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255,255,255)));
+    }//GEN-LAST:event_jLbMinMouseExited
+
+    private void jLbMinMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLbMinMouseClicked
+        this.setState(IntConAdmin.ICONIFIED);
+    }//GEN-LAST:event_jLbMinMouseClicked
+
+    private void jLbMinMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLbMinMouseMoved
+        jLbMin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153,153,153)));
+    }//GEN-LAST:event_jLbMinMouseMoved
 
     private void BtPtPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtPtPrincipalActionPerformed
         Interfaz Int=new Interfaz();
@@ -207,33 +194,11 @@ public class IntConAdmin extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_BtPtPrincipalActionPerformed
 
-    private void jlbCerrarMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbCerrarMouseMoved
-        jlbCerrar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153,153,153)));
-    }//GEN-LAST:event_jlbCerrarMouseMoved
-
-    private void jlbCerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbCerrarMouseClicked
-        int dialog =JOptionPane.YES_NO_OPTION;
-        int result = JOptionPane.showConfirmDialog(null,"Desea salir del programa?","Exit",dialog);
-        if(result==0){
-            System.exit(0);
-        }
-    }//GEN-LAST:event_jlbCerrarMouseClicked
-
-    private void jlbCerrarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbCerrarMouseExited
-        jlbCerrar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255,255,255)));
-    }//GEN-LAST:event_jlbCerrarMouseExited
-
-    private void jLbMinMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLbMinMouseMoved
-        jLbMin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153,153,153)));
-    }//GEN-LAST:event_jLbMinMouseMoved
-
-    private void jLbMinMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLbMinMouseClicked
-        this.setState(IntConAdmin.ICONIFIED);
-    }//GEN-LAST:event_jLbMinMouseClicked
-
-    private void jLbMinMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLbMinMouseExited
-        jLbMin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255,255,255)));
-    }//GEN-LAST:event_jLbMinMouseExited
+    private void BtContinuarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtContinuarActionPerformed
+        AccesAdmin adminA = new AccesAdmin();
+        adminA.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_BtContinuarActionPerformed
 
     public void actionPerformed(ActionEvent e) {
                 
@@ -297,7 +262,6 @@ public class IntConAdmin extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollBar jScrollBar1;
     private javax.swing.JTextField jTextDNI1;
-    private javax.swing.JLabel jlbCerrar;
     private javax.swing.JPasswordField jpsswdField;
     // End of variables declaration//GEN-END:variables
 }

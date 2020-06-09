@@ -1,4 +1,4 @@
-package Interfaz.Documentación;
+package Interfaz.Citas;
 
 import Interfaz.Citas.IntDocu;
 import BaseDatos.TablaDocCoche;
@@ -247,6 +247,7 @@ public class IntAccesoDoc extends javax.swing.JFrame {
                             TablaSeguros.actuConsultaSeguros(conS, Idoc.TablaSeguro);
                             TablaDocCoche.actuConsultaSegDocCoche(conS, Idoc.TablaCoche);
                             Idoc.setVisible(true);
+                            Idoc.BtReCita.setVisible(false);
                             
                             IntAccesoDoc.this.setVisible(false);
                             

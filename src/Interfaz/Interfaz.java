@@ -3,10 +3,10 @@ package Interfaz;
 
 import Interfaz.Administrador.AccesAdmin;
 import BaseDatos.General;
-import Interfaz.Administrador.IntConAdmin;
+
 import Interfaz.Citas.IntAccesoCita;
 import Interfaz.Citas.IntDocu;
-import Interfaz.Documentación.IntAccesoDoc;
+import Interfaz.Citas.IntAccesoDoc;
 import java.io.File;
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
@@ -185,12 +185,12 @@ public class Interfaz extends javax.swing.JFrame implements Runnable {
                 lbCitaPreviaMouseExited(evt);
             }
         });
-        jPanel1.add(lbCitaPrevia, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 30, 100, 100));
+        jPanel1.add(lbCitaPrevia, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 70, 100, 100));
 
         lbinfoCitaPrev.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         lbinfoCitaPrev.setForeground(new java.awt.Color(102, 102, 102));
         lbinfoCitaPrev.setText("Cita Previa");
-        jPanel1.add(lbinfoCitaPrev, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 130, -1, -1));
+        jPanel1.add(lbinfoCitaPrev, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 170, -1, -1));
 
         lbDocumentación.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/image (2).png"))); // NOI18N
         lbDocumentación.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -207,12 +207,12 @@ public class Interfaz extends javax.swing.JFrame implements Runnable {
                 lbDocumentaciónMouseExited(evt);
             }
         });
-        jPanel1.add(lbDocumentación, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 240, 90, -1));
+        jPanel1.add(lbDocumentación, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 220, 90, -1));
 
         lbinforesultados.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         lbinforesultados.setForeground(new java.awt.Color(102, 102, 102));
         lbinforesultados.setText("Documentación");
-        jPanel1.add(lbinforesultados, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 330, 110, 30));
+        jPanel1.add(lbinforesultados, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 310, 90, 20));
 
         jLbMin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/imagen minimizar.png"))); // NOI18N
         jLbMin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -314,7 +314,7 @@ public class Interfaz extends javax.swing.JFrame implements Runnable {
     }//GEN-LAST:event_jlbCerrarMouseExited
 
     private void lbAdminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbAdminMouseClicked
-       IntConAdmin IAdoc = new IntConAdmin();
+       AccesAdmin IAdoc = new AccesAdmin();
         IAdoc.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_lbAdminMouseClicked
@@ -332,8 +332,8 @@ public class Interfaz extends javax.swing.JFrame implements Runnable {
     }//GEN-LAST:event_lbDocumentaciónMouseExited
 
     private void lbDocumentaciónMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbDocumentaciónMouseClicked
-        IntAccesoDoc IATaller = new IntAccesoDoc();
-        IATaller.setVisible(true);
+        IntAccesoDoc IADoc = new IntAccesoDoc();
+        IADoc.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_lbDocumentaciónMouseClicked
 

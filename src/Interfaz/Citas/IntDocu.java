@@ -190,6 +190,7 @@ public class IntDocu extends javax.swing.JFrame {
         jPanel1.add(jlbCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 10, 30, 40));
 
         jLabel1.setText("* Para añadir un coche nuevo modificar primero el Seguro");
+        jLabel1.setForeground(new java.awt.Color(51, 153, 255));
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 500, -1, -1));
 
         BtReCita.setText("Resumen Cita");
@@ -357,7 +358,7 @@ public class IntDocu extends javax.swing.JFrame {
     public static javax.swing.JButton BtInsertarCoche;
     public static javax.swing.JButton BtInsertarSeguro;
     private javax.swing.JButton BtPtPrinc2;
-    private javax.swing.JButton BtReCita;
+    public javax.swing.JButton BtReCita;
     public static javax.swing.JTable TablaCoche;
     public static javax.swing.JTable TablaSeguro;
     private com.github.lgooddatepicker.components.DateTimePicker dateTimePicker1;

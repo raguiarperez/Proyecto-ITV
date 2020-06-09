@@ -5,11 +5,10 @@
  */
 package Interfaz.Documentación;
 
+import Interfaz.Administrador.IntAdmin;
 import Interfaz.Citas.IntAccesoCita;
-import Interfaz.Citas.InterfazCita;
 import Interfaz.Citas.IntinsDocCoche;
 import Interfaz.Citas.IntinsDocSeguro;
-import Interfaz.Interfaz;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -55,19 +54,19 @@ public class IntDoc extends javax.swing.JFrame {
         setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(51, 153, 255), new java.awt.Color(51, 153, 255)));
+        jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(0, 204, 204), new java.awt.Color(0, 204, 204)));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLogo.setText("ITV GAL");
         jLogo.setBackground(new java.awt.Color(51, 51, 51));
         jLogo.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLogo.setForeground(new java.awt.Color(51, 153, 255));
+        jLogo.setForeground(new java.awt.Color(0, 204, 204));
         jPanel1.add(jLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(306, 13, -1, -1));
 
         jLabel2.setText("Consulta de Documentación");
         jLabel2.setBackground(new java.awt.Color(51, 51, 51));
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(51, 153, 255));
+        jLabel2.setForeground(new java.awt.Color(0, 204, 204));
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(264, 56, 190, -1));
 
         TablaCoche.setModel(new javax.swing.table.DefaultTableModel(
@@ -93,7 +92,7 @@ public class IntDoc extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        TablaCoche.setForeground(new java.awt.Color(51, 51, 51));
+        TablaCoche.setForeground(new java.awt.Color(0, 204, 204));
         jScrollPane1.setViewportView(TablaCoche);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 301, 699, 155));
@@ -114,7 +113,7 @@ public class IntDoc extends javax.swing.JFrame {
                 "DNI", "Numero Poliza", "Nombre Compañia", "Matrícula"
             }
         ));
-        TablaSeguro.setForeground(new java.awt.Color(51, 51, 51));
+        TablaSeguro.setForeground(new java.awt.Color(0, 204, 204));
         jScrollPane2.setViewportView(TablaSeguro);
 
         jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 118, 699, 155));
@@ -122,17 +121,17 @@ public class IntDoc extends javax.swing.JFrame {
         jLabel3.setText("Documentación Seguro");
         jLabel3.setBackground(new java.awt.Color(51, 51, 51));
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(51, 153, 255));
+        jLabel3.setForeground(new java.awt.Color(0, 204, 204));
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(281, 91, -1, -1));
 
         jLabel4.setText("Documentación Coche");
         jLabel4.setBackground(new java.awt.Color(51, 51, 51));
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(51, 153, 255));
+        jLabel4.setForeground(new java.awt.Color(0, 204, 204));
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 279, -1, -1));
 
         BtInsertarCoche.setText("Insertar/Modificar Coche");
-        BtInsertarCoche.setBackground(new java.awt.Color(51, 153, 255));
+        BtInsertarCoche.setBackground(new java.awt.Color(0, 204, 204));
         BtInsertarCoche.setForeground(new java.awt.Color(255, 255, 255));
         BtInsertarCoche.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -142,7 +141,7 @@ public class IntDoc extends javax.swing.JFrame {
         jPanel1.add(BtInsertarCoche, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 470, -1, -1));
 
         BtInsertarSeguro.setText("Insertar/Modificar Seguro");
-        BtInsertarSeguro.setBackground(new java.awt.Color(51, 153, 255));
+        BtInsertarSeguro.setBackground(new java.awt.Color(0, 204, 204));
         BtInsertarSeguro.setForeground(new java.awt.Color(255, 255, 255));
         BtInsertarSeguro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -151,7 +150,7 @@ public class IntDoc extends javax.swing.JFrame {
         });
         jPanel1.add(BtInsertarSeguro, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 470, -1, -1));
 
-        jLbMin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/imagen minimizar.png"))); // NOI18N
+        jLbMin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Minimize Green.png"))); // NOI18N
         jLbMin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLbMin.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
@@ -168,7 +167,7 @@ public class IntDoc extends javax.swing.JFrame {
         });
         jPanel1.add(jLbMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(645, 12, 30, 30));
 
-        jlbCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/imagen cerrar.png"))); // NOI18N
+        jlbCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Close Green.png"))); // NOI18N
         jlbCerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jlbCerrar.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
@@ -186,11 +185,11 @@ public class IntDoc extends javax.swing.JFrame {
         jPanel1.add(jlbCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(681, 12, 30, 30));
 
         jLabel1.setText("* Para añadir un coche nuevo modificar primero el Seguro");
-        jLabel1.setForeground(new java.awt.Color(51, 153, 255));
+        jLabel1.setForeground(new java.awt.Color(0, 204, 204));
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 500, -1, -1));
 
         BtPtPrinc2.setText("Menú Principal");
-        BtPtPrinc2.setBackground(new java.awt.Color(51, 153, 255));
+        BtPtPrinc2.setBackground(new java.awt.Color(0, 204, 204));
         BtPtPrinc2.setForeground(new java.awt.Color(255, 255, 255));
         BtPtPrinc2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -267,7 +266,7 @@ public class IntDoc extends javax.swing.JFrame {
     }//GEN-LAST:event_jlbCerrarMouseExited
 
     private void BtPtPrinc2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtPtPrinc2ActionPerformed
-        Interfaz Int=new Interfaz();
+        IntAdmin Int=new IntAdmin();
         Int.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_BtPtPrinc2ActionPerformed

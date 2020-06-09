@@ -301,14 +301,8 @@ public class AccesAdmin extends javax.swing.JFrame {
             }
             if (cont == 100) {
                 t.stop();
-
-                if (usuario.equals("AdminRafa")) { //compara el contenido introducido con el login correcto
-                    AdministradorRafaº admin1 = new AdministradorRafaº();
-                    admin1.setVisible(true);
-                } else if (usuario.equals("AdminSergio")) {
-                    AdministradorSergioº admin2 = new AdministradorSergioº();
-                    admin2.setVisible(true);
-                }
+                IntAdmin admin = new IntAdmin();
+                admin.setVisible(true);
                 esconder();
             }
 
