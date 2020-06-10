@@ -29,7 +29,7 @@ public class General {
         return conn;
     }
 
-    public static void crearTablas(String filename, JTable a, JTable b) {
+    public static void crearTablas(String filename, JTable a, JTable b, JTable c) {
         String url = "jdbc:sqlite:" + filename + ".db";
 
         sql = "CREATE TABLE IF NOT EXISTS DocCoche (\n"
@@ -63,14 +63,18 @@ public class General {
         }
         
         /*********************************************/
-                sql = "CREATE TABLE IF NOT EXISTS Fallos (\n"
-                + "	Fallo text PRIMARY KEY,\n"
-                + "	Descripcion text NOT NULL,\n"
+        /*********************************************/
+        
+                sql = "CREATE TABLE IF NOT EXISTS Usuarios (\n"
+                + "	nombreUsuario text NOT NULL PRIMARY KEY UNIQUE,\n"                        
+                + "	correo text NOT NULL UNIQUE,\n"
+                + "	contraseña char(12) NOT NULL\n"
                 + ");";
 
         try (Connection conn = DriverManager.getConnection(url);
                 Statement stmt = conn.createStatement()) {
             stmt.execute(sql);
+            System.out.println("tabla creada");
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }

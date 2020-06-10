@@ -13,9 +13,7 @@ import Utilidades.ComprobarString;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
-/**
- * @author Mirroriced y Rafsniper
- */
+
 public class IntinsDocCoche extends javax.swing.JFrame {
 
     /**

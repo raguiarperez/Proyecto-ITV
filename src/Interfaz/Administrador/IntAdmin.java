@@ -109,12 +109,12 @@ public class IntAdmin extends javax.swing.JFrame implements Runnable {
                 lbDocuMouseExited(evt);
             }
         });
-        jPanel1.add(lbDocu, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 80, 100, 90));
+        jPanel1.add(lbDocu, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 40, 100, 90));
 
+        lbinfoCitaPrev.setText("Documentación");
         lbinfoCitaPrev.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         lbinfoCitaPrev.setForeground(new java.awt.Color(102, 102, 102));
-        lbinfoCitaPrev.setText("Documentación");
-        jPanel1.add(lbinfoCitaPrev, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 170, -1, -1));
+        jPanel1.add(lbinfoCitaPrev, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 130, -1, -1));
 
         lbResultado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/resultados Green.png"))); // NOI18N
         lbResultado.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -131,12 +131,12 @@ public class IntAdmin extends javax.swing.JFrame implements Runnable {
                 lbResultadoMouseExited(evt);
             }
         });
-        jPanel1.add(lbResultado, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 240, 90, -1));
+        jPanel1.add(lbResultado, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 290, 90, -1));
 
+        lbinforesultados.setText("Crear Resultados");
         lbinforesultados.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         lbinforesultados.setForeground(new java.awt.Color(102, 102, 102));
-        lbinforesultados.setText("Crear Resultados");
-        jPanel1.add(lbinforesultados, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 330, 110, 30));
+        jPanel1.add(lbinforesultados, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 380, 110, 30));
 
         jLbMin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Minimize Green.png"))); // NOI18N
         jLbMin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));

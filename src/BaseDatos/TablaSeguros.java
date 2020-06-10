@@ -63,8 +63,6 @@ public class TablaSeguros {
         try (Connection conn = General.connect();
                 Statement stmt = conn.createStatement();
                 ResultSet rs = stmt.executeQuery(sql)) {
-            int codigo, idExpo;
-            String nombre;
             listaseg.clear();
             while (rs.next()) {
                 dni = rs.getString("dni");
