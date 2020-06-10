@@ -3,9 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Registro;
+package Login;
 
 import BaseDatos.General;
+import Interfaz.Administrador.AccesAdmin;
+import Interfaz.IntPrincipal;
 import Interfaz.Interfaz;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -46,6 +48,9 @@ public class InicioSesion extends javax.swing.JFrame {
         jlbCerrar = new javax.swing.JLabel();
         jLbMin = new javax.swing.JLabel();
         jPasswordField = new javax.swing.JPasswordField();
+        jBtMenu = new javax.swing.JButton();
+        jBtAdmin = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -89,7 +94,7 @@ public class InicioSesion extends javax.swing.JFrame {
                 BtInSesionActionPerformed(evt);
             }
         });
-        jPanel1.add(BtInSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 240, -1, -1));
+        jPanel1.add(BtInSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 200, -1, -1));
 
         jLabel5.setBackground(new java.awt.Color(51, 51, 51));
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -112,7 +117,7 @@ public class InicioSesion extends javax.swing.JFrame {
                 jlbCerrarMouseExited(evt);
             }
         });
-        jPanel1.add(jlbCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(431, 13, -1, -1));
+        jPanel1.add(jlbCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 10, -1, -1));
 
         jLbMin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/imagen minimizar.png"))); // NOI18N
         jLbMin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -129,20 +134,45 @@ public class InicioSesion extends javax.swing.JFrame {
                 jLbMinMouseExited(evt);
             }
         });
-        jPanel1.add(jLbMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(395, 13, -1, -1));
+        jPanel1.add(jLbMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 10, -1, -1));
 
         jPasswordField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 153, 255)));
         jPanel1.add(jPasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 150, 197, -1));
+
+        jBtMenu.setBackground(new java.awt.Color(51, 153, 255));
+        jBtMenu.setForeground(new java.awt.Color(255, 255, 255));
+        jBtMenu.setText("Menú Principal");
+        jBtMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtMenuActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jBtMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, -1, -1));
+
+        jBtAdmin.setBackground(new java.awt.Color(51, 153, 255));
+        jBtAdmin.setForeground(new java.awt.Color(255, 255, 255));
+        jBtAdmin.setText("Modo Administrador");
+        jBtAdmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtAdminActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jBtAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 200, -1, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Icon Admin Blue.png"))); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 90, 80));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 453, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 275, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -184,6 +214,18 @@ public class InicioSesion extends javax.swing.JFrame {
     private void jLbMinMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLbMinMouseExited
         jLbMin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255,255,255)));
     }//GEN-LAST:event_jLbMinMouseExited
+
+    private void jBtAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtAdminActionPerformed
+        AccesAdmin IntA=new AccesAdmin();
+        IntA.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jBtAdminActionPerformed
+
+    private void jBtMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtMenuActionPerformed
+        IntPrincipal Intp=new IntPrincipal();
+        Intp.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jBtMenuActionPerformed
     
     public void validarAcceso(){
         int resultado=0;
@@ -255,6 +297,9 @@ public class InicioSesion extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtInSesion;
+    private javax.swing.JButton jBtAdmin;
+    private javax.swing.JButton jBtMenu;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;

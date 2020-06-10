@@ -3,9 +3,9 @@ package Interfaz.Administrador;
 
 import BaseDatos.TablaDocCoche;
 import BaseDatos.TablaSeguros;
+import BaseDatos.TablaUsuarios;
 import Resultado.crResulta;
 import static Interfaz.Interfaz.fecha;
-import Interfaz.Documentación.IntDoc;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -49,11 +49,13 @@ public class IntAdmin extends javax.swing.JFrame implements Runnable {
         lbAdmin = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         lbDocu = new javax.swing.JLabel();
-        lbinfoCitaPrev = new javax.swing.JLabel();
+        lbinfoDoc = new javax.swing.JLabel();
         lbResultado = new javax.swing.JLabel();
         lbinforesultados = new javax.swing.JLabel();
         jLbMin = new javax.swing.JLabel();
         jlbCerrar = new javax.swing.JLabel();
+        jLbUsuarios = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -88,8 +90,8 @@ public class IntAdmin extends javax.swing.JFrame implements Runnable {
         lbAdmin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel2.add(lbAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 90, 110));
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel5.setText("MODO ADMINISTRADOR");
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 360, -1, -1));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, 2, 330, 420));
@@ -111,10 +113,9 @@ public class IntAdmin extends javax.swing.JFrame implements Runnable {
         });
         jPanel1.add(lbDocu, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 40, 100, 90));
 
-        lbinfoCitaPrev.setText("Documentación");
-        lbinfoCitaPrev.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        lbinfoCitaPrev.setForeground(new java.awt.Color(102, 102, 102));
-        jPanel1.add(lbinfoCitaPrev, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 130, -1, -1));
+        lbinfoDoc.setText("Documentación");
+        lbinfoDoc.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jPanel1.add(lbinfoDoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 130, -1, -1));
 
         lbResultado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/resultados Green.png"))); // NOI18N
         lbResultado.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -131,12 +132,11 @@ public class IntAdmin extends javax.swing.JFrame implements Runnable {
                 lbResultadoMouseExited(evt);
             }
         });
-        jPanel1.add(lbResultado, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 290, 90, -1));
+        jPanel1.add(lbResultado, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 160, 90, -1));
 
         lbinforesultados.setText("Crear Resultados");
         lbinforesultados.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        lbinforesultados.setForeground(new java.awt.Color(102, 102, 102));
-        jPanel1.add(lbinforesultados, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 380, 110, 30));
+        jPanel1.add(lbinforesultados, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 250, 110, 30));
 
         jLbMin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Minimize Green.png"))); // NOI18N
         jLbMin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -172,6 +172,26 @@ public class IntAdmin extends javax.swing.JFrame implements Runnable {
         });
         jPanel1.add(jlbCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 10, 30, 30));
 
+        jLbUsuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icono users.png"))); // NOI18N
+        jLbUsuarios.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jLbUsuariosMouseMoved(evt);
+            }
+        });
+        jLbUsuarios.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLbUsuariosMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLbUsuariosMouseExited(evt);
+            }
+        });
+        jPanel1.add(jLbUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 290, 140, 110));
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel4.setText("Usuarios Registrados");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 380, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -194,7 +214,7 @@ public class IntAdmin extends javax.swing.JFrame implements Runnable {
     }// </editor-fold>//GEN-END:initComponents
 
     private void lbDocuMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbDocuMouseMoved
-        lbDocu.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        lbDocu.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 204, 204)));
     }//GEN-LAST:event_lbDocuMouseMoved
 
     private void lbDocuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbDocuMouseClicked
@@ -210,7 +230,7 @@ public class IntAdmin extends javax.swing.JFrame implements Runnable {
     }//GEN-LAST:event_lbDocuMouseExited
 
     private void lbResultadoMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbResultadoMouseMoved
-        lbResultado.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        lbResultado.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 204, 204)));
     }//GEN-LAST:event_lbResultadoMouseMoved
 
     private void lbResultadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbResultadoMouseClicked
@@ -224,7 +244,7 @@ public class IntAdmin extends javax.swing.JFrame implements Runnable {
     }//GEN-LAST:event_lbResultadoMouseExited
 
     private void jLbMinMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLbMinMouseMoved
-        jLbMin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        jLbMin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 204, 204)));
     }//GEN-LAST:event_jLbMinMouseMoved
 
     private void jLbMinMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLbMinMouseClicked
@@ -236,7 +256,7 @@ public class IntAdmin extends javax.swing.JFrame implements Runnable {
     }//GEN-LAST:event_jLbMinMouseExited
 
     private void jlbCerrarMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbCerrarMouseMoved
-        jlbCerrar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        jlbCerrar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 204, 204)));
     }//GEN-LAST:event_jlbCerrarMouseMoved
 
     private void jlbCerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbCerrarMouseClicked
@@ -250,6 +270,21 @@ public class IntAdmin extends javax.swing.JFrame implements Runnable {
     private void jlbCerrarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbCerrarMouseExited
         jlbCerrar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
     }//GEN-LAST:event_jlbCerrarMouseExited
+
+    private void jLbUsuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLbUsuariosMouseClicked
+        IntUsuarios users=new IntUsuarios();
+        TablaUsuarios.actualizarTablaUsuarios(IntUsuarios.TablaUsuarios);
+        users.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jLbUsuariosMouseClicked
+
+    private void jLbUsuariosMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLbUsuariosMouseMoved
+        jlbCerrar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 204, 204)));
+    }//GEN-LAST:event_jLbUsuariosMouseMoved
+
+    private void jLbUsuariosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLbUsuariosMouseExited
+        jLbUsuarios.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+    }//GEN-LAST:event_jLbUsuariosMouseExited
 
     public void hora() {
         Calendar calendario = new GregorianCalendar();
@@ -314,8 +349,10 @@ public class IntAdmin extends javax.swing.JFrame implements Runnable {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLbMin;
+    private javax.swing.JLabel jLbUsuarios;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel jlbCerrar;
@@ -324,7 +361,7 @@ public class IntAdmin extends javax.swing.JFrame implements Runnable {
     private javax.swing.JLabel lbHora;
     private javax.swing.JLabel lbResultado;
     private javax.swing.JLabel lbfecha;
-    private javax.swing.JLabel lbinfoCitaPrev;
+    private javax.swing.JLabel lbinfoDoc;
     private javax.swing.JLabel lbinforesultados;
     // End of variables declaration//GEN-END:variables
 }

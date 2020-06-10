@@ -10,7 +10,8 @@ import BaseDatos.TablaUsuarios;
 import Interfaz.Administrador.*;
 import Interfaz.Citas.IntDocu;
 import static Interfaz.Interfaz.fecha;
-import Registro.IntRegistro;
+import Login.InicioSesion;
+import Login.IntRegistro;
 import java.io.File;
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
@@ -28,13 +29,13 @@ import javax.swing.JOptionPane;
  */
 public class IntPrincipal extends javax.swing.JFrame implements Runnable {
 
-        String hora, minutos, segundos; //declaramos variables String Hora,Min,Seg
+    String hora, minutos, segundos; //declaramos variables String Hora,Min,Seg
     Thread hilo; //declaramos un hilo para la hora
     /**
      * Creates new form Registro
      */
     public IntPrincipal() {
-         initComponents();
+        initComponents();
         this.setLocationRelativeTo(null);
         lbfecha.setText(fecha());
         hilo = new Thread(this);
@@ -90,8 +91,6 @@ public class IntPrincipal extends javax.swing.JFrame implements Runnable {
         jLabel3 = new javax.swing.JLabel();
         lbfecha = new javax.swing.JLabel();
         lbHora = new javax.swing.JLabel();
-        lbAdmin = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         jlbCerrar = new javax.swing.JLabel();
         jLbMin = new javax.swing.JLabel();
         jBtRegistrar = new javax.swing.JButton();
@@ -99,6 +98,7 @@ public class IntPrincipal extends javax.swing.JFrame implements Runnable {
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(51, 153, 255), new java.awt.Color(51, 153, 255)));
@@ -125,26 +125,6 @@ public class IntPrincipal extends javax.swing.JFrame implements Runnable {
 
         lbHora.setText("00:00:00");
         jPanel2.add(lbHora, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, -1, -1));
-
-        lbAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icono admin negro.png"))); // NOI18N
-        lbAdmin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        lbAdmin.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                lbAdminMouseMoved(evt);
-            }
-        });
-        lbAdmin.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lbAdminMouseClicked(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                lbAdminMouseExited(evt);
-            }
-        });
-        jPanel2.add(lbAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 90, 110));
-
-        jLabel5.setText("Admin");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, -1, 20));
 
         jlbCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Cerrar Negro.png"))); // NOI18N
         jlbCerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -201,7 +181,7 @@ public class IntPrincipal extends javax.swing.JFrame implements Runnable {
         jPanel1.add(jBtInicioSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 230, 190, 50));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/logo itv gaL.png"))); // NOI18N
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, -1, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -214,27 +194,12 @@ public class IntPrincipal extends javax.swing.JFrame implements Runnable {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void lbAdminMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbAdminMouseMoved
-        lbAdmin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-    }//GEN-LAST:event_lbAdminMouseMoved
-
-    private void lbAdminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbAdminMouseClicked
-        AccesAdmin IAdoc = new AccesAdmin();
-        IAdoc.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_lbAdminMouseClicked
-
-    private void lbAdminMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbAdminMouseExited
-        lbAdmin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51,153,255)));
-    }//GEN-LAST:event_lbAdminMouseExited
 
     private void jLbMinMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLbMinMouseMoved
         jLbMin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
@@ -267,13 +232,11 @@ public class IntPrincipal extends javax.swing.JFrame implements Runnable {
     private void jBtRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtRegistrarActionPerformed
         IntRegistro IntR=new IntRegistro();
         IntR.setVisible(true);
-        this.setVisible(false);
     }//GEN-LAST:event_jBtRegistrarActionPerformed
 
     private void jBtInicioSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtInicioSesionActionPerformed
-        IntUsuarios users=new IntUsuarios();
-        TablaUsuarios.actualizarTablaUsuarios(IntUsuarios.TablaUsuarios);
-        users.setVisible(true);
+        InicioSesion Inses=new InicioSesion();
+        Inses.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jBtInicioSesionActionPerformed
     public void hora() {
@@ -347,12 +310,10 @@ public class IntPrincipal extends javax.swing.JFrame implements Runnable {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLbMin;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel jlbCerrar;
-    private javax.swing.JLabel lbAdmin;
     private javax.swing.JLabel lbHora;
     private javax.swing.JLabel lbfecha;
     // End of variables declaration//GEN-END:variables

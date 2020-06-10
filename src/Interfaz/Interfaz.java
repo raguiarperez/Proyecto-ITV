@@ -8,6 +8,7 @@ import Interfaz.Administrador.IntUsuarios;
 import Interfaz.Citas.IntAccesoCita;
 import Interfaz.Citas.IntDocu;
 import Interfaz.Citas.IntAccesoDoc;
+import Login.InicioSesion;
 import java.io.File;
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
@@ -34,6 +35,7 @@ public class Interfaz extends javax.swing.JFrame implements Runnable {
         initComponents();
         this.setLocationRelativeTo(null);
         lbfecha.setText(fecha());
+        jLbUsuario.setText(InicioSesion.jTextUsuario.getText().toUpperCase());
         hilo = new Thread(this);
         hilo.start();
         setVisible(true);
@@ -91,16 +93,17 @@ public class Interfaz extends javax.swing.JFrame implements Runnable {
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         lbfecha = new javax.swing.JLabel();
         lbHora = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jLbUsuario = new javax.swing.JLabel();
         lbCitaPrevia = new javax.swing.JLabel();
         lbinfoCitaPrev = new javax.swing.JLabel();
         lbDocumentación = new javax.swing.JLabel();
         lbinforesultados = new javax.swing.JLabel();
         jLbMin = new javax.swing.JLabel();
         jlbCerrar = new javax.swing.JLabel();
+        jBtCerrarSesion = new javax.swing.JButton();
 
         jMenu1.setText("jMenu1");
 
@@ -127,15 +130,11 @@ public class Interfaz extends javax.swing.JFrame implements Runnable {
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jLabel1.setText("Bienvenido ");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, -1, 54));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, -1, 54));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel2.setText("¿Que desea realizar?");
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 200, -1, -1));
-
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        jLabel3.setText("ITV GAL");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 130, -1, 47));
 
         lbfecha.setText("DD/MM/YYYY");
         jPanel2.add(lbfecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
@@ -145,6 +144,11 @@ public class Interfaz extends javax.swing.JFrame implements Runnable {
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/logo itv gal redimensionado.png"))); // NOI18N
         jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 330, 150));
+
+        jLbUsuario.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLbUsuario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLbUsuario.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel2.add(jLbUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 260, 60));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, 2, 330, 420));
 
@@ -223,6 +227,15 @@ public class Interfaz extends javax.swing.JFrame implements Runnable {
             }
         });
         jPanel1.add(jlbCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 10, 30, 30));
+
+        jBtCerrarSesion.setBackground(new java.awt.Color(51, 153, 255));
+        jBtCerrarSesion.setText("Cerrar Sesión");
+        jBtCerrarSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtCerrarSesionActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jBtCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 390, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -303,6 +316,12 @@ public class Interfaz extends javax.swing.JFrame implements Runnable {
         lbDocumentación.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
     }//GEN-LAST:event_lbDocumentaciónMouseMoved
 
+    private void jBtCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtCerrarSesionActionPerformed
+        IntPrincipal Vent=new IntPrincipal();
+        Vent.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jBtCerrarSesionActionPerformed
+
     public void hora() {
         Calendar calendario = new GregorianCalendar();
         Date horactual = new Date();
@@ -363,11 +382,12 @@ public class Interfaz extends javax.swing.JFrame implements Runnable {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBtCerrarSesion;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLbMin;
+    public static javax.swing.JLabel jLbUsuario;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;

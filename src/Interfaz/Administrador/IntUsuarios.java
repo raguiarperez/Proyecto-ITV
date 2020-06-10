@@ -6,7 +6,7 @@
 package Interfaz.Administrador;
 
 import Interfaz.Interfaz;
-import Registro.IntRegistro;
+import Login.IntRegistro;
 import javax.swing.JOptionPane;
 
 /**
@@ -165,9 +165,9 @@ public class IntUsuarios extends javax.swing.JFrame {
         });
         jPanel1.add(jlbCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 10, 30, 40));
 
-        BtPtPrinc2.setText("Menú Principal");
         BtPtPrinc2.setBackground(new java.awt.Color(51, 153, 255));
         BtPtPrinc2.setForeground(new java.awt.Color(255, 255, 255));
+        BtPtPrinc2.setText("Menú Principal");
         BtPtPrinc2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtPtPrinc2ActionPerformed(evt);

@@ -2,7 +2,6 @@ package proyecto;
 
 
 import Interfaz.IntPrincipal;
-import Interfaz.Interfaz;
 
 
 
