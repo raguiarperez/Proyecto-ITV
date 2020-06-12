@@ -36,8 +36,7 @@ public class IntUsuarios extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         TablaUsuarios = new javax.swing.JTable();
-        jLabel3 = new javax.swing.JLabel();
-        BtInsertarCoche = new javax.swing.JButton();
+        BtModificar = new javax.swing.JButton();
         BtInsertar = new javax.swing.JButton();
         jLbMin = new javax.swing.JLabel();
         jlbCerrar = new javax.swing.JLabel();
@@ -55,11 +54,11 @@ public class IntUsuarios extends javax.swing.JFrame {
         jLogo.setForeground(new java.awt.Color(51, 153, 255));
         jPanel1.add(jLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(306, 13, -1, -1));
 
-        jLabel2.setText("Documentación Previa");
         jLabel2.setBackground(new java.awt.Color(51, 51, 51));
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(51, 153, 255));
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 50, 240, 20));
+        jLabel2.setText("Usuarios Registrados");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 50, 240, 30));
 
         TablaUsuarios.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
         TablaUsuarios.setForeground(new java.awt.Color(51, 153, 255));
@@ -103,23 +102,17 @@ public class IntUsuarios extends javax.swing.JFrame {
         TablaUsuarios.setGridColor(new java.awt.Color(153, 153, 153));
         jScrollPane2.setViewportView(TablaUsuarios);
 
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 690, 340));
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 690, 360));
 
-        jLabel3.setBackground(new java.awt.Color(51, 51, 51));
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(51, 153, 255));
-        jLabel3.setText("Usuarios Registrados");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 90, -1, -1));
-
-        BtInsertarCoche.setBackground(new java.awt.Color(51, 153, 255));
-        BtInsertarCoche.setForeground(new java.awt.Color(255, 255, 255));
-        BtInsertarCoche.setText("Modificar Usuario");
-        BtInsertarCoche.addActionListener(new java.awt.event.ActionListener() {
+        BtModificar.setText("Modificar Usuario");
+        BtModificar.setBackground(new java.awt.Color(51, 153, 255));
+        BtModificar.setForeground(new java.awt.Color(255, 255, 255));
+        BtModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtInsertarCocheActionPerformed(evt);
+                BtModificarActionPerformed(evt);
             }
         });
-        jPanel1.add(BtInsertarCoche, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 470, -1, -1));
+        jPanel1.add(BtModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 470, -1, -1));
 
         BtInsertar.setBackground(new java.awt.Color(51, 153, 255));
         BtInsertar.setForeground(new java.awt.Color(255, 255, 255));
@@ -192,10 +185,6 @@ public class IntUsuarios extends javax.swing.JFrame {
     private void BtInsertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtInsertarActionPerformed
         IntRegistro Iregistro=new IntRegistro();
         Iregistro.jTextUsuario.setText("");
-        if(TablaUsuarios.contains(0, 3)== true){
-            Iregistro.jTextCorreo.setText((String)TablaUsuarios.getValueAt(0, 3));
-        }
-        Iregistro.jTextUsuario.setEditable(false);
         Iregistro.setVisible(true);
     }//GEN-LAST:event_BtInsertarActionPerformed
 
@@ -233,19 +222,17 @@ public class IntUsuarios extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_BtPtPrinc2ActionPerformed
 
-    private void BtInsertarCocheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtInsertarCocheActionPerformed
+    private void BtModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtModificarActionPerformed
+        int fila = TablaUsuarios.getSelectedRow();
         IntRegistro Iregistro=new IntRegistro();
-        if(TablaUsuarios.contains(0, 1)== true){
-            JOptionPane.showMessageDialog(null,"Su coche ya está listado");
-
-        }else if(TablaUsuarios.contains(0,1)==true){
-            IntRegistro.jTextCorreo.setText((String)TablaUsuarios.getValueAt(0, 3));
-            IntRegistro.jTextUsuario.setEditable(false);
+        if(fila == -1){
             Iregistro.setVisible(true);
         }else{
-            JOptionPane.showMessageDialog(null,"Debes añadir un seguro primero");
+            IntRegistro.jTextUsuario.setText((String)TablaUsuarios.getValueAt(0, 0));
+            IntRegistro.jTextUsuario.setEditable(false);
+            Iregistro.setVisible(true);
         }
-    }//GEN-LAST:event_BtInsertarCocheActionPerformed
+    }//GEN-LAST:event_BtModificarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -284,11 +271,10 @@ public class IntUsuarios extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JButton BtInsertar;
-    public static javax.swing.JButton BtInsertarCoche;
+    public static javax.swing.JButton BtModificar;
     private javax.swing.JButton BtPtPrinc2;
     public static javax.swing.JTable TablaUsuarios;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLbMin;
     private javax.swing.JLabel jLogo;
     private javax.swing.JPanel jPanel1;

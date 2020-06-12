@@ -43,11 +43,8 @@ public class IntDoc extends javax.swing.JFrame {
         TablaSeguro = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        BtInsertarCoche = new javax.swing.JButton();
-        BtInsertarSeguro = new javax.swing.JButton();
         jLbMin = new javax.swing.JLabel();
         jlbCerrar = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
         BtPtPrinc2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -130,26 +127,6 @@ public class IntDoc extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(0, 204, 204));
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 279, -1, -1));
 
-        BtInsertarCoche.setText("Insertar/Modificar Coche");
-        BtInsertarCoche.setBackground(new java.awt.Color(0, 204, 204));
-        BtInsertarCoche.setForeground(new java.awt.Color(255, 255, 255));
-        BtInsertarCoche.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtInsertarCocheActionPerformed(evt);
-            }
-        });
-        jPanel1.add(BtInsertarCoche, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 470, -1, -1));
-
-        BtInsertarSeguro.setText("Insertar/Modificar Seguro");
-        BtInsertarSeguro.setBackground(new java.awt.Color(0, 204, 204));
-        BtInsertarSeguro.setForeground(new java.awt.Color(255, 255, 255));
-        BtInsertarSeguro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtInsertarSeguroActionPerformed(evt);
-            }
-        });
-        jPanel1.add(BtInsertarSeguro, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 470, -1, -1));
-
         jLbMin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Minimize Green.png"))); // NOI18N
         jLbMin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLbMin.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -184,10 +161,6 @@ public class IntDoc extends javax.swing.JFrame {
         });
         jPanel1.add(jlbCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(681, 12, 30, 30));
 
-        jLabel1.setText("* Para añadir un coche nuevo modificar primero el Seguro");
-        jLabel1.setForeground(new java.awt.Color(0, 204, 204));
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 500, -1, -1));
-
         BtPtPrinc2.setText("Menú Principal");
         BtPtPrinc2.setBackground(new java.awt.Color(0, 204, 204));
         BtPtPrinc2.setForeground(new java.awt.Color(255, 255, 255));
@@ -212,30 +185,6 @@ public class IntDoc extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void BtInsertarCocheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtInsertarCocheActionPerformed
-        IntinsDocCoche IDocoche=new IntinsDocCoche();
-        if(TablaCoche.contains(0, 1)== true){
-         JOptionPane.showMessageDialog(null,"Su coche ya está listado");
-
-        }else if(TablaSeguro.contains(0,1)==true){
-        IntinsDocCoche.jTextMatricula.setText((String)TablaSeguro.getValueAt(0, 3));
-        IntinsDocCoche.jTextMatricula.setEditable(false);
-        IDocoche.setVisible(true);
-        }else{
-            JOptionPane.showMessageDialog(null,"Debes añadir un seguro primero");
-        }
-    }//GEN-LAST:event_BtInsertarCocheActionPerformed
-
-    private void BtInsertarSeguroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtInsertarSeguroActionPerformed
-        IntinsDocSeguro IDoseguro=new IntinsDocSeguro();
-        IDoseguro.jTextDNI.setText(IntAccesoCita.jTextDNI.getText());
-        if(TablaSeguro.contains(0, 3)== true){
-        IDoseguro.jTextMATRICULA.setText((String)TablaSeguro.getValueAt(0, 3));
-        }        
-        IDoseguro.jTextDNI.setEditable(false);
-        IDoseguro.setVisible(true);
-    }//GEN-LAST:event_BtInsertarSeguroActionPerformed
 
     private void jLbMinMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLbMinMouseMoved
         jLbMin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153,153,153)));
@@ -317,13 +266,10 @@ public class IntDoc extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public static javax.swing.JButton BtInsertarCoche;
-    public static javax.swing.JButton BtInsertarSeguro;
     private javax.swing.JButton BtPtPrinc2;
     public static javax.swing.JTable TablaCoche;
     public static javax.swing.JTable TablaSeguro;
     private com.github.lgooddatepicker.components.DateTimePicker dateTimePicker1;
-    public static javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

@@ -5,6 +5,7 @@
  */
 package Interfaz.Citas;
 
+import BaseDatos.General;
 import Interfaz.Citas.IntAccesoCita;
 import Interfaz.Citas.IntAccesoCita;
 import Interfaz.Citas.InterfazCita;
@@ -25,6 +26,7 @@ public class IntDocu extends javax.swing.JFrame {
      */
     public IntDocu() {
         initComponents();
+        General.connect();
     }
 
     /**

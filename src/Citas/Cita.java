@@ -1,5 +1,6 @@
 package Citas;
 
+import Interfaz.Citas.InterfazCita;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
@@ -92,7 +93,8 @@ public class Cita implements Serializable {
     //método para imprimir en pdf
     public static void generarPDF(JTextField dni,JLabel fecha, JLabel hora,JLabel Localidad) throws FileNotFoundException {
         FileOutputStream archivo;
-        archivo = new FileOutputStream(dni.getText()+".pdf");
+        String d=InterfazCita.jTxtFieldRuta.getText();
+        archivo = new FileOutputStream(d+dni.getText()+" .pdf");
         Document documento=new Document();
         try {
             PdfWriter.getInstance(documento, archivo);

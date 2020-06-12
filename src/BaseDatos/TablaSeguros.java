@@ -2,6 +2,7 @@
 package BaseDatos;
 
 import static BaseDatos.General.connect;
+import static BaseDatos.TablaUsuarios.sql;
 import Documentación.Seguros;
 import Utilidades.ComprobarString;
 import java.sql.Connection;

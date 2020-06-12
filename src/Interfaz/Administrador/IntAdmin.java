@@ -4,6 +4,7 @@ package Interfaz.Administrador;
 import BaseDatos.TablaDocCoche;
 import BaseDatos.TablaSeguros;
 import BaseDatos.TablaUsuarios;
+import Interfaz.Citas.IntDocu;
 import Resultado.crResulta;
 import static Interfaz.Interfaz.fecha;
 import java.util.Calendar;
@@ -218,9 +219,9 @@ public class IntAdmin extends javax.swing.JFrame implements Runnable {
     }//GEN-LAST:event_lbDocuMouseMoved
 
     private void lbDocuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbDocuMouseClicked
-        IntDoc docu=new IntDoc();
-        TablaSeguros.actualizarTablaSeguros(IntDoc.TablaSeguro);
-        TablaDocCoche.actualizarTablaDocCoche(IntDoc.TablaCoche);
+        IntDocu docu=new IntDocu();
+        TablaSeguros.actualizarTablaSeguros(IntDocu.TablaSeguro);
+        TablaDocCoche.actualizarTablaDocCoche(IntDocu.TablaCoche);
         docu.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_lbDocuMouseClicked

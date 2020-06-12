@@ -74,7 +74,6 @@ public class General {
         try (Connection conn = DriverManager.getConnection(url);
                 Statement stmt = conn.createStatement()) {
             stmt.execute(sql);
-            System.out.println("tabla creada");
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }

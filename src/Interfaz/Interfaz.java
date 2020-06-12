@@ -43,30 +43,30 @@ public class Interfaz extends javax.swing.JFrame implements Runnable {
     }
 
     public Interfaz(String filename) {
-        String url = "jdbc:sqlite:" + filename + ".db";
-        File file = new File(filename + ".db");
-        if (file.exists() == false) {
-            try (Connection conn = DriverManager.getConnection(url)) {
-                if (conn != null) {
-                    IntDocu id = new IntDocu();
-                    IntUsuarios iu=new IntUsuarios();
-                    DatabaseMetaData meta = conn.getMetaData();
-                    System.out.println("The driver name is " + meta.getDriverName());
-                    System.out.println("Una nueva DB ha sido creada");
-                    General.crearTablas(filename, id.TablaSeguro, id.TablaCoche,iu.TablaUsuarios);
-
-                }
-            } catch (SQLException e) {
-                System.out.println(e.getMessage());
-            }
-
-        }
-        try {
-            Connection conn = DriverManager.getConnection(url);
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-        }
-        System.out.println("La conexión a SQLite ha sido establecida");
+//        String url = "jdbc:sqlite:" + filename + ".db";
+//        File file = new File(filename + ".db");
+//        if (file.exists() == false) {
+//            try (Connection conn = DriverManager.getConnection(url)) {
+//                if (conn != null) {
+//                    IntDocu id = new IntDocu();
+//                    IntUsuarios iu=new IntUsuarios();
+//                    DatabaseMetaData meta = conn.getMetaData();
+//                    System.out.println("The driver name is " + meta.getDriverName());
+//                    System.out.println("Una nueva DB ha sido creada");
+//                    General.crearTablas(filename, id.TablaSeguro, id.TablaCoche,iu.TablaUsuarios);
+//
+//                }
+//            } catch (SQLException e) {
+//                System.out.println(e.getMessage());
+//            }
+//
+//        }
+//        try {
+//            Connection conn = DriverManager.getConnection(url);
+//        } catch (SQLException ex) {
+//            System.out.println(ex.getMessage());
+//        }
+//        System.out.println("La conexión a SQLite ha sido establecida");
         initComponents();
         lbfecha.setText(fecha());
         hilo = new Thread(this);
@@ -283,7 +283,6 @@ public class Interfaz extends javax.swing.JFrame implements Runnable {
 
     private void lbCitaPreviaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbCitaPreviaMouseExited
         lbCitaPrevia.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-
     }//GEN-LAST:event_lbCitaPreviaMouseExited
 
     private void jLbMinMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLbMinMouseMoved
