@@ -187,7 +187,7 @@ public class IntAdmin extends javax.swing.JFrame implements Runnable {
                 jLbUsuariosMouseExited(evt);
             }
         });
-        jPanel1.add(jLbUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 290, 140, 110));
+        jPanel1.add(jLbUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 290, 90, 90));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel4.setText("Usuarios Registrados");
