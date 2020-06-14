@@ -9,7 +9,9 @@ import BaseDatos.TablaDocCoche;
 import BaseDatos.TablaSeguros;
 import Citas.Cita;
 import Documentación.Seguros;
+import static Interfaz.Citas.IntAccesoCita.jTextDNI;
 import Interfaz.Interfaz;
+import Utilidades.ComprobarString;
 import java.io.IOException;
 import java.text.ParseException;
 import java.time.format.DateTimeFormatter;
@@ -59,6 +61,7 @@ public class IntCrearCita extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(51, 153, 255), new java.awt.Color(51, 153, 255)));
@@ -94,9 +97,9 @@ public class IntCrearCita extends javax.swing.JFrame {
             }
         });
 
+        BtRegistrar.setText("Documentación");
         BtRegistrar.setBackground(new java.awt.Color(51, 153, 255));
         BtRegistrar.setForeground(new java.awt.Color(255, 255, 255));
-        BtRegistrar.setText("Documentación");
         BtRegistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtRegistrarActionPerformed(evt);
@@ -261,12 +264,11 @@ public class IntCrearCita extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextUsuarioActionPerformed
@@ -278,40 +280,41 @@ public class IntCrearCita extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextDniActionPerformed
 
     private void BtRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtRegistrarActionPerformed
-    if(!jTextDni.getText().isEmpty() && !jTextUsuario.getText().isEmpty() && !jSeleccionLoc.getSelectedItem().toString().isEmpty()){
-        Cita.localidad = (String) jSeleccionLoc.getSelectedItem();
-        Cita.time = dateTimePicker1.timePicker.getTime();
-        Cita.fecha = dateTimePicker1.datePicker.getDate().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
-        Cita cit = new Cita();
-        cit.setFecha2(Cita.fecha);
-        cit.setTime2(Cita.time);
-        cit.setLocalidad2(Cita.localidad);
-        Boolean f = false;
-        try {
-            f = cit.comprobarFechaHora();
-        } catch (ParseException ex) {
-            Logger.getLogger(IntSelFecha.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        if (f) {
-            try {
-                cit.engadir("Citas", cit, IntAccesoCita.jTextDNI.getText());
-            } catch (IOException ex) {
-                Logger.getLogger(IntSelFecha.class.getName()).log(Level.SEVERE, null, ex);
-            }
+                if(!jTextDni.getText().isEmpty() && !jTextUsuario.getText().isEmpty() && !jSeleccionLoc.getSelectedItem().toString().isEmpty()){
+                    Cita cit = new Cita();
+                    Cita.localidad = (String) jSeleccionLoc.getSelectedItem();
+                    Cita.time = dateTimePicker1.timePicker.getTime();
+                    Cita.fecha = dateTimePicker1.datePicker.getDate().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+                    cit.setFecha2(Cita.fecha);
+                    cit.setTime2(Cita.time);
+                    cit.setLocalidad2(Cita.localidad);
+                    Boolean f = false;
+                    try {
+                        f = cit.comprobarFechaHora();
+                    } catch (ParseException ex) {
+                        Logger.getLogger(IntSelFecha.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    if (f) {
+                        try {
+                            cit.engadir("Citas", cit, IntAccesoCita.jTextDNI.getText());
+                        } catch (IOException ex) {
+                            Logger.getLogger(IntSelFecha.class.getName()).log(Level.SEVERE, null, ex);
+                        }
             /*interfaz Documentacion*/
-                IntDocu Idoc= new IntDocu();
-                ArrayList<Seguros> conS = new ArrayList<>();
-                conS=TablaSeguros.consultaSeguros(IntAccesoCita.jTextDNI);
-                TablaSeguros.actuConsultaSeguros(conS, Idoc.TablaSeguro);
-                TablaDocCoche.actuConsultaSegDocCoche(conS, Idoc.TablaCoche);
-                Idoc.setVisible(true);
-                this.setVisible(false);
-        
-
-        } else {
-            JOptionPane.showMessageDialog(null, "Introduzca una hora de 07 a 21 del día siguiente y que no sobrepase el año 2020");
-        }
-    }
+                        IntDocu Idoc= new IntDocu();
+                        ArrayList<Seguros> conS = new ArrayList<>();
+                        conS=TablaSeguros.consultaSeguros(IntAccesoCita.jTextDNI);
+                        TablaSeguros.actuConsultaSeguros(conS, Idoc.TablaSeguro);
+                        TablaDocCoche.actuConsultaSegDocCoche(conS, Idoc.TablaCoche);
+                        Idoc.setVisible(true);
+                        this.setVisible(false);
+                        } else {
+                            JOptionPane.showMessageDialog(null, "Introduzca una hora de 07 a 21 del día siguiente y que no sobrepase el año 2020");
+                        }
+                }
+            
+       
+    
 
     }//GEN-LAST:event_BtRegistrarActionPerformed
 

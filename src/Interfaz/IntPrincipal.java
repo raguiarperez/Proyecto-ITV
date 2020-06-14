@@ -5,7 +5,7 @@
  */
 package Interfaz;
 
-import BaseDatos.General;
+import BaseDatos.*;
 import BaseDatos.TablaUsuarios;
 import Interfaz.Administrador.*;
 import Interfaz.Citas.IntDocu;
@@ -21,6 +21,8 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -43,7 +45,7 @@ public class IntPrincipal extends javax.swing.JFrame implements Runnable {
         setVisible(true);
     }
         public IntPrincipal(String filename) {
-          String url = "jdbc:sqlite:" + filename + ".db";
+        String url = "jdbc:sqlite:" + filename + ".db";
         File file = new File(filename + ".db");
         if (file.exists() == false) {
             try (Connection conn = DriverManager.getConnection(url)) {
@@ -230,14 +232,27 @@ public class IntPrincipal extends javax.swing.JFrame implements Runnable {
     }//GEN-LAST:event_jlbCerrarMouseExited
 
     private void jBtRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtRegistrarActionPerformed
-        IntRegistro IntR=new IntRegistro();
-        IntR.setVisible(true);
+
+        try {
+            General.connect().close();
+            IntRegistro IntR=new IntRegistro();
+            IntR.setVisible(true);
+            this.setVisible(false);
+        } catch (SQLException ex) {
+            Logger.getLogger(IntPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jBtRegistrarActionPerformed
 
     private void jBtInicioSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtInicioSesionActionPerformed
-        InicioSesion Inses=new InicioSesion();
-        Inses.setVisible(true);
-        this.setVisible(false);
+        try {
+            General.connect().close();       
+            InicioSesion Inses=new InicioSesion();
+            Inses.setVisible(true);
+            this.setVisible(false);
+        } catch (SQLException ex) {
+            Logger.getLogger(IntPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }//GEN-LAST:event_jBtInicioSesionActionPerformed
     public void hora() {
         Calendar calendario = new GregorianCalendar();

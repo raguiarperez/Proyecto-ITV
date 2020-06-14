@@ -1,36 +1,36 @@
-package Interfaz.Citas;
-
-import Interfaz.Citas.IntDocu;
-import BaseDatos.TablaDocCoche;
-import BaseDatos.TablaSeguros;
-import Documentación.Seguros;
-import Interfaz.Documentación.IntDoc;
-import Interfaz.Interfaz;
-import Utilidades.ComprobarString;
-import java.awt.event.KeyEvent;
-import java.util.ArrayList;
-import java.util.Random;
-import javax.swing.JOptionPane;
-
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package Interfaz.Administrador;
 
+import BaseDatos.General;
+import BaseDatos.TablaDocCoche;
+import BaseDatos.TablaSeguros;
+import Documentación.Seguros;
+import Interfaz.Documentación.IntDoc;
+import Utilidades.ComprobarString;
+import java.awt.event.KeyEvent;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
-public class IntAccesoDoc extends javax.swing.JFrame {
+/**
+ *
+ * @author rafag
+ */
+public class IntAccesoDocDNI extends javax.swing.JFrame {
 
     /**
-     * Creates new form InterfazTaller
+     * Creates new form IntAccesoDocDNI
      */
-    
-
-    public IntAccesoDoc() {
+    public IntAccesoDocDNI() {
         initComponents();
-        jProgressBar1.setVisible(false);
-
+        General.connect();
     }
 
     /**
@@ -54,17 +54,16 @@ public class IntAccesoDoc extends javax.swing.JFrame {
         jLbMin = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(51, 153, 255), new java.awt.Color(51, 153, 255)));
+        jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(0, 204, 204), new java.awt.Color(0, 204, 204)));
 
         jLabel1.setBackground(new java.awt.Color(51, 51, 51));
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(51, 153, 255));
+        jLabel1.setForeground(new java.awt.Color(0, 204, 204));
         jLabel1.setText("DNI :");
 
-        jTextDNI.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 153, 255)));
+        jTextDNI.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 204, 204)));
         jTextDNI.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextDNIActionPerformed(evt);
@@ -78,15 +77,15 @@ public class IntAccesoDoc extends javax.swing.JFrame {
 
         jLogo.setBackground(new java.awt.Color(51, 51, 51));
         jLogo.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLogo.setForeground(new java.awt.Color(51, 153, 255));
+        jLogo.setForeground(new java.awt.Color(0, 204, 204));
         jLogo.setText("ITV GAL");
 
         jLabel2.setBackground(new java.awt.Color(51, 51, 51));
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(51, 153, 255));
+        jLabel2.setForeground(new java.awt.Color(0, 204, 204));
         jLabel2.setText("Acceso a Documentación");
 
-        BtContinuar.setBackground(new java.awt.Color(51, 153, 255));
+        BtContinuar.setBackground(new java.awt.Color(0, 204, 204));
         BtContinuar.setForeground(new java.awt.Color(255, 255, 255));
         BtContinuar.setText("Continuar");
         BtContinuar.addActionListener(new java.awt.event.ActionListener() {
@@ -95,7 +94,7 @@ public class IntAccesoDoc extends javax.swing.JFrame {
             }
         });
 
-        BtMenuPrincipal.setBackground(new java.awt.Color(51, 153, 255));
+        BtMenuPrincipal.setBackground(new java.awt.Color(0, 204, 204));
         BtMenuPrincipal.setForeground(new java.awt.Color(255, 255, 255));
         BtMenuPrincipal.setText("Menú Principal");
         BtMenuPrincipal.addActionListener(new java.awt.event.ActionListener() {
@@ -104,11 +103,11 @@ public class IntAccesoDoc extends javax.swing.JFrame {
             }
         });
 
-        jProgressBar1.setForeground(new java.awt.Color(51, 153, 255));
+        jProgressBar1.setForeground(new java.awt.Color(0, 204, 204));
         jProgressBar1.setString("");
         jProgressBar1.setStringPainted(true);
 
-        jlbCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/imagen cerrar.png"))); // NOI18N
+        jlbCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Close Green.png"))); // NOI18N
         jlbCerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jlbCerrar.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
@@ -124,7 +123,7 @@ public class IntAccesoDoc extends javax.swing.JFrame {
             }
         });
 
-        jLbMin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/imagen minimizar.png"))); // NOI18N
+        jLbMin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Minimize Green.png"))); // NOI18N
         jLbMin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLbMin.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
@@ -153,7 +152,7 @@ public class IntAccesoDoc extends javax.swing.JFrame {
                         .addComponent(BtContinuar)
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 91, Short.MAX_VALUE)
+                        .addGap(0, 68, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel1)
@@ -190,7 +189,7 @@ public class IntAccesoDoc extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextDNI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
                 .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -203,7 +202,9 @@ public class IntAccesoDoc extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -211,127 +212,136 @@ public class IntAccesoDoc extends javax.swing.JFrame {
         );
 
         pack();
-        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextDNIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextDNIActionPerformed
         String dni = jTextDNI.getText();
     }//GEN-LAST:event_jTextDNIActionPerformed
 
-    private void BtContinuarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtContinuarActionPerformed
-        if(ComprobarString.longitudLetraFinal(9, jTextDNI.getText())){
-            jProgressBar1.setVisible(true);
-            final Thread t;
-            Random rand = new Random();
-            //Inicializamos
-            t = new Thread(new Runnable() {
-                //Implementamos el método run()
-                @Override
-                public void run() {
-                    //Permite mostrar el valor del progreso
-                    jProgressBar1.setStringPainted(true);
-                    int x = 1;
-                    
-                    //Utilizamos un while para emular el valor mínimo y máximo
-                    //En este caso 0 - 100
-                    while(x <= 100){
-                        //Asignamos valor a nuestro JProgressBar por cada siclo del bucle
-                        jProgressBar1.setValue(x);
-                        if(x<=50){
-                            jProgressBar1.setString("Cargando Datos..");
-                        }else if(x>50&&x<=75){
-                            jProgressBar1.setString("Comprobando Datos..");
-                        }else if(x==100){
-                            IntDocu Idoc= new IntDocu();
-                            ArrayList<Seguros> conS = new ArrayList<>();
-                            conS=TablaSeguros.consultaSeguros(jTextDNI);
-                            TablaSeguros.actuConsultaSeguros(conS, Idoc.TablaSeguro);
-                            TablaDocCoche.actuConsultaSegDocCoche(conS, Idoc.TablaCoche);
-                            Idoc.setVisible(true);
-                            
-                            IntAccesoDoc.this.setVisible(false);
-                            
-                        }
-                        
-                        //Hacemos una parada de medio segundo por cada ciclo while
-                        try {
-                            Thread.sleep(100);
-                        } catch (InterruptedException e) {
-                        }
-                        //Se incrementa el valor de x
-                        x++;
-                    }
-                }
-            });
-            //Se ejecuta el Thread
-            t.start();
-    }
-    
+    private void jTextDNIKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextDNIKeyPressed
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){   
+            if(ComprobarString.longitudLetraFinal(9, jTextDNI.getText())){
+                 try {
+                    General.connect().close();
+                                jProgressBar1.setVisible(true);
+                final Thread t;
+                Random rand = new Random();
+                //Inicializamos
+                t = new Thread(new Runnable() {
+                    //Implementamos el método run()
+                    @Override
+                    public void run() {
+                        //Permite mostrar el valor del progreso
+                        jProgressBar1.setStringPainted(true);
+                        int x = 1;
 
-  
-            
-            
-            
-       
+                        //Utilizamos un while para emular el valor mínimo y máximo
+                        //En este caso 0 - 100
+                        while(x <= 100){
+                            //Asignamos valor a nuestro JProgressBar por cada siclo del bucle
+                            jProgressBar1.setValue(x);
+                            if(x<=50){
+                                jProgressBar1.setString("Cargando Datos..");
+                            }else if(x>50&&x<=75){
+                                jProgressBar1.setString("Comprobando Datos..");
+                            }else if(x==100){
+                                IntDoc Idoc= new IntDoc();
+                                ArrayList<Seguros> conS = new ArrayList<>();
+                                conS=TablaSeguros.consultaSeguros(jTextDNI);
+                                TablaSeguros.actuConsultaSeguros(conS, Idoc.TablaSeguro);
+                                TablaDocCoche.actuConsultaSegDocCoche(conS, Idoc.TablaCoche);
+                                Idoc.setVisible(true);
+
+                                IntAccesoDocDNI.this.setVisible(false);
+
+                            }
+
+                            //Hacemos una parada de medio segundo por cada ciclo while
+                            try {
+                                Thread.sleep(100);
+                            } catch (InterruptedException e) {
+                            }
+                            //Se incrementa el valor de x
+                            x++;
+                        }
+                    }
+                });
+                //Se ejecuta el Thread
+                t.start();
+            } catch (SQLException ex) {
+                Logger.getLogger(IntAccesoDocDNI.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            }
+        }
+    }//GEN-LAST:event_jTextDNIKeyPressed
+
+    private void BtContinuarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtContinuarActionPerformed
+           if(ComprobarString.longitudLetraFinal(9, jTextDNI.getText())){
+                 try {
+                    General.connect().close();
+                                jProgressBar1.setVisible(true);
+                final Thread t;
+                Random rand = new Random();
+                //Inicializamos
+                t = new Thread(new Runnable() {
+                    //Implementamos el método run()
+                    @Override
+                    public void run() {
+                        //Permite mostrar el valor del progreso
+                        jProgressBar1.setStringPainted(true);
+                        int x = 1;
+
+                        //Utilizamos un while para emular el valor mínimo y máximo
+                        //En este caso 0 - 100
+                        while(x <= 100){
+                            //Asignamos valor a nuestro JProgressBar por cada siclo del bucle
+                            jProgressBar1.setValue(x);
+                            if(x<=50){
+                                jProgressBar1.setString("Cargando Datos..");
+                            }else if(x>50&&x<=75){
+                                jProgressBar1.setString("Comprobando Datos..");
+                            }else if(x==100){
+                                IntDoc Idoc= new IntDoc();
+                                ArrayList<Seguros> conS = new ArrayList<>();
+                                conS=TablaSeguros.consultaSeguros(jTextDNI);
+                                TablaSeguros.actuConsultaSeguros(conS, Idoc.TablaSeguro);
+                                TablaDocCoche.actuConsultaSegDocCoche(conS, Idoc.TablaCoche);
+                                Idoc.setVisible(true);
+
+                                IntAccesoDocDNI.this.setVisible(false);
+
+                            }
+
+                            //Hacemos una parada de medio segundo por cada ciclo while
+                            try {
+                                Thread.sleep(100);
+                            } catch (InterruptedException e) {
+                            }
+                            //Se incrementa el valor de x
+                            x++;
+                        }
+                    }
+                });
+                //Se ejecuta el Thread
+                t.start();
+            } catch (SQLException ex) {
+                Logger.getLogger(IntAccesoDocDNI.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            }
+        
     }//GEN-LAST:event_BtContinuarActionPerformed
 
     private void BtMenuPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtMenuPrincipalActionPerformed
-        Interfaz Int=new Interfaz();
-        Int.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_BtMenuPrincipalActionPerformed
+        try {
+            General.connect().close();
+            IntAdmin Int=new IntAdmin();
+            Int.setVisible(true);
+            this.setVisible(false);
+        } catch (SQLException ex) {
+            Logger.getLogger(IntAccesoDocDNI.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
-    private void jTextDNIKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextDNIKeyPressed
-    if(evt.getKeyCode()==KeyEvent.VK_ENTER){
-           if(ComprobarString.longitudLetraFinal(9, jTextDNI.getText())){
-            jProgressBar1.setVisible(true);
-            final Thread t;
-            Random rand = new Random();
-            //Inicializamos
-            t = new Thread(new Runnable() {
-                //Implementamos el método run()
-                @Override
-                public void run() {
-                    //Permite mostrar el valor del progreso
-                    jProgressBar1.setStringPainted(true);
-                    int x = 1;
-                    
-                    //Utilizamos un while para emular el valor mínimo y máximo
-                    //En este caso 0 - 100
-                    while(x <= 100){
-                        //Asignamos valor a nuestro JProgressBar por cada siclo del bucle
-                        jProgressBar1.setValue(x);
-                        if(x<=50){
-                            jProgressBar1.setString("Cargando Datos..");
-                        }else if(x>50&&x<=75){
-                            jProgressBar1.setString("Comprobando Datos..");
-                        }else if(x==100){
-                            IntDocu Idoc= new IntDocu();
-                            ArrayList<Seguros> conS = new ArrayList<>();
-                            conS=TablaSeguros.consultaSeguros(jTextDNI);
-                            TablaSeguros.actuConsultaSeguros(conS, Idoc.TablaSeguro);
-                            TablaDocCoche.actuConsultaSegDocCoche(conS, Idoc.TablaCoche);
-                            Idoc.setVisible(true);
-                            
-                            IntAccesoDoc.this.setVisible(false);
-                            
-                        }
-                        
-                        //Hacemos una parada de medio segundo por cada ciclo while
-                        try {
-                            Thread.sleep(100);
-                        } catch (InterruptedException e) {
-                        }
-                        //Se incrementa el valor de x
-                        x++;
-                    }
-                }
-            });
-            //Se ejecuta el Thread
-            t.start();
-           }
-    }
-    }//GEN-LAST:event_jTextDNIKeyPressed
+    }//GEN-LAST:event_BtMenuPrincipalActionPerformed
 
     private void jlbCerrarMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbCerrarMouseMoved
         jlbCerrar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153,153,153)));
@@ -354,7 +364,7 @@ public class IntAccesoDoc extends javax.swing.JFrame {
     }//GEN-LAST:event_jLbMinMouseMoved
 
     private void jLbMinMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLbMinMouseClicked
-        this.setState(IntAccesoDoc.ICONIFIED);
+        this.setState(IntAccesoDocDNI.ICONIFIED);
     }//GEN-LAST:event_jLbMinMouseClicked
 
     private void jLbMinMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLbMinMouseExited
@@ -378,23 +388,20 @@ public class IntAccesoDoc extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(IntAccesoDoc.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(IntAccesoDocDNI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(IntAccesoDoc.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(IntAccesoDocDNI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(IntAccesoDoc.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(IntAccesoDocDNI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(IntAccesoDoc.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(IntAccesoDocDNI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new IntAccesoDoc().setVisible(true);
+                new IntAccesoDocDNI().setVisible(true);
             }
         });
     }

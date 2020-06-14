@@ -1,10 +1,9 @@
 
 package Interfaz;
 
-import Interfaz.Administrador.AccesAdmin;
 import BaseDatos.General;
+import Interfaz.Administrador.AccesAdmin;
 import Interfaz.Administrador.IntUsuarios;
-
 import Interfaz.Citas.IntAccesoCita;
 import Interfaz.Citas.IntDocu;
 import Interfaz.Citas.IntAccesoDoc;
@@ -16,6 +15,8 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -34,44 +35,13 @@ public class Interfaz extends javax.swing.JFrame implements Runnable {
     public Interfaz() {
         initComponents();
         this.setLocationRelativeTo(null);
+        General.connect();
         lbfecha.setText(fecha());
         jLbUsuario.setText(InicioSesion.jTextUsuario.getText().toUpperCase());
         hilo = new Thread(this);
         hilo.start();
         setVisible(true);
-
-    }
-
-    public Interfaz(String filename) {
-//        String url = "jdbc:sqlite:" + filename + ".db";
-//        File file = new File(filename + ".db");
-//        if (file.exists() == false) {
-//            try (Connection conn = DriverManager.getConnection(url)) {
-//                if (conn != null) {
-//                    IntDocu id = new IntDocu();
-//                    IntUsuarios iu=new IntUsuarios();
-//                    DatabaseMetaData meta = conn.getMetaData();
-//                    System.out.println("The driver name is " + meta.getDriverName());
-//                    System.out.println("Una nueva DB ha sido creada");
-//                    General.crearTablas(filename, id.TablaSeguro, id.TablaCoche,iu.TablaUsuarios);
-//
-//                }
-//            } catch (SQLException e) {
-//                System.out.println(e.getMessage());
-//            }
-//
-//        }
-//        try {
-//            Connection conn = DriverManager.getConnection(url);
-//        } catch (SQLException ex) {
-//            System.out.println(ex.getMessage());
-//        }
-//        System.out.println("La conexión a SQLite ha sido establecida");
-        initComponents();
-        lbfecha.setText(fecha());
-        hilo = new Thread(this);
-        hilo.start();
-        setVisible(true);
+        
     }
 
     /**
@@ -188,7 +158,7 @@ public class Interfaz extends javax.swing.JFrame implements Runnable {
                 lbDocumentaciónMouseExited(evt);
             }
         });
-        jPanel1.add(lbDocumentación, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 220, 90, -1));
+        jPanel1.add(lbDocumentación, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 220, 90, 90));
 
         lbinforesultados.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         lbinforesultados.setText("Documentación");
@@ -235,7 +205,7 @@ public class Interfaz extends javax.swing.JFrame implements Runnable {
                 jBtCerrarSesionActionPerformed(evt);
             }
         });
-        jPanel1.add(jBtCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 390, -1, -1));
+        jPanel1.add(jBtCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 380, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -260,9 +230,15 @@ public class Interfaz extends javax.swing.JFrame implements Runnable {
 
 
     private void lbCitaPreviaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbCitaPreviaMouseClicked
-        IntAccesoCita IAcita = new IntAccesoCita();
-        IAcita.setVisible(true);
-        this.setVisible(false);
+        try {
+            General.connect().close();        
+            IntAccesoCita IAcita = new IntAccesoCita();
+            IAcita.setVisible(true);
+            this.setVisible(false);
+        } catch (SQLException ex) {
+            Logger.getLogger(IntPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }        
+
     }//GEN-LAST:event_lbCitaPreviaMouseClicked
 
     private void lbCitaPreviaMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbCitaPreviaMouseMoved
@@ -306,9 +282,14 @@ public class Interfaz extends javax.swing.JFrame implements Runnable {
     }//GEN-LAST:event_lbDocumentaciónMouseExited
 
     private void lbDocumentaciónMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbDocumentaciónMouseClicked
-        IntAccesoDoc IADoc = new IntAccesoDoc();
-        IADoc.setVisible(true);
-        this.setVisible(false);
+        try {
+            General.connect().close();
+            IntAccesoDoc IADoc = new IntAccesoDoc();
+            IADoc.setVisible(true);
+            this.setVisible(false);
+        } catch (SQLException ex) {
+            Logger.getLogger(IntPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_lbDocumentaciónMouseClicked
 
     private void lbDocumentaciónMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbDocumentaciónMouseMoved
@@ -316,9 +297,15 @@ public class Interfaz extends javax.swing.JFrame implements Runnable {
     }//GEN-LAST:event_lbDocumentaciónMouseMoved
 
     private void jBtCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtCerrarSesionActionPerformed
-        IntPrincipal Vent=new IntPrincipal();
-        Vent.setVisible(true);
-        this.dispose();
+        try {
+            General.connect().close();
+            IntPrincipal Vent=new IntPrincipal();
+            Vent.setVisible(true);
+            this.dispose();
+        } catch (SQLException ex) {
+            Logger.getLogger(IntPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }//GEN-LAST:event_jBtCerrarSesionActionPerformed
 
     public void hora() {

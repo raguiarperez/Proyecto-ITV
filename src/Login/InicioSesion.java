@@ -13,6 +13,8 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -21,12 +23,12 @@ import javax.swing.JOptionPane;
  */
 public class InicioSesion extends javax.swing.JFrame {
 
-    Connection conn = General.connect();
     /**
      * Creates new form InicioSesion
      */
     public InicioSesion() {
         initComponents();
+        General.connect();
     }
 
     /**
@@ -216,15 +218,27 @@ public class InicioSesion extends javax.swing.JFrame {
     }//GEN-LAST:event_jLbMinMouseExited
 
     private void jBtAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtAdminActionPerformed
-        AccesAdmin IntA=new AccesAdmin();
-        IntA.setVisible(true);
-        this.setVisible(false);
+        try {
+            General.connect().close();
+             AccesAdmin IntA=new AccesAdmin();
+             IntA.setVisible(true);
+             this.setVisible(false);
+        } catch (SQLException ex) {
+            Logger.getLogger(InicioSesion.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       
     }//GEN-LAST:event_jBtAdminActionPerformed
 
     private void jBtMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtMenuActionPerformed
-        IntPrincipal Intp=new IntPrincipal();
-        Intp.setVisible(true);
-        this.setVisible(false);
+        try {
+            General.connect().close();
+            IntPrincipal Intp=new IntPrincipal();
+            Intp.setVisible(true);
+            this.setVisible(false);
+        } catch (SQLException ex) {
+            Logger.getLogger(InicioSesion.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }//GEN-LAST:event_jBtMenuActionPerformed
     
     public void validarAcceso(){
@@ -235,14 +249,21 @@ public class InicioSesion extends javax.swing.JFrame {
         
         
         try {
-            Statement st=conn.createStatement();
+            Statement st=General.connect().createStatement();
             ResultSet rs=st.executeQuery(SQL);
             if(rs.next()){
                 resultado=1;
                 if (resultado==1){
+                    
+                    try {
+                    General.connect().close();
                     Interfaz Ventana=new Interfaz();
+                     this.setVisible(false);
                     Ventana.setVisible(true);
-                    this.setVisible(false);
+                } catch (SQLException ex) {
+                    Logger.getLogger(IntRegistro.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                   
                 }
             }else{
                JOptionPane.showMessageDialog(null,"Error de acceso, Usuario incorrecto"); 

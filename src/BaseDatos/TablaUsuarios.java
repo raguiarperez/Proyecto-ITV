@@ -42,7 +42,7 @@ public class TablaUsuarios {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-        return "Ha habido un error. Algun campo ya existía en la tabla.";
+        return "Ha habido un error. Ese usuario ya existe.";
     }
 
 

@@ -34,6 +34,7 @@ public class IntRegistro extends javax.swing.JFrame {
     public IntRegistro() {
         initComponents();
         General.connect();
+
     }
 
     /**
@@ -286,6 +287,13 @@ public class IntRegistro extends javax.swing.JFrame {
         if(jTextUsuario.isEditable()){
             if(!jTextCorreo.getText().isEmpty() && !jTextUsuario.getText().isEmpty() && !contraseña.isEmpty()){
             JOptionPane.showMessageDialog(null,TablaUsuarios.añadirUsuarios(jTextUsuario, jTextCorreo, jPasswordField));
+                try {
+                   
+                    General.connect().close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(IntRegistro.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            
             this.setVisible(false);
   
             }else{
@@ -294,6 +302,12 @@ public class IntRegistro extends javax.swing.JFrame {
         }else{
             if(!jTextCorreo.getText().isEmpty() && !jTextUsuario.getText().isEmpty() && !contraseña.isEmpty()){
                 JOptionPane.showMessageDialog(null,TablaUsuarios.modificarUsuarios(jTextUsuario, jTextCorreo, jPasswordField));
+                try {
+                   
+                    General.connect().close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(IntRegistro.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 this.setVisible(false);
 
             }else{

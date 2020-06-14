@@ -5,15 +5,21 @@
  */
 package Interfaz.Citas;
 
+import BaseDatos.General;
 import BaseDatos.TablaDocCoche;
 import BaseDatos.TablaSeguros;
 import Documentación.Seguros;
 import Interfaz.Citas.IntAccesoCita;
 import Utilidades.ComprobarString;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
-
+/**
+ * @author Mirroriced y Rafsniper
+ */
 public class IntinsDocCoche extends javax.swing.JFrame {
 
     /**
@@ -21,6 +27,7 @@ public class IntinsDocCoche extends javax.swing.JFrame {
      */
     public IntinsDocCoche() {
         initComponents();
+        General.connect();
     }
 
     /**
@@ -272,12 +279,18 @@ public class IntinsDocCoche extends javax.swing.JFrame {
 
     private void BtInsertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtInsertarActionPerformed
         if(!jTextNUMBASTIDOR.getText().isEmpty() && !jTextMARCA.getText().isEmpty() && !jTextMODELO.getText().isEmpty() && !jTextANOMATRICULA.getText().isEmpty()){
-        JOptionPane.showMessageDialog(null,TablaDocCoche.añadirDocCoche(jTextMatricula, jTextNUMBASTIDOR, jTextMARCA, jTextMODELO,jTextANOMATRICULA));
-        ArrayList<Seguros> conS = new ArrayList<>();
-        conS=TablaSeguros.consultaSeguros(IntAccesoCita.jTextDNI);
-        TablaSeguros.actuConsultaSeguros(conS, IntDocu.TablaSeguro);
-        TablaDocCoche.actuConsultaSegDocCoche(conS, IntDocu.TablaCoche);
-        this.setVisible(false);        
+            try {
+                JOptionPane.showMessageDialog(null,TablaDocCoche.añadirDocCoche(jTextMatricula, jTextNUMBASTIDOR, jTextMARCA, jTextMODELO,jTextANOMATRICULA));
+                ArrayList<Seguros> conS = new ArrayList<>();
+                conS=TablaSeguros.consultaSeguros(IntAccesoCita.jTextDNI);
+                TablaSeguros.actuConsultaSeguros(conS, IntDocu.TablaSeguro);
+                TablaDocCoche.actuConsultaSegDocCoche(conS, IntDocu.TablaCoche);
+                General.connect().close();
+                this.setVisible(false);      
+            } catch (SQLException ex) {
+                Logger.getLogger(IntinsDocCoche.class.getName()).log(Level.SEVERE, null, ex);
+            }
+  
         }else{
         JOptionPane.showMessageDialog(null, "Todos los campos deben ser rellenados.");
     }

@@ -9,7 +9,10 @@ import BaseDatos.*;
 import Documentación.Seguros;
 import Interfaz.Citas.IntAccesoCita;
 import Utilidades.ComprobarString;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -24,6 +27,7 @@ public class IntinsDocSeguro extends javax.swing.JFrame {
      */
     public IntinsDocSeguro() {
         initComponents();
+        General.connect();
     }
 
     /**
@@ -253,7 +257,8 @@ public class IntinsDocSeguro extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextNUMPOLIZAActionPerformed
 
     private void BtInsertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtInsertarActionPerformed
-        if(IntDocu.TablaSeguro.contains(0, 3)== true){
+        try {
+            if(IntDocu.TablaSeguro.contains(0, 3)== true){
                    String matri = (String)IntDocu.TablaSeguro.getValueAt(0, 3);
             if(ComprobarString.longitud(7, jTextMATRICULA.getText())==true && !jTextNUMPOLIZA.getText().isEmpty() && !jTextCOMPANIA.getText().isEmpty() && !jTextMATRICULA.getText().isEmpty()){
                 JOptionPane.showMessageDialog(null,TablaSeguros.modificarSeguro(jTextDNI, jTextNUMPOLIZA, jTextCOMPANIA, jTextMATRICULA));
@@ -277,9 +282,12 @@ public class IntinsDocSeguro extends javax.swing.JFrame {
         TablaDocCoche.añadirArrayDocConsulta(conS);
         TablaSeguros.actuConsultaSeguros(conS, IntDocu.TablaSeguro);
         TablaDocCoche.actuConsultaSegDocCoche(conS, IntDocu.TablaCoche);
-        
-            
         this.setVisible(false);
+        General.connect().close();
+        } catch (SQLException ex) {
+            Logger.getLogger(IntinsDocSeguro.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }//GEN-LAST:event_BtInsertarActionPerformed
 
     private void jTextCOMPANIAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextCOMPANIAActionPerformed

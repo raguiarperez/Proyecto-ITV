@@ -5,8 +5,12 @@
  */
 package Interfaz.Administrador;
 
+import BaseDatos.General;
 import Interfaz.Interfaz;
 import Login.IntRegistro;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -20,6 +24,7 @@ public class IntUsuarios extends javax.swing.JFrame {
      */
     public IntUsuarios() {
         initComponents();
+        General.connect();
     }
 
     /**
@@ -43,20 +48,21 @@ public class IntUsuarios extends javax.swing.JFrame {
         BtPtPrinc2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(51, 153, 255), new java.awt.Color(51, 153, 255)));
+        jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(0, 204, 204), new java.awt.Color(0, 204, 204)));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLogo.setText("ITV GAL");
         jLogo.setBackground(new java.awt.Color(51, 51, 51));
         jLogo.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLogo.setForeground(new java.awt.Color(51, 153, 255));
+        jLogo.setForeground(new java.awt.Color(0, 204, 204));
+        jLogo.setText("ITV GAL");
         jPanel1.add(jLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(306, 13, -1, -1));
 
         jLabel2.setBackground(new java.awt.Color(51, 51, 51));
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(51, 153, 255));
+        jLabel2.setForeground(new java.awt.Color(0, 204, 204));
         jLabel2.setText("Usuarios Registrados");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 50, 240, 30));
 
@@ -104,9 +110,9 @@ public class IntUsuarios extends javax.swing.JFrame {
 
         jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 690, 360));
 
-        BtModificar.setText("Modificar Usuario");
-        BtModificar.setBackground(new java.awt.Color(51, 153, 255));
+        BtModificar.setBackground(new java.awt.Color(0, 204, 204));
         BtModificar.setForeground(new java.awt.Color(255, 255, 255));
+        BtModificar.setText("Modificar Usuario");
         BtModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtModificarActionPerformed(evt);
@@ -114,7 +120,7 @@ public class IntUsuarios extends javax.swing.JFrame {
         });
         jPanel1.add(BtModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 470, -1, -1));
 
-        BtInsertar.setBackground(new java.awt.Color(51, 153, 255));
+        BtInsertar.setBackground(new java.awt.Color(0, 204, 204));
         BtInsertar.setForeground(new java.awt.Color(255, 255, 255));
         BtInsertar.setText("Insertar Usuario");
         BtInsertar.addActionListener(new java.awt.event.ActionListener() {
@@ -124,7 +130,7 @@ public class IntUsuarios extends javax.swing.JFrame {
         });
         jPanel1.add(BtInsertar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 470, -1, -1));
 
-        jLbMin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/imagen minimizar.png"))); // NOI18N
+        jLbMin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Minimize Green.png"))); // NOI18N
         jLbMin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLbMin.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
@@ -139,9 +145,9 @@ public class IntUsuarios extends javax.swing.JFrame {
                 jLbMinMouseExited(evt);
             }
         });
-        jPanel1.add(jLbMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(643, 12, -1, 30));
+        jPanel1.add(jLbMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 10, -1, 30));
 
-        jlbCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/imagen cerrar.png"))); // NOI18N
+        jlbCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Close Green.png"))); // NOI18N
         jlbCerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jlbCerrar.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
@@ -156,9 +162,9 @@ public class IntUsuarios extends javax.swing.JFrame {
                 jlbCerrarMouseExited(evt);
             }
         });
-        jPanel1.add(jlbCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 10, 30, 40));
+        jPanel1.add(jlbCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 10, 30, -1));
 
-        BtPtPrinc2.setBackground(new java.awt.Color(51, 153, 255));
+        BtPtPrinc2.setBackground(new java.awt.Color(0, 204, 204));
         BtPtPrinc2.setForeground(new java.awt.Color(255, 255, 255));
         BtPtPrinc2.setText("Menú Principal");
         BtPtPrinc2.addActionListener(new java.awt.event.ActionListener() {
@@ -172,17 +178,19 @@ public class IntUsuarios extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 714, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 505, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 507, Short.MAX_VALUE)
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtInsertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtInsertarActionPerformed
+
         IntRegistro Iregistro=new IntRegistro();
         Iregistro.jTextUsuario.setText("");
         Iregistro.setVisible(true);
@@ -217,9 +225,14 @@ public class IntUsuarios extends javax.swing.JFrame {
     }//GEN-LAST:event_jlbCerrarMouseExited
 
     private void BtPtPrinc2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtPtPrinc2ActionPerformed
-        Interfaz Int=new Interfaz();
-        Int.setVisible(true);
-        this.setVisible(false);
+        try {
+            General.connect().close();
+            IntAdmin Int=new IntAdmin();
+            Int.setVisible(true);
+            this.setVisible(false);
+        } catch (SQLException ex) {
+            Logger.getLogger(IntUsuarios.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_BtPtPrinc2ActionPerformed
 
     private void BtModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtModificarActionPerformed

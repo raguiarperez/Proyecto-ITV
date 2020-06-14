@@ -31,11 +31,11 @@ public class InterfazCita extends javax.swing.JFrame {
 
     public InterfazCita(Cita cit) {
         initComponents();
-        LbNom.setText(IntCrearCita.jTextUsuario.getText().toString());
+        LbNom.setText(IntCrearCita.jTextUsuario.getText());
         lbfecha.setText(cit.getFecha2());
         lbHora.setText(cit.getTime2().toString());
         lbCiudad.setText(cit.getLocalidad2());
-        LbDNI.setText(IntAccesoCita.jTextDNI.getText().toString());
+        LbDNI.setText(IntAccesoCita.jTextDNI.getText());
         setVisible(true);
     }
 

@@ -1,15 +1,19 @@
 
 package Interfaz.Administrador;
 
+import BaseDatos.General;
 import BaseDatos.TablaDocCoche;
 import BaseDatos.TablaSeguros;
 import BaseDatos.TablaUsuarios;
 import Interfaz.Citas.IntDocu;
 import Resultado.crResulta;
 import static Interfaz.Interfaz.fecha;
+import java.sql.SQLException;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -25,6 +29,7 @@ public class IntAdmin extends javax.swing.JFrame implements Runnable {
      */
     public IntAdmin() {
         initComponents();
+        General.connect();
         lbfecha.setText(fecha());
         hilo = new Thread(this);
         hilo.start();
@@ -219,11 +224,14 @@ public class IntAdmin extends javax.swing.JFrame implements Runnable {
     }//GEN-LAST:event_lbDocuMouseMoved
 
     private void lbDocuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbDocuMouseClicked
-        IntDocu docu=new IntDocu();
-        TablaSeguros.actualizarTablaSeguros(IntDocu.TablaSeguro);
-        TablaDocCoche.actualizarTablaDocCoche(IntDocu.TablaCoche);
-        docu.setVisible(true);
-        this.setVisible(false);
+        try {
+            AccesoDocCon docu=new AccesoDocCon();
+            General.connect().close();
+            docu.setVisible(true);
+            this.setVisible(false);
+        } catch (SQLException ex) {
+            Logger.getLogger(IntAdmin.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_lbDocuMouseClicked
 
     private void lbDocuMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbDocuMouseExited
@@ -235,9 +243,14 @@ public class IntAdmin extends javax.swing.JFrame implements Runnable {
     }//GEN-LAST:event_lbResultadoMouseMoved
 
     private void lbResultadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbResultadoMouseClicked
-        crResulta ICResul = new crResulta();
-        ICResul.setVisible(true);
-        this.setVisible(false);
+        try {
+            General.connect().close();
+            crResulta ICResul = new crResulta();
+            ICResul.setVisible(true);
+            this.setVisible(false);
+        } catch (SQLException ex) {
+            Logger.getLogger(IntAdmin.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_lbResultadoMouseClicked
 
     private void lbResultadoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbResultadoMouseExited
@@ -273,10 +286,17 @@ public class IntAdmin extends javax.swing.JFrame implements Runnable {
     }//GEN-LAST:event_jlbCerrarMouseExited
 
     private void jLbUsuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLbUsuariosMouseClicked
-        IntUsuarios users=new IntUsuarios();
-        TablaUsuarios.actualizarTablaUsuarios(IntUsuarios.TablaUsuarios);
-        users.setVisible(true);
-        this.setVisible(false);
+        try {
+            IntUsuarios users=new IntUsuarios();
+            TablaUsuarios.actualizarTablaUsuarios(IntUsuarios.TablaUsuarios);
+            General.connect().close();
+            users.setVisible(true);
+            this.setVisible(false);
+        } catch (SQLException ex) {
+            Logger.getLogger(IntAdmin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+                                       
+
     }//GEN-LAST:event_jLbUsuariosMouseClicked
 
     private void jLbUsuariosMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLbUsuariosMouseMoved
@@ -329,6 +349,14 @@ public class IntAdmin extends javax.swing.JFrame implements Runnable {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(IntAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>

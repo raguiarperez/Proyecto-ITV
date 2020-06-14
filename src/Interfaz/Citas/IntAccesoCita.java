@@ -133,7 +133,7 @@ public class IntAccesoCita extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(179, 179, 179)
                 .addComponent(jLogo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
                 .addComponent(jLbMin)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jlbCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -149,7 +149,7 @@ public class IntAccesoCita extends javax.swing.JFrame {
                             .addComponent(jLabel1)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addComponent(jTextDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(97, 97, 97))))
+                            .addContainerGap(97, Short.MAX_VALUE))))
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                     .addContainerGap()
                     .addComponent(BtMenuPrincipal)
@@ -225,8 +225,8 @@ public class IntAccesoCita extends javax.swing.JFrame {
                 InP.setVisible(true);
                 this.setVisible(false);
             } else {
-                IntCrearCita IcCita = new IntCrearCita();
-                IcCita.setVisible(true);
+                IntCrearCita ISLocal = new IntCrearCita();
+                ISLocal.setVisible(true);
                 this.setVisible(false);
             }
         }
@@ -264,9 +264,9 @@ public class IntAccesoCita extends javax.swing.JFrame {
                     InP.setVisible(true);
                     this.setVisible(false);
                 } else {
-                IntCrearCita IcCita = new IntCrearCita();
-                IcCita.setVisible(true);
-                this.setVisible(false);
+                    IntSelLocalidades ISLocal = new IntSelLocalidades();
+                    ISLocal.setVisible(true);
+                    this.setVisible(false);
                 }
             }
 
