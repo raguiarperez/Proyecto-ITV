@@ -1,8 +1,13 @@
 package Interfaz.Citas;
 
+import BaseDatos.General;
 import Interfaz.Interfaz;
 import javax.swing.JOptionPane;
 import Citas.Cita;
+import Interfaz.IntPrincipal;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * @author Mirroriced y Rafsniper
@@ -223,7 +228,13 @@ public class IntSelLocalidades extends javax.swing.JFrame {
         int dialog = JOptionPane.YES_NO_OPTION;
         int result = JOptionPane.showConfirmDialog(null, "Desea salir del programa?", "Exit", dialog);
         if (result == 0) {
-            System.exit(0);
+            try {
+                General.connect().close();
+                System.exit(0);
+            } catch (SQLException ex) {
+                Logger.getLogger(IntSelLocalidades.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
         }
     }//GEN-LAST:event_jlbCerrarMouseClicked
 

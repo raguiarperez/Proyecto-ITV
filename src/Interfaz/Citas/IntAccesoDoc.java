@@ -1,15 +1,20 @@
 package Interfaz.Citas;
 
+import BaseDatos.General;
 import Interfaz.Citas.IntDocu;
 import BaseDatos.TablaDocCoche;
 import BaseDatos.TablaSeguros;
 import Documentación.Seguros;
 import Interfaz.Documentación.IntDoc;
+import Interfaz.IntPrincipal;
 import Interfaz.Interfaz;
 import Utilidades.ComprobarString;
 import java.awt.event.KeyEvent;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 
@@ -247,8 +252,8 @@ public class IntAccesoDoc extends javax.swing.JFrame {
                             conS=TablaSeguros.consultaSeguros(jTextDNI);
                             TablaSeguros.actuConsultaSeguros(conS, Idoc.TablaSeguro);
                             TablaDocCoche.actuConsultaSegDocCoche(conS, Idoc.TablaCoche);
+                            Idoc.BtReCita.setVisible(false);
                             Idoc.setVisible(true);
-                            
                             IntAccesoDoc.this.setVisible(false);
                             
                         }
@@ -338,10 +343,16 @@ public class IntAccesoDoc extends javax.swing.JFrame {
     }//GEN-LAST:event_jlbCerrarMouseMoved
 
     private void jlbCerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbCerrarMouseClicked
-        int dialog =JOptionPane.YES_NO_OPTION;
-        int result = JOptionPane.showConfirmDialog(null,"Desea salir del programa?","Exit",dialog);
-        if(result==0){
-            System.exit(0);
+        int dialog = JOptionPane.YES_NO_OPTION;
+        int result = JOptionPane.showConfirmDialog(null, "Desea salir del programa?", "Exit", dialog);
+        if (result == 0) {
+            try {
+                General.connect().close();
+                System.exit(0);
+            } catch (SQLException ex) {
+                Logger.getLogger(IntAccesoDoc.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
         }
     }//GEN-LAST:event_jlbCerrarMouseClicked
 

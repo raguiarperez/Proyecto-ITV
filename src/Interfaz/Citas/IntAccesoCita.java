@@ -1,11 +1,14 @@
 
 package Interfaz.Citas;
 
+import BaseDatos.General;
 import Citas.Cita;
+import Interfaz.IntPrincipal;
 import Interfaz.Interfaz;
 import Utilidades.ComprobarString;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -281,7 +284,13 @@ public class IntAccesoCita extends javax.swing.JFrame {
         int dialog = JOptionPane.YES_NO_OPTION;
         int result = JOptionPane.showConfirmDialog(null, "Desea salir del programa?", "Exit", dialog);
         if (result == 0) {
-            System.exit(0);
+            try {
+                General.connect().close();
+                System.exit(0);
+            } catch (SQLException ex) {
+                Logger.getLogger(IntAccesoCita.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
         }
     }//GEN-LAST:event_jlbCerrarMouseClicked
 

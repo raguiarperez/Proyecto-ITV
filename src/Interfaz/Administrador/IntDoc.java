@@ -5,10 +5,15 @@
  */
 package Interfaz.Administrador;
 
+import BaseDatos.General;
 import Interfaz.Administrador.IntAdmin;
 import Interfaz.Citas.IntAccesoCita;
 import Interfaz.Citas.IntinsDocCoche;
 import Interfaz.Citas.IntinsDocSeguro;
+import Interfaz.IntPrincipal;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -203,10 +208,16 @@ public class IntDoc extends javax.swing.JFrame {
     }//GEN-LAST:event_jlbCerrarMouseMoved
 
     private void jlbCerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbCerrarMouseClicked
-        int dialog =JOptionPane.YES_NO_OPTION;
-        int result = JOptionPane.showConfirmDialog(null,"Desea salir del programa?","Exit",dialog);
-        if(result==0){
-            System.exit(0);
+        int dialog = JOptionPane.YES_NO_OPTION;
+        int result = JOptionPane.showConfirmDialog(null, "Desea salir del programa?", "Exit", dialog);
+        if (result == 0) {
+            try {
+                General.connect().close();
+                System.exit(0);
+            } catch (SQLException ex) {
+                Logger.getLogger(IntDoc.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
         }
     }//GEN-LAST:event_jlbCerrarMouseClicked
 

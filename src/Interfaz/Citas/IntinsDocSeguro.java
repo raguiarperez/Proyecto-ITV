@@ -8,6 +8,7 @@ package Interfaz.Citas;
 import BaseDatos.*;
 import Documentación.Seguros;
 import Interfaz.Citas.IntAccesoCita;
+import Interfaz.IntPrincipal;
 import Utilidades.ComprobarString;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -303,10 +304,16 @@ public class IntinsDocSeguro extends javax.swing.JFrame {
     }//GEN-LAST:event_jlbCerrarMouseMoved
 
     private void jlbCerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbCerrarMouseClicked
-        int dialog =JOptionPane.YES_NO_OPTION;
-        int result = JOptionPane.showConfirmDialog(null,"Desea salir del programa?","Exit",dialog);
-        if(result==0){
-            System.exit(0);
+        int dialog = JOptionPane.YES_NO_OPTION;
+        int result = JOptionPane.showConfirmDialog(null, "Desea salir del programa?", "Exit", dialog);
+        if (result == 0) {
+            try {
+                General.connect().close();
+                System.exit(0);
+            } catch (SQLException ex) {
+                Logger.getLogger(IntinsDocSeguro.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
         }
     }//GEN-LAST:event_jlbCerrarMouseClicked
 

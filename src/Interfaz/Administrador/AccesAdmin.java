@@ -2,6 +2,7 @@
 package Interfaz.Administrador;
 
 import BaseDatos.General;
+import Interfaz.IntPrincipal;
 import Interfaz.Interfaz;
 import Login.InicioSesion;
 import java.awt.event.ActionEvent;
@@ -274,7 +275,13 @@ public class AccesAdmin extends javax.swing.JFrame {
         int dialog = JOptionPane.YES_NO_OPTION;
         int result = JOptionPane.showConfirmDialog(null, "Desea salir del programa?", "Exit", dialog);
         if (result == 0) {
-            System.exit(0);
+            try {
+                General.connect().close();
+                System.exit(0);
+            } catch (SQLException ex) {
+                Logger.getLogger(AccesAdmin.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
         }
     }//GEN-LAST:event_jlbCerrarMouseClicked
 

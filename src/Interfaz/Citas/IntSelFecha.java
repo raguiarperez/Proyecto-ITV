@@ -1,12 +1,15 @@
 package Interfaz.Citas;
 
+import BaseDatos.General;
 import BaseDatos.TablaDocCoche;
 import BaseDatos.TablaSeguros;
 import Citas.Cita;
 import Documentación.Seguros;
+import Interfaz.IntPrincipal;
 import Interfaz.Interfaz;
 import Utilidades.ComprobarString;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.text.ParseException;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -252,7 +255,13 @@ public class IntSelFecha extends javax.swing.JFrame {
         int dialog = JOptionPane.YES_NO_OPTION;
         int result = JOptionPane.showConfirmDialog(null, "Desea salir del programa?", "Exit", dialog);
         if (result == 0) {
-            System.exit(0);
+            try {
+                General.connect().close();
+                System.exit(0);
+            } catch (SQLException ex) {
+                Logger.getLogger(IntSelFecha.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
         }
     }//GEN-LAST:event_jlbCerrarMouseClicked
 

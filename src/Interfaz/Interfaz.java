@@ -253,7 +253,13 @@ public class Interfaz extends javax.swing.JFrame implements Runnable {
         int dialog = JOptionPane.YES_NO_OPTION;
         int result = JOptionPane.showConfirmDialog(null, "Desea salir del programa?", "Exit", dialog);
         if (result == 0) {
-            System.exit(0);
+            try {
+                General.connect().close();
+                System.exit(0);
+            } catch (SQLException ex) {
+                Logger.getLogger(Interfaz.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
         }
     }//GEN-LAST:event_jlbCerrarMouseClicked
 

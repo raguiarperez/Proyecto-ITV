@@ -32,12 +32,12 @@ public class TablaUsuarios {
         sql = "INSERT INTO Usuarios(nombreUsuario,correo,contraseña) VALUES(?,?,?)";
         String contra=String.valueOf(contraseña.getPassword());
         try (Connection conn = General.connect();
-                PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, nombreUsuario.getText());
             pstmt.setString(2, correo.getText());
             pstmt.setString(3, contra);
             pstmt.executeUpdate();
-            return "Linea añadida"
+            return "Usuario creado"
                     + "\n" + nombreUsuario.getText() + " " + correo.getText() + " " + Arrays.toString(contraseña.getPassword());
         } catch (SQLException e) {
             System.out.println(e.getMessage());
