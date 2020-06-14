@@ -332,9 +332,7 @@ public class IntRegistro extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextUsuarioActionPerformed
 
     private void jBtMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtMenuActionPerformed
-        IntPrincipal Intp=new IntPrincipal();
-        Intp.setVisible(true);
-        this.setVisible(false);
+         this.setVisible(false);
     }//GEN-LAST:event_jBtMenuActionPerformed
 
     /**
